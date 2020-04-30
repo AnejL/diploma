@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1080"
+   height="2340"
+   viewBox="0 0 285.75 619.12502"
+   version="1.1"
+   id="svg16"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="login.svg">
+  <defs
+     id="defs10">
+    <linearGradient
+       id="linearGradient838">
+      <stop
+         id="stop1345"
+         offset="0"
+         style="stop-color:#495867;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="white-3">
+      <stop
+         style="stop-color:#f7f7ff;stop-opacity:1;"
+         offset="0"
+         id="stop866" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient862"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop860" />
+    </linearGradient>
+    <linearGradient
+       id="white">
+      <stop
+         style="stop-color:#f7f7ff;stop-opacity:1;"
+         offset="0"
+         id="stop842" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient838-6">
+      <stop
+         style="stop-color:#495867;stop-opacity:1;"
+         offset="0"
+         id="stop836" />
+    </linearGradient>
+    <linearGradient
+       id="Gunmetal"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop830" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="1017.5055"
+     inkscape:cy="935.00276"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="2560"
+     inkscape:window-height="1373"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="true"
+     objecttolerance="20"
+     gridtolerance="10"
+     inkscape:guide-bbox="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid19" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Background">
+    <rect
+       style="fill:#dedee6;fill-opacity:1;stroke-width:0.27796924"
+       id="rect872"
+       width="285.75"
+       height="619.1087"
+       x="0"
+       y="0.016301885" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1307"
+       style="font-style:normal;font-weight:normal;font-size:96px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#495867;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,-27.619881,-47.105248)"><flowRegion
+         id="flowRegion1309"
+         style="font-size:96px;fill:#495867;fill-opacity:1"><rect
+           id="rect1311"
+           width="834.28571"
+           height="362.85715"
+           x="125.71429"
+           y="371.42856"
+           style="font-size:96px;fill:#495867;fill-opacity:1" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';text-align:center;text-anchor:middle;fill:#495867;fill-opacity:1"
+         id="flowPara1315">OpenReport</flowPara></flowRoot>    <g
+       id="g1381"
+       transform="matrix(1.0318258,0,0,1,-20.732338,-3.1406047)">
+      <rect
+         ry="0"
+         y="156.59894"
+         x="45.735115"
+         height="40.065475"
+         width="225.65178"
+         id="rect1350"
+         style="fill:#f7f7ff;fill-opacity:1;stroke-width:0.26002529" />
+      <flowRoot
+         transform="matrix(0.26458333,0,0,0.26458333,25.467255,59.906495)"
+         style="font-style:normal;font-weight:normal;font-size:96px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#495867;fill-opacity:1;stroke:none"
+         id="flowRoot1307-0"
+         xml:space="preserve"><flowRegion
+           style="font-size:96px;fill:#495867;fill-opacity:1"
+           id="flowRegion1309-4"><rect
+             style="font-size:96px;fill:#495867;fill-opacity:1"
+             y="371.42856"
+             x="125.71429"
+             height="362.85715"
+             width="834.28571"
+             id="rect1311-8" /></flowRegion><flowPara
+           id="flowPara1315-8"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';text-align:start;text-anchor:start;fill:#b2b2b9;fill-opacity:1">Username (email)</flowPara></flowRoot>    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1307-8"
+       style="font-style:normal;font-weight:normal;font-size:96px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#495867;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,6.3158759,16.604076)"><flowRegion
+         id="flowRegion1309-9"
+         style="font-size:96px;text-align:start;text-anchor:start;fill:#495867;fill-opacity:1"><rect
+           id="rect1311-7"
+           width="312.31213"
+           height="150.83691"
+           x="125.71429"
+           y="371.42856"
+           style="font-size:96px;text-align:start;text-anchor:start;fill:#495867;fill-opacity:1" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33333588px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';text-align:start;text-anchor:start;fill:#495867;fill-opacity:1"
+         id="flowPara1315-7">Log in</flowPara></flowRoot>    <g
+       id="g1493">
+      <rect
+         ry="0"
+         y="211.66667"
+         x="26.458334"
+         height="40.065475"
+         width="232.83333"
+         id="rect1350-4"
+         style="fill:#f7f7ff;fill-opacity:1;stroke-width:0.26413065" />
+      <flowRoot
+         transform="matrix(0.27300391,0,0,0.26458333,5.5454328,114.97422)"
+         style="font-style:normal;font-weight:normal;font-size:96px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#495867;fill-opacity:1;stroke:none"
+         id="flowRoot1307-0-3"
+         xml:space="preserve"><flowRegion
+           style="font-size:96px;fill:#495867;fill-opacity:1"
+           id="flowRegion1309-4-0"><rect
+             style="font-size:96px;fill:#495867;fill-opacity:1"
+             y="371.42856"
+             x="125.71429"
+             height="362.85715"
+             width="834.28571"
+             id="rect1311-8-3" /></flowRegion><flowPara
+           id="flowPara1315-8-0"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';text-align:start;text-anchor:start;fill:#b2b2b9;fill-opacity:1">Password</flowPara><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';text-align:start;text-anchor:start;fill:#b2b2b9;fill-opacity:1"
+           id="flowPara1439" /></flowRoot>    </g>
+    <g
+       id="g1516">
+      <rect
+         ry="0"
+         y="269.875"
+         x="26.458334"
+         height="40.065475"
+         width="232.83331"
+         id="rect1350-4-2"
+         style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26413065" />
+      <flowRoot
+         transform="matrix(0.26458333,0,0,0.26458333,67.435006,175.35408)"
+         style="font-style:normal;font-weight:normal;font-size:96px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#495867;fill-opacity:1;stroke:none"
+         id="flowRoot1307-8-5"
+         xml:space="preserve"><flowRegion
+           style="font-size:96px;text-align:start;text-anchor:start;fill:#495867;fill-opacity:1"
+           id="flowRegion1309-9-4"><rect
+             style="font-size:96px;text-align:start;text-anchor:start;fill:#495867;fill-opacity:1"
+             y="371.42856"
+             x="125.71429"
+             height="150.83691"
+             width="312.31213"
+             id="rect1311-7-0" /></flowRegion><flowPara
+           id="flowPara1315-7-5"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:64px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1">LOG IN</flowPara></flowRoot>    </g>
+    <g
+       id="g1572"
+       transform="translate(3.4745039,59.53126)">
+      <flowRoot
+         transform="matrix(0.26458333,0,0,0.26458333,2.8010782,266.06837)"
+         style="font-style:normal;font-weight:normal;font-size:96px;line-height:1.25;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#495867;fill-opacity:1;stroke:none"
+         id="flowRoot1307-8-9"
+         xml:space="preserve"><flowRegion
+           style="font-size:96px;text-align:start;text-anchor:start;fill:#495867;fill-opacity:1"
+           id="flowRegion1309-9-46"><rect
+             style="font-size:96px;text-align:start;text-anchor:start;fill:#495867;fill-opacity:1"
+             y="371.42856"
+             x="125.71429"
+             height="462.95871"
+             width="803.69897"
+             id="rect1311-7-9" /></flowRegion><flowPara
+           id="flowPara1542"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.33333588px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';text-align:start;text-anchor:start;fill:#495867;fill-opacity:1">or <flowSpan
+   id="flowSpan1546"
+   style="fill:#fe5f55;fill-opacity:1">create an account</flowSpan></flowPara></flowRoot>      <rect
+         y="390.26041"
+         x="62.177082"
+         height="1.3229166"
+         width="142.87502"
+         id="rect1564"
+         style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26706773" />
+    </g>
+  </g>
+  <g
+     inkscape:label="Foreground"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,322.12501)">
+    <g
+       inkscape:groupmode="layer"
+       id="layer5"
+       inkscape:label="Title &amp; Text"
+       transform="translate(0,-322.12501)">
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot1110"
+         style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+           id="flowRegion1112"><rect
+             id="rect1114"
+             width="80"
+             height="120"
+             x="200"
+             y="100" /></flowRegion><flowPara
+           id="flowPara1116"></flowPara></flowRoot>    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer4"
+       inkscape:label="Lists"
+       transform="translate(0,-322.12501)" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer3"
+       inkscape:label="Buttons" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot1068"
+       style="font-style:normal;font-weight:normal;font-size:53.333334px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;"
+       transform="matrix(0.26458333,0,0,0.26458333,0,-322.12501)"><flowRegion
+         id="flowRegion1070"
+         style="font-size:53.333334px;"><rect
+           id="rect1072"
+           width="640"
+           height="60"
+           x="180"
+           y="80"
+           style="font-size:53.333334px;" /></flowRegion><flowPara
+         id="flowPara1074"
+         style="fill:#f7f7ff;fill-opacity:1;-inkscape-font-specification:'Noto Mono';font-family:'Noto Mono';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:53.333334px;">Title</flowPara></flowRoot>  </g>
+</svg>

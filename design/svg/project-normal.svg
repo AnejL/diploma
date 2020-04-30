@@ -17,9 +17,17 @@
    version="1.1"
    id="svg16"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
-   sodipodi:docname="index.svg">
+   sodipodi:docname="project-normal.svg">
   <defs
      id="defs10">
+    <linearGradient
+       id="linearGradient4536"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4534" />
+    </linearGradient>
     <linearGradient
        id="Accent"
        osb:paint="solid">
@@ -161,51 +169,6 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#Accent"
-       id="linearGradient3986"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
-       id="linearGradient3988"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
-       id="linearGradient3992"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
-       id="linearGradient4081"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
-       id="linearGradient4083"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
        id="linearGradient4087"
        gradientUnits="userSpaceOnUse"
        x1="80"
@@ -230,33 +193,6 @@
        y1="2225"
        x2="130"
        y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
-       id="linearGradient4110"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
-       id="linearGradient4114"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#Accent"
-       id="linearGradient4116"
-       gradientUnits="userSpaceOnUse"
-       x1="80"
-       y1="2225"
-       x2="130"
-       y2="2225" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -265,11 +201,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.32"
-     inkscape:cx="305.82271"
-     inkscape:cy="1619.7031"
+     inkscape:zoom="0.64"
+     inkscape:cx="153.37242"
+     inkscape:cy="1911.0401"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="g2400"
      showgrid="false"
      units="px"
      inkscape:window-width="2560"
@@ -309,13 +245,13 @@
        y="-322.125"
        style="stroke-width:0.21603136;fill-opacity:1;fill:url(#linearGradient840)" />
     <rect
-       transform="translate(0,322.12502)"
        style="fill:#dedee6;fill-opacity:1;stroke-width:0.26458332;opacity:0.98"
        id="rect872"
        width="285.75"
        height="560.91669"
        x="0"
-       y="-263.91669" />
+       y="-263.91669"
+       transform="translate(0,322.12502)" />
     <g
        id="g852"
        style="fill:url(#linearGradient870);fill-opacity:1"
@@ -350,13 +286,6 @@
            ry="1.3229167" />
       </g>
     </g>
-    <rect
-       id="rect21-0"
-       width="285.75"
-       height="95.250023"
-       x="-1.5258789e-05"
-       y="523.875"
-       style="fill:url(#linearGradient840-9);fill-opacity:1;stroke-width:0.27634829" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -369,76 +298,90 @@
          y="557.05127"
          style="stroke-width:0.26458332"></tspan></text>
     <g
-       id="g4003"
-       transform="translate(-3.5079126)">
-      <flowRoot
-         transform="matrix(0.26458333,0,0,0.26458333,-1.8186519,-5.3342763)"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f7f7ff;fill-opacity:1;stroke:none"
-         id="flowRoot2495"
-         xml:space="preserve"><flowRegion
-           style="fill:#f7f7ff;fill-opacity:1"
-           id="flowRegion2497"><rect
-             style="fill:#f7f7ff;fill-opacity:1"
-             y="2040"
-             x="60"
-             height="270.00003"
-             width="440"
-             id="rect2499" /></flowRegion><flowPara
-           style="text-align:center;text-anchor:middle"
-           id="flowPara3982">MyComputer</flowPara><flowPara
-           style="text-align:center;text-anchor:middle"
-           id="flowPara2505">192.168.1.131</flowPara></flowRoot>      <flowRoot
-         transform="matrix(0.73742266,0,0,0.73742266,-11.216871,-1060.4389)"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient3992);fill-opacity:1;stroke:none"
-         id="flowRoot2511"
-         xml:space="preserve"><flowRegion
-           style="fill:url(#linearGradient3988);fill-opacity:1"
-           id="flowRegion2513"><rect
-             style="fill:url(#linearGradient3986);fill-opacity:1"
-             y="2200"
-             x="80"
-             height="120"
-             width="200"
-             id="rect2515" /></flowRegion><flowPara
-           style="font-size:53.33333588px;fill:url(#linearGradient4114);fill-opacity:1"
-           id="flowPara2517"></flowPara></flowRoot>    </g>
-    <g
-       transform="translate(131.60632,-1.3080729e-6)"
-       id="g4003-0">
+       transform="translate(-54.691622,321.19507)"
+       id="g1058">
       <g
-         id="g4106"
-         transform="translate(15.785607)">
-        <flowRoot
-           xml:space="preserve"
-           id="flowRoot2495-3"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f7f7ff;fill-opacity:1;stroke:none"
-           transform="matrix(0.26458333,0,0,0.26458333,-1.8186519,-5.3342763)"><flowRegion
-             id="flowRegion2497-9"
-             style="fill:#f7f7ff;fill-opacity:1"><rect
-               id="rect2499-1"
-               width="440"
-               height="270.00003"
-               x="60"
-               y="2040"
-               style="fill:#f7f7ff;fill-opacity:1" /></flowRegion><flowPara
-             id="flowPara3982-9"
-             style="text-align:center;text-anchor:middle">Alexa</flowPara><flowPara
-             id="flowPara4091"
-             style="text-align:center;text-anchor:middle">192.168.1.132</flowPara></flowRoot>        <flowRoot
-           xml:space="preserve"
-           id="flowRoot2511-9"
-           style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient4110);fill-opacity:1;stroke:none"
-           transform="matrix(0.73742266,0,0,0.73742266,-11.216871,-1060.4389)"><flowRegion
-             id="flowRegion2513-3"
-             style="fill:url(#linearGradient4083);fill-opacity:1"><rect
-               id="rect2515-3"
-               width="200"
-               height="120"
-               x="80"
-               y="2200"
-               style="fill:url(#linearGradient4081);fill-opacity:1" /></flowRegion><flowPara
-             id="flowPara2517-8"
-             style="font-size:53.33333588px;fill:url(#linearGradient4116);fill-opacity:1"></flowPara></flowRoot>      </g>
+         id="g4376">
+        <g
+           id="g4532"
+           transform="translate(-7.3917611)">
+          <g
+             transform="translate(0,-19.43033)"
+             id="g4429">
+            <circle
+               style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26458332"
+               id="circle878-6"
+               cx="116.27332"
+               cy="264.03018"
+               r="23.252449" />
+            <flowRoot
+               xml:space="preserve"
+               id="flowRoot922-9"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+               transform="matrix(0.26458333,0,0,0.26458333,79.231657,-258.36204)"><flowRegion
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"
+                 id="flowRegion924-1"><rect
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"
+                   id="rect926-2"
+                   width="100"
+                   height="100"
+                   x="90"
+                   y="1930" /></flowRegion><flowPara
+                 id="flowPara928-7"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1">T</flowPara></flowRoot>          </g>
+          <g
+             transform="translate(88.685064,-19.43033)"
+             id="g4429-9">
+            <circle
+               style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26458332"
+               id="circle878-6-8"
+               cx="116.27332"
+               cy="264.03018"
+               r="23.252449" />
+            <flowRoot
+               xml:space="preserve"
+               id="flowRoot922-9-7"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+               transform="matrix(0.26458333,0,0,0.26458333,79.231657,-260.72676)"><flowRegion
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"
+                 id="flowRegion924-1-2"><rect
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"
+                   id="rect926-2-8"
+                   width="100"
+                   height="100"
+                   x="90"
+                   y="1930" /></flowRegion><flowPara
+                 id="flowPara928-7-2"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"></flowPara></flowRoot>          </g>
+          <g
+             transform="translate(177.37012,-19.43033)"
+             id="g4429-9-3">
+            <circle
+               style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26458332"
+               id="circle878-6-8-2"
+               cx="116.27332"
+               cy="264.03018"
+               r="23.252449" />
+            <g
+               id="g4511">
+              <flowRoot
+                 transform="matrix(0.26458333,0,0,0.26458333,79.231657,-260.72676)"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+                 id="flowRoot922-9-7-1"
+                 xml:space="preserve"><flowRegion
+                   id="flowRegion924-1-2-5"
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"><rect
+                     y="1930"
+                     x="90"
+                     height="100"
+                     width="100"
+                     id="rect926-2-8-9"
+                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif" /></flowRegion><flowPara
+                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.33333588px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"
+                   id="flowPara928-7-2-9"></flowPara></flowRoot>            </g>
+          </g>
+        </g>
+      </g>
     </g>
   </g>
   <g
@@ -463,7 +406,7 @@
              x="180"
              y="80" /></flowRegion><flowPara
            id="flowPara1096"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.66666794px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#f7f7ff;fill-opacity:1">Dashboard</flowPara></flowRoot>      <flowRoot
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.66666794px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#f7f7ff;fill-opacity:1">Project name</flowPara></flowRoot>      <flowRoot
          xml:space="preserve"
          id="flowRoot1110"
          style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
@@ -514,17 +457,34 @@
            width="285.75"
            id="rect2382"
            style="opacity:0.98000004;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1" />
-        <text
-           id="text2394"
-           y="92.528374"
-           x="19.84375"
-           style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-           xml:space="preserve"><tspan
-             style="font-size:14.11111069px;fill:#fe5f55;fill-opacity:1;stroke-width:0.26458332"
-             y="92.528374"
-             x="19.84375"
-             id="tspan2392"
-             sodipodi:role="line">Project name</tspan></text>
+        <g
+           id="g4556"
+           transform="translate(0,3.4347053)">
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             x="19.947104"
+             y="80.424965"
+             id="text2394"><tspan
+               sodipodi:role="line"
+               id="tspan2392"
+               x="19.947104"
+               y="80.424965"
+               style="font-size:14.11111069px;fill:#070b1d;fill-opacity:1;stroke-width:0.26458332">Title</tspan></text>
+          <flowRoot
+             transform="matrix(0.26458333,0,0,0.26458333,0.58465209,1.1693029)"
+             style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b2b2b9;fill-opacity:1;stroke:none"
+             id="flowRoot4540"
+             xml:space="preserve"><flowRegion
+               style="fill:#b2b2b9;fill-opacity:1"
+               id="flowRegion4542"><rect
+                 style="fill:#b2b2b9;fill-opacity:1"
+                 y="340.21362"
+                 x="76.234947"
+                 height="78.444656"
+                 width="775.60773"
+                 id="rect4544" /></flowRegion><flowPara
+               id="flowPara4546">Content of this note.</flowPara></flowRoot>        </g>
       </g>
       <g
          transform="translate(0,61.383336)"
@@ -635,7 +595,7 @@
            x="90"
            y="1930" /></flowRegion><flowPara
          id="flowPara928-8-0"
-         style="font-size:74.66666412px;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"></flowPara></flowRoot>    <flowRoot
+         style="font-size:74.66666412px;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"></flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot1068"
        style="font-style:normal;font-weight:normal;font-size:53.333334px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;"

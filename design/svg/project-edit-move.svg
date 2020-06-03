@@ -9,7 +9,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="project-normal.svg"
+   sodipodi:docname="project-edit-move.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    id="svg16"
    version="1.1"
@@ -18,6 +18,14 @@
    width="1080">
   <defs
      id="defs10">
+    <linearGradient
+       osb:paint="solid"
+       id="linearGradient4923">
+      <stop
+         id="stop4921"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:1;" />
+    </linearGradient>
     <rect
        id="rect3749"
        height="39.632947"
@@ -197,6 +205,76 @@
        id="linearGradient4108"
        xlink:href="#Accent"
        inkscape:collect="always" />
+    <filter
+       height="1.0031104"
+       y="-0.0015551998"
+       width="1.0031104"
+       x="-0.0015551998"
+       id="filter4917"
+       style="color-interpolation-filters:sRGB"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4919"
+         stdDeviation="0.030135171"
+         inkscape:collect="always" />
+    </filter>
+    <linearGradient
+       gradientUnits="userSpaceOnUse"
+       y2="82.347191"
+       x2="275.3037"
+       y1="82.347191"
+       x1="228.65415"
+       id="linearGradient4925"
+       xlink:href="#linearGradient4923"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="82.347191"
+       x2="275.3037"
+       y1="82.347191"
+       x1="228.65415"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient4936"
+       xlink:href="#linearGradient4923"
+       inkscape:collect="always" />
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4917-9"
+       x="-0.0015551999"
+       width="1.0031104"
+       y="-0.0015551999"
+       height="1.0031104">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.030135171"
+         id="feGaussianBlur4919-7" />
+    </filter>
+    <filter
+       height="1.0031104"
+       y="-0.0015551999"
+       width="1.0031104"
+       x="-0.0015551999"
+       id="filter4917-9-4"
+       style="color-interpolation-filters:sRGB"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4919-7-7"
+         stdDeviation="0.030135171"
+         inkscape:collect="always" />
+    </filter>
+    <filter
+       height="1.0031104"
+       y="-0.0015551999"
+       width="1.0031104"
+       x="-0.0015551999"
+       id="filter4917-9-0"
+       style="color-interpolation-filters:sRGB"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4919-7-6"
+         stdDeviation="0.030135171"
+         inkscape:collect="always" />
+    </filter>
   </defs>
   <sodipodi:namedview
      inkscape:guide-bbox="true"
@@ -213,8 +291,8 @@
      showgrid="false"
      inkscape:current-layer="layer2"
      inkscape:document-units="mm"
-     inkscape:cy="1150.7121"
-     inkscape:cx="628.80695"
+     inkscape:cy="1320.3621"
+     inkscape:cx="-275.27317"
      inkscape:zoom="0.32"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -234,7 +312,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -304,95 +382,48 @@
        x="87.3125"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
        xml:space="preserve" />
-    <g
-       id="g1058"
-       transform="translate(-54.691622,321.19507)">
-      <g
-         id="g4376">
-        <g
-           transform="translate(-7.3917611)"
-           id="g4532">
-          <g
-             id="g4429"
-             transform="translate(0,-19.43033)">
-            <circle
-               r="23.252449"
-               cy="264.03018"
-               cx="116.27332"
-               id="circle878-6"
-               style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26458332" />
-            <flowRoot
-               transform="matrix(0.26458333,0,0,0.26458333,79.231657,-258.36204)"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-               id="flowRoot922-9"
-               xml:space="preserve"><flowRegion
-                 id="flowRegion924-1"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"><rect
-                   y="1930"
-                   x="90"
-                   height="100"
-                   width="100"
-                   id="rect926-2"
-                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif" /></flowRegion><flowPara
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"
-                 id="flowPara928-7">T</flowPara></flowRoot>
-          </g>
-          <g
-             id="g4429-9"
-             transform="translate(88.685064,-19.43033)">
-            <circle
-               r="23.252449"
-               cy="264.03018"
-               cx="116.27332"
-               id="circle878-6-8"
-               style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26458332" />
-            <flowRoot
-               transform="matrix(0.26458333,0,0,0.26458333,79.231657,-260.72676)"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-               id="flowRoot922-9-7"
-               xml:space="preserve"><flowRegion
-                 id="flowRegion924-1-2"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"><rect
-                   y="1930"
-                   x="90"
-                   height="100"
-                   width="100"
-                   id="rect926-2-8"
-                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif" /></flowRegion><flowPara
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"
-                 id="flowPara928-7-2"></flowPara></flowRoot>
-          </g>
-          <g
-             id="g4429-9-3"
-             transform="translate(177.37012,-19.43033)">
-            <circle
-               r="23.252449"
-               cy="264.03018"
-               cx="116.27332"
-               id="circle878-6-8-2"
-               style="fill:#fe5f55;fill-opacity:1;stroke-width:0.26458332" />
-            <g
-               id="g4511">
-              <flowRoot
-                 xml:space="preserve"
-                 id="flowRoot922-9-7-1"
-                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-                 transform="matrix(0.26458333,0,0,0.26458333,79.231657,-260.72676)"><flowRegion
-                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"
-                   id="flowRegion924-1-2-5"><rect
-                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"
-                     id="rect926-2-8-9"
-                     width="100"
-                     height="100"
-                     x="90"
-                     y="1930" /></flowRegion><flowPara
-                   id="flowPara928-7-2-9"
-                   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"></flowPara></flowRoot>
-            </g>
-          </g>
-        </g>
-      </g>
-    </g>
+    <circle
+       style="fill:#fe5f55;fill-opacity:1;stroke-width:0.264583"
+       id="circle878-6-8"
+       cx="98.532478"
+       cy="568.03973"
+       r="23.252449" />
+    <circle
+       r="23.252449"
+       cy="568.03973"
+       cx="187.21753"
+       id="circle878-6-8-2"
+       style="fill:#fe5f55;fill-opacity:1;stroke-width:0.264583" />
+    <flowRoot
+       transform="matrix(0.26458333,0,0,0.26458333,150.17587,43.2828)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot922-9-7-1"
+       xml:space="preserve"><flowRegion
+         id="flowRegion924-1-2-5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"><rect
+           y="1930"
+           x="90"
+           height="100"
+           width="100"
+           id="rect926-2-8-9"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;stroke-width:1" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"
+         id="flowPara928-7-2-9"></flowPara></flowRoot>
+    <flowRoot
+       transform="matrix(0.26458333,0,0,0.26458333,61.490807,43.2828)"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot922-9-7"
+       xml:space="preserve"><flowRegion
+         id="flowRegion924-1-2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif"><rect
+           y="1930"
+           x="90"
+           height="100"
+           width="100"
+           id="rect926-2-8"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;stroke-width:1" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"
+         id="flowPara928-7-2"></flowPara></flowRoot>
   </g>
   <g
      transform="translate(0,322.12501)"
@@ -416,7 +447,7 @@
              width="600"
              id="rect1094" /></flowRegion><flowPara
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:58.6667px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono';fill:#f7f7ff;fill-opacity:1"
-           id="flowPara1096">Project name</flowPara></flowRoot>
+           id="flowPara1096">Order notes</flowPara></flowRoot>
       <flowRoot
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
          id="flowRoot1110"
@@ -505,7 +536,7 @@
          id="g2400-8"
          transform="translate(0,61.383336)">
         <rect
-           style="fill:#f7f7ff;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+           style="fill:#fe5f55;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:1"
            id="rect1826-50"
            width="285.75"
            height="60.854168"
@@ -523,7 +554,7 @@
            transform="translate(-0.32926261,3.4347013)">
           <text
              xml:space="preserve"
-             style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:0.264583"
+             style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:1;stroke:none;stroke-width:0.264583;"
              x="19.947104"
              y="80.424965"
              id="text2394-6"><tspan
@@ -531,15 +562,15 @@
                id="tspan2392-7"
                x="19.947104"
                y="80.424965"
-               style="font-size:14.1111px;fill:#070b1d;fill-opacity:1;stroke-width:0.264583">Title</tspan></text>
+               style="font-size:14.1111px;fill:#eeeeee;fill-opacity:1;stroke-width:0.264583;">Title</tspan></text>
           <flowRoot
              transform="matrix(0.26458333,0,0,0.26458333,0.58465209,1.1693029)"
-             style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#b2b2b9;fill-opacity:1;stroke:none"
+             style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#eeeeee;fill-opacity:1;stroke:none;"
              id="flowRoot4540-5"
              xml:space="preserve"><flowRegion
-               style="fill:#b2b2b9;fill-opacity:1"
+               style="fill:#eeeeee;fill-opacity:1;"
                id="flowRegion4542-3"><rect
-                 style="fill:#b2b2b9;fill-opacity:1"
+                 style="fill:#eeeeee;fill-opacity:1;"
                  y="340.21362"
                  x="76.234947"
                  height="78.444656"
@@ -597,7 +628,7 @@
              y="80.424965"
              x="19.947104"
              id="tspan2392-7-1"
-             sodipodi:role="line">Image Title</tspan></text>
+             sodipodi:role="line">Image...</tspan></text>
       </g>
       <text
          transform="translate(-90.782341,-5.1800325)"
@@ -649,7 +680,7 @@
              x="76.234947"
              y="340.21362"
              style="fill:#b2b2b9;fill-opacity:1" /></flowRegion><flowPara
-           id="flowPara4546-6-2">https://image-source.com/img.jpg</flowPara></flowRoot>
+           id="flowPara4546-6-2">https://im...</flowPara></flowRoot>
     </g>
     <g
        transform="translate(0,-322.12501)"
@@ -659,19 +690,159 @@
     <g
        inkscape:label="Buttons"
        id="layer3"
-       inkscape:groupmode="layer" />
+       inkscape:groupmode="layer">
+      <g
+         style="stroke:url(#linearGradient4925);stroke-width:1.3;stroke-miterlimit:4;stroke-dasharray:none;filter:url(#filter4917)"
+         id="g4787"
+         transform="translate(-29.996605,-255.13529)">
+        <g
+           transform="translate(24.002693)"
+           style="stroke:url(#linearGradient4936)"
+           id="g4934">
+          <circle
+             style="fill:#fe5f55;fill-opacity:1;stroke:#f7f7ff;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+             id="circle878-6-8-2-2"
+             cx="263.09003"
+             cy="83.293617"
+             r="12.513925" />
+          <flowRoot
+             xml:space="preserve"
+             id="flowRoot922-9-7-1-7"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none"
+             transform="matrix(0.14239257,0,0,0.14239257,243.15506,-199.11831)"><flowRegion
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none"
+               id="flowRegion924-1-2-5-5"><rect
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none"
+                 id="rect926-2-8-9-9"
+                 width="100"
+                 height="100"
+                 x="90"
+                 y="1930" /></flowRegion><flowPara
+               id="flowPara928-7-2-9-2"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none"></flowPara></flowRoot>
+        </g>
+      </g>
+      <g
+         style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-width:1.3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4917-9-4)"
+         id="g4787-6-8"
+         transform="translate(-30.181789,-130.52481)">
+        <g
+           transform="translate(24.002693)"
+           style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-opacity:1"
+           id="g4934-1-4">
+          <circle
+             style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+             id="circle878-6-8-2-2-2-5"
+             cx="263.09003"
+             cy="83.293617"
+             r="12.513925" />
+          <flowRoot
+             xml:space="preserve"
+             id="flowRoot922-9-7-1-7-9-0"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             transform="matrix(0.14239257,0,0,0.14239257,243.15506,-199.11831)"><flowRegion
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="flowRegion924-1-2-5-5-3-3"><rect
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;fill:#070b1d;fill-opacity:1;stroke-opacity:1;"
+                 id="rect926-2-8-9-9-1-6"
+                 width="100"
+                 height="100"
+                 x="90"
+                 y="1930" /></flowRegion><flowPara
+               id="flowPara928-7-2-9-2-9-1"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"></flowPara></flowRoot>
+        </g>
+      </g>
+      <g
+         style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-width:1.3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4917-9-0)"
+         id="g4787-6-3"
+         transform="translate(-60.698616,-316.51863)">
+        <g
+           transform="translate(24.002693)"
+           style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-opacity:1"
+           id="g4934-1-2">
+          <circle
+             style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+             id="circle878-6-8-2-2-2-0"
+             cx="293.3165"
+             cy="83.293617"
+             r="12.513925" />
+          <flowRoot
+             xml:space="preserve"
+             id="flowRoot922-9-7-1-7-9-6"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             transform="matrix(0.14239257,0,0,0.14239257,273.38154,-199.11831)"><flowRegion
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="flowRegion924-1-2-5-5-3-1"><rect
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;fill:#070b1d;fill-opacity:1;stroke-opacity:1;"
+                 id="rect926-2-8-9-9-1-5"
+                 width="100"
+                 height="100"
+                 x="90"
+                 y="1930" /></flowRegion><flowPara
+               id="flowPara928-7-2-9-2-9-5"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"></flowPara></flowRoot>
+        </g>
+      </g>
+      <g
+         style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-width:1.3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4917-9)"
+         id="g5089"
+         transform="translate(-30.322224,-193.75196)">
+        <g
+           transform="translate(24.002693)"
+           style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-opacity:1"
+           id="g5087">
+          <circle
+             style="fill:#f7f7ff;fill-opacity:1;stroke:#070b1d;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+             id="circle5077"
+             cx="263.09003"
+             cy="83.293617"
+             r="12.513925" />
+          <flowRoot
+             xml:space="preserve"
+             id="flowRoot5085"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             transform="matrix(0.14239257,0,0,0.14239257,243.15506,-199.11831)"><flowRegion
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               id="flowRegion5081"><rect
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:serif;-inkscape-font-specification:serif;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;fill:#070b1d;fill-opacity:1;stroke-opacity:1;"
+                 id="rect5079"
+                 width="100"
+                 height="100"
+                 x="90"
+                 y="1930" /></flowRegion><flowPara
+               id="flowPara5083"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:85.3333px;font-family:serif;-inkscape-font-specification:serif;text-align:center;text-anchor:middle;fill:#070b1d;fill-opacity:1;stroke:none;stroke-width:4.91339;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"></flowPara></flowRoot>
+        </g>
+      </g>
+    </g>
     <flowRoot
        transform="matrix(0.26458333,0,0,0.26458333,222.01461,-816.01389)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
        id="flowRoot922-06-7"
        xml:space="preserve"><flowRegion
          id="flowRegion924-2-9"><rect
+           style="stroke-width:1"
            y="1930"
            x="90"
            height="100"
            width="100"
            id="rect926-61-2" /></flowRegion><flowPara
          style="font-size:74.6667px;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"
-         id="flowPara928-8-0"></flowPara></flowRoot>
+         id="flowPara928-8-0"></flowPara></flowRoot>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot922-06-7-4"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,192.18621,-816.01389)"><flowRegion
+         id="flowRegion924-2-9-7"><rect
+           style="stroke-width:1"
+           id="rect926-61-2-6"
+           width="100"
+           height="100"
+           x="90"
+           y="1930" /></flowRegion><flowPara
+         id="flowPara928-8-0-5"
+         style="font-size:74.6667px;text-align:center;text-anchor:middle;fill:#f7f7ff;fill-opacity:1"></flowPara></flowRoot>
   </g>
 </svg>

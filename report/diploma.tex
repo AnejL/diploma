@@ -514,7 +514,7 @@ Sistemi kot so OpenLIMS (// citiraj) imajo že vključene module za pisanje poro
 // testiraj LIMS 
 
 
-// ne najbolj zanimiva, kaj sem potegnil iz nje porkodijo
+// ne najbolj zanimiva, kaj sem potegnil iz nje 
 
 Najbolj zanimiva raziskava tega področja se nam je zdela dodelava medicinskega laboratorija s tehnologijo IoT %\cite{austerjost2018introducing}.
 Namen raziskave je bil preizkus praktične uporabnosti virtualnih asistentov za naloge, kot so branje laboratorijskih postopkov po korakih, in glasovno uprabljanje laboratorijskih instrumentov.
@@ -526,115 +526,31 @@ Motnje pri razpoznavanju je povzročal večinoma ozadni hrup.
 Povprečna natančnost prepoznave ukazov je bila 95\%.
 Raziskovalci so zabeležili tudi problem moteče kakofonije v laboratoriju, v katerem je več raziskovalcev, ki uporabljajo glasoven nadzor naprav.
 
-\chapter{Tehnologije in programska oprema}
 
-\section{.NET}
-
-.NET je razvojna platforma, razvita s strani Microsofta.
-Obsega programske jezike, prevajalnike, orodja in knjižnice, ki omogočajo širok spekter primerov uporabnosti, hkrati pa se ohranja enovitost ozadne kode.
-
-Najpomembnejše tehnologije, ki ga sestavljajo so:
-\begin{itemize}
-	\item .NET Framework - platforma za razvoj spletnih strani in namiznih Windows aplikacij, 
-	\item .NET Core - odprtokodna platforma za razvoj spletnih storitev,
-	\item Xamarin, ki je ogrodje za razvoj mobilnih aplikacij za najpogostejše mobilne operacijske sisteme (Android, iOS).
-\end{itemize}
-
-Poleg teh tehnologij je .NET vključen tudi v razna druga orodja.
-Uporabljajo se za za razvoj iger, virtualne resničnosti, računalniškega vida, strojnega učenja, itd.
-
-\section{Xamarin Forms}
-
-Ogrodje Xamarin je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga je razvil Microsoft. 
-Je nadgradnja ogrodja .NET.
-
-Z njim je mogoče pri preprostih aplikacijah deliti večino kode med različnimi operacijskimi sistemi. 
-Za ozadno kodo se uporablja .NET (C\#), za front-end pa se uporablja XAML (Extensible Application Markup Language).
-
-% Pri razvoju sem poudarek dal delu Xamarin ogrodja, ki se imenuje Xamarin.Forms Shell (v nadaljevanju \textit{Shell}).
-
-% Osnovna naloga Shell-a je, da med različnimi mobilnimi operacijskimi sistemi poenoti osnovne elemente uporabniških vmesnikov. 
-% Poenotijo se tudi nekatere druge funkcije, ki jih večina mobilnih aplikacij potrebuje.
-% Med te funkcije spadajo navigacija po straneh, URI navigacijska shema, iskalnik in nekaj najpogostejših tipov postavitve aplikacije (Flyout, Tabs, itd.).
-
-Kodo za sam izgled aplikacije (v nadaljevanju \textit{front-end}) se piše v jeziku XAML. 
-% XAML je po strukturi zelo podoben XML ali HTML.
-% Grafične ali logične elemente se definira v ščipastih oklepajih "\textless" "\textgreater".
-% Ti tvorijo elemente, ki se jih da dopolnjevati, gnezditi, nizati, itd.
-
-% V Xamarinovi različici XAML-a so grafični elementi različnih mobilnih platform, ki imajo podobne funkcije združeni pod enotnimi imeni.
-V ozadju lahko tem elementom v C\# razredih prirejamo vrednosti.
-
-\section{Amazon Alexa}
-
-Amazon Alexa je glasovni asistent, razvit s strani podjetja Amazon.
-Za uporabo Amazon Alexe sem se odločil zaradi razširjenosti in dobre dokumentacije programskega vmesnika.
-
-\subsection{Alexa Skill}
-
-Alexine osnovne funkcionalnosti lahko nadgradimo s funkcijami, ki se jim reče ''Skill''.
-Skill lahko naredi vsakdo z Amazon Developer računom.
-
-Skill sestavljajo:
-\begin{itemize}
-	\item Invocation - fraza, ki Skill zažene,
-	\item Intent - fraze, ki jih Skill razpozna kot funkcije,
-	\item Endpoint - omrežni vir, kjer se nahaja ozadna koda Skill-a.
-\end{itemize}
-
-Skill je vezan na Amazonov uporabniški račun.
-Ko Alexa zasliši Invocation ali katerega od Intentov, glasovni posnetek pošlje na Amazonov strežnik.
-Ta s pomočjo strojnega učenja razpozna ukaze in pošlje ukaze na Endpoint.
-To je lahko druga Amazonova storitev (npr. AWS Lambda), Microsoftov Azure strežnik ali naš lasten strežnik.
-Ko Endpoint obdela zahtevo, se rezultat pošlje nazaj na Amazonov strežnik v obliki znakovnega niza.
-Ta podatek se nato pošlje nazaj na uporabnikovo Alexo, ki prejeti znakovni niz izgovori.
-
-\section{Amazon Web Services}
-
-AWS je skupek oblačnih storitev, ki ga ponuja podjetje Amazon.
-AWS sestavlja več kot 200 storitev, od gostovanja spletnih strani, do sistemov za pošiljanje in prejemanje obvestil, sistemov za komunikacijo med storitvami, itd.
-Ponuja dodelano integracijo s popularnimi programskimi jeziki in ogrodji, kot so Java, .NET, Python, Node.js, itd.
-Storitev je plačljiva po principu "pay-as-you-go" ali "plačaj kolikor porabiš".
-Pri tej diplomski nalogi se bom osredotočil na uporabo dveh sistemov.
-
-\subsection{AWS SQS}
-
-AWS SQS je sistem za pošiljanje tekstovnih sporočil med odjemalci preko Amazonovih strežnikov.
-Za hranjenje sporočil je treba registrirati Queue ali vrsto. 
-Ta je lahko navadna vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO.
-Pri FIFO vrsti sporočila prejmemo v točno takšnem vrstnem redu, kot smo jih poslali.
-Da pošljemo sporočilo pošljemo "Send Message Request".
-Da sporočilo prejmemo pošljemo zahtevo "Recieve Message Request".
-Ker lahko iz vrste poberemo največ 5 sporočil naenkrat, moramo prejeta sporočila iz nje tudi izbrisati.
-To dosežemo z "Delete Message Request".
-
-\subsection{AWS Lambda}
-
-AWS Lambda je dogodkovno-vodena računalniška platforma, razvita s strani Amazona.
-Poganja programske funkcije na podlagi prejetih dogodkov in avtomatsko razpolaga z računalniškimi viri, na podlagi zahtevnosti operacij.
-Storitev je bila ustvarjena predvsem za učinkovito posodabljanje DynamoDB podatkovnih baz in nalaganje slik in objektov na storitve, kot so Amazon S3.
-
-
-\chapter{Načrtovanje in razvoj sistema OpenReport}
+\chapter{Načrtovanje in razvoj sistema za pisanje opisov tehnoloških postopkov}
 
 \section{Definicija funkcionalnosti}
 
-
-\section{Načrt}
-
-Po premisleku in raziskavi trga sem prišel do ugotovitve, da učinkovit sistem za pisanje opisa tehnološkega postopka:
+Učinkovit sistem za pisanje opisa tehnološkega postopka:
 \begin{itemize}
 	\item povzroča čim krajše prekinitve dela,
-	\item vsebuje možnost uporabe glasu za narekovanje opomb,
+	\item vsebuje možnost uporabe glasu za narekovanje korakov,
 	\item hrani uporabljene podatke (fotografije, zapiske) na enem mestu.
 \end{itemize}
 
-Predvideno rešitev za zadani problem sem poimenoval OpenReport.
-% Sistem je sestavljen 
-% Prva prednost te rešitve pred konkurenco je, da se vsi podatki o poročilu nahajajo na istem mestu.
-% Tako slike, kot zapiski v besedilni obliki se hranijo na strežniku in se dajo enostavno izvoziti v obliko arhiva ali dokumenta.
-% Druga prednost pa je, da se lahko zapiske dela med delom, kar omogoča Amazon Alexa. 
-% To doprinese k učinkovitejši porabi časa.
+Sistem, ki ga bom sprogramiral v tej raziskavi bo namenjen predvsem individualnim uporabnikom in bo mišljen kot alternativa pisanju delavniških dnevnikov na list papirja ali s pisarniškimi programi.
+
+Podpirati mora ustvarjanje novega dnevnika in odpiranje ter urejanje že ustvarjenih dnevnikov.
+
+Vsak opis tehnološkega postopka mora imeti naslov, opis, seznam možnih nevarnosti pri delu in seznam korakov dela.
+Seznam korakov dela mora podpirati dodajanje novih korakov, urejanje obstoječih korakov, brisanje obstoječih korakov in spreminjanje vrstnega reda korakov.
+
+Da se čas pri delu bolje izkoristi, bo korake za trenutno odprt delavniški dnevnik možno dodajati tudi preko glasovnega asistenta.
+Poleg narekovanja besedilnih korakov bo preko glasovnega asistenta možno tudi odpreti kamero ali obrazec za dodajanje koraka.
+
+Sistem, za pisanje opisov tehnoloških postopkov sem poimenoval OpenReport.
+
+\section{Načrt}
 
 Sistem OpenReport bodo sestavljali:
 \begin{itemize}
@@ -643,36 +559,41 @@ Sistem OpenReport bodo sestavljali:
 	\item glasovni asistent.
 \end{itemize}
 
-Vsak del sistema bo opravljal svojo nalogo.
-Strežniški program bo tekel na osebnem računalniku, in bo ponujal API, ki ga bosta uporabljala glasovni asistent in mobilna aplikacija.
-Strežniški program bo tudi skrbel za hranjenje podatkov na računalniku, na katerem bo tekel.
-Skrbel bo tudi za izvoz poročila v tekstovni obliki ali v obliki dokumenta.
+Strežnik bo v podatkovni bazi hranil uporabnike, delavniške dnevnike in korake.
+Ponujal bo REST API, ki ga bosta uporabljala glasovni asistent in mobilna aplikacija za operacije nad delavniškimi dnevniki.
 
-Mobilna aplikacija za operacijski sistem Android bo osnovni način prikazovanja elementov delavniškega dnevnika.
-Preko te aplikacije bo uporabnik lahko:
+Preko mobilne aplikacije bo uporabnik lahko:
 \begin{itemize}
-	\item ustvaril nova poročila,
-	\item odprl obstoječa poročila,
-	\item zajemal slike in jih vstavljal v odprto poročilo,
-	\item napisal tekstovne opombe in jih vstavljal v poročilo,
-	\item urejal vrstni red elementov poročila.
+	\item opravil regsitracijo in prijavo,
+	\item ustvaril nov delavniški dnevnik,
+	\item odprl obstoječe delavniške dnevnike,
+	\item ustvaril in urejal korake delavniškega dnevnika,
+	\item zajemal slike in jih vstavljal v delavniški dnevnik,
+	\item brisal korake delavniškega dnevnika,
+	\item urejal vrstni red korakov delavniškega dnevnika.
 \end{itemize}
 
 Glasovni asistent bo služil za narekovanje opomb.
-Za glasovnega asistenta bom uporabil Amazon Alexo.
-Sistem OpenReport sestavljajo strežnik, glasovni asistent, mobilna aplikacija in skupek AWS storitev (Slika \ref{plan}).
 
-Glasovni asistent Amazon Alexa ima nalogo sprejemati glasovna navodila uporabnika.
-Ko od uporabnika prejme zapisek, OpenReportSkill ta zapisek pošlje v AWS SQS vrsto.
-Alexa uporabniku javi, da je sporočilo hranjeno.
+% Sistem OpenReport sestavljajo strežnik, glasovni asistent, mobilna aplikacija in skupek AWS storitev (Slika \ref{plan}).
 
-Naloga strežnika je, da hrani podatke o uporabnikih, projektih in zapiskih.
-Strežnik sestavljata dve storitvi.
-Prva je API, ki ponuja vmesnik za upravljanje s podatki v podatkovni bazi.
-Druga storitev je delavec, ki v določenih časovnih intervalih kontaktira storitev AWS SQS vrsto, v katero Alexa zapisuje opombe.
-V kolikor je v tej vrsti sporočilo ga prejme, vpiše v podatkovno bazo in ga izbriše iz SQS vrste.
+Glasovni asistent Amazon Alexa bo imel sprogramiran specializiran ''Skill'', s katerim bo lahko:
 
-Mobilna aplikacija komunicira z API.
+\begin{itemize}
+	\item v odprto poročilo vstavil dobesedno narekovan korak,
+	\item odprl obrazec za dodajanje novega tekstovnega koraka,
+	\item odprl kamero in obrazec za dodajanje koraka s fotografijo.
+\end{itemize}
+% Ko od uporabnika prejme zapisek, OpenReportSkill ta zapisek pošlje v AWS SQS vrsto.
+% Alexa uporabniku javi, da je sporočilo hranjeno.
+% 
+% Naloga strežnika je, da hrani podatke o uporabnikih, projektih in zapiskih.
+% Strežnik sestavljata dve storitvi.
+% Prva je API, ki ponuja vmesnik za upravljanje s podatki v podatkovni bazi.
+% Druga storitev je delavec, ki v določenih časovnih intervalih kontaktira storitev AWS SQS vrsto, v katero Alexa zapisuje opombe.
+% V kolikor je v tej vrsti sporočilo ga prejme, vpiše v podatkovno bazo in ga izbriše iz SQS vrste.
+% 
+% Mobilna aplikacija komunicira z API.
 
 \begin{figure}[H]
 \begin{center}
@@ -682,27 +603,86 @@ Mobilna aplikacija komunicira z API.
 \label{plan}
 \end{figure}
 
-\section{Definicija funkcionalnosti}
+\section{Uporabljene tehnologije in programska oprema}
 
-Na začetku smo definirali primere uporabe sistema OpenReport.
-Uporabnik mora imeti možnosti ustvariti nov projekt ali odpreti obstoječega.
-Projekt lahko uporabnik tudi izbriše ali arhivira.
+\subsection{.NET}
 
-Uporabnik lahko projetku doda zapiske, ki so lahko v besedilni obliki ali slike.
-Te lahko doda preko mobilne aplikacije ali jih narekuje s pomočjo glasovnega asistenta.
+.NET je razvojna platforma, razvita s strani Microsofta.
+Obsega programske jezike, prevajalnike, orodja in knjižnice, ki omogočajo širok spekter primerov uporabnosti, hkrati pa se ohranja enovitost ozadne kode.
 
-Uporabnik lahko ureja zapiske, spreminja njihov vrstni red ali jih odstranjuje.
+Tehnologije .NET ogrodja, ki sem jih uporabil v tej diplomski nalogi so:
+\begin{itemize}
+	\item .NET Core - odprtokodna platforma za razvoj spletnih storitev,
+	\item Xamarin, ki je ogrodje za razvoj mobilnih aplikacij za najpogostejše mobilne operacijske sisteme (Android, iOS).
+\end{itemize}
 
-\section{Odločitev za izbor Amazon Alexe}
+.NET sem izbral, saj je zelo dobro integriran z Amazonovim AWS API-jem in ker je dobro dokumentiran.
 
-Za Amazon Alexo sem se odločil, saj ponuja enostavno možnost programiranja s Skilli.
-To poleg tega za testiranje ne rabimo fizične enote, saj si lahko na vsako Android napravo namestimo Alexa aplikacijo.
-Aplikacija ponuja iste funkcionalnosti kot pametni zvočniki Amazon Echo ali Amazon Dot.
-Poleg tega jo je zelo enostavno spojiti z drugimi Amazonovimi spletnimi storitvami, kot so AWS SQS ali AWS SNS.
+\subsection{Xamarin Forms}
+
+Ogrodje Xamarin je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga je razvil Microsoft. 
+Je nadgradnja ogrodja .NET.
+
+Z njim je mogoče pri preprostih aplikacijah deliti večino kode med različnimi operacijskimi sistemi. 
+Za ozadno kodo se uporablja .NET (C\#), za front-end pa se uporablja XAML (Extensible Application Markup Language).
+
+Xamarin sem izbral, saj imam z njim že predhodne izkušnje.
+
+\subsection{Amazon Alexa}
+
+Amazon Alexa je glasovni asistent, razvit s strani podjetja Amazon.
+Za Amazon Alexo sem se odločil, saj ponuja enostavno možnost programiranja s ''Skill-i''.
+Poleg tega je Alexo enostavno integrirati z drugimi Amazonovimi spletnimi storitvami, kot so AWS SQS.
+
+\subsection{Alexa Skill}
+
+Alexine osnovne funkcionalnosti lahko nadgradimo s funkcijami, ki se jim reče ''Skill''.
+Da lahko ustvarimo in objavimo Skill rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer}).
+
+
+''Skill'' sestavljajo:
+\begin{itemize}
+	\item Invocation - fraza, ki Skill zažene,
+	\item Intent - fraze, ki jih Skill razpozna kot funkcije,
+	\item Endpoint - omrežni vir, kjer se nahaja ozadna koda Skill-a.
+\end{itemize}
+
+Ko Alexa zasliši Invocation ali katerega od Intentov, glasovni posnetek pošlje na Amazonov strežnik.
+Ta s pomočjo strojnega učenja razpozna ukaze in pošlje ukaze na Endpoint.
+To je lahko druga Amazonova storitev (npr. AWS Lambda), Microsoftov Azure strežnik ali naš lasten strežnik.
+Ko Endpoint obdela zahtevo, se rezultat pošlje nazaj na Amazonov strežnik v obliki znakovnega niza.
+Ta podatek se nato pošlje nazaj na uporabnikovo Alexo, ki prejeti znakovni niz izgovori.
+
+\subsection{Amazon Web Services}
+
+AWS je skupek oblačnih storitev, ki ga ponuja podjetje Amazon.
+Ponuja integracijo s popularnimi programskimi jeziki in ogrodji, kot so Java, .NET, Python in Node.js preko AWS API storitve.
+Pri tej diplomski nalogi sem se osredotočil na dva sistema iz skupka AWS.
+
+\subsubsection{AWS SQS}
+
+AWS SQS je sistem za pošiljanje tekstovnih sporočil med odjemalci preko Amazonovih strežnikov.
+Za hranjenje sporočil je treba registrirati Queue ali vrsto. 
+Ta je lahko navadna vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO.
+Pri FIFO vrsti sporočila prejmemo v točno takšnem vrstnem redu, kot smo jih poslali.
+
+To storitev bom uporabil za komunikacijo med Amazon Alexo in OpenReport strežnikom.
+
+// ali še opišem SQS
+
+\subsubsection{AWS Lambda}
+
+// lepši prevod za hosting
+
+Ozadno kodo za Alexa Skill sem objavil v platformo AWS Lambda.
+To je storitev za gostovanje dogodkovno vodene ozadne kode.
+Za to platformo sem se odločil zaradi dobre integracije z Alexa Skill Kit-om in razvojnim orodjem Visual Studio.
+
+// ali še opišem Lambdo?
 
 \section{Načrt delovanja strežnika}
 
-API endpointi
+// API endpointi
 
 \section{Načrt in izdelava ,,Alexa Skilla''}
 

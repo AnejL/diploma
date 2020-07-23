@@ -404,6 +404,8 @@ Ta sistem, bi sestavljali glasovni asistent, ki bi služil za narekovanje opomb,
 
 \section{Struktura diplomske naloge}
 
+// dodelaj na koncu
+
 Diplomsko delo pričenjamo s predstavitvijo področja raziskave in kratko opišemo problem in možno rešitev. 
 V sklopu te diplomski naloge bomo raziskali, ali so glasovni asistent in mobilna aplikacija primerno orodje za učinkovitejše pisanje delavniških dnevnikov.
 Začnemo z raziskavo že obstoječih rešitve za to problematiko.
@@ -419,6 +421,9 @@ V predzadnjem poglavju opišemo možnosti nadaljnjega razvoja projekta.
 \section{Problem}
 
 \subsection {Kaj je delavniški dnevnik?}
+
+// dodelaj na koncu
+
 Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih nedvoumno predstavi postopek izdelave izdelka.
 Delavniški dnevniki imajo lahko definirane tudi kontrolne postopke za izdelek, orodje, ki ga rabimo za izdelavo in seznam možnih nevarnosti pri delu.
 
@@ -628,6 +633,8 @@ Za ozadno kodo se uporablja .NET (C\#), za front-end pa se uporablja XAML (Exten
 
 Xamarin sem izbral, saj imam z njim že predhodne izkušnje.
 
+// še kakšen razlog?
+
 \subsection{Amazon Alexa}
 
 Amazon Alexa je glasovni asistent, razvit s strani podjetja Amazon.
@@ -680,9 +687,6 @@ Za to platformo sem se odločil zaradi dobre integracije z Alexa Skill Kit-om in
 
 // ali še opišem Lambdo?
 
-\section{Načrt delovanja strežnika}
-
-// API endpointi
 
 \section{Načrt in izdelava ,,Alexa Skilla''}
 
@@ -714,9 +718,19 @@ V našem primeru je to stavek "Noted!".
 \end{figure}
 
 
-\section{Izdelava API}
+\section{Implementacija strežnika}
 
-\section{Izdelava delavca}
+// opiši dva dela serverja itd
+
+\subsection{Implementacija API}
+ 
+// implementacija API
+
+\subsubsection{API dostopne točke}
+
+// API endpointi
+
+\subsection{Izdelava delavca}
 
 Delavec (ang. Worker Service) je storitev, ki se praviloma konstatno izvaja v ozadju.
 V našem primeru se delavec uporablja za dobivanje sporočil iz AWS SQS sporočilne vrste in vstavljanje prejetih sporočil v podatkovno bazo.
@@ -741,7 +755,10 @@ Ko je sporočilo vnešeno v podatkovni bazi, se lahko izbriše iz SQS vrste.
 To dosežemo z DeleteMessageRequest-om.
 
 
-\section{Postopek oblikovanja in načrtovanja mobilne aplikacije}
+\section{Implementacija mobilne aplikacije}
+
+// popolnoma spremeni to
+% \section{Postopek oblikovanja in načrtovanja mobilne aplikacije}
 
 Mobilno aplikacijo sem se odločil razviti s tehnologijo Xamarin.Forms.
 Razlogi za to so predvsem dobro poznavanje tehnologije in enostavna integracija z ostalimi tehnologijami iz .NET sklopa.
@@ -768,27 +785,30 @@ View pa vsebuje izključno UI elemente in povezavo na ViewModel.
 
 // slika mvvm
 
-\subsection{Uvoz knjižnic in zunanjih virov v projekt}
-Po dizajnu sem se lotil programiranja.
-Najprej sem ustvaril prazen Xamarin projekt tipa Shell.
-Najprej sem želel uvoziti funkcionalnosti, ki bi mi v prihodnjih fazah olajšale delo.
-Prva taka stvar je bila uvoz razširitev Fody.
-To je orodje, ki med prevajanjem MVVM aplikacije določene odseke C\# kode "vstavi" v preveden assembly.
-S tem se ohrani ista funkcionalnost z veliko manj boilerplate kode.
-
-// slika fody
-
-Naslednja takšna funkcionalnost je bila uvoz fontov.
-Za ikone nisem uporabil SVG ali PNG zbirk, ampak sem uporabil popularen font FontAwesome, ki ga nekoliko enostavneje uporabiti in uvoziti.
-
-V projektu OpenReportShell.Android sem v Assets mapo dodal podmapo fonts.
-V tej mapi se nahaja datoteka s FontAwesome Solid fontom.
-
-Ta font sem uporabil tako, da sem v osnovnem projektu dodal Resource v datoteki App.xaml.
-
-// slika resource
+% koga briga
+% \subsection{Uvoz knjižnic in zunanjih virov v projekt}
+% Po dizajnu sem se lotil programiranja.
+% Najprej sem ustvaril prazen Xamarin projekt tipa Shell.
+% Najprej sem želel uvoziti funkcionalnosti, ki bi mi v prihodnjih fazah olajšale delo.
+% Prva taka stvar je bila uvoz razširitev Fody.
+% To je orodje, ki med prevajanjem MVVM aplikacije določene odseke C\# kode "vstavi" v preveden assembly.
+% S tem se ohrani ista funkcionalnost z veliko manj boilerplate kode.
+% 
+% // slika fody
+% 
+% Naslednja takšna funkcionalnost je bila uvoz fontov.
+% Za ikone nisem uporabil SVG ali PNG zbirk, ampak sem uporabil popularen font FontAwesome, ki ga nekoliko enostavneje uporabiti in uvoziti.
+% 
+% V projektu OpenReportShell.Android sem v Assets mapo dodal podmapo fonts.
+% V tej mapi se nahaja datoteka s FontAwesome Solid fontom.
+% 
+% Ta font sem uporabil tako, da sem v osnovnem projektu dodal Resource v datoteki App.xaml.
+% 
+% // slika resource
 
 \subsection{Povezava na strežnik in razred Startup.cs}
+
+// razlozi kot normalen človek
 
 Za povezavo na strežnik sem želel v projektu imeti eno instanco statičnega razreda.
 Ta razred (OpenReportCloudCommunicationService) vsebuje metode, namenjene komunikaciji z API-jem.
@@ -804,7 +824,10 @@ Prvi je HttpClient, ki sem ga uporabil za pošiljanje HTTP sporočil na strežni
 
 // slika OpenReportServerCommunicationService
 
+
 \subsection{DashboardPage}
+
+// koga briga, spremeni 
 
 Na strani DashboardPage se uporabniku prikaže seznam odprtih projektov.
 Ko uporabnik klikne na željeni projekt, ga preusmeri na stran ProjectPage, kjer ga lahko ureja.
@@ -816,6 +839,8 @@ Ko uporabnik klikne na željeni projekt, ga preusmeri na stran ProjectPage, kjer
 
 Najpomembnejši del aplikacije je urejanje zapiskov.
 To lahko uporabnik dela, 
+
+
 
 \section{Evalvacija funkcionalnosti}
 

@@ -718,19 +718,60 @@ V našem primeru je to stavek "Noted!".
 \end{figure}
 
 
-\section{Implementacija strežnika}
+\section{Strežnik}
 
-// opiši dva dela serverja itd
+Za uporabo centralnega strežnika smo se odločili, da lahko do hranjenih podatkov dostopamo iz različnih naprav.
+Podatke hranimo v podatkovni bazi, ki jo streže SQL Server.
+
+Baza hrani tabele Users (\textit{slo. Uporabniki}), Projects (\textit{slo. Projekti}) in Notes (\textit{slo. Zapiski}).
+Vsak uporabnik lahko ima 0 ali mnogo projektov (opisov tehnološkega postopka).
+Vsak projekt ima lahko 0 ali mnogo zapiskov (korakov).
+
+// naredi sliko sheme baze
+
+\noindent Strežnik ima tri naloge:
+\begin{enumerate}
+	\item komunikacija s podatkovno bazo,
+	\item komunikacija z odjemalcem (mobilno aplikacijo),
+	\item komunikacija z glasovnim asistentom (Amazon Alexa).
+\end{enumerate}
+
 
 \subsection{Implementacija API}
  
-// implementacija API
+Komunikacija z odjemalcem poteka preko HTTP po pristopu API.
+Podatki se prenašajo v formatu JSON.
+To metodo smo izbrali zaradi enostavnosti implementacije.
+
+API uporabniku omogoča registracijo in prijavo.
+Za registracijo in prijavo sta potrebna geslo in uporabniško ime (e-mail).
+Ko se uporabnik registrira, lahko ustvarja svoje opise tehnoloških postopkov.
+
+Ko ustvari nov opis tehnološkega postopka (v nadaljevanju \textit{projekt}), ta projekt dobi status "odprt" (\textit{ang. opened}).
+Ob zaključenem delu ali odprtju novega projekta se status "odprt" odstrani.
+V naši implementaciji smo to naredili z stolpcem "Opened" v tabeli Projects, ki hrani bit 0 ali 1.
 
 \subsubsection{API dostopne točke}
 
 // API endpointi
 
-\subsection{Izdelava delavca}
+\begin{tabular}{|c | c | c|} 
+ \hline
+ URL & Metoda & Rezultat \\ [0.5ex] 
+ \hline
+ /identity/login & POST & prijava uporabnika \\ 
+ \hline
+ /identity/register & POST & registracija uporabnika \\ 
+ \hline
+ /projects & GET & vsi projekti prijavljenega uporabnika \\ 
+ \hline
+ /projects/opened & GET & odprt projekt prijavljenega uporabnika \\ 
+ \hline
+ /register & POST & registracija uporabnika \\ [1ex]
+ \hline
+\end{tabular}
+
+\subsection{Implementacija delavca}
 
 Delavec (ang. Worker Service) je storitev, ki se praviloma konstatno izvaja v ozadju.
 V našem primeru se delavec uporablja za dobivanje sporočil iz AWS SQS sporočilne vrste in vstavljanje prejetih sporočil v podatkovno bazo.

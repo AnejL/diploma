@@ -505,12 +505,12 @@ Opis tehnološkega postopka v tem primeru sestavljajo:
 	\item CAD izris izdelka.
 \end{itemize}
 
-Takšen specializiran sistem je tesno povezan s proizvodno linijo, prilagodljiv in optimalen glede funkcionalnosti.
-Poleg tega se podatki hranijo na osrednjem strežniku in ne na posameznih računalnikih.
+Takšen specializiran sistem je tesno povezan s proizvodno linijo, prilagodljiv in optimiziran s stališča funkcionalnosti.
+V takšnih sistemih se podatki hranijo na strežniku kar pomeni, da uporabniki sistema nimajo težav z razkropljenostjo podatkov.
 Glavne slabosti takšnega sistema so:
 \begin{itemize}
 	\item potrebna proizvodna infrastruktura, ki jo sistem rabi za optimalen izkoristek in
-	\item cena, ki je potrebna za nakup licenc in implementacijo.
+	\item cena, ki je potrebna za implementacijo.
 \end{itemize}
 
 V kemijski industriji se laboratorijska poročila pišejo s pomočjo LIMS (Laboratory Information Management System).
@@ -519,17 +519,6 @@ Sistemi kot so OpenLIMS (// citiraj) imajo že vključene module za pisanje poro
 // testiraj LIMS 
 
 
-// ne najbolj zanimiva, kaj sem potegnil iz nje 
-
-Najbolj zanimiva raziskava tega področja se nam je zdela dodelava medicinskega laboratorija s tehnologijo IoT %\cite{austerjost2018introducing}.
-Namen raziskave je bil preizkus praktične uporabnosti virtualnih asistentov za naloge, kot so branje laboratorijskih postopkov po korakih, in glasovno uprabljanje laboratorijskih instrumentov.
-Pozitivni rezultati bi lahko bili ključnega pomena za slabovidne člane laboratorijev.
-Kot glasovni asistent je bila uporabljena Amazon Alexa.
-Raziskovalna ekipa je v laboratorij lahko vgradila IoT naprave brez previsokih stroškov.
-Prepoznavanje govora in ukazov je bilo konsistentno in hitro, ne glede na spol uporabnika.
-Motnje pri razpoznavanju je povzročal večinoma ozadni hrup.
-Povprečna natančnost prepoznave ukazov je bila 95\%.
-Raziskovalci so zabeležili tudi problem moteče kakofonije v laboratoriju, v katerem je več raziskovalcev, ki uporabljajo glasoven nadzor naprav.
 
 
 \chapter{Načrtovanje in razvoj sistema za pisanje opisov tehnoloških postopkov}
@@ -553,11 +542,20 @@ Seznam korakov dela mora podpirati dodajanje novih korakov, urejanje obstoječih
 Da se čas pri delu bolje izkoristi, bo korake za trenutno odprt delavniški dnevnik možno dodajati tudi preko glasovnega asistenta.
 Poleg narekovanja besedilnih korakov bo preko glasovnega asistenta možno tudi odpreti kamero ali obrazec za dodajanje koraka.
 
-Sistem, za pisanje opisov tehnoloških postopkov sem poimenoval OpenReport.
+Raziskava iz leta 2018 je pokazala izboljšano učinkovitost pri delu raziskovalcev v kemijskem laboratoriju, v katerega so integrirali glasovne pomočnike %\cite{austerjost2018introducing}.
+Namen raziskave je bil preizkus praktične uporabnosti glasovnih asistentov za naloge, kot so branje laboratorijskih postopkov po korakih, in glasovno upravljanje laboratorijskih instrumentov.
+Pozitivni rezultati bi lahko bili ključnega pomena za slabovidne člane laboratorijev.
+Kot glasovni asistent je bila uporabljena Amazon Alexa.
+Prepoznavanje govora in ukazov je bilo konsistentno in hitro, ne glede na spol uporabnika.
+Motnje pri razpoznavanju je povzročal večinoma ozadni hrup.
+Povprečna natančnost prepoznave ukazov je bila 95\%.
+Raziskovalci so zabeležili tudi problem moteče kakofonije v laboratoriju, v katerem je več raziskovalcev, ki uporabljajo glasoven nadzor naprav.
 
 \section{Načrt}
 
+Sistem, za pisanje opisov tehnoloških postopkov sem poimenoval OpenReport. 
 Sistem OpenReport bodo sestavljali:
+
 \begin{itemize}
 	\item strežniški program, 
 	\item mobilna aplikacija,
@@ -578,11 +576,11 @@ Preko mobilne aplikacije bo uporabnik lahko:
 	\item urejal vrstni red korakov delavniškega dnevnika.
 \end{itemize}
 
-Glasovni asistent bo služil za narekovanje opomb.
+% Glasovni asistent bo služil za narekovanje opomb, odpiranje vnosnega obrazca za tekstovne korake in zagon kamere za slikovne korake.
 
 % Sistem OpenReport sestavljajo strežnik, glasovni asistent, mobilna aplikacija in skupek AWS storitev (Slika \ref{plan}).
 
-Glasovni asistent Amazon Alexa bo imel sprogramiran specializiran ''Skill'', s katerim bo lahko:
+Za glasovni asistent Amazon Alexa bomo razvili ''Skill'', s katerim bo uporabnik lahko:
 
 \begin{itemize}
 	\item v odprto poročilo vstavil dobesedno narekovan korak,
@@ -626,9 +624,9 @@ Tehnologije .NET ogrodja, ki sem jih uporabil v tej diplomski nalogi so:
 \subsection{Xamarin Forms}
 
 Ogrodje Xamarin je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga je razvil Microsoft. 
-Je nadgradnja ogrodja .NET.
+% Je nadgradnja ogrodja .NET.
 
-Z njim je mogoče pri preprostih aplikacijah deliti večino kode med različnimi operacijskimi sistemi. 
+Z ogrodjem Xamarin je mogoče pri deliti večino ozadne in ospredne kode med različnimi mobilnimi operacijskimi sistemi. 
 Za ozadno kodo se uporablja .NET (C\#), za front-end pa se uporablja XAML (Extensible Application Markup Language).
 
 Xamarin sem izbral, saj imam z njim že predhodne izkušnje.
@@ -655,10 +653,10 @@ Da lahko ustvarimo in objavimo Skill rabimo račun Amazon razvijalca (\textit{an
 \end{itemize}
 
 Ko Alexa zasliši Invocation ali katerega od Intentov, glasovni posnetek pošlje na Amazonov strežnik.
-Ta s pomočjo strojnega učenja razpozna ukaze in pošlje ukaze na Endpoint.
-To je lahko druga Amazonova storitev (npr. AWS Lambda), Microsoftov Azure strežnik ali naš lasten strežnik.
-Ko Endpoint obdela zahtevo, se rezultat pošlje nazaj na Amazonov strežnik v obliki znakovnega niza.
-Ta podatek se nato pošlje nazaj na uporabnikovo Alexo, ki prejeti znakovni niz izgovori.
+Ta s pomočjo glasovnega razpoznavnega modela prepozna ukaze in pošlje poseben zahtevek, unikaten na Endpoint.
+To je lahko druga Amazonova storitev (npr. AWS Lambda), storitev na Microsoftovem Azure strežniku ali naš lasten strežnik.
+Ko Endpoint obdela zahtevo, se odgovor pošlje nazaj na Amazonov strežnik v obliki znakovnega niza.
+Ta podatek se nato pošlje nazaj na uporabnikovo Alexo, ki prejeti znakovni niz ''izgovori''.
 
 \subsection{Amazon Web Services}
 
@@ -671,17 +669,18 @@ Pri tej diplomski nalogi sem se osredotočil na dva sistema iz skupka AWS.
 AWS SQS je sistem za pošiljanje tekstovnih sporočil med odjemalci preko Amazonovih strežnikov.
 Za hranjenje sporočil je treba registrirati Queue ali vrsto. 
 Ta je lahko navadna vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO.
+V sklopu te diplome sem uporabil vrsto FIFO.
 Pri FIFO vrsti sporočila prejmemo v točno takšnem vrstnem redu, kot smo jih poslali.
 
 To storitev bom uporabil za komunikacijo med Amazon Alexo in OpenReport strežnikom.
 
-// ali še opišem SQS
+// ali še opišem SQS?
 
 \subsubsection{AWS Lambda}
 
 // lepši prevod za hosting
 
-Ozadno kodo za Alexa Skill sem objavil v platformo AWS Lambda.
+Ozadno kodo za Alexa Skill sem gostil na platformi AWS Lambda.
 To je storitev za gostovanje dogodkovno vodene ozadne kode.
 Za to platformo sem se odločil zaradi dobre integracije z Alexa Skill Kit-om in razvojnim orodjem Visual Studio.
 
@@ -697,8 +696,8 @@ Uporabnik lahko nato izbere med naslednjimi ukazi:
 	\item ''create a text note''
 	\item ''take a picture''
 \end{itemize}
-Alexa pošlje posnetek govora na Amazonov Alexa Server, kjer se zahteva obdela in primerja z nastavljenimi Intenti.
-Frazi "note" ali "take note", na začetku narekovanega besedila, se ujemata s frazami za klic Intenta TakeNoteIntent.
+Alexa pošlje posnetek govora na Amazonov Alexa Server, kjer se s pomočjo razpoznavnega modela pretvori v znakovni niz in primerja z definiranimi klici funkcij (''Intenti'').
+Npr. frazi ''note'' ali ''take note'', na začetku narekovanega besedila, se ujemata s frazami za klic Intenta TakeNoteIntent.
 
 Amazonov Alexa Server nato pošlje TakeNoteIntent in vsebino (na sliki \ref{skill} \{content\}) na nastavljen Endpoint.
 Ta je v našem primeru gostovan na storitvi AWS Lambda.
@@ -707,7 +706,7 @@ Endpoint gosti ozadno kodo za obdelavo podatkov, ki jih Alexa Server pošlje.
 V našem Endpointu se TakeNoteIntent obdela tako, da se \{content\} pošlje kot novo sporočilo v AWS SQS.
 Ko je sporočilo poslano, Endpoint Alexa Serverju pošlje nazaj zahtevo Response.
 Ta hrani niz, ki ga bo Alexa izgovorila uporabniku.
-V našem primeru je to stavek "Noted!".
+V primeru TakeNoteIntent je to stavek "Noted!".
 
 \begin{figure}[H]
 \begin{center}
@@ -717,6 +716,7 @@ V našem primeru je to stavek "Noted!".
 \label{skill}
 \end{figure}
 
+// različni tipi messagov (addnote addimage voice note...)
 
 \section{Strežnik}
 
@@ -738,7 +738,9 @@ Vsak projekt ima lahko 0 ali mnogo zapiskov (korakov).
 
 
 \subsection{Implementacija API}
- 
+
+\subsubsection{Komunikacija z klientom}
+
 Komunikacija z odjemalcem poteka preko HTTP po pristopu API.
 Podatki se prenašajo v formatu JSON.
 To metodo smo izbrali zaradi enostavnosti implementacije.
@@ -747,34 +749,13 @@ API uporabniku omogoča registracijo in prijavo.
 Za registracijo in prijavo sta potrebna geslo in uporabniško ime (e-mail).
 Ko se uporabnik registrira, lahko ustvarja svoje opise tehnoloških postopkov.
 
-Ko ustvari nov opis tehnološkega postopka (v nadaljevanju \textit{projekt}), ta projekt dobi status "odprt" (\textit{ang. opened}).
-Ob zaključenem delu ali odprtju novega projekta se status "odprt" odstrani.
-V naši implementaciji smo to naredili z stolpcem "Opened" v tabeli Projects, ki hrani bit 0 ali 1.
+Pri ustvarjanju novega opisa tehnološkega postopka (v nadaljevanju poglavja \textit{projekta}) mora uporabnik podati naslov, kratek opis projekta in seznam možnih nevarnosti.
 
-\subsubsection{API dostopne točke}
 
-// API endpointi
+\subsubsection{Komunikacija z SQS}
 
-\begin{tabular}{|c | c | c|} 
- \hline
- URL & Metoda & Rezultat \\ [0.5ex] 
- \hline
- /identity/login & POST & prijava uporabnika \\ 
- \hline
- /identity/register & POST & registracija uporabnika \\ 
- \hline
- /projects & GET & vsi projekti prijavljenega uporabnika \\ 
- \hline
- /projects/opened & GET & odprt projekt prijavljenega uporabnika \\ 
- \hline
- /register & POST & registracija uporabnika \\ [1ex]
- \hline
-\end{tabular}
-
-\subsection{Implementacija delavca}
-
-Delavec (ang. Worker Service) je storitev, ki se praviloma konstatno izvaja v ozadju.
-V našem primeru se delavec uporablja za dobivanje sporočil iz AWS SQS sporočilne vrste in vstavljanje prejetih sporočil v podatkovno bazo.
+V naši rešitvi pri komunikaciji z SQS 
+primeru se delavec uporablja za dobivanje sporočil iz AWS SQS sporočilne vrste in vstavljanje prejetih sporočil v podatkovno bazo.
 
 Ustvaril sem ga tako, da sem v trenuten Solution dodal nov projekt tipa WorkerService.
 Komponente takega projekta so predvsem razred Startup, ki se kliče prvi po zagonu programa in razred Program, v katerega pišemo poslovno logiko programa.

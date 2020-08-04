@@ -678,8 +678,6 @@ To storitev bom uporabil za komunikacijo med Amazon Alexo in OpenReport strežni
 
 \subsubsection{AWS Lambda}
 
-// lepši prevod za hosting
-
 Ozadno kodo za Alexa Skill sem gostil na platformi AWS Lambda.
 To je storitev za gostovanje dogodkovno vodene ozadne kode.
 Za to platformo sem se odločil zaradi dobre integracije z Alexa Skill Kit-om in razvojnim orodjem Visual Studio.
@@ -729,7 +727,7 @@ Vsak projekt ima lahko 0 ali mnogo zapiskov (korakov).
 
 // naredi sliko sheme baze
 
-\noindent Strežnik ima tri naloge:
+\noindent Strežnik ima štiri naloge:
 \begin{enumerate}
 	\item komunikacija s podatkovno bazo,
 	\item komunikacija z odjemalcem (mobilno aplikacijo),
@@ -739,18 +737,102 @@ Vsak projekt ima lahko 0 ali mnogo zapiskov (korakov).
 
 \subsection{Implementacija API}
 
-\subsubsection{Komunikacija z klientom}
-
 Komunikacija z odjemalcem poteka preko HTTP po pristopu API.
 Podatki se prenašajo v formatu JSON.
 To metodo smo izbrali zaradi enostavnosti implementacije.
 
-API uporabniku omogoča registracijo in prijavo.
-Za registracijo in prijavo sta potrebna geslo in uporabniško ime (e-mail).
-Ko se uporabnik registrira, lahko ustvarja svoje opise tehnoloških postopkov.
+Glede na to, da lahko sistem uporablja več uporabnikov, sem se odločil implementirati sistema za avtentikacijo uporabnikov in avtorizacijo zahtev.
+Avtentikacija z uporabniškim imenom in geslom omogoča preverjanje identitete.
+Ko se vzpostavi zaupanje se prijavljenemu uporabniku dodeli avtorizacijski žeton, iz katerega se da razbrati, za katerega uporabnika gre in katere pravice so mu dodeljene.
 
-Pri ustvarjanju novega opisa tehnološkega postopka (v nadaljevanju poglavja \textit{projekta}) mora uporabnik podati naslov, kratek opis projekta in seznam možnih nevarnosti.
+\subsubsection{Registracija in prijava}
 
+Odjemalec mora poslati na API objekt \textit{RegisterUserRequest}.
+URL, na katerega mora odjemalec poslati ta objekt je \texttt{/identity/register}.
+
+\noindent \texttt{RegisterUserRequest \{ \\
+	string Email; \\
+	string Password; \\
+\} }
+
+Ko strežnik prejme ta objekt, ga pošlje v avtorizacijsko storitev.
+V tej storitvi preveri, ali uporabnik že obstaja.
+Če obstaja, se zabeleži napaka in nadaljnja registracija prekine.
+Če ta uporabnik ne obstaja, se polje \texttt{Password} zakriptira in se skupaj s poljem Email zapiše v bazo.
+Uporabnik pa pri registraciji dobi tudi svoj unikaten identifikator \texttt{UserID}.
+
+V kolikor se je v avtorizacijski storitvi dogodila kakršna koli napaka, se klientu vrne objekt \texttt{AuthFailedResponse}
+
+\noindent \texttt{AuthFailedResponse \{ \\
+  IEnumerable<string> Errors; \\
+\} }
+
+\noindent V tem objektu se odjemalcu v zbirki pošljejo vse napake, ki jih je avtentikacijska storitev zabeležila pri neuspešni registraciji. 
+
+Če je bila registracija uspešna, se odjemalcu pošlje objekt \texttt{AuthSuccessResponse}
+
+\noindent \texttt{AuthSuccessResponse \{ \\
+  string UserId; \\
+  string Token; \\
+\} }
+
+\noindent V polje \texttt{Token} se zapiše avtorizacijski žeton.
+Žeton je tipa JWT ali \textit{JSON Web Token}.
+Sestavljajo ga e-mail uporabnika, uporabnikov unikatni identifikator \texttt{UserID}, čas zapada žetona in tip simetričnega kodiranja, uporabljenega za enkripcijo žetona.
+
+Ta objekt se nato pošlje nazaj odjemalcu.
+Odjemalec nato ta žeton doda glavi vseh svojih HTTP zahtevkov na OpenReport strežnik.
+V nadaljnji komunikaciji strežnik iz žetona razbere uporabnikov unikatni identifikator in ga uporabi pri poizvedbah po podatkovni bazi.
+
+Prijava poteka podobno.
+Uporabnik mora poslati na API objekt \textit{LoginUserRequest}.
+URL, na katerega mora odjemalec poslati ta objekt je \texttt{/identity/login}.
+
+\noindent
+\texttt{LoginUserRequest \{ \\
+  string Email; \\
+  string Password; \\
+\} }
+
+Ko strežnik prejme ta objekt, ga pošlje v avtorizacijsko storitev.
+V tej storitvi preveri, ali uporabnik že obstaja.
+Če ta uporabnik ne obstaja, ali pa je njegovo zakriptirano geslo v podatkovni bazi drugačno kot to, kar je v polju \texttt{Password}, se zabeležijo napake in prijava se prekine.
+Odjemalec prejme objekt \texttt{AuthFailedResponse}.
+
+Če uporabnik obstaja in se njegovo zakriptirano geslo iz polja \texttt{Password} ujema z geslom v podatkovni bazi, je avtentikacija uspešna.
+Odjemalec prejme objekt \texttt{AuthFailedResponse}.
+
+V primeru uspešne avtentikacije se avtorizacijski žeton \texttt{Token} generira in pošlje enako kot pri registraciji.
+
+\subsubsection{Operacije z delavniškimi dnevniki}
+
+Vsak uporabnik lahko ima nič ali več delavniških dnevnikov.
+
+Vse operacije nad uporabnikovim delavniškim dnevnikom morajo biti avtorizirane.
+V kolikor niso, bo API vedno javil napako \texttt{Bad Request: Not Authorised}.
+
+Pri ustvarjanju novega delavniškega dnevnika (v nadaljevanju poglavja \textit{projekta}) mora uporabnik podati naslov, kratek opis projekta in seznam možnih nevarnosti.
+
+To odjemalec zapiše v objekt \texttt{CreateProjectRequest}.
+
+\noindent \texttt{CreateProjectRequest \{ \\
+string Title; \\ 
+string Description; \\
+string Dangers; \\
+\} }
+
+\noindent Ta objekt se nato pošlje preko POST metode na strežnik na naslov \texttt{/projects/create}.
+Storitev za operacije nad projekti nato kreira nov objekt \texttt{Project} s podatki iz prejete zahteve.
+V primeru, da je zahteva ustrezno formulirana in avtorizirana, se projekt zapiše v podatkovno bazo.
+Odjemalcu se kot odgovor pošlje kopija tega projekta.
+
+Do tega objekta lahko odjemalec v nadaljnji komunikaciji dostopa tako, da pošlje GET zahtevek na URL \texttt{/projects/\{id\}}.
+Polje \texttt{id} mora v tem primeru biti unikatni identifikator projekta.
+
+// piši o kreiranju zapiskov, orderingu itd
+
+\subsubsection{Implementacija storitev na strežniku}
+\subsubsection{Serializacija in deserializacija podatkov}
 
 \subsubsection{Komunikacija z SQS}
 

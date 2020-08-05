@@ -685,17 +685,32 @@ Za to platformo sem se odločil zaradi dobre integracije z Alexa Skill Kit-om in
 // ali še opišem Lambdo?
 
 
-\section{Načrt in izdelava ,,Alexa Skilla''}
+\section{Implementacija ,,Alexa Skilla''}
 
-OpenReportSkill se bo začel izvajati z ''Invocation'' frazo ,,make a report note''.
+// narekovaje bom popravil ko bo vsebinsko ok
+
+Alexa Skill se bo začel izvajati, ko uporabnik izreče definirano invokacijsko frazo (''Invocation'').
+Ta se mora glasiti ,,make a report note''.
+Alexa posnet govorni ukaz pošlje na Amazonov Alexa Server.
+Tam se s pomočjo razpoznavnega modela pretvori v znakovni niz in primerja z definiranimi invokacijskimi frazami.
+Če Alexa Server naš glasovni ukaz res razpozna kot ,,make a report note'', se začne naš Skill izvajati.
+
+Ko se Skill zažene, ozadna koda Skilla vrne vprašanje ''What now?''.
+
 Uporabnik lahko nato izbere med naslednjimi ukazi:
 \begin{itemize}
 	\item ''take note''
 	\item ''create a text note''
 	\item ''take a picture''
 \end{itemize}
-Alexa pošlje posnetek govora na Amazonov Alexa Server, kjer se s pomočjo razpoznavnega modela pretvori v znakovni niz in primerja z definiranimi klici funkcij (''Intenti'').
-Npr. frazi ''note'' ali ''take note'', na začetku narekovanega besedila, se ujemata s frazami za klic Intenta TakeNoteIntent.
+
+Frazi ''note'' ali ''take note'', na začetku narekovanega besedila, se ujemata s frazami za klic podprograma (''Intenta'') \texttt{TakeNoteIntent}.
+Fraza ''create a text note'' zažene \texttt{OpenTextNoteFormIntent}.
+Fraza ''create a picture'' zažene \texttt{OpenImageNoteFormIntent}.
+
+// povej kako kreira sqs message
+\texttt{OpenTextNoteFormIntent} 
+
 
 Amazonov Alexa Server nato pošlje TakeNoteIntent in vsebino (na sliki \ref{skill} \{content\}) na nastavljen Endpoint.
 Ta je v našem primeru gostovan na storitvi AWS Lambda.
@@ -826,13 +841,157 @@ Storitev za operacije nad projekti nato kreira nov objekt \texttt{Project} s pod
 V primeru, da je zahteva ustrezno formulirana in avtorizirana, se projekt zapiše v podatkovno bazo.
 Odjemalcu se kot odgovor pošlje kopija tega projekta.
 
+Objekt \texttt{Project} izgleda tako:
+
+\noindent \texttt{Project \{ \\
+int Id; // unikatni identifikator \\
+string Title; \\
+string Description; \\
+string Dangers; \\
+IEnumerable<Note> Notes; // seznam korakov \\
+... \\
+\}
+}
+
+
 Do tega objekta lahko odjemalec v nadaljnji komunikaciji dostopa tako, da pošlje GET zahtevek na URL \texttt{/projects/\{id\}}.
 Polje \texttt{id} mora v tem primeru biti unikatni identifikator projekta.
 
-// piši o kreiranju zapiskov, orderingu itd
+Za izbris projekta mora uporabnik poslati DELETE zahtevo na URL \texttt{/projects/\{id\}}.
+Če zahteva ni avtorizirana z ustreznim žetonom, se projekt ne izbriše.
 
-\subsubsection{Implementacija storitev na strežniku}
-\subsubsection{Serializacija in deserializacija podatkov}
+\subsubsection{Operacije nad koraki opisa tehnološkega postopka}
+
+Vsak projekt ima lahko nič ali več korakov.
+Vsak korak ima naslov, opis in predvideno trajanje.
+
+Korak je lahko izključno tekstovni, lahko pa ima tudi pripadajočo sliko.
+
+Da ustvarimo tekstovni korak moramo poslati objekt razreda \texttt{Note} preko POST metode na URL \texttt{/projects/\{id\}/addnote}.
+Polje \texttt{id} mora biti unikatni identifikator projekta, katermu želimo dodati korak.
+
+Objekt \texttt{Note} izgleda tako.
+
+\noindent \texttt{Note \{ \\
+...\\ 
+string Title; \\
+string Text; \\
+int Hours; \\
+int Minutes; \\
+int Seconds; \\
+...\\ 
+\} }
+
+Strežnik najprej preveri, če je pošiljatelj poslal avtorizirano zahtevo.
+Iz avtorizacijskega žetona strežnik razbere uporabnikov \texttt{UserID}. 
+Če je projekt z identifikatorjem \texttt{id} res v lasti uporabnika z identifikatorjem \texttt{UserID}, se bo korak dodal v zbirko korakov tega projekta.
+
+Če želimo ustvariti slikovni korak, moramo poslati objekt razreda \textit{AddImageRequest} na URL \texttt{/projects/\{id\}/addimage}.
+
+\noindent \texttt{AddImageRequest \{ \\
+Note note; \\
+string ImageString;  \\
+\} }
+
+V tem razredu predstavlja polje \texttt{ImageString} pripadajočo fotografijo, zakodirano v znakovni niz.
+Za kodirni algoritem sem uporabil Base64.
+
+Za hranjenje tekstovnih in slikovnih korakov sem zaradi preprostosti implementacije uporabil isti razred \texttt{Note}.
+Tekstovni in slikovni korak se ločita v vrednosti boolean zastavice \texttt{IsImage}.
+Tekstovni korak ima to zastavico nastavljeno na vrednost \texttt{false}, slikovni pa \texttt{true}.
+
+\noindent \texttt{Note \{ \\
+bool IsImage;  \\
+string Title; \\
+string Text; \\
+int Hours; \\
+int Minutes; \\
+int Seconds; \\
+string Url; // Lokacija slike na klientu \\
+string ServerUrl; // Lokacija slike na strežniku \\
+... \\
+\}
+}
+
+Poljema \texttt{Url} in \texttt{ServerUrl} se dodeli vrednost samo pri slikovnih korakih.
+Ko se na klientu zajame fotografija, klient nastavi vrednost polja \texttt{Url} na lokacijo ustvarjene fotografije v datotečnem sistemu.
+
+Polje \texttt{ServerUrl} se nastavi šele na strežniku.
+Ko strežnik prejme zahtevo za kreiranje slikovnega koraka, se korak \texttt{Note} prebere iz objekta \texttt{AddImageRequest} in zapiše v podatkovno bazo.
+Nato se \texttt{ImageString} dekodira in hrani na strežniku.
+Ko se fotografija uspešno zapiše v datotečni sistem, se v polje \texttt{ServerUrl} zapiše lokacija pravkar ustvarjene datoteke na strežniku in spremembe se hranijo v podatkovni bazi.
+
+\subsubsection{Urejanje in brisanje in korakov v projektu}
+
+Da se korak v projektu izbriše, moramo poslati avtorizirano zahtevo na URL \texttt{/projects/\{pid\}/delete/\{nid\}}.
+V tem primeru je polje \texttt{pid} unikatni identifikator projekta, v katerem se nahaja korak, \texttt{nid} pa unikatni identifikator objekta \texttt{Note}, ki ga želimo izbrisati.
+V kolikor ima ta objekt \texttt{Note} postavljeno zastavico \texttt{IsImage} na \texttt{true}, se poleg zapisa v bazi izbriše tudi pripadajoča slikovna datoteka.
+
+Pri posodabljanju (urejanju) korakov, moramo poslati avtorizirano zahtevo na URL \texttt{/projects/\{pid\}/update/\{nid\}}.
+Telo zahteve mora vsebovati objekt razreda \texttt{Note}.
+
+// heyhey kaj pa slika?
+
+\subsubsection{Spreminjanje vrstnega reda korakov v projektu}
+
+Položaj koraka \texttt{Note} v projektu lahko razberemo iz atributa \texttt{Position}.
+Prvi korak ima \texttt{Position} 0, drugi 1, itd.
+
+\noindent \texttt{Note \{ \\
+int Id; \\
+\textbf{int Position;} \\
+bool IsImage;  \\
+string Title; \\
+string Text; \\
+int Hours; \\
+int Minutes; \\
+int Seconds; \\
+string Url; \\
+string ServerUrl; \\
+\}
+}
+
+Pri dodajanju korakov v projekt se obstoječe korake projekta razvrsti po vrednosti polja \texttt{Position}.
+Vzamemo največjo vrednost tega polja in ji prištejemo 1.
+Nato to vrednost priredimo polju \texttt{Position} novo kreiranega koraka.
+
+Ko želimo spremeniti pozicijo koraka v projektu, moramo poslati zahtevo PUT na URL \texttt{/projects/\{pid\}/\{nid\}/\{positions\}}.
+
+V tem primeru je polje \texttt{pid} unikatni identifikator projekta, v katerem se nahaja korak, \texttt{nid} unikatni identifikator koraka \texttt{Note}, in \texttt{Positions} število mest za kolikor ga želimo prestaviti.
+To število je lahko pozitivno ali negativno celo število.
+Negativna vrednost prestavi korak proti začetku seznama, pozitivna pa proti koncu.
+
+\subsubsection{Izvoz projektov}
+
+Projekt lahko izvozimo v dva formata, v tekstovno datoteko in HTML dokument.
+
+To naredimo tako, da pošljemo avtorizirani GET zahtevi na URL-ja \texttt{/projects/\{id\}/export/text} ali \texttt{/projects/\{id\}/export/html}.
+
+Pri izvozu v tekstovno datoteko storitev za upravljanje projektov na strežniku ustvari novo tekstovno datoteko.
+Najprej vanjo vpiše naslov in opis projekta ter možne nevarnosti pri delu.
+Nato uredi korake po vrednosti stolpca \texttt{Position} in enega za drugim zapiše v datoteko.
+Če je korak slikovni, se zapiše tudi lokacija pripadajoče fotografije.
+
+Pri izvozu v HTML dokument se naslov zapiše kot HTML naslov H1, opis kot naslov H2, in koraki kot HTML odstavki.
+V HTML dokumentu lahko prikažemo poleg slikovnih korakov tudi slike same.
+
+// slika exportanega 
+
+Lokacija izvožene datoteke se nahaja v polju \texttt{FolderLocation} v razredu \texttt{Project}.
+Privzeta lokacija, ki se nastavi ob kreiranju projekta je ''\texttt{C:/USER/Public Documents/OpenReport}''.
+
+\noindent \texttt{Project \{ \\
+int Id; \\
+string Title; \\
+string Description; \\
+string Dangers; \\
+string FolderLocation; // lokacija fotografij in izvoženih datotek \\
+IEnumerable<Note> Notes; \\
+... \\
+\}
+}
+
+\subsection{Komunikacija strežnika in glasovnega asistenta}
 
 \subsubsection{Komunikacija z SQS}
 
@@ -858,6 +1017,10 @@ Pripne se trenutno odprtemu projektu.
 Ko je sporočilo vnešeno v podatkovni bazi, se lahko izbriše iz SQS vrste.
 To dosežemo z DeleteMessageRequest-om.
 
+\subsubsection{Implementacija storitev na strežniku}
+
+
+\subsubsection{Serializacija in deserializacija podatkov}
 
 \section{Implementacija mobilne aplikacije}
 

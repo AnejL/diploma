@@ -641,15 +641,15 @@ Poleg tega je Alexo enostavno integrirati z drugimi Amazonovimi spletnimi storit
 
 \subsection{Alexa Skill}
 
-Alexine osnovne funkcionalnosti lahko nadgradimo s funkcijami, ki se jim reče ''Skill''.
+Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče ''Skill''.
 Da lahko ustvarimo in objavimo Skill rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer}).
 
 
 ''Skill'' sestavljajo:
 \begin{itemize}
-	\item Invocation - fraza, ki Skill zažene,
+	\item Invocation - fraza, ki ''Skill'' zažene,
 	\item Intent - fraze, ki jih Skill razpozna kot funkcije,
-	\item Endpoint - omrežni vir, kjer se nahaja ozadna koda Skill-a.
+	\item Endpoint - omrežni vir, kjer se nahaja ozadna koda ''Skill-a''.
 \end{itemize}
 
 Ko Alexa zasliši Invocation ali katerega od Intentov, glasovni posnetek pošlje na Amazonov strežnik.
@@ -667,10 +667,9 @@ Pri tej diplomski nalogi sem se osredotočil na dva sistema iz skupka AWS.
 \subsubsection{AWS SQS}
 
 AWS SQS je sistem za pošiljanje tekstovnih sporočil med odjemalci preko Amazonovih strežnikov.
-Za hranjenje sporočil je treba registrirati Queue ali vrsto. 
-Ta je lahko navadna vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO.
+Za hranjenje sporočil je treba registrirati SQS Queue \textit{(slo. SQS vrsto)}. 
+Ta je lahko neurejena vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO, pri kateri je zagotovljeno, da dobimo vsa sporočila v vrstnem redu, v katerem so bila poslana.
 V sklopu te diplome sem uporabil vrsto FIFO.
-Pri FIFO vrsti sporočila prejmemo v točno takšnem vrstnem redu, kot smo jih poslali.
 
 To storitev bom uporabil za komunikacijo med Amazon Alexo in OpenReport strežnikom.
 
@@ -680,61 +679,16 @@ To storitev bom uporabil za komunikacijo med Amazon Alexo in OpenReport strežni
 
 Ozadno kodo za Alexa Skill sem gostil na platformi AWS Lambda.
 To je storitev za gostovanje dogodkovno vodene ozadne kode.
-Za to platformo sem se odločil zaradi dobre integracije z Alexa Skill Kit-om in razvojnim orodjem Visual Studio.
+Za to platformo smo se odločili zaradi dobre integracije z Alexa Skill Kit-om in razvojnim orodjem Visual Studio.
 
 // ali še opišem Lambdo?
 
 
-\section{Implementacija ,,Alexa Skilla''}
-
-// narekovaje bom popravil ko bo vsebinsko ok
-
-Alexa Skill se bo začel izvajati, ko uporabnik izreče definirano invokacijsko frazo (''Invocation'').
-Ta se mora glasiti ,,make a report note''.
-Alexa posnet govorni ukaz pošlje na Amazonov Alexa Server.
-Tam se s pomočjo razpoznavnega modela pretvori v znakovni niz in primerja z definiranimi invokacijskimi frazami.
-Če Alexa Server naš glasovni ukaz res razpozna kot ,,make a report note'', se začne naš Skill izvajati.
-
-Ko se Skill zažene, ozadna koda Skilla vrne vprašanje ''What now?''.
-
-Uporabnik lahko nato izbere med naslednjimi ukazi:
-\begin{itemize}
-	\item ''take note''
-	\item ''create a text note''
-	\item ''take a picture''
-\end{itemize}
-
-Frazi ''note'' ali ''take note'', na začetku narekovanega besedila, se ujemata s frazami za klic podprograma (''Intenta'') \texttt{TakeNoteIntent}.
-Fraza ''create a text note'' zažene \texttt{OpenTextNoteFormIntent}.
-Fraza ''create a picture'' zažene \texttt{OpenImageNoteFormIntent}.
-
-// povej kako kreira sqs message
-\texttt{OpenTextNoteFormIntent} 
-
-
-Amazonov Alexa Server nato pošlje TakeNoteIntent in vsebino (na sliki \ref{skill} \{content\}) na nastavljen Endpoint.
-Ta je v našem primeru gostovan na storitvi AWS Lambda.
-
-Endpoint gosti ozadno kodo za obdelavo podatkov, ki jih Alexa Server pošlje.
-V našem Endpointu se TakeNoteIntent obdela tako, da se \{content\} pošlje kot novo sporočilo v AWS SQS.
-Ko je sporočilo poslano, Endpoint Alexa Serverju pošlje nazaj zahtevo Response.
-Ta hrani niz, ki ga bo Alexa izgovorila uporabniku.
-V primeru TakeNoteIntent je to stavek "Noted!".
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=11cm]{skill}
-\end{center}
-\caption{Načrt Alexa Skilla}
-\label{skill}
-\end{figure}
-
-// različni tipi messagov (addnote addimage voice note...)
-
 \section{Strežnik}
 
-Za uporabo centralnega strežnika smo se odločili, da lahko do hranjenih podatkov dostopamo iz različnih naprav.
-Podatke hranimo v podatkovni bazi, ki jo streže SQL Server.
+Za uporabo centralnega strežnika smo se odločili, da lahko do hranjenih podatkov dostopamo iz različnih naprav preko enotnega vmesnika (API).
+V našem primeru bosta dostopala do strežnika mobilna aplikacija in glasovni asistent.
+Podatke bomo hranili v podatkovni bazi, ki jo streže SQL Server.
 
 Baza hrani tabele Users (\textit{slo. Uporabniki}), Projects (\textit{slo. Projekti}) in Notes (\textit{slo. Zapiski}).
 Vsak uporabnik lahko ima 0 ali mnogo projektov (opisov tehnološkega postopka).
@@ -758,33 +712,31 @@ To metodo smo izbrali zaradi enostavnosti implementacije.
 
 Glede na to, da lahko sistem uporablja več uporabnikov, sem se odločil implementirati sistema za avtentikacijo uporabnikov in avtorizacijo zahtev.
 Avtentikacija z uporabniškim imenom in geslom omogoča preverjanje identitete.
-Ko se vzpostavi zaupanje se prijavljenemu uporabniku dodeli avtorizacijski žeton, iz katerega se da razbrati, za katerega uporabnika gre in katere pravice so mu dodeljene.
+Ko se vzpostavi zaupanje, se prijavljenemu uporabniku dodeli avtorizacijski žeton, iz katerega se da razbrati, za katerega uporabnika gre in katere pravice so mu dodeljene.
 
 \subsubsection{Registracija in prijava}
 
-Odjemalec mora poslati na API objekt \textit{RegisterUserRequest}.
-URL, na katerega mora odjemalec poslati ta objekt je \texttt{/identity/register}.
+Odjemalec mora poslati na API objekt razreda \textit{RegisterUserRequest}.
+Odjemalec ga mora poslati na URL ''\texttt{/identity/register}''.
 
 \noindent \texttt{RegisterUserRequest \{ \\
 	string Email; \\
 	string Password; \\
 \} }
 
-Ko strežnik prejme ta objekt, ga pošlje v avtorizacijsko storitev.
+Ko strežnik prejme ta objekt, ga pošlje v avtentikacijsko storitev.
 V tej storitvi preveri, ali uporabnik že obstaja.
 Če obstaja, se zabeleži napaka in nadaljnja registracija prekine.
-Če ta uporabnik ne obstaja, se polje \texttt{Password} zakriptira in se skupaj s poljem Email zapiše v bazo.
+Če ta uporabnik ne obstaja, se polje \texttt{Password} zakriptira in se skupaj s poljem \texttt{Email} zapiše v bazo.
 Uporabnik pa pri registraciji dobi tudi svoj unikaten identifikator \texttt{UserID}.
 
-V kolikor se je v avtorizacijski storitvi dogodila kakršna koli napaka, se klientu vrne objekt \texttt{AuthFailedResponse}
+V kolikor se je v avtentikacijski storitvi dogodila kakršna koli napaka, se klientu vrne objekt razreda \texttt{AuthFailedResponse}
 
 \noindent \texttt{AuthFailedResponse \{ \\
   IEnumerable<string> Errors; \\
 \} }
 
-\noindent V tem objektu se odjemalcu v zbirki pošljejo vse napake, ki jih je avtentikacijska storitev zabeležila pri neuspešni registraciji. 
-
-Če je bila registracija uspešna, se odjemalcu pošlje objekt \texttt{AuthSuccessResponse}
+\noindent V tem objektu se odjemalcu v zbirki pošljejo vse napake, ki jih je avtentikacijska storitev zabeležila pri neuspešni registraciji.  Če je bila registracija uspešna, se odjemalcu pošlje objekt razreda \texttt{AuthSuccessResponse}
 
 \noindent \texttt{AuthSuccessResponse \{ \\
   string UserId; \\
@@ -797,11 +749,11 @@ Sestavljajo ga e-mail uporabnika, uporabnikov unikatni identifikator \texttt{Use
 
 Ta objekt se nato pošlje nazaj odjemalcu.
 Odjemalec nato ta žeton doda glavi vseh svojih HTTP zahtevkov na OpenReport strežnik.
-V nadaljnji komunikaciji strežnik iz žetona razbere uporabnikov unikatni identifikator in ga uporabi pri poizvedbah po podatkovni bazi.
+V nadaljnji komunikaciji, strežnik iz žetona razbere uporabnikov unikatni identifikator in ga uporabi pri poizvedbah po podatkovni bazi.
 
 Prijava poteka podobno.
 Uporabnik mora poslati na API objekt \textit{LoginUserRequest}.
-URL, na katerega mora odjemalec poslati ta objekt je \texttt{/identity/login}.
+URL, na katerega mora odjemalec poslati ta objekt, je \texttt{/identity/login}.
 
 \noindent
 \texttt{LoginUserRequest \{ \\
@@ -809,13 +761,13 @@ URL, na katerega mora odjemalec poslati ta objekt je \texttt{/identity/login}.
   string Password; \\
 \} }
 
-Ko strežnik prejme ta objekt, ga pošlje v avtorizacijsko storitev.
+Ko strežnik prejme ta objekt, ga pošlje v avtentikacijsko storitev.
 V tej storitvi preveri, ali uporabnik že obstaja.
 Če ta uporabnik ne obstaja, ali pa je njegovo zakriptirano geslo v podatkovni bazi drugačno kot to, kar je v polju \texttt{Password}, se zabeležijo napake in prijava se prekine.
-Odjemalec prejme objekt \texttt{AuthFailedResponse}.
+Odjemalec prejme objekt razreda \texttt{AuthFailedResponse}.
 
 Če uporabnik obstaja in se njegovo zakriptirano geslo iz polja \texttt{Password} ujema z geslom v podatkovni bazi, je avtentikacija uspešna.
-Odjemalec prejme objekt \texttt{AuthFailedResponse}.
+Odjemalec prejme objekt razreda \texttt{AuthFailedResponse}.
 
 V primeru uspešne avtentikacije se avtorizacijski žeton \texttt{Token} generira in pošlje enako kot pri registraciji.
 
@@ -826,9 +778,9 @@ Vsak uporabnik lahko ima nič ali več delavniških dnevnikov.
 Vse operacije nad uporabnikovim delavniškim dnevnikom morajo biti avtorizirane.
 V kolikor niso, bo API vedno javil napako \texttt{Bad Request: Not Authorised}.
 
-Pri ustvarjanju novega delavniškega dnevnika (v nadaljevanju poglavja \textit{projekta}) mora uporabnik podati naslov, kratek opis projekta in seznam možnih nevarnosti.
+Pri ustvarjanju novega opisa tehnološkega postopka (v nadaljevanju poglavja \textit{projekta}) mora uporabnik podati naslov, kratek opis projekta in seznam možnih nevarnosti.
 
-To odjemalec zapiše v objekt \texttt{CreateProjectRequest}.
+To odjemalec zapiše v objekt razreda \texttt{CreateProjectRequest}.
 
 \noindent \texttt{CreateProjectRequest \{ \\
 string Title; \\ 
@@ -837,11 +789,11 @@ string Dangers; \\
 \} }
 
 \noindent Ta objekt se nato pošlje preko POST metode na strežnik na naslov \texttt{/projects/create}.
-Storitev za operacije nad projekti nato kreira nov objekt \texttt{Project} s podatki iz prejete zahteve.
+Storitev za operacije nad projekti nato kreira nov objekt razreda \texttt{Project} s podatki iz prejete zahteve.
 V primeru, da je zahteva ustrezno formulirana in avtorizirana, se projekt zapiše v podatkovno bazo.
 Odjemalcu se kot odgovor pošlje kopija tega projekta.
 
-Objekt \texttt{Project} izgleda tako:
+\noindent Razred \texttt{Project} izgleda tako:
 
 \noindent \texttt{Project \{ \\
 int Id; // unikatni identifikator \\
@@ -854,7 +806,7 @@ IEnumerable<Note> Notes; // seznam korakov \\
 }
 
 
-Do tega objekta lahko odjemalec v nadaljnji komunikaciji dostopa tako, da pošlje GET zahtevek na URL \texttt{/projects/\{id\}}.
+Do kateregakoli svojega projekta lahko odjemalec v nadaljnji komunikaciji dostopa tako, da pošlje GET zahtevek na URL \texttt{/projects/\{id\}}.
 Polje \texttt{id} mora v tem primeru biti unikatni identifikator projekta.
 
 Za izbris projekta mora uporabnik poslati DELETE zahtevo na URL \texttt{/projects/\{id\}}.
@@ -870,7 +822,7 @@ Korak je lahko izključno tekstovni, lahko pa ima tudi pripadajočo sliko.
 Da ustvarimo tekstovni korak moramo poslati objekt razreda \texttt{Note} preko POST metode na URL \texttt{/projects/\{id\}/addnote}.
 Polje \texttt{id} mora biti unikatni identifikator projekta, katermu želimo dodati korak.
 
-Objekt \texttt{Note} izgleda tako.
+\noindent Razred \texttt{Note} izgleda tako.
 
 \noindent \texttt{Note \{ \\
 ...\\ 
@@ -991,6 +943,162 @@ IEnumerable<Note> Notes; \\
 \}
 }
 
+\subsection{Komunikacija z glasovnim asistentom}
+
+Strežnik z glasovnim asistentom Amazon Alexa komunicira preko storitve AWS SQS.
+Glasovni asistent na podlagi prejetega glasovnega ukaza na SQS vrsto odloži tri različna tekstovna sporočila:
+\begin{itemize}
+	\item "addnote",
+	\item "addimage",
+	\item "\{narekovano besedilo\}",
+\end{itemize}
+
+
+\subsubsection{Utemeljitev uporabe SQS}
+Za hranjenje sporočil v storitvi SQS smo se odločili po primerjavi z dvema alternativnima pristopoma.
+Prvi je bil odpiranje omrežne vtičnice (ang. Web Socket).
+Ta bi prinesla učinkovitejši prenos podatkov, implementacija pa bi bila težja.
+Druga alternativa pa je bila direktna komunikacija Amazon Alexe in našega strežnika preko REST API zahtevkov, ki se prenašajo po protokolu HTTP.
+Ta alternativa bi bila implementacijsko preprostejša, prinesla pa bi veliko varnostno luknjo.
+Zahtevke bi se namreč dalo prestreči in podvajati.
+
+\subsubsection{Zahtevanje in izpust glasovnega asistenta}
+
+V sklopu našega projekta bomo na enem OpenReport strežniku uporabljali samo enega glasovnega asistenta.
+Tega asistenta lahko uporabnik ''zahteva'' za lastno uporabo in ga po uporabi ''izpusti''.
+Ali ima določen uporabnik nase vezanega asistenta, vidimo po vrednosti zastavice \texttt{UsesVoiceAssistant} v njegovem objektu razreda \texttt{User}.
+
+Ko odpre katerega od svojih projektov, se unikatni identifikator tega projekta nastavi v polje \texttt{LastOpenedProjectId} v njegovem objektu razreda \texttt{User}.
+
+Zahtevki, ki jih glasovni asistent prejme, se navezujejo na ta projekt.
+
+\noindent \texttt{User : IdentityUser \{ \\
+string Id; \\
+string Email; \\
+string Password; \\
+IEnumerable<Project> Projects; \\
+... \\
+int LastUsedProjectId; \\
+bool UsesVoiceAssistant; \\
+\}}
+
+\subsubsection{Delovanje}
+
+Na strežniku OpenReport teče storitev za komunikacijo z glasovnim asistentom.
+Ta storitev vsakih pet sekund na SQS pošlje zahtevek \texttt{RecieveMessageRequest}.
+\noindent\texttt{RecieveMessageRequest \{ \\
+AttributeName \\ % // obsežnost filtriranja podatkov v sporočilih \\
+MaxNumberOfMessages \\ % // koliko sporočil naenkrat lahko prejmemo \\
+QueueUrl \\ %// URL SQS vrste\\ % \\
+WaitTimeSeconds \\ %// kako dolgo SQS počaka na morebitno prihajajoče sporočilo \\
+... \\
+\} 
+}
+
+AWS SQS kot odgovor vrne objekt tipa \texttt{RecieveMessageResponse}.
+
+\noindent\texttt{RecieveMessageResponse \{ \\
+IEnumerable<Message> Messages;\\
+... \\
+\} }
+
+V tem odgovoru se nahaja seznam sporočil, ki čakajo na sprejem iz SQS vrste.
+V kolikor je v odgovoru vsaj eno sporočilo, pregledamo telo vseh sporočil. 
+
+Ko sporočila sprejmemo, jih moramo izbrisati iz SQS vrste.
+Če jih sproti ne izbrišemo, iz FIFO vrste ne moremo brati novih sporočil.
+To storimo preko zahtevka \texttt{DeleteMessageRequest}.
+AWS SQS storitev v odgovor vrne \texttt{DeleteMessageResponse}, a v tej diplomski nalogi tega odgovora ne uporabljamo naprej.
+
+Če je vsebina prejetega sporočila enaka \texttt{addnote}, storitev preveri, kateri uporabnik ima trenutno nase vezanega glasovnega asistenta.
+Nato v projektu, katerega je nazadnje odprl nastavi vrednost zastavice \texttt{NoteRequest} na \texttt{true}.
+
+\noindent \texttt{Project \{ \\
+int Id; \\
+string Title; \\
+string Description; \\
+string Dangers; \\
+string FolderLocation; \\
+IEnumerable<Note> Notes; \\
+bool NoteRequest; \\
+bool ImageRequest; \\
+bool AlexaNoteRequest; \\
+\}
+}
+
+Če je vsebina enaka ''\texttt{addimage}'', storitev preveri, kateri uporabnik ima trenutno nase vezanega glasovnega asistenta.
+Nato v projektu, katerega je nazadnje odprl nastavi vrednost zastavice \texttt{ImageRequest} na \texttt{true}.
+
+Če vsebina prejetega sporočila ni enaka ''\texttt{addimage}'' ali ''\texttt{addnote}'', pomeni, da je prejeto sporočilo dobesedno narekovan korak.
+Kot prej, storitev preveri, kateri uporabnik ima nase vezanega glasovnega asistenta.
+Nato v projektu, katerega je nazadnje odprl nastavi vrednost zastavice \texttt{AlexaNoteRequest} na \texttt{true}.
+Poleg tega ustvari nov objekt razreda \texttt{Note}, ki ima naslov ''Voice note'', vsebina pa je telo prejetega sporočila.
+Nov objekt se nato vstavi v najden projekt.
+
+\subsubsection{Registracija na AWS SQS}
+
+// kaj rabimo da registriramo in uporabimo SQS
+
+// mogoce prestavim za skill?
+
+\section{Implementacija ,,Alexa Skilla''}
+
+// narekovaje bom popravil, ko bo vsebinsko ok
+
+Alexa Skill bomo uporabili za glasovno upravljanje aplikacije.
+Glavni namen Alexa Skilla v sklopu sistema OpenReport bo dodajanje korakov v opis tehnološkega postopka.
+
+\noindent Natančneje, Skill bo uporabniku omogočal:
+\begin{itemize}
+	\item dodajanje tekstovnega koraka,
+	\item odpiranje kamere in dodajanje slikovnega koraka in
+	\item dobesedno narekovanje besedila tekstovnega koraka.
+\end{itemize}
+
+Vmesnik 
+
+Ko bo Alexa zaslišala ukaz za 
+Alexa Skill se bo začel izvajati, ko uporabnik izreče definirano invokacijsko frazo (''Invocation'').
+Ta se mora glasiti ,,make a report note''.
+Alexa posnet govorni ukaz pošlje na Amazonov Alexa Server.
+Tam se s pomočjo razpoznavnega modela pretvori v znakovni niz in primerja z definiranimi invokacijskimi frazami.
+Če Alexa Server naš glasovni ukaz res razpozna kot ,,make a report note'', se začne naš Skill izvajati.
+
+Ko se Skill zažene, ozadna koda Skilla vrne vprašanje ''What now?''.
+
+Uporabnik lahko nato izbere med naslednjimi ukazi:
+\begin{itemize}
+	\item ''take note''
+	\item ''create a text note''
+	\item ''take a picture''
+\end{itemize}
+
+Frazi ''note'' ali ''take note'', na začetku narekovanega besedila, se ujemata s frazami za klic podprograma (''Intenta'') \texttt{TakeNoteIntent}.
+Fraza ''create a text note'' zažene \texttt{OpenTextNoteFormIntent}.
+Fraza ''create a picture'' zažene \texttt{OpenImageNoteFormIntent}.
+
+// povej kako kreira sqs message
+\texttt{OpenTextNoteFormIntent} 
+
+
+Amazonov Alexa Server nato pošlje TakeNoteIntent in vsebino (na sliki \ref{skill} \{content\}) na nastavljen Endpoint.
+Ta je v našem primeru gostovan na storitvi AWS Lambda.
+
+Endpoint gosti ozadno kodo za obdelavo podatkov, ki jih Alexa Server pošlje.
+V našem Endpointu se TakeNoteIntent obdela tako, da se \{content\} pošlje kot novo sporočilo v AWS SQS.
+Ko je sporočilo poslano, Endpoint Alexa Serverju pošlje nazaj zahtevo Response.
+Ta hrani niz, ki ga bo Alexa izgovorila uporabniku.
+V primeru TakeNoteIntent je to stavek "Noted!".
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=11cm]{skill}
+\end{center}
+\caption{Načrt Alexa Skilla}
+\label{skill}
+\end{figure}
+
+// različni tipi messagov (addnote addimage voice note...)
 \subsection{Komunikacija strežnika in glasovnega asistenta}
 
 \subsubsection{Komunikacija z SQS}

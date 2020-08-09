@@ -1141,64 +1141,88 @@ Na podlagi imena prejetega Intent-a ločimo, ali gre za TakeNoteIntent, OpenText
 \label{skill}
 \end{figure}
 
-% \subsection{Komunikacija z SQS}
-% 
-% V naši rešitvi pri komunikaciji z SQS 
-% primeru se delavec uporablja za dobivanje sporočil iz AWS SQS sporočilne vrste in vstavljanje prejetih sporočil v podatkovno bazo.
-% 
-% Ustvaril sem ga tako, da sem v trenuten Solution dodal nov projekt tipa WorkerService.
-% Komponente takega projekta so predvsem razred Startup, ki se kliče prvi po zagonu programa in razred Program, v katerega pišemo poslovno logiko programa.
-% 
-% Pomemben del programiranja delavca je bil konfiguracija AWS storitev.
-% Zaradi varnosti, v projektne datoteke nisem neposredno vpisal vseh dostopnih podatkov za Amazonove spletne vire.
-% Najvarnejši način za dostopanje do teh podatkov je uporaba privzete AWS CLI lokacije za hranjenje dostopnih podatkov, ki se nahaja v domačem direktoriju uporabnika.
-% Natančneje, konfiguracijski datoteki se nahajata v mapi ''.aws'', poimenovani pa sta ''credentials'' in ''config''.
-% 
-% V datoteki appsettings.json, OpenReportWorkerService projekta, sem dodal sekcijo AWS.
-% Ta je kasneje uporabljena za avtentikacijo zahtev za delo s SQS sporočili.
-% 
-% Delavec deluje tako, da v while zanki, vsake 10 sekund, AWS SQS vrsto vpraša, ali je na voljo kakšno sporočilo, tako, da pošlje vrsti RecieveMessageRequest. 
-% Če je v prejetem RecieveMessageResponsu kakšno sporočilo, se za vsako sporočilo ustvari nov tip objekta Note.
-% Vsak se nato z API klicem nato vnese v podatkovno bazo.
-% Pripne se trenutno odprtemu projektu.
-% 
-% Ko je sporočilo vnešeno v podatkovni bazi, se lahko izbriše iz SQS vrste.
-% To dosežemo z DeleteMessageRequest-om.
-
-% \subsubsection{Implementacija storitev na strežniku}
-
-
-% \subsubsection{Serializacija in deserializacija podatkov}
-
 \section{Implementacija mobilne aplikacije}
 
-// popolnoma spremeni to
-% \section{Postopek oblikovanja in načrtovanja mobilne aplikacije}
+Mobilna aplikacija bo služila kot osnoven način za interakcijo s strežnikom.
+Do strežnika bo dostopala preko API vmesnika.
+Zahtevki se bodo prenašali preko HTTP protokola.
 
 Mobilno aplikacijo sem se odločil razviti s tehnologijo Xamarin.Forms.
 Razlogi za to so predvsem dobro poznavanje tehnologije in enostavna integracija z ostalimi tehnologijami iz .NET sklopa.
-Prav tako se lahko ospredna XAML in ozadna C\# koda v veliki meri uporabita v drugih .NET rešitvah.
 
-Postopek sem začel z premislekom o funkcionalnostih aplikacije.
-Nato sem začel z skico pogledov na list papirja.
-Ko sem prišel do željene oblike, sem s programom Inkscape narisal prototipe vseh pomembnejših pogledov.
 
 \subsection{Pristop}
-Pristop razvoja aplikacije, ki sem ga ubral se imenuje Model View View-Model (v nadaljevanju MVVM).
+Pristop razvoja aplikacije, ki smo ga uporabili za programiranje aplikacije, se imenuje Model View View-Model (v nadaljevanju MVVM).
 Pri tem pristopu aplikacijo razdelimo na tri dele.
 
-\textbf{Model} je del, kjer definiramo elemente naše poslovne logike, prikaz podatkov, itd.
+\textbf{Model} je del, kjer definiramo elemente naše ''poslovne logike'' (opis tehnološkega postopka, korak, uporabnik,...).
 
-\textbf{View} je uporabniški vmesnik.
+\textbf{View} je uporabniški vmesnik, ki ga vidi uporabnik.
 
-\textbf{ViewModel} pa se uporablja, da se poveže funkcije uporabniškega vmesnika in poslovne logike.
+\textbf{ViewModel} pa se uporablja, da se poveže funkcije uporabniškega vmesnika in modela (''poslovne logike'') ter po potrebi preoblikuje podatke.
 
-Rezultat upoštevanja tega pristopa je čista koda.
+Rezultat upoštevanja tega pristopa je čista koda, ki se ne prepleta.
 Model vsebuje le abstrakcijo naših podatkov in poslovno logiko.
 Ti podatki se v ViewModelu pretvorijo v obliko, ki bo prikazana uporabniku.
-View pa vsebuje izključno UI elemente in povezavo na ViewModel.
+View pa vsebuje izključno grafične elemente.
 
 // slika mvvm
+
+\subsection{Povezava na strežnik, prijava in registracija uporabnika}
+
+Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na OpenReport strežnik.
+V tekstovno polje mora vpisati URL ali IP strežnika.
+Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
+
+// slika povezavne strani
+
+Ko uporabnik klikne gumb ''Connect'', se preveri, ali je naslov pravilnem formuliran.
+Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano zahtevo na ''\texttt{naslovstrežnika}/connect''. 
+Če je na tem naslovu res OpenReport strežnik, se kot odgovor odjemalcu pošlje boolean vrednost \texttt{true}.
+
+Storitev za komunikacijo s strežnikom si nato hrani vrednost \texttt{naslovstrežnika} kot predpono vseh nadaljnjih zahtevkov.
+
+Ob neuspešnem poskusu povezave se uporabniku na strani prikaže opis napake.
+Če je poskus uspešen, se stran za povezavo na strežnik zapre.
+
+Prikaže se stran za prijavo.
+Na tej strani uporabnik vpiše svoje uporabniško ime ali geslo, lahko pa odpre stran za registracijo računa.
+
+Poskus prijave poteka tako, avtentikacijska storitev uporabniško ime in geslo iz prijavne strani zapiše v objekt razreda \texttt{LoginUserRequest}.
+
+\noindent \texttt{LoginUserRequest \{ \\
+	Email; \\
+	Password; \\
+\} }
+
+Nato se ta objekt pošlje na strežnik na URL \texttt{/identity/login} preko POST metode.
+Strežnik ob uspešni avtentikaciji vrne objekt razreda \texttt{AuthSuccessResponse}.
+Iz tega objekta uporabnik prebere svoj avtorizacijski žeton.
+Ta žeton hrani avtentikacijska storitev.
+Pri nadaljnjih poizvedbah komunikacijska storitev ta žeton doda v glavo HTTP zahtevkov.
+
+Če je avtentikacija neuspešna, strežnik vrne objekt razreda \texttt{AuthFailedResponse}, v katerem je podan opis napake.
+Ta opis napake se nato uporabniku izpiše na prijavni strani.
+
+Stran za registracijo je podobna strani za prijavo, le da ima dve vnosni polji za vpis gesla.
+Drugo vnosno polje je preventivni ukrep, da se uporabnik ne registrira z napačno vtipkanim geslom.
+
+Registracijski zahtevek se pošlje na strežnik na URL \texttt{/identity/register}.
+Zahtevek je objekt razreda \texttt{RegisterUserRequest}.
+
+\noindent \texttt{RegisterUserRequest \{ \\
+	Email; \\
+	Password; \\
+\} }
+
+// dodaj sliko registracijske strani in prijavne strani
+
+\subsection{Ustvarjanje, brisanje in odpiranje projektov}
+
+\subsection{Zahtevanje in izpust glasovnega asistenta}
+
+\subsection{Operacije znotraj projekta}
+
 
 % koga briga
 % \subsection{Uvoz knjižnic in zunanjih virov v projekt}
@@ -1288,4 +1312,3 @@ To lahko uporabnik dela,
 %\printbibliography
 
 \end{document}
-

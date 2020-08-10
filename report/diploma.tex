@@ -1170,6 +1170,10 @@ View pa vsebuje izključno grafične elemente.
 
 \subsection{Povezava na strežnik, prijava in registracija uporabnika}
 
+Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \\\texttt{OpenReportServerCommunicationService.cs}).
+Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
+Za to metodo smo se odločili, saj omogoča enostavno uporabo instanc registriranih razredov kjerkoli v aplikaciji.
+
 Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na OpenReport strežnik.
 V tekstovno polje mora vpisati URL ali IP strežnika.
 Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
@@ -1177,7 +1181,7 @@ Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika
 // slika povezavne strani
 
 Ko uporabnik klikne gumb ''Connect'', se preveri, ali je naslov pravilnem formuliran.
-Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano zahtevo na ''\texttt{naslovstrežnika}/connect''. 
+Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano GET zahtevo na ''\texttt{naslovstrežnika}/connect''. 
 Če je na tem naslovu res OpenReport strežnik, se kot odgovor odjemalcu pošlje boolean vrednost \texttt{true}.
 
 Storitev za komunikacijo s strežnikom si nato hrani vrednost \texttt{naslovstrežnika} kot predpono vseh nadaljnjih zahtevkov.
@@ -1187,6 +1191,10 @@ Ob neuspešnem poskusu povezave se uporabniku na strani prikaže opis napake.
 
 Prikaže se stran za prijavo.
 Na tej strani uporabnik vpiše svoje uporabniško ime ali geslo, lahko pa odpre stran za registracijo računa.
+
+Za prijavo in registracijo skrbi avtentikacijska storitev (razred \\\texttt{IdentityService.cs}).
+Ta storitev je enako kot storitev za komunikacijo registrirana z Dependency Injection.
+Pogoj, da jo lahko koristimo, je, da je storitev za komunikacijo uspešno vzpostavila komunikacijo s strežnikom.
 
 Poskus prijave poteka tako, avtentikacijska storitev uporabniško ime in geslo iz prijavne strani zapiše v objekt razreda \texttt{LoginUserRequest}.
 
@@ -1219,50 +1227,75 @@ Zahtevek je objekt razreda \texttt{RegisterUserRequest}.
 
 \subsection{Ustvarjanje, brisanje in odpiranje projektov}
 
-\subsection{Zahtevanje in izpust glasovnega asistenta}
+Po prijavi lahko uporabnik odpre stran s projekti.
+Na tej strani se prikažejo:
+\begin{itemize}
+	\item seznam vseh njegovih projektov, 
+	\item gumbi za izbris posameznih projektov,
+	\item gumb za dodajanje novega projekta in
+	\item gumb za zahtevanje in izpust glasovnega asistenta.
+\end{itemize}
 
-\subsection{Operacije znotraj projekta}
+\subsubsection{Ustvarjanje novega projekta}
+
+// ali opišem, glede na to da je večina tega opisana že pri serverju?
+
+\subsubsection{Izbris projekta}
+\subsubsection{Zahtevanje in izpust glasovnega asistenta}
+
+Za zahtevanje in izpust glasovnega asistenta v mobilni aplikaciji skrbi storitev za glasovnega asistenta (razred \texttt{VoiceAssistantService.cs}).
+Ta se registrira ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev uspešno opravi prijavo uporabnika.
+Takrat storitev na URL \texttt{/users/current} pošlje zahtevek GET.
+Strežnik vrne \texttt{User} objekt trenutnega uporabnika.
+Iz tega objekta nato storitev za glasovnega asistenta preveri, ali ima nase vezanega glasovnega asistenta, tako da preveri vrednost boolean polja \texttt{UsesVoiceAssistant}.
+
+Če ima uporabnik vrednost polja \texttt{UsesVoiceAssistant} nastavljeno na \texttt{true}, lahko uporablja glasovnega asistenta.
+
+Če ima uporabnik vrednost polja \texttt{UsesVoiceAssistant} nastavljeno na \texttt{false}, mora uporabo glasovnega asistenta zahtevati.
+To naredi tako, da pošlje avtoriziran PUT zahtevek (brez vsebine) na URL \texttt{/users/requestva}.
+
+Če nobeden drug prijavljen uporabnik nima polja \texttt{UsesVoiceAssistant} nastavljenega na \texttt{true}, se njegova zahteva odobri.
+V njegovem objektu \texttt{User} se nastavi vrednost \texttt{UsesVoiceAssistant} na \texttt{true}.
+Če pa ima kateri od uporabnikov to polje nastavljeno na \texttt{true}, pa mora počakati, da uporabnik, ki asistenta uporablja, asistenta izpusti.
+Ko si asistenta ne lasti nobeden drug uporabnik, ga lahko veže nase.
+
+Izpust asistenta dosežemo, da uporabnik, ki asistenta trentuno uporablja, pošlje avtoriziran PUT zahtevek na URL \texttt{/users/releaseva}.
+
+V mobilni aplikaciji zahtevanje in izpust asistenta nadziramo na ''Dashboard'' strani, tako da tapnemo na ikono mikrofona.
+
+// slika gumba v obeh stanjih
+
+\subsubsection{Odpiranje in sinhronizacija projekta}
+
+Ko uporabnik iz seznama izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL \texttt{/project/\{id\}/notes} zahtevek GET.
+\texttt{\{id\}} je v tem primeru unikatni identifikator željenega projekta.
+
+Storitev za projekte (razred \texttt{ProjectService.cs}) nato prejet odgovor, razreda \texttt{Project}, hrani.
+Vse korake, ki pripadajo temu projektu, se hrani v seznam tipa ObservableCollection.
+Ta tip seznama smo izbrali, saj je nad njim najlažje opravljati zamenjevalne operacije.
+
+Storitev nato začne s periodično sinhronizacijo projekta.
+To poteka tako, da storitev za projekte na URL \texttt{/project/\{id\}/nonotes} pošlje avtoriziran GET zahtevek.
+Strežnik v odgovor vrne objekt razreda \texttt{Project} s praznim seznamom korakov.
+Vse, kar gledamo, je vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest}.
+
+Če ima novo prejeti projekt nastavljeno zastavico \texttt{NoteRequest}, storitev odpre obrazec za dodajanje novega tekstovnega koraka v projekt.
+
+Če ima novo prejeti projekt nastavljeno zastavico \texttt{ImageRequest}, storitev za projekte odpre obrazec za dodajanje nove fotografije.
+% Ta stran ob pojavitvi zažene kamero.
+
+Če ima novo prejeti projekt nastavljeno zastavico \texttt{AlexaNoteRequest}, storitev za projekte pošlje avtoriziran GET zahtevek na URL \texttt{/project/\{id\}/notes}.
+Polje \{id\} mora v tem primeru biti unikatni identifikator odprtega projekta.
+V odgovor prejme objekt razreda \texttt{Project}, vključno s seznamom vseh korakov, ki mu pripadajo.
+V prejetem seznamu je namreč tudi narekovan korak.
+Storitev za projekte primerja, katerega od korakov še nima v svoji zbirki.
+Ko ta korak najde ga doda v svoj ObservableCollection.
+
+Ko se projekt sinhronizira, storitev za projekte pošlje na strežnik avtorizirano PUT zahtevo na URL \texttt{/project/last/closerequests}.
+Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest} na \texttt{false}.
 
 
-% koga briga
-% \subsection{Uvoz knjižnic in zunanjih virov v projekt}
-% Po dizajnu sem se lotil programiranja.
-% Najprej sem ustvaril prazen Xamarin projekt tipa Shell.
-% Najprej sem želel uvoziti funkcionalnosti, ki bi mi v prihodnjih fazah olajšale delo.
-% Prva taka stvar je bila uvoz razširitev Fody.
-% To je orodje, ki med prevajanjem MVVM aplikacije določene odseke C\# kode "vstavi" v preveden assembly.
-% S tem se ohrani ista funkcionalnost z veliko manj boilerplate kode.
-% 
-% // slika fody
-% 
-% Naslednja takšna funkcionalnost je bila uvoz fontov.
-% Za ikone nisem uporabil SVG ali PNG zbirk, ampak sem uporabil popularen font FontAwesome, ki ga nekoliko enostavneje uporabiti in uvoziti.
-% 
-% V projektu OpenReportShell.Android sem v Assets mapo dodal podmapo fonts.
-% V tej mapi se nahaja datoteka s FontAwesome Solid fontom.
-% 
-% Ta font sem uporabil tako, da sem v osnovnem projektu dodal Resource v datoteki App.xaml.
-% 
-% // slika resource
-
-\subsection{Povezava na strežnik in razred Startup.cs}
-
-// razlozi kot normalen človek
-
-Za povezavo na strežnik sem želel v projektu imeti eno instanco statičnega razreda.
-Ta razred (OpenReportCloudCommunicationService) vsebuje metode, namenjene komunikaciji z API-jem.
-
-Registriral sem ga po metodi DependencyInjection.
-To sem dosegel tako, da sem v projekt dodal razred Startup.cs.
-V tem razredu sem registriral razred ServiceProvider, s katerim bom lahko dostopal do registriranih razredov drugod po aplikaciji.
-
-V ServiceProvider sem dodal dva razreda.
-Prvi je HttpClient, ki sem ga uporabil za pošiljanje HTTP sporočil na strežnik, drugi pa je OpenReportServerCommunicationService, ki je bil uporabljen za formiranje HTTP sporočil.
-
-// slika ConfigureServices
-
-// slika OpenReportServerCommunicationService
-
+% \subsection{Operacije znotraj projekta}
 
 \subsection{DashboardPage}
 

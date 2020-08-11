@@ -479,6 +479,8 @@ Korake lahko enostavno dodajamo in urejamo.
 Prav tako je možno dodajati slikovno gradivo.
 Pisarniški programi omogočajo tudi enostaven izvoz dokumenta na tiskalnik, če želimo imeti dokument na listu papirja.
 
+Prednost pisarniških programov je tudi možnost uporabe fizične tipkovnice.
+
 Kljub temu pa uporaba te metode prinese nove slabosti:
 \begin{itemize}
 	\item če imamo dokument na več mestih, moramo ob spremembah zagotoviti, da se spremenijo vsi.
@@ -695,7 +697,15 @@ Baza hrani tabele Users (\textit{slo. Uporabniki}), Projects (\textit{slo. Proje
 Vsak uporabnik lahko ima 0 ali mnogo projektov (opisov tehnološkega postopka).
 Vsak projekt ima lahko 0 ali mnogo zapiskov (korakov).
 
-// naredi sliko sheme baze
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=11cm]{er_diagram_small}
+\end{center}
+\caption{ER model podatkovne baze}
+\label{er_diagram}
+\end{figure}
+
+% // bom resizal in iz slike odstranil tabele, ki jih ne rabimo
 
 \noindent Strežnik ima naslednje naloge:
 \begin{enumerate}
@@ -1094,6 +1104,15 @@ V našem skillu bomo imeli tri glavne namere:
 \texttt{\{besedilo\}} je tekstovna spremenljivka, v katero Skill hrani razpoznano tekstovno vsebino koraka.
 V primeru, da uporabnik izreče ''\textit{note unscrew the backplate}'', bo vrednost spremenljivke \texttt{\{besedilo\}} ''unscrew the backplate''.
 
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=13cm]{intent_literal}
+\end{center}
+\caption{TakeNoteIntent}
+\label{TakeNoteIntent}
+\end{figure}
+
 Ta Intent bo v ozadni kodi Skill-a zagnal funkcijo, ki bo ustvarila novo SQS sporočilo.
 V telo tega sporočila bo funkcija vstavila vrednost spremenljivke \texttt{\{besedilo\}} in ga poslala v SQS vrsto.
 Skill zatem vrne uporabniku odgovor ''Noted!'' in se preneha izvajati.
@@ -1104,12 +1123,28 @@ Ta Intent bo v ozadni kodi Skill-a zagnal funkcijo, ki bo ustvarila novo SQS spo
 V telo tega sporočila bo funkcija vstavila vrednost ''\texttt{addnote}'' in ga poslala v SQS vrsto.
 Skill zatem vrne uporabniku odgovor ''Opening the form!'' in se preneha izvajati.
 
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=8cm]{intent_text}
+\end{center}
+\caption{OpenTextNoteFormIntent}
+\label{OpenTextNoteFormIntent}
+\end{figure}
+
 \texttt{OpenImageNoteFormIntent} se bo zagnal, ko bo po invokacijski frazi uporabnik izrekel ''\texttt{take a picture}''.
 
 Ta Intent bo v ozadni kodi Skill-a zagnal funkcijo, ki bo ustvarila novo SQS sporočilo.
 V telo tega sporočila bo funkcija vstavila vrednost ''\texttt{addimage}'' in ga poslala v SQS vrsto.
 Skill zatem vrne uporabniku odgovor ''Launching camera!'' in se preneha izvajati.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=8cm]{intent_image}
+\end{center}
+\caption{OpenImageNoteFormIntent}
+\label{OpenImageNoteFormIntent}
+\end{figure}
 
 \subsection{Izvajanje ''Skill-a'' po korakih}
 
@@ -1181,7 +1216,15 @@ Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na OpenRepor
 V tekstovno polje mora vpisati URL ali IP strežnika.
 Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
 
-// slika povezavne strani
+% // slika povezavne strani
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=4cm]{app_connect}
+\end{center}
+\caption{Povezavna stran}
+\label{app_connect}
+\end{figure}
 
 Ko uporabnik klikne gumb ''Connect'', se preveri, ali je naslov pravilnem formuliran.
 Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano GET zahtevo na ''\texttt{naslovstrežnika}/connect''. 
@@ -1194,6 +1237,16 @@ Ob neuspešnem poskusu povezave se uporabniku na strani prikaže opis napake.
 
 Prikaže se stran za prijavo.
 Na tej strani uporabnik vpiše svoje uporabniško ime ali geslo, lahko pa odpre stran za registracijo računa.
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=8cm]{app_login}
+\end{center}
+	\caption{Prijavna stran pred poskusom prijave (levo), in po uspešnem poskusu prijave (desno)}
+\label{app_login}
+\end{figure}
+
 
 Za prijavo in registracijo skrbi avtentikacijska storitev (razred \\\texttt{IdentityService.cs}).
 Ta storitev je enako kot storitev za komunikacijo registrirana z Dependency Injection.
@@ -1226,7 +1279,13 @@ Zahtevek je objekt razreda \texttt{RegisterUserRequest}.
 	string Password; \\
 \} }
 
-// dodaj sliko registracijske strani in prijavne strani
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=4cm]{app_register}
+\end{center}
+	\caption{Registracijska stran}
+\label{app_register}
+\end{figure}
 
 \subsection{Ustvarjanje, brisanje in odpiranje projektov}
 
@@ -1256,7 +1315,13 @@ Strežnik v odgovor vrne objekt razreda \texttt{Project}, ki ga je zahtevek ustv
 
 Nov projekt se nato prikaže v seznamu vseh uporabnikovih projektov na strani ''Dashboard'', kjer ga lahko uporabnik odpre ali izbriše.
 
-// stanjska slika ustvarjanja projekta po korakih
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=13cm]{app_newproject}
+\end{center}
+	\caption{Postopek ustvarjanja novega projekta po korakih.}
+\label{app_newproject}
+\end{figure}
 
 \subsubsection{Izbris projekta}
 
@@ -1286,7 +1351,13 @@ Izpust asistenta dosežemo, da uporabnik, ki asistenta trentuno uporablja, pošl
 
 V mobilni aplikaciji zahtevanje in izpust asistenta nadziramo na ''Dashboard'' strani, tako da tapnemo na ikono mikrofona.
 
-// slika gumba v obeh stanjih
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=7cm]{app_alexa_yesno}
+\end{center}
+	\caption{Gumb v obeh stanjih}
+\label{app_alexa_yesno}
+\end{figure}
 
 \subsection{Odpiranje in sinhronizacija projekta}
 
@@ -1323,7 +1394,13 @@ Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest}
 Ko ima uporabnik projekt odprt, lahko vanj dodaja zapiske, jih briše, ureja in jim spreminja vrstni red.
 Doda lahko tekstovni korak ali korak s fotografijo.
 
-// slika, ki prikaže kje se dodaja in ureja - dva screenshota
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=4cm]{app_note}
+\end{center}
+	\caption{Stran za dodajanje/urejanje korakov}
+\label{app_note}
+\end{figure}
 
 Da se v projekt doda tekstovni korak mora uporabnik v vnosnem obrazcu podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
 Ti podatki se nato hranijo v objektu razreda \texttt{Note}.
@@ -1384,7 +1461,13 @@ Lahko jo tudi zakodiramo v znakovni niz in pošljemo na strežnik.
 
 Uporabnik lahko projekt izvozi v človeško berljivo obliko na strežnik v dva različna formata: tekstovno datoteko (.txt) in HTML dokument.
 
-// slika screena za export
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=4cm]{app_project_export}
+\end{center}
+	\caption{Stran za izvoz projektov}
+\label{app_note}
+\end{figure}
 
 Storitev za komunikacijo s strežnikom pošlje avtoriziran POST zahtevek na strežnik (\texttt{/project/\{id\}/export/text} ali \texttt{/project/\{id\}/export/html}).
 

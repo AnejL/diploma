@@ -645,7 +645,7 @@ Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče ''S
 Da lahko ustvarimo in objavimo Skill rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
 
 
-''Skill'' sestavljajo:
+\noindent ''Skill'' sestavljajo:
 \begin{itemize}
 	\item Invocation - fraza, ki ''Skill'' zažene,
 	\item Intent - fraze, ki jih Skill razpozna kot funkcije,
@@ -1141,6 +1141,9 @@ Na podlagi imena prejetega Intent-a ločimo, ali gre za TakeNoteIntent, OpenText
 \label{skill}
 \end{figure}
 
+
+\subsection{Testiranje Alexa ''Skilla''}
+
 \section{Implementacija mobilne aplikacije}
 
 Mobilna aplikacija bo služila kot osnoven način za interakcijo s strežnikom.
@@ -1161,10 +1164,10 @@ Pri tem pristopu aplikacijo razdelimo na tri dele.
 
 \textbf{ViewModel} pa se uporablja, da se poveže funkcije uporabniškega vmesnika in modela (''poslovne logike'') ter po potrebi preoblikuje podatke.
 
-Rezultat upoštevanja tega pristopa je čista koda, ki se ne prepleta.
-Model vsebuje le abstrakcijo naših podatkov in poslovno logiko.
+Rezultat upoštevanja tega pristopa je čista koda, ki nima prepletenih elementov med ozadno kodo in uporabniškim vmesnikom.
+Model vsebuje le abstrakcijo naših podatkov in ''poslovno logiko''.
 Ti podatki se v ViewModelu pretvorijo v obliko, ki bo prikazana uporabniku.
-View pa vsebuje izključno grafične elemente.
+View pa nato servira pripravljene podatke uporabniku v obliki grafičnih elementov.
 
 // slika mvvm
 
@@ -1172,7 +1175,7 @@ View pa vsebuje izključno grafične elemente.
 
 Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \\\texttt{OpenReportServerCommunicationService.cs}).
 Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
-Za to metodo smo se odločili, saj omogoča enostavno uporabo instanc registriranih razredov kjerkoli v aplikaciji.
+Za to metodo registracije storitev smo se odločili, saj omogoča enostavno uporabo instanc registriranih storitev kjerkoli v aplikaciji.
 
 Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na OpenReport strežnik.
 V tekstovno polje mora vpisati URL ali IP strežnika.
@@ -1199,8 +1202,8 @@ Pogoj, da jo lahko koristimo, je, da je storitev za komunikacijo uspešno vzpost
 Poskus prijave poteka tako, avtentikacijska storitev uporabniško ime in geslo iz prijavne strani zapiše v objekt razreda \texttt{LoginUserRequest}.
 
 \noindent \texttt{LoginUserRequest \{ \\
-	Email; \\
-	Password; \\
+	string Email; \\
+	string Password; \\
 \} }
 
 Nato se ta objekt pošlje na strežnik na URL \texttt{/identity/login} preko POST metode.
@@ -1219,8 +1222,8 @@ Registracijski zahtevek se pošlje na strežnik na URL \texttt{/identity/registe
 Zahtevek je objekt razreda \texttt{RegisterUserRequest}.
 
 \noindent \texttt{RegisterUserRequest \{ \\
-	Email; \\
-	Password; \\
+	string Email; \\
+	string Password; \\
 \} }
 
 // dodaj sliko registracijske strani in prijavne strani
@@ -1231,7 +1234,7 @@ Po prijavi lahko uporabnik odpre stran s projekti.
 Na tej strani se prikažejo:
 \begin{itemize}
 	\item seznam vseh njegovih projektov, 
-	\item gumbi za izbris posameznih projektov,
+	\item gumbi za izbris posameznega projekta,
 	\item gumb za dodajanje novega projekta in
 	\item gumb za zahtevanje in izpust glasovnega asistenta.
 \end{itemize}
@@ -1239,9 +1242,29 @@ Na tej strani se prikažejo:
 \subsubsection{Ustvarjanje novega projekta}
 
 // ali opišem, glede na to da je večina tega opisana že pri serverju?
+Za ustvarjanje novega projekta, mora na strani za ustvarjanje projektov uporabnik vpisati naslov projekta (\texttt{Title}), kratek opis (\texttt{Description} in našteti možne nevarnosti pri delu \texttt{Dangers}.
+
+Te tri vrednosti se zapišejo v objekt razreda \texttt{CreateProjectRequest}.
+\noindent \texttt{CreateProjectRequest\{ \\
+	string Title; \\
+	string Description; \\
+	string Dangers; \\
+\} }
+
+Ta objekt nato storitev za komunikacijo s strežnikom pošlje preko metode POST na URL \texttt{/projects/create}.
+Strežnik v odgovor vrne objekt razreda \texttt{Project}, ki ga je zahtevek ustvaril.
+
+Nov projekt se nato prikaže v seznamu vseh uporabnikovih projektov na strani ''Dashboard'', kjer ga lahko uporabnik odpre ali izbriše.
+
+// stanjska slika ustvarjanja projekta po korakih
 
 \subsubsection{Izbris projekta}
-\subsubsection{Zahtevanje in izpust glasovnega asistenta}
+
+Da uporabnik izbriše projekt, mora na strani ''Dashboard'' ob željenem projektu tapniti na gumb z ikono smetnjaka.
+Pritisk na ta gumb sporoči storitvi za komunikacijo s strežnikom, naj pošlje avtoriziran DELETE zahtevek na URL \texttt{/projects/\{id\}/delete}.
+Strežnik ob uspešnem izbrisu projekta vrne kopijo izbrisanega projekta.
+
+\subsection{Zahtevanje in izpust glasovnega asistenta}
 
 Za zahtevanje in izpust glasovnega asistenta v mobilni aplikaciji skrbi storitev za glasovnega asistenta (razred \texttt{VoiceAssistantService.cs}).
 Ta se registrira ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev uspešno opravi prijavo uporabnika.
@@ -1265,7 +1288,7 @@ V mobilni aplikaciji zahtevanje in izpust asistenta nadziramo na ''Dashboard'' s
 
 // slika gumba v obeh stanjih
 
-\subsubsection{Odpiranje in sinhronizacija projekta}
+\subsection{Odpiranje in sinhronizacija projekta}
 
 Ko uporabnik iz seznama izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL \texttt{/project/\{id\}/notes} zahtevek GET.
 \texttt{\{id\}} je v tem primeru unikatni identifikator željenega projekta.
@@ -1295,28 +1318,111 @@ Ko se projekt sinhronizira, storitev za projekte pošlje na strežnik avtorizira
 Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest} na \texttt{false}.
 
 
-% \subsection{Operacije znotraj projekta}
+\subsection{Dodajanje in brisanje zapiskov}
 
-\subsection{DashboardPage}
+Ko ima uporabnik projekt odprt, lahko vanj dodaja zapiske, jih briše, ureja in jim spreminja vrstni red.
+Doda lahko tekstovni korak ali korak s fotografijo.
 
-// koga briga, spremeni 
+// slika, ki prikaže kje se dodaja in ureja - dva screenshota
 
-Na strani DashboardPage se uporabniku prikaže seznam odprtih projektov.
-Ko uporabnik klikne na željeni projekt, ga preusmeri na stran ProjectPage, kjer ga lahko ureja.
-Če nanj pridrži, se mu pokažejo dodatne opcije, kot so izbris in ahriviranje.
+Da se v projekt doda tekstovni korak mora uporabnik v vnosnem obrazcu podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
+Ti podatki se nato hranijo v objektu razreda \texttt{Note}.
+Ta objekt storitev za projekte zapakira v objekt tipa \texttt{AddNoteRequest} in ga pošlje storitvi za komunikacijo s strežnikom.
 
-// slika DashboardPage
+\noindent \texttt{AddNoteRequest \{ \\
+Note note; \\
+\} }
 
-\subsection{ProjectPage}
+Storitev za komunikacijo s strežnikom pošlje ta objekt na strežnik na naslov \texttt{/projects/\{id\}/addnote}.
+Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, v katerega želimo korak vstaviti.
+Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo projekta z vstavljenim zapiskom.
 
-Najpomembnejši del aplikacije je urejanje zapiskov.
-To lahko uporabnik dela, 
+Storitev za projekte nato ta korak doda svoji zbirki korakov.
 
+Pri vstavljanju slikovnih korakov je postopek vstavljanja podoben.
+Ko uporabnik odpre stran za dodajanje slikovnega koraka, se zažene privzeta aplikacija za kamero.
+Ko uporabnik sliko posname, se ta prikaže na strani z vnosnim obrazcem.
+Slika se na mobilni napravi hrani v mapi \texttt{Pictures/\{naslov projekta\}} v uporabnikovem domačem direktoriju.
+Uporabnik ima na vnosnem obrazcu možnost sliko ponovno posneti ali jo odstraniti.
+
+Uporabnik mora v vnosnem obrazcu podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
+
+Ko uporabnik nato pritisne gumb za vstavljanje slikovnega koraka v projekt.
+Storitev za upravljanje s projektom fotografijo zakodira v znakovni niz po metodi Base64.
+Storitev za komunikacijo s strežnikom zakodirano fotografijo in novo ustvarjen objekt razreda \texttt{Note} vstavi v objekt tipa \texttt{AddImageRequest}.
+
+\noindent \texttt{AddImageRequest \{ \\
+Note note; \\
+string ImageString;  \\
+\} }
+
+Novo nastali zahtevek \texttt{AddImageRequest} se nato avtorizira z JWT avtorizacijskim žetonom in pošlje na URL \texttt{/projects/\{id\}/addimage}.
+Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, v katerega želimo korak vstaviti.
+Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo projekta z vstavljenim zapiskom.
+
+
+\subsubsection{Uporaba kamere v Xamarin}
+
+% https://github.com/jamesmontemagno/MediaPlugin
+
+Za uporabo kamere v ogrodju Xamarin smo uporabili vtičnik Xam.Plugin.Media.
+Vtičnik je licensiran pod MIT licenco.
+
+Zanj smo se odločili, saj podpira zajem fotografij s privzeto aplikacijo za zajemanje fotografij.
+Izbiramo lahko tudi kvaliteto zajete fotografije.
+
+Pri zajemu slike najprej preverimo, ali imamo zadostne pravice.
+Imeti moramo pravice za dostop do shrambe, dostop do fotografij in dostop do kamere.
+
+Fotografijo nato zajamememo z metodo \texttt{TakePictureAsync}.
+Kreirano fotografijo nato preberemo in znotraj aplikacije hranimo v objektu razreda ImageSource.
+Fotografijo v tej obliki lako prikažemo v XAML z grafičnim elementom Image.
+Lahko jo tudi zakodiramo v znakovni niz in pošljemo na strežnik.
+
+
+\subsection{Izvoz projekta}
+
+Uporabnik lahko projekt izvozi v človeško berljivo obliko na strežnik v dva različna formata: tekstovno datoteko (.txt) in HTML dokument.
+
+// slika screena za export
+
+Storitev za komunikacijo s strežnikom pošlje avtoriziran POST zahtevek na strežnik (\texttt{/project/\{id\}/export/text} ali \texttt{/project/\{id\}/export/html}).
+
+\subsection{Izvedba testnega projekta s sistemom OpenReport}
 
 
 \section{Evalvacija funkcionalnosti}
 
+Primerjali smo pisanje opisa tehnološkega postopka na list papirja, s pisarniškim programom in sistemom (Katerikoli lims bom že sprobal) in s sistemom OpenReport.
+Ugotovili smo, da je sistem OpenReport pri manjših projektih lahko učinkovita rešitev.
+Možnost pisanja tekstovnih korakov služi dobro za manjše opombe.
+Slikovni koraki se dobro obnesejo za večje oporne točke pri delu.
+
+Možnost izvoza projekta omogoča tudi prenos podatkov v drugačne sisteme za vodenje evidence dela ali pisanje opisa tehnološkega postopka.
+
+Pod pričakovnanji se je izkazalo narekovanje besedila glasovnemu asistentu.
+Razpoznavanje glasu pri ''Skill-ih'' za asistenta Amazon Alexa deluje najbolje, ko ima stavek veliko stopnjo ujemanja z definirano frazo.
+\begin{itemize}
+	\item Alexa je frazo ''Take a picture'' pravilno razpoznala v 18 od 20 testnih izgovorjav.
+	\item Frazo ''Create a text note'' je pravilno razpoznala v 17 od 20 testnih izgovorjav.
+	\item Frazo ''note this is a voice note'' je pravilno razpoznala v 3 od 20 testnih izgovorjav.
+	\item Frazo ''note backplate removal takes about three minutes'' ni pravilno razpoznala v nobeni od 20 testnih izgovorjav.
+\end{itemize}
+
+Odpiranje kamere in obrazca za dodajanje tekstovnega koraka preko glasovnega ukaza se je izkazalo za delno uspešno.
+Uporabno je bilo predvsem, ko mobilnega telefona med delom nismo imeli na dosegu roke.
+Problem je prikazovalo predvsem dejstvo, da izgovorjava invokacijske fraze, fraz namer in čakanje na obdelavo zahtev je trajalo v povprečju 18 sekund.
+Odklepanje mobilnega telefona, ki ga imamo v dosegu rok in ga lahko dosežemo brez presedanja ter odpiranje forme za dodajanje korakov je trajalo v povprečju 4 sekunde.
+Odklepanje mobilnega telefona, ki je oddaljen dva metra ter odpiranje forme za dodajanje korakov je trajalo povprečju 8 sekund.
+
 \chapter{Možnosti nadaljnega razvoja}
+
+Glavna šibka točka sistema OpenReport je bil glasovni asistent Amazon Alexa.
+
+Veliko večjo učinkovitost bi lahko dosegli s specializiranim asistentom, ki bi lahko razpoznal ukaze z eno samo frazo in ne kombinacijo dveh, kot Amazon Alexa.
+
+%  Veliko bolje bi bilo tudi uporabiti algoritme za razpoznavanje govora brez opore definiranih fraz.
+
 \chapter{Zaključek}
 
 % \section{Formati slik}

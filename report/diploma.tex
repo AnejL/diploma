@@ -345,19 +345,17 @@ Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazit
 \noindent\textbf{Avtor:} \tauthor
 \bigskip
 
-%\noindent\textbf{Povzetek:} 
-%\noindent V vzorcu je predstavljen postopek priprave diplomskega dela z uporabo okolja \LaTeX. Vaš povzetek mora sicer vsebovati približno 100 besed, ta tukaj je odločno prekratek.se image upload pa vse mam nekje kodo od sihta
 %Dober povzetek vključuje: (1) kratek opis obravnavanega problema, (2) kratek opis vašega pristopa za reševanje tega problema in (3) (najbolj uspešen) rezultat ali prispevek magistrske naloge.
-
-// TODO ko bomo konec
 
 \noindent Diplomsko delo obravnava področje izboljšanja procesa pisanja delavniškega dnevnika oziroma opisa tehnološkega postopka.
 Cilj je preizkusiti računalniški sistem z glasovnim asistentom, s pomočjo katerega lahko narekujemo zapiske med delom. 
 Te zapiske pa lahko naknandno urejamo s pomočjo mobilne aplikacije.
-Uporabili bomo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. Skill-ov).
-%Rezultat te raziskave je bil, da so trenutne tehnike razpoznavanja govora pri glasovnemu asistentu Amazon Alexa še nezadostne za učinkovito delo.
-%Načini in metode, kako lahko takšne naprave programiramo in uporabljamo v svojih informacijskih rešitvah pa so odlične in dobro dokumentirane.
-
+Uporabili bomo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. ''Skill-ov'').
+Ugotovili smo, da je specializiran sistem za pisanje opisov tehnološkega postopka lahko dobra alternativa pisanju teh dokumentov s pisarniškimi programi ali na list papirja.
+Ugotovili smo, da Amazon Alexa ni bila zmožna razpoznati izgovorjenih stavkov 
+z veliko variirajočimi besedami.
+Uspešna je bila pri razpoznavanju stavkov, ki so se v večini ali v celoti ujemali z naučenim razpoznavnim modelom.
+Kljub temu, je čas, ki je potreben, da Alexa razpozna prejet glasovni ukaz prepočasen, da bi bil sistem učinkovit.
 \bigskip
 
 \noindent\textbf{Ključne besede:} \tkeywords.
@@ -376,18 +374,15 @@ Uporabili bomo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. Sk
 \noindent\textbf{Author:} \tauthor
 \bigskip
 
-// TODO ko bomo konec
+\noindent This thesis deals with the process of optimising the process of writing a workshop report.
+The goal of thesis was testing a system with a voice assistant that could be used to take notes during work.
+These notes can be edited and ordered via a mobile application.
+We have used Amazon Alexa as it offers simple programming with Alexa Skills.
+We discovered that a specialised system for writing workshop reports can be an improvement over writing them with office suites or using pen and paper.
+We discovered that Amazon Alexa was unsuitable for a literal dictation of longer, largely varying text.
+It was successful at recognising phrases that fully or mostly matched its learned model.
+Regardless, Alexa's ability to process custom voice commands, at the time of this research, was too slow to be deemed efficient.
 
-%\noindent\textbf{Abstract:} 
-%\noindent This sample document presents an approach to typesetting your BSc thesis using \LaTeX. 
-%A proper abstract should contain around 100 words which makes this one way too short.
-\noindent This thesis deals with the process of optimising the process of writing a lab report.
-Students, that took part in the survey, spend the most time to type the report into a digital format, write notes on paper and ordering their notes.
-The goal of thesis is testing a system with a voice assistant that could be used to take notes during work itself.
-These notes can be edited and ordered later via a mobile or desktop application.
-We will use Amazon Alexa as it offers simple programming with Alexa Skills.
-%As a result of this research, I found out that techniques of voice recognition with Amazon Alexa voice assistant were inadequate for fluent and efficient work.
-%The methods for programming and integrating these kinds of devices in our software solutions are excelent and well documented.
 \bigskip
 
 \noindent\textbf{Keywords:} \tkeywordsEn.
@@ -1400,12 +1395,12 @@ Strežnik ob uspešnem izbrisu projekta odjemalcu vrne kopijo izbrisanega projek
 
 \subsection{Zahtevanje in izpust glasovnega asistenta}
 
-Za zahtevanje in izpust glasovnega asistenta v mobilni aplikaciji skrbi storitev za glasovnega asistenta (razred \texttt{VoiceAssistantService.cs}).
+Za zahtevanje in izpust glasovnega asistenta v mobilni aplikaciji skrbi storitev za upravljanje z glasovnim asistentom (razred \texttt{VoiceAssistantService.cs}).
 Ta se registrira ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev uspešno opravi prijavo uporabnika.
 Takrat storitev na URL ''\texttt{/users/current}'' pošlje zahtevek GET.
 
 Strežnik vrne \texttt{User} objekt trenutnega uporabnika.
-Iz tega objekta nato storitev za glasovnega asistenta preveri, ali ima nase vezanega glasovnega asistenta, tako da preveri vrednost boolean polja \texttt{UsesVoiceAssistant}.
+Iz tega objekta storitev za upravljanje z glasovnim asistentom preveri, ali ima nase vezanega glasovnega asistenta, tako da preveri vrednost boolean polja \texttt{UsesVoiceAssistant}.
 
 Če ima uporabnik vrednost polja \texttt{UsesVoiceAssistant} nastavljeno na \texttt{true}, lahko uporablja glasovnega asistenta.
 
@@ -1419,7 +1414,7 @@ Ko si asistenta ne lasti nobeden drug uporabnik, ga lahko veže nase.
 
 Izpust asistenta dosežemo, da uporabnik, ki asistenta trentuno uporablja, pošlje avtoriziran PUT zahtevek na URL ''\texttt{/users/releaseva}''.
 
-V mobilni aplikaciji zahtevanje in izpust asistenta nadziramo na ''Dashboard'' strani, tako da tapnemo na ikono mikrofona.
+V mobilni aplikaciji zahtevanje in izpust asistenta nadziramo na ''Dashboard'' strani, s pritiskom na ikono mikrofona.
 
 \begin{figure}[H]
 \begin{center}
@@ -1431,15 +1426,16 @@ V mobilni aplikaciji zahtevanje in izpust asistenta nadziramo na ''Dashboard'' s
 
 \subsection{Odpiranje in sinhronizacija projekta}
 
-Ko uporabnik iz seznama izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL ''\texttt{/project/\{id\}/notes}'' zahtevek GET.
-\texttt{\{id\}} je v tem primeru unikatni identifikator željenega projekta.
+Ko uporabnik iz seznama izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL ''\texttt{/projects/\{id\}/notes}'' zahtevek GET.
+Polje \texttt{\{id\}} je v tem primeru unikatni identifikator željenega projekta.
 
 Storitev za projekte (razred \texttt{ProjectService.cs}) nato prejet odgovor, razreda \texttt{Project}, hrani.
 Vse korake, ki pripadajo temu projektu, se hrani v seznam tipa ObservableCollection.
+Seznam nato prikažemo na strani za upravljanje s projektom.
 Ta tip seznama smo izbrali, saj je nad njim najlažje opravljati zamenjevalne operacije.
 
 Storitev nato začne s periodično sinhronizacijo projekta.
-To poteka tako, da storitev za projekte na URL ''\texttt{/project/\{id\}/nonotes}'' pošlje avtoriziran GET zahtevek.
+To poteka tako, da storitev za projekte na URL ''\texttt{/projects/\{id\}/nonotes}'' pošlje avtoriziran GET zahtevek.
 Strežnik v odgovor vrne objekt razreda \texttt{Project} s praznim seznamom korakov.
 Vse, kar gledamo, je vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest}.
 
@@ -1447,7 +1443,7 @@ Vse, kar gledamo, je vrednost zastavic \texttt{NoteRequest}, \texttt{ImageReques
 
 Če ima novo prejeti projekt nastavljeno zastavico \texttt{ImageRequest}, storitev za projekte odpre obrazec za dodajanje nove fotografije.
 
-Če ima novo prejeti projekt nastavljeno zastavico \texttt{AlexaNoteRequest}, storitev za projekte pošlje avtoriziran GET zahtevek na URL ''\texttt{/project/\{id\}/notes}''.
+Če ima novo prejeti projekt nastavljeno zastavico \texttt{AlexaNoteRequest}, storitev za projekte pošlje avtoriziran GET zahtevek na URL ''\texttt{/projects/\{id\}/notes}''.
 Polje \{id\} mora v tem primeru biti unikatni identifikator odprtega projekta.
 V odgovor prejme objekt razreda \texttt{Project}, vključno s seznamom vseh korakov, ki mu pripadajo.
 V prejetem seznamu je namreč tudi narekovan korak.
@@ -1463,6 +1459,8 @@ Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest}
 Ko ima uporabnik projekt odprt, lahko vanj dodaja zapiske, jih briše, ureja in jim spreminja vrstni red.
 Doda lahko tekstovni korak ali korak s fotografijo.
 
+// TODO dodaj stran s fotografijami
+
 \begin{figure}[H]
 \begin{center}
 	\includegraphics[width=4cm]{app_note}
@@ -1471,7 +1469,7 @@ Doda lahko tekstovni korak ali korak s fotografijo.
 \label{app_note}
 \end{figure}
 
-Da se v projekt doda tekstovni korak mora uporabnik v vnosnem obrazcu podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
+Pri dodajanju tekstovnega koraka mora uporabnik v vnosnem obrazcu podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
 Ti podatki se nato hranijo v objektu razreda \texttt{Note}.
 Ta objekt storitev za projekte zapakira v objekt tipa \texttt{AddNoteRequest} in ga pošlje storitvi za komunikacijo s strežnikom.
 
@@ -1483,19 +1481,19 @@ AddNoteRequest {
 
 Storitev za komunikacijo s strežnikom pošlje ta objekt na strežnik na naslov ''\texttt{/projects/\{id\}/addnote}''.
 Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, v katerega želimo korak vstaviti.
-Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo projekta z vstavljenim zapiskom.
+Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo dodanega objekta \texttt{Note}.
 
 Storitev za projekte nato ta korak doda svoji zbirki korakov.
 
 Pri vstavljanju slikovnih korakov je postopek vstavljanja podoben.
 Ko uporabnik odpre stran za dodajanje slikovnega koraka, se zažene privzeta aplikacija za kamero.
 Ko uporabnik sliko posname, se ta prikaže na strani z vnosnim obrazcem.
-Slika se na mobilni napravi hrani v mapi \texttt{Pictures/\{naslov projekta\}} v uporabnikovem domačem direktoriju.
+Slika se na mobilni napravi hrani v mapi ''\texttt{Pictures/\{naslov projekta\}}'' v uporabnikovem domačem direktoriju.
 Uporabnik ima na vnosnem obrazcu možnost sliko ponovno posneti ali jo odstraniti.
 
 Uporabnik mora v vnosnem obrazcu podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
 
-Ko uporabnik nato pritisne gumb za vstavljanje slikovnega koraka v projekt.
+Uporabnik mora nato pritisniti gumb za vstavljanje slikovnega koraka v projekt.
 Storitev za upravljanje s projektom fotografijo zakodira v znakovni niz po metodi Base64.
 Storitev za komunikacijo s strežnikom zakodirano fotografijo in novo ustvarjen objekt razreda \texttt{Note} vstavi v objekt tipa \texttt{UploadImageRequest}.
 
@@ -1508,7 +1506,7 @@ UploadImageRequest {
 
 Novo nastali zahtevek \texttt{UploadImageRequest} se nato avtorizira z JWT avtorizacijskim žetonom in pošlje na URL ''\texttt{/projects/\{id\}/addimage}''.
 Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, v katerega želimo korak vstaviti.
-Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo projekta z vstavljenim zapiskom.
+Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo pravkar vstavljenega objekta \texttt{Note}.
 
 
 \subsubsection{Uporaba kamere v Xamarin}
@@ -1567,7 +1565,7 @@ Razpoznavanje glasu pri ''Skill-ih'' za asistenta Amazon Alexa deluje najbolje, 
 
 Odpiranje kamere in obrazca za dodajanje tekstovnega koraka preko glasovnega ukaza se je izkazalo za delno uspešno.
 Uporabno je bilo predvsem, ko mobilnega telefona med delom nismo imeli na dosegu roke.
-Problem je prikazovalo predvsem dejstvo, da izgovorjava invokacijske fraze, fraz namer in čakanje na obdelavo zahtev je trajalo v povprečju 18 sekund.
+Kljub temu je problem prikazovalo dejstvo, da je izgovorjava invokacijske fraze, fraz namer in čakanje na obdelavo zahtev je trajalo v povprečju 18 sekund.
 Odklepanje mobilnega telefona, ki ga imamo v dosegu rok in ga lahko dosežemo brez presedanja ter odpiranje forme za dodajanje korakov je trajalo v povprečju 4 sekunde.
 Odklepanje mobilnega telefona, ki je oddaljen dva metra ter odpiranje forme za dodajanje korakov je trajalo povprečju 8 sekund.
 
@@ -1580,23 +1578,6 @@ Veliko večjo učinkovitost bi lahko dosegli s specializiranim asistentom, ki bi
 %  Veliko bolje bi bilo tudi uporabiti algoritme za razpoznavanje govora brez opore definiranih fraz.
 
 \chapter{Zaključek}
-
-% \section{Formati slik}
-% 
-% Bitne slike, vektorske slike, kakršnekoli slike, z \LaTeX{}om lahko vključimo vse.
-% Slika~\ref{pic1} je v {\tt .pdf} formatu.
-% \begin{figure}[h]
-% \begin{center}
-% \includegraphics[width=0.6\textwidth]{pic1.pdf}
-% \end{center}
-% \caption{Herschelov graf, vektorska grafika.}
-% \label{pic1}
-% \end{figure}
-% Pa res lahko vključimo slike katerihkoli formatov? 
-% Žal ne. 
-% Programski paket \LaTeX\ lahko uporabljamo v več dialektih. 
-% Ukaz {\tt latex} ne mara vključenih slik v formatu Portable Document Format {\tt .pdf}, ukaz {\tt pdflatex} pa ne prebavi slik v Encapsulated Postscript Formatu {\tt .eps}.
-% Strnjeno je vključevanje različnih vrst slikovnih datotek prikazano v tabeli~\ref{tbl:1}.
 
 
 \newpage %dodaj po potrebi, da bo številka strani za Literaturo v Kazalu pravilna!

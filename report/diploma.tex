@@ -349,10 +349,11 @@ Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazit
 %Dober povzetek vključuje: (1) kratek opis obravnavanega problema, (2) kratek opis vašega pristopa za reševanje tega problema in (3) (najbolj uspešen) rezultat ali prispevek magistrske naloge.
 
 \noindent Diplomsko delo obravnava področje vpeljave komercialno dostopnih glasovnih asistentov v proces pisanja delavniškega dnevnika.
+V nalogi raziščemo, ali vpeljava glasovnega asistenta v računalniški sistem pospeši delo s tem sistemom. 
 Cilj je implementirati in preizkusiti računalniški sistem z glasovnim asistentom, s pomočjo katerega lahko narekujemo zapiske med delom. 
 Te zapiske pa lahko naknandno urejamo s pomočjo mobilne aplikacije.
 Uporabili bomo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. ''Skill-ov'').
-Ugotovili smo, da je specializiran sistem za pisanje opisov tehnološkega postopka lahko dobra alternativa pisanju teh dokumentov s pisarniškimi programi ali na list papirja.
+% Ugotovili smo, da je specializiran sistem za pisanje opisov tehnološkega postopka lahko dobra alternativa pisanju teh dokumentov s pisarniškimi programi ali na list papirja.
 Ugotovili smo, da Amazon Alexa ni bila zmožna razpoznati izgovorjenih stavkov z veliko variirajočimi besedami.
 Uspešna je bila pri razpoznavanju stavkov, ki so se v večini ali v celoti ujemali z naučenim razpoznavnim modelom.
 Kljub temu, je čas, ki je potreben, da Alexa razpozna prejet glasovni ukaz prepočasen, da bi bil sistem učinkovit.
@@ -573,23 +574,30 @@ Glavne slabosti takšnega sistema so:
 \section{Definicija funkcionalnosti}
 
 % Na podlagi raziskave obstoječih možnosti pisanja opisov tehnoloških postopkov smo definirali 
-Učinkovit sistem za pisanje opisa tehnološkega postopka:
+Pri načrtovanju sistema za pisanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
+% Učinkovit sistem za pisanje opisa tehnološkega postopka:
 \begin{itemize}
-	\item povzroča čim krajše prekinitve dela,
-	\item vsebuje možnost uporabe glasu za narekovanje korakov,
-	\item hrani uporabljene podatke (fotografije, zapiske) na enem mestu.
+	\item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
+	\item komponente sistema morajo biti enostavno zamenljive,
+	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu.
+	\item sistem mora biti popolnoma funkcionalen brez glasovnega asistenta.
 \end{itemize}
 
-Sistem, ki ga bomo sprogramirali v tej raziskavi bo namenjen predvsem individualnim uporabnikom in bo mišljen kot alternativa pisanju delavniških dnevnikov na list papirja ali s pisarniškimi programi.
+% Sistem, ki ga bomo sprogramirali v tej raziskavi bo namenjen predvsem individualnim uporabnikom in bo mišljen kot alternativa pisanju delavniških dnevnikov na list papirja ali s pisarniškimi programi.
+Sistem, ki ga bomo sprogramirali v tej raziskavi služi kot primer kompleksnejšega sistema, katerga uporabo bi radi pospešili z uporabo glasovnega asistenta.
 
-Podpirati mora ustvarjanje novega dnevnika in odpiranje ter urejanje že ustvarjenih dnevnikov.
+Sistem bo služil kot alternativni pristop k pisanju opisov tehnoloških postopkov z pisarniškimi programi.
+Sistem mora podpirati ustvarjanje novega opisa tehnološkega postopka in odpiranje ter urejanje že ustvarjenih opisov tehnološkega postopka.
 
 Vsak opis tehnološkega postopka mora imeti naslov, opis, seznam možnih nevarnosti pri delu in seznam korakov dela.
 
 Seznam korakov dela mora podpirati dodajanje novih korakov, urejanje obstoječih korakov, brisanje obstoječih korakov in spreminjanje vrstnega reda korakov.
 
-Za trenutno odprt delavniški dnevnik bo možno korake dodajati tudi preko glasovnega asistenta.
-Poleg narekovanja besedilnih korakov bo preko glasovnega asistenta možno tudi odpreti kamero ali obrazec za dodajanje koraka.
+Glasovni asistent bo imel naslednje vloge:
+\begin{itemize}
+	\item za trenutno odprt opis tehnološkega postopka bo z njim možno dodajati korake postopka,
+	\item z njim bo možno odpreti kamero ali obrazec za dodajanje koraka.
+\end{itemize}
 
 Raziskava iz leta 2018 je pokazala izboljšano učinkovitost pri delu raziskovalcev v kemijskem laboratoriju, v katerega so integrirali glasovne pomočnike \cite{austerjost2018introducing}.
 Namen raziskave je bil preizkus praktične uporabnosti glasovnih asistentov za branje laboratorijskih postopkov po korakih in glasovno upravljanje laboratorijskih instrumentov.
@@ -648,7 +656,7 @@ Za glasovni asistent Amazon Alexa bomo razvili ''Skill'', s katerim bo uporabnik
 Mobilna aplikacija bo služila kot primaren način za interakcijo s strežnikom.
 
 V tej diplomski nalogi raziskujemo, ali je možno z vpeljavo glasovnega asistenta v naš sistem izboljšati učinkovitost tega sistema.
-Da bodo rezultati raziskave čimbolj natančni, bomo dali učinkovitosti mobilne aplikacije velik poudarek.
+Da bodo rezultati raziskave čim bolj natančni, bomo dali učinkovitosti mobilne aplikacije velik poudarek.
 Uporabniški vmesnik bo zasnovan za čim hitrejše delo.
 To nam bo v zagotovilo, da uporabniški vmesnik aplikacije ni ''ozko grlo'' pri pisanju opisov tehnoloških postopkov.
 
@@ -1047,6 +1055,9 @@ Druga alternativa pa je bila direktna komunikacija Amazon Alexe in našega stre�
 Ta alternativa bi bila implementacijsko preprostejša kot uporaba SQS.
 Problem te alternative bi bil, da bi bilo treba javno odpreti API dostopne točke, ki jih lahko asistent uporablja, ali implementirati nove metode za avtentikacijo in avtorizacijo zahtevkov iz glasovnega asistenta.
 
+Uporaba SQS za hranjenje sporočil tudi omogoča enostavnejšo možnost zamenjave glasovnega asistenta.
+Asistent, s katerim bi želeli zamenjati Amazon Alexo mora za dosego enake končne funkcionalnosti odložiti na SQS sporočila (''addnote'', ''addimage'',...) v pravem formatu.
+
 \subsubsection{Zahtevanje in izpust glasovnega asistenta}
 
 V sklopu našega projekta bomo na enem OpenReport strežniku uporabljali samo enega glasovnega asistenta.
@@ -1269,7 +1280,7 @@ Za procesiranje glasovnih ukazov je porabila v povprečju od 3 do 6 sekund.
 
 \section{Implementacija mobilne aplikacije}
 
-
+Mobilno aplikacijo bomo uporabili kot primer klienta za naš strežnik.
 
 Do strežnika bo dostopala preko API vmesnika.
 Zahtevki se bodo prenašali preko HTTP protokola.
@@ -1499,7 +1510,7 @@ Doda lahko tekstovni korak ali korak s fotografijo.
 
 \begin{figure}[H]
 \begin{center}
-	\includegraphics[width=4cm]{app_note}
+	\includegraphics[width=4cm]{app_note_image}
 \end{center}
 	\caption{Stran za dodajanje/urejanje korakov}
 \label{app_note}
@@ -1621,7 +1632,6 @@ Ta premor simulira delo na izdelku.
 \noindent Testni korak za dodajanje tekstovnega koraka je potekal tako:
 \begin{enumerate}
 	\item premik do mobilnega telefona (3 metre),
-	\item prižig ekrana mobilnega telefona,
 	\item odpiranje forme za dodajanje tekstovnega koraka,
 	\item vpis besedila ''Test step text'',
 	\item nastavitev trajanja na 10 minut,
@@ -1632,8 +1642,6 @@ Ta premor simulira delo na izdelku.
 \noindent Testni korak za dodajanje slikovnega koraka je potekal tako:
 \begin{enumerate}
 	\item premik do mobilnega telefona (3 metre),
-	\item prižig ekrana mobilnega telefona,
-	\item prižig ekrana telefona,
 	\item odpiranje forme za dodajanje slikovnega koraka,
 	\item zajem slike,
 	\item vpis besedila ''Test step text'',
@@ -1643,17 +1651,29 @@ Ta premor simulira delo na izdelku.
 \end{enumerate}
 
 
-\subsection{Rezultati}
+\subsection{Rezultati testiranja}
 
 \noindent\begin{tabular}{p{0.2\textwidth}|p{.3\textwidth}|p{.4\textwidth}}    % po potrebi razširi prvo kolono tabele na račun drugih dveh!
   {\bf } & {\bf brez premorov}                             & {\bf z 90 sekundnimi premori} \\ \hline
-  {\bf brez Alexe} & 3 minute 2 sekundi & 6 minut 20 sekund \\
-  {\bf z Alexo} & 3 minute 2 sekundi & 6 minut 20 sekund \\
+  {\bf brez Alexe} & 1 minuta 51 sekund & 7 minut 30 sekund \\
+  {\bf z Alexo} & 2 minuti 31 sekund & 7 minut 30 sekund \\
 \end{tabular}
 
 \bigbreak
 \bigbreak
 \noindent Iz tega sklepamo, da je hipoteza
+\noindent Iz tega sklepamo, da je hipoteza
+\noindent Iz tega sklepamo, da je hipoteza
+Meritve časa pisanja poročil so pokazale, da je uporaba sistema OpenReport brez Amazon Alexe hitrejša v situaciji brez 90 sekundnih premorov.
+To našo hipotezo delno ovrže.
+V situacijah z 90 sekundnimi premori, je zapis korakov s pomočjo Amazon Alexe trajal enako dologo kot brez nje.
+To našo hipotezo pusti delno ovrženo.
+V testnih situacijah Amazon Alexa dela ne pospeši, hkrati pa ga v situaciji s premori ne ovira.
+
+Iz uporabniškega stališča prinese uporaba glasovnega asistenta v proces interakcije z računalnikom novo dimenzijo.
+V našem primeru smo lahko zahtevo za odpiranje vnosnega obrazca v mobilni aplikaciji izvedli že na poti do naprave.
+V naprednejših izvedbah računalniških sistemov z upravljanjem preko glasovnega asistenta bi lahko olajšali delo slabovidnim in gibalno omejenim posameznikom.
+
 
 
 \section{Evalvacija funkcionalnosti}

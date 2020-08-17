@@ -60,7 +60,7 @@
 %	DIPLOMA INFO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\ttitle}{Avtomatizacija delavniškega dnevnika}
-\newcommand{\ttitleEn}{Workshop report automatisation}
+\newcommand{\ttitleEn}{Workshop report automatization}
 \newcommand{\tsubject}{\ttitle}
 \newcommand{\tsubjectEn}{\ttitleEn}
 \newcommand{\tauthor}{Anej Lekše}
@@ -348,11 +348,11 @@ Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazit
 
 %Dober povzetek vključuje: (1) kratek opis obravnavanega problema, (2) kratek opis vašega pristopa za reševanje tega problema in (3) (najbolj uspešen) rezultat ali prispevek magistrske naloge.
 
-\noindent Diplomsko delo obravnava področje vpeljave komercialno dostopnih glasovnih asistentov v proces pisanja delavniškega dnevnika.
+\noindent Diplomsko delo obravnava področje vpeljave komercialno dostopnih glasovnih asistentov v programske rešitve, kot sredstvo za pohitritev uporabe.
 V nalogi raziščemo, ali vpeljava glasovnega asistenta v računalniški sistem pospeši delo s tem sistemom. 
 Cilj je implementirati in preizkusiti računalniški sistem z glasovnim asistentom, s pomočjo katerega lahko narekujemo zapiske med delom. 
 Te zapiske pa lahko naknandno urejamo s pomočjo mobilne aplikacije.
-Uporabili bomo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. ''Skill-ov'').
+Uporabili smo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. ''Skill-ov'').
 % Ugotovili smo, da je specializiran sistem za pisanje opisov tehnološkega postopka lahko dobra alternativa pisanju teh dokumentov s pisarniškimi programi ali na list papirja.
 Ugotovili smo, da Amazon Alexa ni bila zmožna razpoznati izgovorjenih stavkov z veliko variirajočimi besedami.
 Uspešna je bila pri razpoznavanju stavkov, ki so se v večini ali v celoti ujemali z naučenim razpoznavnim modelom.
@@ -375,14 +375,12 @@ Kljub temu, je čas, ki je potreben, da Alexa razpozna prejet glasovni ukaz prep
 \noindent\textbf{Author:} \tauthor
 \bigskip
 
-// TODO fix 
-
-\noindent This thesis deals with the process of optimising the process of writing a workshop report.
-The goal of thesis was testing a system with a voice assistant that could be used to take notes during work.
-These notes can be edited and ordered via a mobile application.
-We have used Amazon Alexa as it offers simple programming with Alexa Skills.
-We discovered that a specialised system for writing workshop reports can be an improvement over writing them with office suites or using pen and paper.
-We discovered that Amazon Alexa was unsuitable for a literal dictation of longer, largely varying text.
+\noindent This thesis deals with the process of incorporating a commercially available voice assistant into a software solution as a means of optimizing the workflow.
+The goal of thesis was implementing and testing a system with a voice assistant that could be used to write workshop report steps during work.
+These notes can then be edited and ordered with a mobile application.
+We have used Amazon Alexa, as it offers simple programming with Alexa Skills.
+% We discovered that a specialised system for writing workshop reports can be an improvement over writing them with office suites or using pen and paper.
+We discovered that Amazon Alexa was unsuitable for literal dictation of longer, largely varying text.
 It was successful at recognising phrases that fully or mostly matched its learned model.
 Regardless, Alexa's ability to process custom voice commands, at the time of this research, was too slow to be deemed efficient.
 
@@ -403,21 +401,22 @@ Regardless, Alexa's ability to process custom voice commands, at the time of thi
 
 Diplomsko delo obravnava področje vpeljave glasovnih asistentov v programske rešitve kot sredstvo za izboljšanje učinkovitosti dela.
 
-Za področje, ki ga želimo izboljšati smo si izbrali pisanje delavniškega dnevnika ali opisa tehnološkega postopka.
-Kljub temu se bo naš sistem z minimalnimi modifikacijami lahko uporabil tudi za pisanje drugačnih vrst poročil in navodil.
-Med te spadajo kuharski recepti, laboratorijski dnevniki, itd.
+Za področje, ki ga želimo izboljšati, smo si izbrali pisanje delavniškega dnevnika ali opisa tehnološkega postopka.
+Kljub temu se bo naš sistem, z minimalnimi modifikacijami, lahko uporabil tudi za pisanje drugačnih vrst poročil in navodil.
+Med te spadajo na primer kuharski recepti, laboratorijski dnevniki, itd.
 
-Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih nedvoumno predstavi postopek izdelave izdelka.
+Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih predstavi postopek izdelave izdelka.
 Delavniški dnevniki imajo lahko definirane tudi kontrolne postopke za izdelek, orodje, ki ga rabimo za izdelavo in seznam možnih nevarnosti pri delu.
 
 Delavniški dnevnik je sestavljen iz zaporedja korakov, ki si sledijo v časovnem zaporedju.
 Vsak korak sestavljata opis postopka in predvideno trajanje.
 Koraki lahko vsebujejo tudi slikovne razlage.
 
-Opisi tehnološkega postopka se najpogosteje uporabljajo v proizvodnih obratih tovarn.
+Opisi tehnološkega postopka se najpogosteje uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
 
-V sklopu diplomske naloge smo želeli izdelati in raziskati učinkovitost specializiranega sistema za pisanje delavniških dnevnikov.
-Ta sistem, bi sestavljali glasovni asistent, ki bi služil za narekovanje opomb, mobilna aplikacija, preko katere bi lahko urejali zapiske in strežnik, ki bi hranil podatke.
+V sklopu diplomske naloge smo želeli izdelati specializiran sistem za pisanje delavniških dnevnikov, nato pa preveriti, ali lahko, z vpeljavo glasovnega asistenta, delo s tem sistemom pohitrimo.
+Ta sistem bi sestavljali glasovni asistent, ki bi služil za narekovanje opomb, mobilna aplikacija, preko katere bi lahko urejali zapiske in strežnik, ki bi hranil podatke.
+Ta sistem bi sestavljali strežnik, ki bi hranil podatke o delavniških dnevnikih, mobilna aplikacija, preko katere bi uporabnik do teh podatkov dostopal in glasovni asistent, s katerim bi lahko dobesedno narekovali korake in nadzirali mobilno aplikacijo.
 
 Raziskati želimo predpostavko, da lahko z učinkovito uporabo glasovnega asistenta zmanjšamo čas interakcije z mobilno aplikacijo.
 
@@ -426,16 +425,15 @@ Raziskati želimo predpostavko, da lahko z učinkovito uporabo glasovnega asiste
 
 Diplomsko delo pričenjamo s predstavitvijo področja raziskave in kratko opišemo problem in možno rešitev. 
 Postavimo si hipotezo.
-% V sklopu te diplomski naloge bomo raziskali, ali je specializirana programska rešitev z glasovnim asistentom in mobilno aplikacijo primerno orodje za učinkovito pisanje delavniških dnevnikov.
 
-Začnemo z raziskavo že obstoječih rešitev za pisanje opisa tehnološkega postopka.
+Začnemo z raziskavo obstoječih rešitev za pisanje opisa tehnološkega postopka.
 Nato opišemo, kaj trenutne rešitve te problematike ponujajo in njihove prednosti in slabosti.
 
-V naslednjem poglavju se lotimo načrtovanja specializiranega sistema z glasovnim asistentom za pomoč pri pisanju poročil.
+V naslednjem poglavju se lotimo načrtovanja specializiranega sistema z glasovnim asistentom za pomoč pri pisanju delavniških dnevnikov.
 Nato se lotimo opisa tehnologij, ki smo jih pri pisanju diplome uporabili.
 Natančno definiramo funkcionalnosti sistema, utemeljimo odločitev za izbiro Amazon Alexe, AWS SQS, AWS Lambda in ogrodja Xamarin.
 
-Nato izdelamo Alexa ''Skill'', strežniški program in mobilno aplikacijo.
+Nato predstavimo Alexa ''Skill'', strežniški program in mobilno aplikacijo.
 Funkcionalnosti sistema testiramo in analiziramo.
 
 V predzadnjem poglavju opišemo možnosti nadaljnjega razvoja projekta.
@@ -450,13 +448,13 @@ Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih n
 Delavniški dnevniki imajo lahko definirane tudi kontrolne postopke za izdelek, orodje, ki ga rabimo za izdelavo in seznam možnih nevarnosti pri delu.
 
 Delavniški dnevnik je sestavljen iz zaporedja korakov, ki si sledijo v časovnem zaporedju.
-Vsak korak je sestavljata opis postopka in predvideno trajanje.
+Vsak korak je sestavljata opis postopka dela in predvideno trajanje.
 Koraki lahko vsebujejo tudi slikovne razlage.
 
-Opisi tehnološkega postopka se najpogosteje uporabljajo v proizvodnih obratih tovarn.
+Opisi tehnološkega postopka se najpogosteje uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
 
 \subsection{Primer}
-Spodnja slika (Slika \ref{sap_2}) prikazuje primer opisa tehnološkega postopka za izdelavo hladilnika.
+Spodnja slika (slika \ref{sap_2}) prikazuje primer opisa tehnološkega postopka za izdelavo hladilnika.
 
 \begin{figure}[H]
 \begin{center}
@@ -472,12 +470,12 @@ Spodnja slika (Slika \ref{sap_2}) prikazuje primer opisa tehnološkega postopka 
 
 \subsection{Definicija hipoteze}
 
-V tej diplomski nalogi raziščemo nekaj trenutnih metod izdelave opisa tehnološkega postopka.
-Raziskati želimo prednosti in slabosti trenutnih metod za izdelavo teh dokumentov.
+V tej diplomski nalogi raziščemo možne metode izdelave opisa tehnološkega postopka.
+Raziskati želimo prednosti in slabosti trenutnih metod.
 V naslednji fazi raziskave želimo izdelati specializiran sistem za pisanje opisov tehnoloških postopkov.
 Raziskati želimo, ali uporaba glasovnega asistenta v takšnem sistemu skrajša interakcije z mobilno aplikacijo.
 
-Izhajajoč iz navedenega opredeljujem hipotezo diplomskega dela: Proces izdelave opisa tehnološkega postopka lahko naredimo učinkovitejši z uporabo glasovnega asistenta Amazon Alexa.
+Izhajajoč iz navedenega opredeljujem hipotezo diplomskega dela: Pisanje opisa tehnološkega postopka s specializiranim sistemom lahko naredimo učinkovitejše, z uporabo glasovnega asistenta Amazon Alexa.
 
 Potrjena hipoteza bi dokazovala visoko zrelost tehologije Amazon Alexa in dokazovala možnost uporabe v naprednih situacijah.
 
@@ -494,7 +492,6 @@ Slabosti takšnega postopka so:
 \begin{itemize}
 	\item omejitve glede velikosti prostora, namenjenega vsakemu koraku,
 	\item problematično dopisovanje in urejanje obstoječih korakov,
-	\item rokopis je lahko nečitljiv,
 	\item zahtevnejše arhiviranje, kot računalniške datoteke,
 	\item občutljivost papirja na fizične poškodbe (trganje, mečkanje, vnetljivost,...).
 \end{itemize}
@@ -503,7 +500,7 @@ Slabosti takšnega postopka so:
 
 \subsection{Pisarniški programi}
 
-Opis tehnološkega postopka lahko izdelamo v pisarniških programih kot so Microsoft Word ali LibreOffice Writer.
+Opis tehnološkega postopka lahko izdelamo v pisarniških programih, na primer Microsoft Word ali LibreOffice Writer.
 
 Ta pristop reši večino slabosti uporabe papirja in pisala za pisanje opisa tehnološkega postopka.
 Korake lahko enostavno dodajamo in urejamo.
@@ -519,7 +516,7 @@ Kljub temu pa uporaba te metode prinese nove slabosti:
 	\item Možnost izgube ali izbrisa podatkov.
 \end{itemize}
 
-V sklopu te diplomske naloge smo se odločili napisati preprost opis tehnološkega postopka (Slika \ref{report_writer}) s programom LibreOffice Writer \cite{writer}.
+V sklopu te diplomske naloge smo se odločili napisati preprost opis tehnološkega postopka (slika \ref{report_writer}) s programom LibreOffice Writer \cite{writer}.
 Pisanje in urejanje dokumenta je trajalo 10 minut.
 Enostavno ga je bilo izvoziti v format PDF.
 Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot šablona.
@@ -534,8 +531,8 @@ Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot šablona.
 
 \subsection{Specializirani moduli za poslovne informacijske sisteme}
 
-Podjetja in tovarne za svoje izdelke večinoma uporabljajo specializirane module, tesno povezavne z njihovimi informacijskimi sistemi.
-Primer je prikazan modul za informacijski sistem SAP (Slika \ref{sap_1}).
+Podjetja in tovarne za svoje izdelke večinoma uporabljajo specializirane module za njihove informacijske sisteme.
+Primer je prikazan modul za informacijski sistem SAP (slika \ref{sap_1}).
 
 \begin{figure}[H]
 \begin{center}
@@ -556,62 +553,65 @@ Opis tehnološkega postopka v tem primeru sestavljajo:
 \end{itemize}
 
 Specializiran informacijski sistem, kot je SAP, je tesno povezan s proizvodno linijo in prilagodljiv za potrebe proizvodnega obrata, ki ga uporablja.
-Pri sistemu SAP se podatki primarno hranijo na centralnem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervrni strežnik.
+Pri sistemu SAP se podatki primarno hranijo na centralnem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervni strežnik.
 Glavne slabosti takšnega sistema so:
 \begin{itemize}
 	\item potrebna proizvodna infrastruktura, ki jo sistem rabi za optimalen izkoristek in
 	\item cena, ki je potrebna za implementacijo.
 \end{itemize}
 
-% V kemijski industriji se laboratorijska poročila pišejo s pomočjo LIMS (Laboratory Information Management System).
-% Sistemi kot so OpenLIMS (// citiraj) imajo že vključene module za pisanje poročil (// citiraj)
-
-% // testiraj LIMS 
-
 
 \chapter{Načrtovanje in razvoj sistema za pisanje opisov tehnoloških postopkov}
 
 \section{Definicija funkcionalnosti}
 
-% Na podlagi raziskave obstoječih možnosti pisanja opisov tehnoloških postopkov smo definirali 
 Pri načrtovanju sistema za pisanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
-% Učinkovit sistem za pisanje opisa tehnološkega postopka:
 \begin{itemize}
 	\item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
+	\item uporabniški vmesnik klienta mora omogočati karseda učinkovito delo,
 	\item komponente sistema morajo biti enostavno zamenljive,
-	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu.
+	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu,
 	\item sistem mora biti popolnoma funkcionalen brez glasovnega asistenta.
 \end{itemize}
 
-% Sistem, ki ga bomo sprogramirali v tej raziskavi bo namenjen predvsem individualnim uporabnikom in bo mišljen kot alternativa pisanju delavniških dnevnikov na list papirja ali s pisarniškimi programi.
-Sistem, ki ga bomo sprogramirali v tej raziskavi služi kot primer kompleksnejšega sistema, katerga uporabo bi radi pospešili z uporabo glasovnega asistenta.
+Sistem, ki smo ga sprogramirali v tej raziskavi služi kot primer kompleksnejšega sistema, katerga uporabo bi radi pospešili z uporabo glasovnega asistenta.
 
-Sistem bo služil kot alternativni pristop k pisanju opisov tehnoloških postopkov z pisarniškimi programi.
-Sistem mora podpirati ustvarjanje novega opisa tehnološkega postopka in odpiranje ter urejanje že ustvarjenih opisov tehnološkega postopka.
+Sistem bo služil kot alternativna pisanju opisov tehnoloških postopkov s pisarniškimi programi.
+Sistem mora podpirati ustvarjanje novega opisa tehnološkega postopka in odpiranje ter urejanje obstoječih opisov tehnološkega postopka.
 
-Vsak opis tehnološkega postopka mora imeti naslov, opis, seznam možnih nevarnosti pri delu in seznam korakov dela.
+Vsak opis tehnološkega postopka mora imeti naslov, opis, opis možnih nevarnosti pri delu in seznam korakov dela.
 
 Seznam korakov dela mora podpirati dodajanje novih korakov, urejanje obstoječih korakov, brisanje obstoječih korakov in spreminjanje vrstnega reda korakov.
 
-Glasovni asistent bo imel naslednje vloge:
+\subsection{Kaj smo želeli z glasovnim asistentom izboljšati?}
+
+Z glasovnim asistentom smo poskusili izboljšati dodajanje korakov.
+To smo poskusili z dodajanjem dobesedno narekovanih korakov.
+
+Poleg narekovanja korakov smo poskusili z glasovnimi ukazi nadzirati mobilno aplikacijo.
+Z glasovnimi ukazi smo nadzirali odpiranje obrazcev za dodajanje korakov in zagon kamere.
+
+\bigbreak 
+Glasovni asistent v našem sistemu ima naslednje vloge:
 \begin{itemize}
-	\item za trenutno odprt opis tehnološkega postopka bo z njim možno dodajati korake postopka,
-	\item z njim bo možno odpreti kamero ali obrazec za dodajanje koraka.
+	\item za trenutno odprt opis tehnološkega postopka je z njim možno dodajati korake postopka,
+	\item z njim je možno odpreti kamero ali obrazec za dodajanje koraka.
 \end{itemize}
 
 Raziskava iz leta 2018 je pokazala izboljšano učinkovitost pri delu raziskovalcev v kemijskem laboratoriju, v katerega so integrirali glasovne pomočnike \cite{austerjost2018introducing}.
-Namen raziskave je bil preizkus praktične uporabnosti glasovnih asistentov za branje laboratorijskih postopkov po korakih in glasovno upravljanje laboratorijskih instrumentov.
+% Namen raziskave je bil preizkus praktične uporabnosti glasovnih asistentov za branje laboratorijskih postopkov po korakih in glasovno upravljanje laboratorijskih instrumentov.
+Namen raziskave je bil preizkus praktične uporabnosti glasovnih asistentov za branje laboratorijskih postopkov in glasovno upravljanje laboratorijskih instrumentov.
 Pozitivni rezultati bi lahko bili ključnega pomena za slabovidne člane laboratorijev.
 Kot glasovni asistent je bila uporabljena Amazon Alexa.
 Prepoznavanje govora in ukazov je bilo konsistentno in hitro, ne glede na spol uporabnika.
 Motnje pri razpoznavanju je povzročal večinoma ozadni hrup.
-Povprečna natančnost prepoznave ukazov je bila 95\%.
+Povprečna uspešnost prepoznave ukazov je bila 95\%.
 Raziskovalci so zabeležili tudi problem moteče kakofonije v laboratoriju, v katerem je več raziskovalcev, ki uporabljajo glasovni nadzor naprav.
 
 \section{Načrt}
 
 Sistem za pisanje opisov tehnoloških postopkov smo poimenovali OpenReport. 
-Sistem OpenReport bodo sestavljali:
+Sistem OpenReport sestavljajo:
 
 \begin{itemize}
 	\item strežniški program, 
@@ -619,28 +619,29 @@ Sistem OpenReport bodo sestavljali:
 	\item glasovni asistent.
 \end{itemize}
 
-Strežnik bo v podatkovni bazi hranil uporabnike, delavniške dnevnike in korake.
-Uporabnik bo lahko do podatkov na strežniku dostopal preko mobilne aplikacije.
-Glasovni asistent bomo uporabili kot komplement mobilne aplikacije.
-Omogočal bo glasovno upravljanje aplikacije in narekovanje korakov.
+Strežnik v podatkovni bazi hrani uporabnike, delavniške dnevnike in korake.
+Uporabnik lahko do podatkov na strežniku dostopa preko klienta, ki s strežnikom komunicira preko API.
+V našem primeru je to mobilna aplikacija.
+Glasovni asistent smo uporabili kot dodatek k mobilni aplikaciji.
+Omogoča glasovno upravljanje aplikacije in narekovanje korakov.
 
-\noindent Preko mobilne aplikacije bo uporabnik lahko:
+\noindent Preko mobilne aplikacije uporabnik lahko:
 \begin{itemize}
-	\item opravil regsitracijo in prijavo,
-	\item ustvaril nov delavniški dnevnik,
-	\item odprl obstoječe delavniške dnevnike,
-	\item ustvaril in urejal korake delavniškega dnevnika,
-	\item zajemal slike in jih vstavljal v delavniški dnevnik,
-	\item brisal korake delavniškega dnevnika,
-	\item urejal vrstni red korakov delavniškega dnevnika.
+	\item opravi regsitracijo in prijavo,
+	\item ustvari nov delavniški dnevnik,
+	\item odpre obstoječe delavniške dnevnike,
+	\item ustvarja in ureja korake delavniškega dnevnika,
+	\item zajema slike in jih vstavlja v delavniški dnevnik,
+	\item briše korake delavniškega dnevnika,
+	\item ureja vrstni red korakov delavniškega dnevnika.
 \end{itemize}
 
-Za glasovni asistent Amazon Alexa bomo razvili ''Skill'', s katerim bo uporabnik lahko:
+Za glasovni asistent Amazon Alexa smo razvili ''Skill'', s katerim uporabnik lahko:
 
 \begin{itemize}
-	\item v odprto poročilo vstavil dobesedno narekovan korak,
-	\item odprl obrazec za dodajanje novega tekstovnega koraka,
-	\item odprl kamero in obrazec za dodajanje koraka s fotografijo.
+	\item v odprto poročilo vstavi dobesedno narekovan korak,
+	\item odpre obrazec za dodajanje novega tekstovnega koraka,
+	\item odpre kamero in obrazec za dodajanje koraka s fotografijo.
 \end{itemize}
 
 \begin{figure}[H]
@@ -667,13 +668,13 @@ V nasprotnem primeru bomo hipotezo ovrgli.
 
 \subsection{.NET}
 
-.NET je razvojna platforma, razvita s strani Microsofta.
+.NET \cite{dotnet} je razvojna platforma, razvita s strani Microsofta.
 Obsega programske jezike, prevajalnike, orodja in knjižnice, ki omogočajo širok spekter primerov uporabnosti, hkrati pa se ohranja enovitost ozadne kode.
 
 Tehnologije .NET ogrodja, ki smo jih uporabil v tej diplomski nalogi so:
 \begin{itemize}
 	\item .NET Core - odprtokodna platforma za razvoj spletnih storitev,
-	\item Xamarin, ki je ogrodje za razvoj mobilnih aplikacij za najpogostejše mobilne operacijske sisteme (Android, iOS).
+	\item Xamarin - ogrodje za razvoj mobilnih aplikacij za najpogostejše mobilne operacijske sisteme (Android, iOS).
 \end{itemize}
 
 .NET smo izbrali, saj je zelo dobro integriran z Amazonovim AWS API-jem in je dobro dokumentiran.
@@ -685,7 +686,7 @@ Ogrodje Xamarin \cite{xamarin} je odprtokodno orodje za razvoj mobilnih aplikaci
 Z ogrodjem Xamarin je mogoče pri deliti večino ozadne in ospredne kode med različnimi mobilnimi operacijskimi sistemi. 
 Za ozadno kodo se uporablja .NET (C\#), za front-end pa se uporablja XAML (Extensible Application Markup Language).
 
-Xamarin smo izbral, da bomo lahko strežniški program in mobilno aplikacijo programirali v enakem programskem jeziku (C\#).
+Xamarin smo izbrali, da bomo lahko strežniški program in mobilno aplikacijo programirali v enakem programskem jeziku (C\#).
 
 \subsection{Amazon Alexa}
 
@@ -707,7 +708,7 @@ Da lahko ustvarimo in objavimo ''Skill'' rabimo račun Amazon razvijalca (\texti
 \end{itemize}
 
 Ko Alexa zasliši ''Invocation'' ali katerega od ''Intent-ov'', glasovni posnetek pošlje na Amazonov strežnik.
-Ta s pomočjo glasovnega razpoznavnega modela prepozna ukaze in pošlje poseben zahtevek na ''Endpoint''.
+Ta s pomočjo glasovnega razpoznavnega modela prepozna uporabnikove ukaze in pošlje poseben zahtevek na ''Endpoint''.
 To je lahko druga Amazonova storitev (npr. AWS Lambda), storitev na Microsoftovem Azure strežniku ali naš lasten strežnik, dostopen preko javne domene.
 
 Ko ''Endpoint'' obdela zahtevo, se odgovor pošlje nazaj na Amazonov strežnik v obliki znakovnega niza.
@@ -740,7 +741,7 @@ Za uporabo centralnega strežnika smo se odločili, da lahko do hranjenih podatk
 V našem primeru bosta s strežnikom komunicirala mobilna aplikacija in glasovni asistent.
 Podatke bomo hranili v podatkovni bazi, ki jo streže SQL Server.
 
-Baza hrani tabele ''Users'' (\textit{slo. Uporabniki}), ''Projects'' (\textit{slo. Projekti}) in ''Notes'' (\textit{slo. Zapiski}) (Slika \ref{er_diagram}).
+Baza hrani tabele ''Users'' (\textit{slo. Uporabniki}), ''Projects'' (\textit{slo. Projekti}) in ''Notes'' (\textit{slo. Zapiski}) (slika \ref{er_diagram}).
 Vsak uporabnik lahko ima 0 ali mnogo projektov (opisov tehnološkega postopka).
 Vsak projekt ima lahko 0 ali mnogo zapiskov (korakov).
 
@@ -752,14 +753,13 @@ Vsak projekt ima lahko 0 ali mnogo zapiskov (korakov).
 \label{er_diagram}
 \end{figure}
 
-% // bom resizal in iz slike odstranil tabele, ki jih ne rabimo
 
 \noindent Strežnik ima naslednje naloge:
 \begin{enumerate}
 	\item komunikacija s podatkovno bazo,
-	\item komunikacija z odjemalcem (mobilno aplikacijo),
-	\item komunikacija z glasovnim asistentom (Amazon Alexa),
-	\item ponujanje vmesnika, preko katerega lahko odjemalci delajo s podatki v bazi.
+	\item ponujanje vmesnika, preko katerega lahko odjemalci delajo s podatki v bazi (API),
+	% \item komunikacija z odjemalcem (mobilno aplikacijo),
+	\item komunikacija z glasovnim asistentom (Amazon Alexa).
 \end{enumerate}
 
 
@@ -777,7 +777,7 @@ Iz žetona je možno razbrati, za katerega uporabnika gre in katere pravice so m
 \subsubsection{Registracija in prijava}
 
 Pri registraciji mora odjemalec poslati na API objekt razreda \textit{RegisterUserRequest}.
-Odjemalec ga mora poslati na URL ''\texttt{/identity/register}''.
+Odjemalec ga mora poslati na URL ''\texttt{/identity/register}'' preko metode POST.
 
 \begin{verbatim}
 RegisterUserRequest {
@@ -792,9 +792,10 @@ V tej storitvi preveri, ali uporabnik s tem uporabniškim imenom že obstaja.
 Če obstaja, se zabeleži napaka in nadaljnja registracija se prekine.
 Če ta uporabnik ne obstaja, se kreira nov objekt razreda \texttt{User}.
 Polje \texttt{Password} se zakriptira in se skupaj s poljem \texttt{Email} zapiše v ta objekt.
-Uporabnik pa pri registraciji dobi tudi svoj unikaten identifikator \texttt{UserID}.
+Uporabnik pri registraciji dobi tudi svoj unikaten identifikator \texttt{UserID}.
 
-V kolikor se je v avtentikacijski storitvi dogodila kakršna koli napaka, se klientu vrne objekt razreda \texttt{AuthFailedResponse}
+V kolikor se je tekom avtentikacije dogodila kakršna koli napaka, se klientu vrne objekt razreda \texttt{AuthFailedResponse}.
+V tem objektu se odjemalcu pošlje seznam vseh napak, ki jih je avtentikacijska storitev zabeležila pri neuspešni registraciji. 
 
 \begin{verbatim}
 AuthFailedResponse { 
@@ -802,8 +803,8 @@ AuthFailedResponse {
 }
 \end{verbatim}
 
-\noindent V tem objektu se odjemalcu v zbirki pošljejo vse napake, ki jih je avtentikacijska storitev zabeležila pri neuspešni registraciji. 
-Če je bila registracija uspešna, se odjemalcu pošlje objekt razreda \texttt{AuthSuccessResponse}
+
+Če je bila registracija uspešna, se odjemalcu pošlje objekt razreda \texttt{Auth-\\SuccessResponse}.
 
 \begin{verbatim}
 AuthSuccessResponse { 
@@ -811,6 +812,9 @@ AuthSuccessResponse {
     string Token; 
 } 
 \end{verbatim}
+
+
+// TODO TODO PREGLEJ OD TU NAPREJ
 
 \noindent V polje \texttt{Token} se zapiše avtorizacijski žeton.
 Žeton je tipa JWT ali \textit{JSON Web Token}.
@@ -1004,7 +1008,7 @@ Najprej vanjo vpiše naslov in opis projekta ter možne nevarnosti pri delu.
 Nato uredi korake po vrednosti stolpca \texttt{Position} in enega za drugim zapiše v datoteko.
 Če je korak slikovni, se zapiše tudi lokacija pripadajoče fotografije.
 
-Pri izvozu v HTML dokument (Slika \ref{export_html}) se naslov zapiše kot HTML naslov H1, opis kot naslov H2, in koraki kot HTML odstavki.
+Pri izvozu v HTML dokument (slika \ref{export_html}) se naslov zapiše kot HTML naslov H1, opis kot naslov H2, in koraki kot HTML odstavki.
 V HTML dokumentu lahko prikažemo poleg slikovnih korakov tudi slike same.
 
 \begin{figure}[H]
@@ -1178,7 +1182,7 @@ V našem skillu bomo imeli tri glavne namere:
 	\item \texttt{OpenImageNoteFormIntent}.
 \end{itemize}
 
-\texttt{TakeNoteIntent} (Slika \ref{TakeNoteIntent}) se bo zagnal, ko bo po invokacijski frazi uporabnik izrekel ''\texttt{take note \{besedilo\}}'' ali ''\texttt{note \{besedilo\}}''.
+\texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}) se bo zagnal, ko bo po invokacijski frazi uporabnik izrekel ''\texttt{take note \{besedilo\}}'' ali ''\texttt{note \{besedilo\}}''.
 Polje \texttt{\{besedilo\}} je tekstovna spremenljivka, v katero ''Skill'' hrani razpoznano tekstovno vsebino koraka.
 V primeru, da uporabnik izreče ''\textit{note unscrew the backplate}'', bo vrednost spremenljivke \texttt{\{besedilo\}} ''unscrew the backplate''.
 
@@ -1233,7 +1237,7 @@ Ta znakovni niz se primerja z vsemi definiranimi invokacijskimi frazami za ''Ski
 Če Alexa Server uporabnikov glasovni ukaz razpozna kot ,,make a report note'', se začne izvajati OpenReportAlexaSkill.
 V ozadno kodo ''Skill-a'' (ang. Endpoint) se pošlje zahteva tipa \texttt{LaunchRequest}.
 
-''Endpoint'' nastavimo v Alexa Developer nadzorni plošči (Slika \ref{skill_endpoint}).
+''Endpoint'' nastavimo v Alexa Developer nadzorni plošči (slika \ref{skill_endpoint}).
 To je lahko AWS Lambda funkcija, lahko pa je naš lasten strežnik, dostopen preko javne domene.
 ''Endpoint'' je v našem primeru gostovan na storitvi AWS Lambda.
 Ob prejetju \texttt{LaunchRequest} ''Endpoint'' našega ''Skill-a'' vrne vprašanje ''What now?''.
@@ -1291,7 +1295,7 @@ Razlogi za to so predvsem dobro poznavanje tehnologije in enostavna integracija 
 
 \subsection{Pristop}
 Pristop razvoja aplikacije, ki smo ga uporabili za programiranje aplikacije, se imenuje ''Model View View-Model'' (v nadaljevanju MVVM).
-Pri tem pristopu aplikacijo razdelimo na tri dele (Slika \ref{mvvm}).
+Pri tem pristopu aplikacijo razdelimo na tri dele (slika \ref{mvvm}).
 
 \textbf{Model} je del, kjer definiramo elemente naše ''poslovne logike'' (opis tehnološkega postopka, korak, uporabnik,...).
 

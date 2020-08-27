@@ -38,6 +38,7 @@
 
 \usepackage{float}          % poskrbi, na primer, za glave strani
 \usepackage{csquotes}
+\DeclareQuoteAlias{german}{english}
 \usepackage{fancyhdr}          % poskrbi, na primer, za glave strani
 \usepackage{fancyvrb}          % poskrbi za underlined verbatim
 \usepackage{amssymb}           % dodatni simboli
@@ -209,7 +210,7 @@
 %    INTERDISCIPLINARNI UNIVERZITETNI\\ ŠTUDIJSKI PROGRAM PRVE STOPNJE\\ UPRAVNA INFORMATIKA}\par}%
 %    INTERDISCIPLINARNI UNIVERZITETNI\\ ŠTUDIJSKI PROGRAM PRVE STOPNJE\\ MULTIMEDIJA}\par}%
     \vfill\null%
-    {\large \textsc{Mentor}: doc.\ dr.  Andrej Brodnik\par}%
+    {\large \textsc{Mentor}: dr.  Andrej Brodnik\par}%
    %{\large \textsc{Somentor}:  izr.\ prof.\ dr. Martin Krpan \par}%
     {\vskip 2em \large Ljubljana, 2020 \par}%
 \end{center}
@@ -349,10 +350,11 @@ Na tem mestu zapišite, komu se zahvaljujete za izdelavo diplomske naloge. Pazit
 %Dober povzetek vključuje: (1) kratek opis obravnavanega problema, (2) kratek opis vašega pristopa za reševanje tega problema in (3) (najbolj uspešen) rezultat ali prispevek magistrske naloge.
 
 \noindent Diplomsko delo obravnava področje vpeljave komercialno dostopnih glasovnih asistentov v programske rešitve kot sredstvo za pohitritev uporabe.
-V nalogi raziščemo, ali vpeljava glasovnega asistenta v računalniški sistem pospeši delo s tem sistemom. 
+V nalogi raziščemo, kako v računalniški sistem vpeljemo glasovnega pomočnika in vpliv glasovnega pomočnika na uporabo sistema.
+% V nalogi raziščemo, kako vpeljava glasovnega asistenta v računalniški sistem pospeši delo s tem sistemom. 
 Cilj je implementirati in preizkusiti računalniški sistem z glasovnim asistentom, s pomočjo katerega lahko narekujemo zapiske med delom. 
 Te zapiske pa lahko naknandno urejamo s pomočjo mobilne aplikacije.
-Uporabili smo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. ''Skill-ov'').
+Uporabili smo Amazon Alexo zaradi enostavne izdelave lastnih programov (t.i. \enquote{Skill-ov}).
 % Ugotovili smo, da je specializiran sistem za pisanje opisov tehnološkega postopka lahko dobra alternativa pisanju teh dokumentov s pisarniškimi programi ali na list papirja.
 Ugotovili smo, da Amazon Alexa ni bila zmožna razpoznati izgovorjenih stavkov z veliko variirajočimi besedami.
 Uspešna je bila pri razpoznavanju stavkov, ki so se v večini ali v celoti ujemali z naučenim razpoznavnim modelom.
@@ -402,7 +404,7 @@ Regardless, Alexa's ability to process custom voice commands, at the time of thi
 Diplomsko delo obravnava področje vpeljave glasovnih asistentov v programske rešitve kot sredstvo za izboljšanje učinkovitosti dela.
 
 Za področje, ki ga želimo izboljšati, smo si izbrali pisanje delavniškega dnevnika ali opisa tehnološkega postopka.
-Kljub temu se bo naš sistem, z minimalnimi modifikacijami, lahko uporabil tudi za pisanje drugačnih vrst poročil in navodil.
+Kljub temu se bo naš sistem, z manjšimi spremembami, lahko uporabil tudi za pisanje drugačnih vrst poročil in navodil.
 Med te spadajo na primer kuharski recepti, laboratorijski dnevniki, itd.
 
 Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih predstavi postopek izdelave izdelka.
@@ -433,7 +435,7 @@ V naslednjem poglavju se lotimo načrtovanja specializiranega sistema z glasovni
 Nato se lotimo opisa tehnologij, ki smo jih pri pisanju diplome uporabili.
 Natančno definiramo funkcionalnosti sistema, utemeljimo odločitev za izbiro Amazon Alexe, AWS SQS, AWS Lambda in ogrodja Xamarin.
 
-Nato predstavimo Alexa ''Skill'', strežniški program in mobilno aplikacijo.
+Nato predstavimo Alexa \enquote{Skill}, strežniški program in mobilno aplikacijo.
 Funkcionalnosti sistema testiramo in analiziramo.
 
 V predzadnjem poglavju opišemo možnosti nadaljnjega razvoja projekta.
@@ -442,54 +444,55 @@ V predzadnjem poglavju opišemo možnosti nadaljnjega razvoja projekta.
 
 \section{Problem}
 
-\subsection {Kaj je delavniški dnevnik?}
+\subsection {Kaj vsebuje delavniški dnevnik?}
 
-Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih nedvoumno predstavi postopek izdelave izdelka.
+% Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih nedvoumno predstavi postopek izdelave izdelka.
+Delavniški dnevnik je dokument, ki po korakih predstavi postopek izdelave izdelka.
 Delavniški dnevniki imajo lahko definirane tudi kontrolne postopke za izdelek, orodje, ki ga potrebujemo za izdelavo in seznam možnih nevarnosti pri delu.
 
 Delavniški dnevnik je sestavljen iz zaporedja korakov, ki si sledijo v časovnem zaporedju.
 Vsak korak je sestavljata opis postopka dela in predvideno trajanje.
 Koraki lahko vsebujejo tudi slikovne razlage.
 
-Opisi tehnološkega postopka se najpogosteje uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
-
-\subsection{Primer}
-Spodnja slika (slika \ref{sap_2}) prikazuje primer opisa tehnološkega postopka za izdelavo hladilnika.
+Delavniški dnevniki se najpogosteje uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
+V podjetju Gorenje takšne dokumente imenujejo opis tehnološkega postopka (slika \ref{sap_2}).
+Lahko se uporabljajo tudi kot učni pripomoček za spremljanje napredka npr. dijakov vajencev na praksi \cite{delavniskidnevnikptuj}.
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=13.5cm]{sap_2}
 \end{center}
-\caption{V tabelo izvožen opis tehnološkega postopka}
+\caption{V tabelo izvožen opis tehnološkega postopka za izdelavo hladilnika}
 \label{sap_2}
 \end{figure}
+
+// vir je gorenje?? 
 
 % Ta opis tehnološkega postopka je strukturiran tako, da se vsi koraki sklicujejo na eno samo tehnično sliko.
 
 % // kako podrobno se opisuje korake?
 
-\subsection{Definicija hipoteze}
+\subsection{Definicija problematike}
 
 V tej diplomski nalogi raziščemo možne metode izdelave opisa tehnološkega postopka.
 Raziskati želimo prednosti in slabosti trenutnih metod.
-V naslednji fazi raziskave želimo izdelati specializiran sistem za pisanje opisov tehnoloških postopkov.
+V naslednji fazi raziskave želimo izdelati specializiran sistem za sestavljanje opisov tehnoloških postopkov.
 Raziskati želimo, ali uporaba glasovnega asistenta v takšnem sistemu skrajša interakcije z mobilno aplikacijo.
 
-Izhajajoč iz navedenega opredeljujemo hipotezo diplomskega dela: Pisanje opisa tehnološkega postopka s specializiranim sistemom lahko naredimo učinkovitejše z uporabo glasovnega asistenta Amazon Alexa.
+Izhajajoč iz navedenega opredeljujemo problematiko diplomskega dela: // TODO
 
-Potrjena hipoteza bi dokazovala visoko zrelost tehologije Amazon Alexa in dokazovala možnost uporabe v naprednih situacijah.
+\section{Obstoječe rešitve}
 
-\section{Analiza obstoječih rešitev}
+\subsection{Pisanje na papir}
 
-\subsection{Papir in pisalo}
+Najstarejša metoda za izdelavo takšnega dokumenta je zapis na list papirja (slika \ref{paper}).
 
-Najstarejša metoda za izdelavo takšnega dokumenta je zapis na formuliran list papirja (slika \ref{paper}).
-
+// TODO obreži sliko 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=11cm]{report_paper}
+\includegraphics[width=13.5cm]{report_paper}
 \end{center}
-\caption{Opis tehnološkega postopka na papirju}
+\caption{Opis tehnološkega postopka za čiščenje tipkovnice na papirjui.}
 \label{paper}
 \end{figure}
 
@@ -503,9 +506,9 @@ Slabosti takšnega postopka so:
 	\item občutljivost papirja na fizične poškodbe (trganje, mečkanje, vnetljivost,...).
 \end{itemize}
 
-V sklopu diplomske naloge smo na papir napisali preprost opis tehnološkega postopka (slika \ref{paper}).
-Priprava formularja je trajala 10 minut.
-Pisanje dokumenta je trajalo 7 minut.
+% V sklopu diplomske naloge smo na papir napisali preprost opis tehnološkega postopka (slika \ref{paper}).
+% Priprava formularja je trajala 10 minut.
+% Pisanje dokumenta je trajalo 7 minut.
 
 \subsection{Pisarniški programi}
 
@@ -514,77 +517,75 @@ Opis tehnološkega postopka lahko izdelamo v pisarniških programih, na primer M
 Ta pristop reši večino slabosti uporabe papirja in pisala za pisanje opisa tehnološkega postopka.
 Korake lahko enostavno dodajamo in urejamo.
 Prav tako je možno dodajati slikovno gradivo.
-Pisarniški programi omogočajo tudi enostaven izvoz dokumenta na tiskalnik, če želimo imeti dokument natisnjen na listu papirja.
+Pisarniški programi omogočajo enostaven izpis dokumenta na tiskalnik, če želimo imeti dokument natisnjen na papirju.
 
-Prednost pisarniških programov je tudi možnost uporabe računalniške tipkovnice za vnos besedila.
-
-Kljub temu pa uporaba te metode prinese nove slabosti:
+Kljub temu uporaba te metode prinese nove slabosti:
 \begin{itemize}
 	\item če imamo dokument shranjen na več mestih, moramo ob spremembah zagotoviti, da se spremenijo vse shranjene različice. 
 	\item Slikovno gradivo je vezano na dokument. Ob spremembah moramo spremeniti celoten dokument, ne le slike.
 	\item Možnost izgube ali izbrisa podatkov.
 \end{itemize}
 
-V sklopu te diplomske naloge smo se odločili napisati preprost opis tehnološkega postopka (slika \ref{report_writer}) s programom LibreOffice Writer \cite{writer}.
-Priprava formularja je trajala 10 minut.
-Pisanje in urejanje dokumenta je trajalo 4 minute.
+V sklopu diplomske naloge smo se odločili napisati preprost opis tehnološkega postopka (slika \ref{report_writer}) s programom LibreOffice Writer \cite{writer}.
+% Priprava formularja je trajala 10 minut.
+% Pisanje in urejanje dokumenta je trajalo 4 minute.
 Enostavno ga je bilo izvoziti v format PDF.
-Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot šablona.
+Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot obrazec.
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=11cm]{report_writer}
 \end{center}
-\caption{Preprost opis tehnološkega postopka v pisarniškem programu}
+\caption{Preprost opis tehnološkega postopka za čiščenje tipkovnice, napisan v pisarniškem programui.}
 \label{report_writer}
 \end{figure}
 
 \subsection{Specializirani moduli za poslovne informacijske sisteme}
 
-	Podjetja in tovarne za svoje izdelke večinoma uporabljajo specializirane module za lastne informacijske sisteme.
-	Primer je prikazan modul za informacijski sistem SAP (slika \ref{sap_1}).
+Podjetja za svoje izdelke večinoma uporabljajo specializirane module za lastne informacijske sisteme.
+Primer je prikazan modul za informacijski sistem SAP (na sliki \ref{sap_1}).
 
-	\begin{figure}[H]
-	\begin{center}
-	\includegraphics[width=13cm]{sap_1}
-	\end{center}
-	\caption{Prikazan korak opisa tehnološkega postopka s programom SAP}
-	\label{sap_1}
-	\end{figure}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=13cm]{sap_1}
+\end{center}
+\caption{Prikazan korak opisa tehnološkega postopka s programom SAP.}
+\label{sap_1}
+\end{figure}
 
-	Do tega opisa tehnološkega postopka se lahko dostopa iz računalnikov na delovnih mestih, kjer se izvajajo koraki, opisani v dokumentu.
-	Opis tehnološkega postopka v tem primeru sestavljajo:
-	\begin{itemize}
-		\item podatki o izdelku,
-		\item dodatne opombe,
-		\item opisi korakov,
-		\item definicija kontrolnih postopkov in pregleda, 
-		\item CAD izris izdelka.
-	\end{itemize}
+Do tega opisa tehnološkega postopka se lahko dostopa iz računalnikov na delovnih mestih, kjer se izvajajo koraki, opisani v dokumentu.
+Opis tehnološkega postopka v sistemu SAP sestavljajo:
+\begin{itemize}
+	\item podatki o izdelku,
+	\item dodatne opombe,
+	\item opisi korakov,
+	\item definicija kontrolnih postopkov in pregleda, 
+	\item CAD izris izdelka.
+\end{itemize}
 
-	Specializiran informacijski sistem, kot je SAP, je tesno povezan s proizvodno linijo in prilagodljiv za potrebe proizvodnega obrata, ki ga uporablja.
-	Pri sistemu SAP se podatki primarno hranijo na centralnem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervni strežnik.
-	Glavne slabosti takšnega sistema so:
-	\begin{itemize}
-		\item potrebna proizvodna infrastruktura, ki jo sistem rabi za optimalen izkoristek in
-		\item cena, ki je potrebna za implementacijo.
-	\end{itemize}
+Specializiran informacijski sistem, kot je SAP, je tesno povezan s proizvodno linijo in prilagodljiv za potrebe proizvodnega obrata, ki ga uporablja.
+Pri sistemu SAP se podatki primarno hranijo na osrednjem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervni strežnik.
+Glavne slabosti takšnega sistema so:
+\begin{itemize}
+	\item potrebna proizvodna infrastruktura, ki jo sistem rabi za optimalen izkoristek in
+	\item cena, ki je potrebna za implementacijo takega sistema v proizvodno linijo.
+\end{itemize}
 
 
-	\chapter{Načrtovanje in razvoj sistema za pisanje opisov tehnoloških postopkov}
+\chapter{Načrtovanje in razvoj sistema za pisanje opisov tehnoloških postopkov}
 
-	\section{Definicija funkcionalnosti}
+\section{Definicija funkcionalnosti}
 
-	Pri načrtovanju sistema za pisanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
-	\begin{itemize}
-		\item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
-		\item uporabniški vmesnik klienta mora omogočati karseda učinkovito delo,
-		\item komponente sistema morajo biti enostavno zamenljive,
-		\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu,
-		\item sistem mora biti popolnoma funkcionalen brez glasovnega asistenta.
-	\end{itemize}
+Pri načrtovanju sistema za pisanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
+\begin{itemize}
+	\item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
+	\item uporabniški vmesnik odjemalca mora omogočati karseda učinkovito delo,
+	\item komponente sistema morajo biti enostavno zamenljive,
+	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu,
+	\item sistem mora biti popolnoma funkcionalen brez glasovnega asistenta.
+\end{itemize}
 
-	Sistem, ki smo ga sprogramirali v tej raziskavi, služi kot primer kompleksnejšega sistema, katerega uporabo bi radi pospešili z uporabo glasovnega asistenta.
+Sistem, ki smo ga implementirali v tej raziskavi, služi kot primer kompleksnejšega sistema, katerega uporabo bi radi pospešili z uporabo glasovnega asistenta.
 
 Sistem bo služil kot alternativa pisanju opisov tehnoloških postopkov s pisarniškimi programi.
 Sistem mora podpirati ustvarjanje novega opisa tehnološkega postopka in odpiranje ter urejanje obstoječih opisov tehnološkega postopka.
@@ -608,7 +609,7 @@ Glasovni asistent v našem sistemu ima naslednje vloge:
 	\item z njim je možno odpreti kamero ali obrazec za dodajanje koraka.
 \end{itemize}
 
-Raziskava iz leta 2018 je pokazala izboljšano učinkovitost pri delu raziskovalcev v kemijskem laboratoriju, v katerega so integrirali glasovne pomočnike \cite{austerjost2018introducing}.
+Raziskava iz leta 2018 \cite{austerjost2018introducing} je pokazala izboljšano učinkovitost pri delu raziskovalcev v kemijskem laboratoriju, v katerega so integrirali glasovne pomočnike.
 % Namen raziskave je bil preizkus praktične uporabnosti glasovnih asistentov za branje laboratorijskih postopkov po korakih in glasovno upravljanje laboratorijskih instrumentov.
 Namen raziskave je bil preizkus praktične uporabnosti glasovnih asistentov za branje laboratorijskih postopkov in glasovno upravljanje laboratorijskih instrumentov.
 Pozitivni rezultati bi lahko bili ključnega pomena za slabovidne člane laboratorijev.
@@ -646,7 +647,7 @@ Omogoča glasovno upravljanje aplikacije in narekovanje korakov.
 	\item ureja vrstni red korakov delavniškega dnevnika.
 \end{itemize}
 
-Za glasovni asistent Amazon Alexa smo razvili ''Skill'', s katerim uporabnik lahko:
+Za glasovni asistent Amazon Alexa smo razvili \enquote{Skill}, s katerim uporabnik lahko:
 
 \begin{itemize}
 	\item v odprto poročilo vstavi dobesedno narekovan korak,
@@ -701,20 +702,20 @@ Xamarin smo izbrali, da bomo lahko strežniški program in mobilno aplikacijo pr
 \subsection{Amazon Alexa}
 
 Amazon Alexa je glasovni asistent, razvit s strani podjetja Amazon \cite{alexa}.
-Za Amazon Alexo smo se odločili, saj ponuja enostavno možnost programiranja s ''Skill-i''.
+Za Amazon Alexo smo se odločili, saj ponuja enostavno možnost programiranja s \enquote{Skill-i}.
 Poleg tega je Alexo enostavno integrirati z drugimi Amazonovimi spletnimi storitvami, ki jih bomo uporabili v tej diplomski nalogi (AWS SQS, AWS Lambda).
 
 \subsection{Alexa Skill}
 
-Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče ''Skill'' \cite{alexaskills}.
-Da lahko ustvarimo in objavimo ''Skill'' rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
+Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče \enquote{Skill} \cite{alexaskills}.
+Da lahko ustvarimo in objavimo \enquote{Skill} rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
 
 
-\noindent ''Skill'' sestavljajo:
+\noindent \enquote{Skill} sestavljajo:
 \begin{itemize}
-	\item \textbf{Invocation} - fraza, ki ''Skill'' zažene,
-	\item \textbf{Intent} - fraze, ki jih ''Skill'' razpozna kot funkcije,
-	\item \textbf{Endpoint} - omrežni vir, kjer se nahaja ozadna koda ''Skill-a''.
+	\item \textbf{Invocation} - fraza, ki \enquote{Skill} zažene,
+	\item \textbf{Intent} - fraze, ki jih \enquote{Skill} razpozna kot funkcije,
+	\item \textbf{Endpoint} - omrežni vir, kjer se nahaja ozadna koda \enquote{Skill-a}.
 \end{itemize}
 
 Ko Alexa zasliši ''Invocation'' ali katerega od ''Intent-ov'', glasovni posnetek pošlje na Amazonov strežnik.
@@ -741,7 +742,7 @@ To storitev bomo uporabili za komunikacijo med Amazon Alexo in OpenReport strež
 
 \subsubsection{AWS Lambda}
 
-Ozadno kodo za Alexa ''Skill'' smo gostili na platformi AWS Lambda.
+Ozadno kodo za Alexa \enquote{Skill} smo gostili na platformi AWS Lambda.
 To je storitev za gostovanje dogodkovno vodene ozadne kode \cite{lambda}.
 Za to platformo smo se odločili zaradi dobre integracije z ''Alexa Skill Kit-om'' in razvojnim orodjem Visual Studio.
 
@@ -1229,10 +1230,10 @@ Nov objekt se nato vstavi v zadnji odprt projekt.
 
 \section{Implementacija ,,Alexa Skilla''}
 
-Alexa ''Skill'' smo želeli uporabiti kot sredstvo za pohitritev dela z mobilno aplikacijo.
-Glavna funkcija Alexa ''Skill-a'' v sklopu sistema OpenReport je dodajanje korakov v opis tehnološkega postopka in odpiranje obrazcev za vstavljanje korakov.
+Alexa \enquote{Skill} smo želeli uporabiti kot sredstvo za pohitritev dela z mobilno aplikacijo.
+Glavna funkcija Alexa \enquote{Skill-a} v sklopu sistema OpenReport je dodajanje korakov v opis tehnološkega postopka in odpiranje obrazcev za vstavljanje korakov.
 
-\noindent Natančneje, ''Skill'' uporabniku omogoča:
+\noindent Natančneje, \enquote{Skill} uporabniku omogoča:
 \begin{itemize}
 	\item dodajanje tekstovnega koraka,
 	\item odpiranje kamere in dodajanje slikovnega koraka in
@@ -1242,12 +1243,12 @@ Glavna funkcija Alexa ''Skill-a'' v sklopu sistema OpenReport je dodajanje korak
 
 
 
-Ko Alexa zasliši ukaz za zagon ''Skill-a'' (ang. Invocation), se ''Skill'' začne izvajati.
+Ko Alexa zasliši ukaz za zagon \enquote{Skill-a} (ang. Invocation), se \enquote{Skill} začne izvajati.
 Invokacijska fraza se glasi ''\textit{make a report note}''.
 
-Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se ''Skill'' preneha izvajati, se bo primerjal s frazami za zagon funkcij ''Skill-a''.
+Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se \enquote{Skill} preneha izvajati, se bo primerjal s frazami za zagon funkcij \enquote{Skill-a}.
 Te fraze se imenujejo ''namere'' (ang. Intent) (slika \ref{plan_alexa_sqs}).
-V naš ''Skill'' smo implementirali tri glavne namere:
+V naš \enquote{Skill} smo implementirali tri glavne namere:
 
 \begin{itemize}
 	\item \texttt{TakeNoteIntent},
@@ -1264,7 +1265,7 @@ V naš ''Skill'' smo implementirali tri glavne namere:
 \end{figure}
 
 \texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}) se zažene, ko po invokacijski frazi uporabnik izreče ''\texttt{take note \{besedilo\}}'' ali ''\texttt{note \{besedilo\}}''.
-Polje \texttt{\{besedilo\}} je tekstovna spremenljivka, v katero ''Skill'' hrani razpoznano tekstovno vsebino koraka.
+Polje \texttt{\{besedilo\}} je tekstovna spremenljivka, v katero \enquote{Skill} hrani razpoznano tekstovno vsebino koraka.
 V primeru, da uporabnik izreče ''\textit{note unscrew the backplate}'', je vrednost spremenljivke \texttt{\{besedilo\}} ''unscrew the backplate''.
 
 \begin{figure}[H]
@@ -1275,15 +1276,15 @@ V primeru, da uporabnik izreče ''\textit{note unscrew the backplate}'', je vred
 \label{TakeNoteIntent}
 \end{figure}
 
-\texttt{TakeNoteIntent} v ozadni kodi ''Skill-a'' zažene funkcijo, ki bo ustvarila novo SQS sporočilo.
+\texttt{TakeNoteIntent} v ozadni kodi \enquote{Skill-a} zažene funkcijo, ki bo ustvarila novo SQS sporočilo.
 V telo tega sporočila funkcija vstavi vrednost spremenljivke \texttt{\{besedilo\}} in ga pošlje v SQS vrsto.
-''Skill'' zatem vrne uporabniku odgovor ''Noted!'' in se preneha izvajati.
+\enquote{Skill} zatem vrne uporabniku odgovor ''Noted!'' in se preneha izvajati.
 
 \texttt{OpenTextNoteFormIntent} se zažene, ko po invokacijski frazi uporabnik izreče ''\texttt{create a text note}''.
 
-\texttt{OpenTextNoteFormIntent} v ozadni kodi ''Skill-a'' zažene funkcijo, ki ustvari novo SQS sporočilo.
+\texttt{OpenTextNoteFormIntent} v ozadni kodi \enquote{Skill-a} zažene funkcijo, ki ustvari novo SQS sporočilo.
 V telo tega sporočila funkcija vstavi besedilo ''\texttt{addnote}'' in ga pošlje v SQS vrsto.
-''Skill'' zatem vrne uporabniku odgovor ''Opening the form!'' in se preneha izvajati.
+\enquote{Skill} zatem vrne uporabniku odgovor ''Opening the form!'' in se preneha izvajati.
 
 
 \begin{figure}[H]
@@ -1296,9 +1297,9 @@ V telo tega sporočila funkcija vstavi besedilo ''\texttt{addnote}'' in ga pošl
 
 \texttt{OpenImageNoteFormIntent} se zažene, ko po invokacijski frazi uporabnik izreče ''\texttt{take a picture}''.
 
-Ta ''Intent'' v ozadni kodi ''Skill-a'' zažene funkcijo, ki ustvari novo SQS sporočilo.
+Ta ''Intent'' v ozadni kodi \enquote{Skill-a} zažene funkcijo, ki ustvari novo SQS sporočilo.
 V telo tega sporočila funkcija vstavi besedilo ''\texttt{addimage}'' in ga pošlje v SQS vrsto.
-''Skill'' zatem vrne uporabniku odgovor ''Launching camera!'' in se preneha izvajati.
+\enquote{Skill} zatem vrne uporabniku odgovor ''Launching camera!'' in se preneha izvajati.
 
 \begin{figure}[H]
 \begin{center}
@@ -1308,20 +1309,20 @@ V telo tega sporočila funkcija vstavi besedilo ''\texttt{addimage}'' in ga poš
 \label{OpenImageNoteFormIntent}
 \end{figure}
 
-\subsection{Izvajanje ''Skill-a'' po korakih}
+\subsection{Izvajanje \enquote{Skill-a} po korakih}
 
-Alexa ''Skill'' se začne izvajati, ko uporabnik izreče definirano invokacijsko frazo.
+Alexa \enquote{Skill} se začne izvajati, ko uporabnik izreče definirano invokacijsko frazo.
 Alexa posnet govorni ukaz pošlje na Amazonov Alexa Server.
 Tam se s pomočjo NLU razpoznavnega modela poskusi pretvoriti v znakovni niz.
-Ta znakovni niz se primerja z vsemi definiranimi invokacijskimi frazami za ''Skill-e'', ki so vezani na naš Amazon račun.
+Ta znakovni niz se primerja z vsemi definiranimi invokacijskimi frazami za \enquote{Skill-e}, ki so vezani na naš Amazon račun.
 
 Če Alexa Server uporabnikov glasovni ukaz razpozna kot ,,make a report note'', se začne izvajati OpenReportAlexaSkill.
-V ozadno kodo ''Skill-a'' (ang. Endpoint) se pošlje zahteva tipa \texttt{LaunchRequest}.
+V ozadno kodo \enquote{Skill-a} (ang. Endpoint) se pošlje zahteva tipa \texttt{LaunchRequest}.
 
 ''Endpoint'' nastavimo v Alexa Developer nadzorni plošči (slika \ref{skill_endpoint}).
 ''Endpoint'' je lahko AWS Lambda funkcija, lahko pa je naš lasten strežnik, dostopen preko javne domene.
 ''Endpoint'' je v našem primeru gostovan na storitvi AWS Lambda.
-Ob prejetju \texttt{LaunchRequest} ''Endpoint'' našega ''Skill-a'' vrne vprašanje ''What now?''.
+Ob prejetju \texttt{LaunchRequest} ''Endpoint'' našega \enquote{Skill-a} vrne vprašanje ''What now?''.
 
 \begin{figure}[H]
 \begin{center}
@@ -1331,14 +1332,14 @@ Ob prejetju \texttt{LaunchRequest} ''Endpoint'' našega ''Skill-a'' vrne vpraša
 \label{skill_endpoint}
 \end{figure}
 
-Naslednji glasovni ukaz, po zagonu ''Skill-a'', se primerja s frazami za namere (ang. Intent).
+Naslednji glasovni ukaz, po zagonu \enquote{Skill-a}, se primerja s frazami za namere (ang. Intent).
 Če se ukaz ujema z frazami, ki zaženejo katerega od ''Intent-ov'' TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent, se na ''Endpoint'' pošlje zahteva tipa \texttt{IntentRequest}.
 
 Iz prejetega \texttt{IntentRequest}-a nato dobimo ime ''Intent-a''.
 Na podlagi imena prejetega ''Intent-a'' ločimo, ali gre za TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent in zaženemo funkcije, opisane v prejšnjem poglavju.
 
-Oris obdelave invokacije ''Skill-a'' in namere \texttt{TakeNoteIntent} je prikazan s spodnjo sliko (slika \ref{skill}).
-% Najprej Alexa zazna invokacijsko frazo ''make a report note'', ki zažene ''Skill''.
+Oris obdelave invokacije \enquote{Skill-a} in namere \texttt{TakeNoteIntent} je prikazan s spodnjo sliko (slika \ref{skill}).
+% Najprej Alexa zazna invokacijsko frazo ''make a report note'', ki zažene \enquote{Skill}.
 
 \begin{figure}[H]
 \begin{center}
@@ -1348,16 +1349,16 @@ Oris obdelave invokacije ''Skill-a'' in namere \texttt{TakeNoteIntent} je prikaz
 \label{skill}
 \end{figure}
 
-\subsection{Ovire pri izdelavi Alexa ''Skill-a''}
+\subsection{Ovire pri izdelavi Alexa \enquote{Skill-a}}
 
-Pri implementaciji Alexa ''Skill-a'' smo naleteli na največ težav v sklopu te raziskave.
+Pri implementaciji Alexa \enquote{Skill-a} smo naleteli na največ težav v sklopu te raziskave.
 
 Prva je bila jezikovne narave, saj Alexa ne podpira prepoznavanja slovenskega jezika.
 Zato smo se odločili za uporabo angleškega jezika.
 
 Naslednja težava je bila definicija invokacijske fraze.
 Fraze, kot so ''take a note'' ali ''take a picture'' so že rezervirane v sklopu Alexinih privzetih funkcionalnosti.
-To pomeni, da jih za naš ''Skill'' ne moremo uporabiti.
+To pomeni, da jih za naš \enquote{Skill} ne moremo uporabiti.
 
 Izogibati smo se morali tudi frazam, ki so bile rezerviranim frazam podobne (npr. ''open report note'' itd.).
 Tudi take fraze so se velikokrat razpoznale kot rezervirane fraze.
@@ -1797,7 +1798,7 @@ Možnost izvoza projekta omogoča tudi prenos podatkov v druge računalniške pr
 Hitrost uporabe sistema se z uporabo glasovnega asistenta ni izboljšala.
 
 Pod pričakovnanji se je izkazalo narekovanje besedila glasovnemu asistentu.
-Razpoznavanje glasu pri ''Skill-ih'' za asistenta Amazon Alexa namreč deluje najbolje, ko ima stavek veliko stopnjo ujemanja z definirano frazo.
+Razpoznavanje glasu pri \enquote{Skill-ih} za asistenta Amazon Alexa namreč deluje najbolje, ko ima stavek veliko stopnjo ujemanja z definirano frazo.
 \begin{itemize}
 	\item Alexa je ukaz ''Take a picture'' pravilno razpoznala v 18 od 20 testnih izgovorjav.
 	\item Ukaz ''Create a text note'' je pravilno razpoznala v 17 od 20 testnih izgovorjav.

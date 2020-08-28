@@ -8,136 +8,85 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:export-ydpi="96"
-   inkscape:export-xdpi="96"
-   inkscape:export-filename="/home/anej/Documents/Faks/diplomska/report/images/plan.png"
-   sodipodi:docname="plan.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   id="svg8"
-   version="1.1"
-   viewBox="0 0 211 157"
+   width="211mm"
    height="157mm"
-   width="211mm">
+   viewBox="0 0 211 157"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="plan.svg"
+   inkscape:export-filename="/home/anej/Documents/Faks/diplomska/report/images/plan.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <defs
      id="defs2">
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
-       id="marker3198"
+       id="TriangleInL"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="TriangleInL">
+      <path
+         transform="scale(-0.8)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 5.77,0.0 L -2.88,5.0 L -2.88,-5.0 L 5.77,0.0 z "
+         id="path1996" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2207"
        refX="0"
        refY="0"
        orient="auto"
        inkscape:stockid="TriangleOutL">
       <path
          transform="scale(0.8)"
-         style="fill:#ff1313;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
          d="M 5.77,0 -2.88,5 V -5 Z"
-         id="path3196" />
+         id="path2205" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="Arrow2Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lstart">
+      <path
+         transform="scale(1.1) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         id="path1881" />
+    </marker>
+    <marker
+       inkscape:collect="always"
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker3198"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path3196"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#ff1313;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="scale(0.8)" />
     </marker>
     <rect
-       id="rect3085"
-       height="45.536777"
-       width="83.221977"
+       x="-4.0561533"
        y="135.37646"
-       x="-4.0561533" />
+       width="83.221977"
+       height="45.536777"
+       id="rect3085" />
     <marker
-       inkscape:collect="always"
-       inkscape:stockid="TriangleOutL"
-       orient="auto"
-       refY="0"
-       refX="0"
+       inkscape:isstock="true"
+       style="overflow:visible"
        id="marker2984"
-       style="overflow:visible"
-       inkscape:isstock="true">
-      <path
-         id="path2982"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         style="fill:#ff00ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="scale(0.8)" />
-    </marker>
-    <marker
-       inkscape:collect="always"
-       inkscape:stockid="TriangleOutL"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="marker2276"
-       style="overflow:visible"
-       inkscape:isstock="true">
-      <path
-         id="path2274"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         style="fill:#008000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="scale(0.8)" />
-    </marker>
-    <marker
-       inkscape:isstock="true"
-       style="overflow:visible"
-       id="Arrow1Lend"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow1Lend">
-      <path
-         transform="matrix(-0.8,0,0,-0.8,-10,0)"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path895" />
-    </marker>
-    <linearGradient
-       osb:paint="solid"
-       id="linearGradient859">
-      <stop
-         id="stop857"
-         offset="0"
-         style="stop-color:#000000;stop-opacity:1;" />
-    </linearGradient>
-    <marker
-       inkscape:stockid="TriangleOutL"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="TriangleOutL-7"
-       style="overflow:visible"
-       inkscape:isstock="true">
-      <path
-         id="path1034-5"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="scale(0.8)" />
-    </marker>
-    <marker
-       inkscape:stockid="TriangleOutL"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="marker3198-4"
-       style="overflow:visible"
-       inkscape:isstock="true">
-      <path
-         id="path3196-3"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="scale(0.8)" />
-    </marker>
-    <marker
-       inkscape:stockid="TriangleOutL"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="marker3198-49"
-       style="overflow:visible"
-       inkscape:isstock="true">
-      <path
-         id="path3196-2"
-         d="M 5.77,0 -2.88,5 V -5 Z"
-         style="fill:#ff1313;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="scale(0.8)" />
-    </marker>
-    <marker
-       inkscape:isstock="true"
-       style="overflow:visible"
-       id="marker2984-7"
        refX="0"
        refY="0"
        orient="auto"
@@ -147,33 +96,155 @@
          transform="scale(0.8)"
          style="fill:#ff00ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
          d="M 5.77,0 -2.88,5 V -5 Z"
-         id="path2982-5" />
+         id="path2982" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2276"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.8)"
+         style="fill:#008000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2274" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path895"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <linearGradient
+       id="linearGradient859"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop857" />
+    </linearGradient>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="TriangleOutL-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1034-5" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3198-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL">
+      <path
+         transform="scale(0.8)"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path3196-3" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3198-49"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL">
+      <path
+         transform="scale(0.8)"
+         style="fill:#ff1313;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path3196-2" />
+    </marker>
+    <marker
+       inkscape:collect="always"
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2984-7"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path2982-5"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#ff00ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleInL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleInL-3"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1996-6"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="scale(-0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleOutL-7-7"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1034-5-5"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="scale(0.8)" />
     </marker>
   </defs>
   <sodipodi:namedview
-     width="298mm"
-     inkscape:window-maximized="1"
-     inkscape:window-y="15"
-     inkscape:window-x="15"
-     inkscape:window-height="1384"
-     inkscape:window-width="2530"
-     showgrid="true"
-     inkscape:document-rotation="0"
-     inkscape:current-layer="g1334-0"
-     inkscape:document-units="mm"
-     inkscape:cy="374.04557"
-     inkscape:cx="445.41522"
-     inkscape:zoom="1.4142136"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
-     pagecolor="#ffffff"
+     showguides="true"
      id="base"
-     showguides="true">
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="231.31426"
+     inkscape:cy="283.28573"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g1334-0"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     inkscape:window-width="2530"
+     inkscape:window-height="1384"
+     inkscape:window-x="15"
+     inkscape:window-y="15"
+     inkscape:window-maximized="1"
+     width="298mm">
     <inkscape:grid
-       type="xygrid"
-       id="grid1741" />
+       id="grid1741"
+       type="xygrid" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -183,366 +254,392 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     id="layer1"
+     inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     inkscape:label="Layer 1">
+     id="layer1">
     <g
-       transform="translate(132.26612,0.81526625)"
-       id="g1334-0">
+       id="g1334-0"
+       transform="translate(132.26612,0.81526625)">
+      <text
+         id="text1644-9"
+         y="79.866631"
+         x="47.224178"
+         style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         xml:space="preserve"><tspan
+           style="font-size:2.82223px;stroke-width:0.264583"
+           y="79.866631"
+           x="47.224178"
+           id="tspan1642-7"
+           sodipodi:role="line" /></text>
+      <rect
+         y="-0.81526625"
+         x="-132.26611"
+         height="156.89793"
+         width="210.95305"
+         id="rect1259-3"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.42947;stroke-opacity:1" />
+      <rect
+         y="111.93992"
+         x="-117.28072"
+         height="33.402798"
+         width="52.256241"
+         id="rect2141-5"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#2a282a;stroke-width:0.301;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         id="text2145-5"
+         y="108.07925"
+         x="-119.56264"
+         style="font-style:normal;font-weight:normal;font-size:5.12355px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.384266"
+         xml:space="preserve"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           style="font-size:5.12355px;stroke-width:0.384266"
+           y="108.07925"
+           x="-119.56264"
+           id="tspan2143-4"
+           sodipodi:role="line">Amazon Alexa</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:2.82223px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-         x="47.224178"
-         y="79.866631"
-         id="text1644-9"><tspan
+         style="font-style:normal;font-weight:normal;font-size:4.85229px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.363922"
+         x="3.1340668"
+         y="8.6131124"
+         id="text2145-5-6"
+         transform="scale(0.98106301,1.0193025)"><tspan
            sodipodi:role="line"
-           id="tspan1642-7"
-           x="47.224178"
-           y="79.866631"
-           style="font-size:2.82223px;stroke-width:0.264583" /></text>
-      <rect
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.42947;stroke-opacity:1"
-         id="rect1259-3"
-         width="210.95305"
-         height="156.89793"
-         x="-132.26611"
-         y="-0.81526625" />
+           x="3.1340668"
+           y="8.6131124"
+           style="font-size:4.85229px;stroke-width:0.363922"
+           id="tspan1419">OpenReport Strežnik</tspan></text>
       <rect
          style="opacity:1;fill:none;fill-opacity:1;stroke:#2a282a;stroke-width:0.301;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect2141-5"
-         width="52.256241"
-         height="33.402798"
-         x="-117.28072"
-         y="111.93992" />
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:5.12355px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.384266"
-         x="-119.56264"
-         y="108.07925"
-         id="text2145-5"><tspan
-           sodipodi:role="line"
-           id="tspan2143-4"
-           x="-119.56264"
-           y="108.07925"
-           style="font-size:5.12355px;stroke-width:0.384266">Amazon Alexa</tspan></text>
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         id="text2145-5-6"
-         y="8.6131124"
-         x="3.1340668"
-         style="font-style:normal;font-weight:normal;font-size:4.85229px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.363922"
-         xml:space="preserve"><tspan
-           id="tspan1419"
-           style="font-size:4.85229px;stroke-width:0.363922"
-           y="8.6131124"
-           x="3.1340668"
-           sodipodi:role="line">OpenReport Strežnik</tspan></text>
-      <rect
-         y="129.40358"
-         x="0.96887219"
-         height="21.060772"
-         width="52.285526"
          id="rect2141-5-6"
-         style="opacity:1;fill:none;fill-opacity:1;stroke:#2a282a;stroke-width:0.301;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         width="52.285526"
+         height="21.060772"
+         x="0.96887219"
+         y="129.40358" />
       <text
-         transform="scale(0.98106301,1.0193025)"
-         id="text2145-5-9"
-         y="126.05572"
-         x="1.1022513"
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:4.66438px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.349829"
-         xml:space="preserve"><tspan
-           id="tspan2886"
-           style="font-size:4.66438px;stroke-width:0.349829"
-           y="126.05572"
+         x="1.1022513"
+         y="126.05572"
+         id="text2145-5-9"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           sodipodi:role="line"
            x="1.1022513"
-           sodipodi:role="line">OpenReport mobilna aplikacija</tspan></text>
+           y="126.05572"
+           style="font-size:4.66438px;stroke-width:0.349829"
+           id="tspan2886">OpenReport mobilna aplikacija</tspan></text>
       <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-         x="-5.4227543"
+         id="text2145-5-6-7"
          y="25.469986"
-         id="text2145-5-6-7"><tspan
-           sodipodi:role="line"
-           x="-5.4227543"
-           y="25.469986"
+         x="-5.4227543"
+         style="font-style:normal;font-weight:normal;font-size:3.52777px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         xml:space="preserve"><tspan
+           id="tspan2874-4"
            style="font-size:3.52777px;stroke-width:0.264583"
-           id="tspan2874-4" /></text>
-      <path
-         sodipodi:nodetypes="cc"
-         id="path2910"
-         d="m -93.027044,103.527 0.260347,-44.480695"
-         style="fill:#008000;stroke:#000000;stroke-width:0.27977px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2276)" />
-      <path
-         sodipodi:nodetypes="cc"
-         id="path2938"
-         d="m 10.079957,123.14691 c 0.128697,-0.82006 0.06507,-56.970256 0.06507,-56.970256"
-         style="fill:#ff00ff;stroke:#000000;stroke-width:0.233401px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2984)" />
-      <rect
-         y="72.074921"
-         x="-105.63261"
-         height="9.5445805"
-         width="25.326582"
-         id="rect3101"
-         style="opacity:0.98;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.201492;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.322488" />
-      <text
-         transform="matrix(0.98103361,0.00788942,-0.00759345,1.019272,0,0)"
-         id="text3042"
-         y="77.616226"
-         x="-117.81625"
-         style="font-style:normal;font-weight:normal;font-size:4.60013px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0088aa;fill-opacity:1;stroke:none;stroke-width:0.383343"
-         xml:space="preserve"><tspan
-           id="tspan3044"
-           style="font-size:4.60013px;fill:#0088aa;stroke-width:0.383343"
-           y="77.616226"
-           x="-117.81625"
-           sodipodi:role="line">''Namere'' (ang. Intents)</tspan></text>
-      <rect
-         y="19.976566"
-         x="-117.17255"
-         height="36.806553"
-         width="52.249172"
-         id="rect2141-5-5"
-         style="opacity:1;fill:none;fill-opacity:1;stroke:#2a282a;stroke-width:0.301;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         id="text2145-5-2"
-         y="17.770554"
-         x="-119.67978"
-         style="font-style:normal;font-weight:normal;font-size:4.80742px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.360557"
-         xml:space="preserve"><tspan
-           style="font-size:4.80742px;stroke-width:0.360557"
-           y="17.770554"
-           x="-119.67978"
-           id="tspan2143-4-5"
-           sodipodi:role="line">Amazon Web Services</tspan><tspan
-           id="tspan3081"
-           style="font-size:4.80742px;stroke-width:0.360557"
-           y="23.779829"
-           x="-119.67978"
+           y="25.469986"
+           x="-5.4227543"
            sodipodi:role="line" /></text>
-      <text
-         transform="translate(-4.0914554,-6.483733)"
-         style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3085);fill:#000000;fill-opacity:1;stroke:none;"
-         id="text3083"
-         xml:space="preserve" />
       <path
-         id="path3103"
-         d="M 2.7863177,21.503465 H -61.979756"
-         style="fill:#ff1313;fill-opacity:1;stroke:#000000;stroke-width:0.298244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3198)" />
-      <rect
-         y="10.699403"
-         x="2.8484473"
-         height="53.734299"
-         width="52.218105"
-         id="rect2141-5-7"
-         style="opacity:1;fill:none;fill-opacity:1;stroke:#2a282a;stroke-width:0.301;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff1313;fill-opacity:1;stroke:none;stroke-width:0.297775"
-         x="-59.93882"
-         y="20.16275"
-         id="text2145-5-6-4"><tspan
-           id="tspan3236"
-           sodipodi:role="line"
-           x="-59.93882"
-           y="20.16275"
-           style="font-size:3.97032px;fill:#ff1313;fill-opacity:1;stroke-width:0.297775">1 - RecieveMessageRequest</tspan></text>
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         id="text2145-5-6-4-8"
-         y="28.183582"
-         x="-60.2514"
-         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.297775"
-         xml:space="preserve"><tspan
-           style="font-size:3.97032px;fill:#ff0000;stroke-width:0.297775"
-           y="28.183582"
-           x="-60.2514"
-           sodipodi:role="line"
-           id="tspan3236-6">2 - RecieveMessageResponse</tspan></text>
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff1313;fill-opacity:1;stroke:none;stroke-width:0.297775"
-         x="-60.142197"
-         y="35.941685"
-         id="text2145-5-6-4-8-8"><tspan
-           id="tspan3308"
-           sodipodi:role="line"
-           x="-60.142197"
-           y="35.941685"
-           style="font-size:3.97032px;fill:#ff1313;fill-opacity:1;stroke-width:0.297775">3 - DeleteMessageRequest</tspan></text>
+         style="fill:#008000;stroke:#000000;stroke-width:0.27977px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2276)"
+         d="m -93.027044,103.527 0.260347,-44.480695"
+         id="path2910"
+         sodipodi:nodetypes="cc" />
       <path
-         style="fill:#ff0000;stroke:#000000;stroke-width:0.298243;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3198-4)"
-         d="M -64.091523,29.384414 H 0.67454774"
-         id="path3103-1" />
-      <path
-         style="fill:#ff1313;fill-opacity:1;stroke:#000000;stroke-width:0.298243;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3198-49)"
-         d="M 2.0852961,37.351108 H -62.680774"
-         id="path3103-0" />
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:5.34589px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.400942"
-         x="5.4526691"
-         y="18.838682"
-         id="text2145-5-6-6"><tspan
-           sodipodi:role="line"
-           x="5.4526691"
-           y="18.838682"
-           style="font-size:5.34589px;fill:#ff00ff;stroke-width:0.400942"
-           id="tspan2874-6">OpenReportAPI</tspan><tspan
-           id="tspan4918"
-           sodipodi:role="line"
-           x="5.4526691"
-           y="25.521046"
-           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942">(komunikacija z</tspan><tspan
-           id="tspan1501"
-           sodipodi:role="line"
-           x="5.4526691"
-           y="32.203407"
-           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942">odjemalcem,</tspan><tspan
-           id="tspan1505"
-           sodipodi:role="line"
-           x="5.4526691"
-           y="38.885769"
-           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942">prejemanje ukazov</tspan><tspan
-           id="tspan1515"
-           sodipodi:role="line"
-           x="5.4526691"
-           y="45.56813"
-           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942">iz SQS)</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:4.49923px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#008000;fill-opacity:1;stroke:none;stroke-width:0.374935"
-         x="-115.69624"
-         y="122.93896"
-         id="text3042-0"
-         transform="matrix(0.98103361,0.00788943,-0.00759345,1.019272,0,0)"><tspan
-           sodipodi:role="line"
-           x="-115.69624"
-           y="122.93896"
-           style="font-size:4.49923px;fill:#0088aa;stroke-width:0.374935"
-           id="tspan3044-4">OpenReportSkill</tspan><tspan
-           id="tspan4908"
-           sodipodi:role="line"
-           x="-115.69624"
-           y="128.56299"
-           style="font-size:3.99932px;fill:#666666;stroke-width:0.374935">(sprejemanje glasovnih</tspan><tspan
-           id="tspan1495"
-           sodipodi:role="line"
-           x="-115.69624"
-           y="134.18703"
-           style="font-size:3.99932px;fill:#666666;stroke-width:0.374935"> ukazov uporabnika)</tspan></text>
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:5.0391px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#808000;fill-opacity:1;stroke:none;stroke-width:0.377932"
-         x="-117.61195"
-         y="45.019184"
-         id="text2145-5-6-4-8-87"><tspan
-           id="tspan3236-6-1"
-           sodipodi:role="line"
-           x="-117.61195"
-           y="45.019184"
-           style="font-size:5.0391px;fill:#ff0000;stroke-width:0.377932">AWS SQS</tspan><tspan
-           id="tspan4874"
-           sodipodi:role="line"
-           x="-117.61195"
-           y="51.318058"
-           style="font-size:4.03128px;fill:#666666;stroke-width:0.377932">(hranjenje ukazov)</tspan></text>
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         id="text2145-5-6-4-8-87-4"
-         y="25.506021"
-         x="-117.71758"
-         style="font-style:normal;font-weight:normal;font-size:4.83773px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#7b7b7b;fill-opacity:1;stroke:none;stroke-width:0.36283"
-         xml:space="preserve"><tspan
-           style="font-size:4.83773px;fill:#7b7b7b;fill-opacity:1;stroke-width:0.36283"
-           y="25.506021"
-           x="-117.71758"
-           sodipodi:role="line"
-           id="tspan3236-6-1-4" /><tspan
-           id="tspan4872"
-           style="font-size:3.87019px;fill:#666666;fill-opacity:1;stroke-width:0.36283"
-           y="31.553185"
-           x="-117.71758"
-           sodipodi:role="line">(pretvorba glasovnih</tspan><tspan
-           id="tspan1497"
-           style="font-size:3.87019px;fill:#666666;fill-opacity:1;stroke-width:0.36283"
-           y="37.600346"
-           x="-117.71758"
-           sodipodi:role="line">ukazov v SQS sporočila)</tspan></text>
-      <text
-         transform="scale(0.98106301,1.0193025)"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.297775"
-         x="1.5310152"
-         y="138.069"
-         id="text2145-5-9-3"><tspan
-           sodipodi:role="line"
-           x="1.5310152"
-           y="138.069"
-           style="font-size:3.97032px;opacity:0.6;fill:#666666;fill-opacity:1;stroke-width:0.297775"
-           id="tspan2886-6">Interakcija z uporabnikom</tspan></text>
-      <path
-         style="fill:#ff00ff;stroke:#000000;stroke-width:0.233401px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2984-7)"
-         d="m 44.461949,65.328062 c -0.128698,0.820056 -0.06503,56.970248 -0.06503,56.970248"
-         id="path2938-3"
+         style="fill:#ff00ff;stroke:#000000;stroke-width:0.233401px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2984)"
+         d="m 10.079957,123.14691 c 0.128697,-0.82006 0.06507,-56.970256 0.06507,-56.970256"
+         id="path2938"
          sodipodi:nodetypes="cc" />
       <rect
-         y="90.912712"
-         x="3.4400926"
-         height="7.1612101"
-         width="45.006882"
-         id="rect1259"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.437102;stroke-opacity:1" />
+         style="opacity:0.98;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.201492;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.322488"
+         id="rect3101"
+         width="25.326582"
+         height="9.5445805"
+         x="-105.63261"
+         y="72.074921" />
       <text
-         transform="scale(0.98106303,1.0193025)"
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:4.8846px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.366346"
-         x="-19.803492"
-         y="94.391129"
-         id="text2145-5-9-6"><tspan
-           id="tspan1181"
+         style="font-style:normal;font-weight:normal;font-size:4.60013px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#0088aa;fill-opacity:1;stroke:none;stroke-width:0.383343"
+         x="-117.81625"
+         y="77.616226"
+         id="text3042"
+         transform="matrix(0.98103361,0.00788942,-0.00759345,1.019272,0,0)"><tspan
            sodipodi:role="line"
-           x="-19.803492"
+           x="-117.81625"
+           y="77.616226"
+           style="font-size:4.60013px;fill:#0088aa;stroke-width:0.383343"
+           id="tspan3044">''Namere'' (ang. Intents)</tspan></text>
+      <rect
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#2a282a;stroke-width:0.301;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2141-5-5"
+         width="52.249172"
+         height="36.806553"
+         x="-117.17255"
+         y="19.976566" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.80742px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.360557"
+         x="-119.67978"
+         y="17.770554"
+         id="text2145-5-2"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           sodipodi:role="line"
+           id="tspan2143-4-5"
+           x="-119.67978"
+           y="17.770554"
+           style="font-size:4.80742px;stroke-width:0.360557">Amazon Web Services</tspan><tspan
+           sodipodi:role="line"
+           x="-119.67978"
+           y="23.779829"
+           style="font-size:4.80742px;stroke-width:0.360557"
+           id="tspan3081" /></text>
+      <text
+         xml:space="preserve"
+         id="text3083"
+         style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3085);fill:#000000;fill-opacity:1;stroke:none;"
+         transform="translate(-4.0914554,-6.483733)" />
+      <path
+         style="fill:#ff1313;fill-opacity:1;stroke:#000000;stroke-width:0.298244;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3198)"
+         d="M 2.7863177,21.503465 H -61.979756"
+         id="path3103" />
+      <rect
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#2a282a;stroke-width:0.301;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect2141-5-7"
+         width="52.218105"
+         height="53.734299"
+         x="2.8484473"
+         y="10.699403" />
+      <text
+         id="text2145-5-6-4"
+         y="20.16275"
+         x="-59.93882"
+         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff1313;fill-opacity:1;stroke:none;stroke-width:0.297775"
+         xml:space="preserve"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           style="font-size:3.97032px;fill:#ff1313;fill-opacity:1;stroke-width:0.297775"
+           y="20.16275"
+           x="-59.93882"
+           sodipodi:role="line"
+           id="tspan3236">1 - RecieveMessageRequest</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.297775"
+         x="-60.2514"
+         y="28.183582"
+         id="text2145-5-6-4-8"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           id="tspan3236-6"
+           sodipodi:role="line"
+           x="-60.2514"
+           y="28.183582"
+           style="font-size:3.97032px;fill:#ff0000;stroke-width:0.297775">2 - RecieveMessageResponse</tspan></text>
+      <text
+         id="text2145-5-6-4-8-8"
+         y="35.941685"
+         x="-60.142197"
+         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff1313;fill-opacity:1;stroke:none;stroke-width:0.297775"
+         xml:space="preserve"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           style="font-size:3.97032px;fill:#ff1313;fill-opacity:1;stroke-width:0.297775"
+           y="35.941685"
+           x="-60.142197"
+           sodipodi:role="line"
+           id="tspan3308">3 - DeleteMessageRequest</tspan></text>
+      <path
+         id="path3103-1"
+         d="M -64.091523,29.384414 H 0.67454774"
+         style="fill:#ff0000;stroke:#000000;stroke-width:0.298243;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3198-4)" />
+      <path
+         id="path3103-0"
+         d="M 2.0852961,37.351108 H -62.680774"
+         style="fill:#ff1313;fill-opacity:1;stroke:#000000;stroke-width:0.298243;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3198-49)" />
+      <text
+         id="text2145-5-6-6"
+         y="18.838682"
+         x="5.4526691"
+         style="font-style:normal;font-weight:normal;font-size:5.34589px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.400942"
+         xml:space="preserve"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           id="tspan2874-6"
+           style="font-size:5.34589px;fill:#ff00ff;stroke-width:0.400942"
+           y="18.838682"
+           x="5.4526691"
+           sodipodi:role="line">OpenReportAPI</tspan><tspan
+           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942"
+           y="25.521046"
+           x="5.4526691"
+           sodipodi:role="line"
+           id="tspan4918">(komunikacija z</tspan><tspan
+           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942"
+           y="32.203407"
+           x="5.4526691"
+           sodipodi:role="line"
+           id="tspan1501">odjemalcem,</tspan><tspan
+           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942"
+           y="38.885769"
+           x="5.4526691"
+           sodipodi:role="line"
+           id="tspan1505">prejemanje ukazov</tspan><tspan
+           style="font-size:4.27673px;fill:#666666;stroke-width:0.400942"
+           y="45.56813"
+           x="5.4526691"
+           sodipodi:role="line"
+           id="tspan1515">iz SQS)</tspan></text>
+      <text
+         transform="matrix(0.98103361,0.00788943,-0.00759345,1.019272,0,0)"
+         id="text3042-0"
+         y="122.93896"
+         x="-115.69624"
+         style="font-style:normal;font-weight:normal;font-size:4.49923px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#008000;fill-opacity:1;stroke:none;stroke-width:0.374935"
+         xml:space="preserve"><tspan
+           id="tspan3044-4"
+           style="font-size:4.49923px;fill:#0088aa;stroke-width:0.374935"
+           y="122.93896"
+           x="-115.69624"
+           sodipodi:role="line">OpenReportSkill</tspan><tspan
+           style="font-size:3.99932px;fill:#666666;stroke-width:0.374935"
+           y="128.56299"
+           x="-115.69624"
+           sodipodi:role="line"
+           id="tspan4908">(sprejemanje glasovnih</tspan><tspan
+           style="font-size:3.99932px;fill:#666666;stroke-width:0.374935"
+           y="134.18703"
+           x="-115.69624"
+           sodipodi:role="line"
+           id="tspan1495"> ukazov uporabnika)</tspan></text>
+      <text
+         id="text2145-5-6-4-8-87"
+         y="45.019184"
+         x="-117.61195"
+         style="font-style:normal;font-weight:normal;font-size:5.0391px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#808000;fill-opacity:1;stroke:none;stroke-width:0.377932"
+         xml:space="preserve"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           style="font-size:5.0391px;fill:#ff0000;stroke-width:0.377932"
+           y="45.019184"
+           x="-117.61195"
+           sodipodi:role="line"
+           id="tspan3236-6-1">AWS SQS</tspan><tspan
+           style="font-size:4.03128px;fill:#666666;stroke-width:0.377932"
+           y="51.318058"
+           x="-117.61195"
+           sodipodi:role="line"
+           id="tspan4874">(hranjenje ukazov)</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.83773px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#7b7b7b;fill-opacity:1;stroke:none;stroke-width:0.36283"
+         x="-117.71758"
+         y="25.506021"
+         id="text2145-5-6-4-8-87-4"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           id="tspan3236-6-1-4"
+           sodipodi:role="line"
+           x="-117.71758"
+           y="25.506021"
+           style="font-size:4.83773px;fill:#7b7b7b;fill-opacity:1;stroke-width:0.36283" /><tspan
+           sodipodi:role="line"
+           x="-117.71758"
+           y="31.553185"
+           style="font-size:3.87019px;fill:#666666;fill-opacity:1;stroke-width:0.36283"
+           id="tspan4872">(pretvorba glasovnih</tspan><tspan
+           sodipodi:role="line"
+           x="-117.71758"
+           y="37.600346"
+           style="font-size:3.87019px;fill:#666666;fill-opacity:1;stroke-width:0.36283"
+           id="tspan1497">ukazov v SQS sporočila)</tspan></text>
+      <text
+         id="text2145-5-9-3"
+         y="138.069"
+         x="1.5310152"
+         style="font-style:normal;font-weight:normal;font-size:3.97032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.297775"
+         xml:space="preserve"
+         transform="scale(0.98106301,1.0193025)"><tspan
+           id="tspan2886-6"
+           style="font-size:3.97032px;opacity:0.6;fill:#666666;fill-opacity:1;stroke-width:0.297775"
+           y="138.069"
+           x="1.5310152"
+           sodipodi:role="line">Interakcija z uporabnikom</tspan></text>
+      <path
+         sodipodi:nodetypes="cc"
+         id="path2938-3"
+         d="m 44.461949,65.328062 c -0.128698,0.820056 -0.06503,56.970248 -0.06503,56.970248"
+         style="fill:#ff00ff;stroke:#000000;stroke-width:0.233401px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2984-7)" />
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.437102;stroke-opacity:1"
+         id="rect1259"
+         width="45.006882"
+         height="7.1612101"
+         x="3.4400926"
+         y="90.912712" />
+      <text
+         id="text2145-5-9-6"
+         y="94.391129"
+         x="-19.803492"
+         style="font-style:normal;font-weight:normal;font-size:4.8846px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.366346"
+         xml:space="preserve"
+         transform="scale(0.98106303,1.0193025)"><tspan
+           style="font-size:4.8846px;fill:#ff00ff;stroke-width:0.366346"
            y="94.391129"
-           style="font-size:4.8846px;fill:#ff00ff;stroke-width:0.366346">HTTP zahtevki</tspan></text>
+           x="-19.803492"
+           sodipodi:role="line"
+           id="tspan1181">HTTP zahtevki</tspan></text>
       <text
-         transform="scale(0.98106303,1.0193025)"
-         id="text2145-5-9-6-9"
-         y="94.264214"
-         x="25.506901"
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:5.00983px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff00ff;fill-opacity:1;stroke:none;stroke-width:0.375738"
-         xml:space="preserve"><tspan
-           id="tspan1415"
-           style="font-size:5.00983px;fill:#ff00ff;stroke-width:0.375738"
+         x="25.506901"
+         y="94.264214"
+         id="text2145-5-9-6-9"
+         transform="scale(0.98106303,1.0193025)"><tspan
+           sodipodi:role="line"
+           x="25.506901"
            y="94.264214"
-           x="25.506901"
-           sodipodi:role="line">Objekti v JSON zapisu</tspan><tspan
-           id="tspan1185"
            style="font-size:5.00983px;fill:#ff00ff;stroke-width:0.375738"
-           y="100.5265"
+           id="tspan1415">Objekti v JSON zapisu</tspan><tspan
+           sodipodi:role="line"
            x="25.506901"
-           sodipodi:role="line" /></text>
+           y="100.5265"
+           style="font-size:5.00983px;fill:#ff00ff;stroke-width:0.375738"
+           id="tspan1185" /></text>
       <text
-         id="text974"
-         y="27.329607"
-         x="-115.14523"
+         xml:space="preserve"
          style="font-size:5.44179px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#008000;fill-opacity:1;stroke-width:0.291524"
-         xml:space="preserve"><tspan
-           style="font-size:5.44179px;fill:#0088aa;fill-opacity:1;stroke-width:0.291524"
-           y="27.329607"
-           x="-115.14523"
+         x="-115.14523"
+         y="27.329607"
+         id="text974"><tspan
+           sodipodi:role="line"
            id="tspan972"
-           sodipodi:role="line">AWS Lambda</tspan></text>
+           x="-115.14523"
+           y="27.329607"
+           style="font-size:5.44179px;fill:#0088aa;fill-opacity:1;stroke-width:0.291524">AWS Lambda</tspan></text>
+      <circle
+         r="6.614583"
+         cy="119.57015"
+         cx="-31.724453"
+         id="path1833"
+         style="fill:none;stroke:#2a282a;stroke-width:0.301001" />
+      <path
+         id="path1837"
+         d="m -31.724453,126.18473 v 17.19792 l -6.61458,6.61458"
+         style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path1839"
+         d="m -31.724453,143.38265 6.614583,6.61458"
+         style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path1841"
+         d="m -25.10987,134.12223 -6.614583,-6.61458 -6.61458,6.61458"
+         style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         id="path1843"
+         d="M -43.630703,139.4139 H -60.82862"
+         style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInL);marker-end:url(#TriangleOutL-7)" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleInL-3);marker-end:url(#TriangleOutL-7-7)"
+         d="M -5.26612,139.4139 H -22.46403"
+         id="path1843-3" />
     </g>
   </g>
 </svg>

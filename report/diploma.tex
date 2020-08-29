@@ -21,16 +21,26 @@
 % verzija 16. april 2016 (odstranjena izjava o avtorstvu)
 % verzija 5. junij 2016 (Franc Solina dodal vrstice, ki jih je označil s svojim imenom)
 
-
+% \UseRawInputEncoding
 \documentclass[a4paper, 12pt]{book}
 %\documentclass[a4paper, 12pt, draft]{book}  Nalogo preverite tudi z opcijo draft, ki vam bo pokazala, katere vrstice so predolge!
-
 
 
 \usepackage[utf8]{inputenc}   % omogoča uporabo slovenskih črk kodiranih v formatu UTF-8
 \usepackage[slovene,english]{babel}    % naloži, med drugim, slovenske delilne vzorce
 
-\usepackage{biblatex}
+\usepackage[
+backend=biber,
+maxbibnames=9,
+]{biblatex}
+
+% If you want to break on URL numbers
+\setcounter{biburlnumpenalty}{9000}
+% If you want to break on URL lower case letters
+\setcounter{biburllcpenalty}{9000}
+% If you want to break on URL UPPER CASE letters
+\setcounter{biburlucpenalty}{9000}
+
 \addbibresource{literatura.bib}
 
 \usepackage[pdftex]{graphicx}  % omogoča vlaganje slik različnih formatov
@@ -426,7 +436,7 @@ Raziskati želimo predpostavko, da lahko z učinkovito uporabo glasovnega pomoč
 \section{Struktura diplomske naloge}
 
 Diplomsko delo pričenjamo s predstavitvijo področja raziskave in kratko opišemo problem in možno rešitev. 
-Postavimo si hipotezo.
+Opredelimo problematiko naše raziskave.
 
 Začnemo z raziskavo obstoječih rešitev za pisanje opisa tehnološkega postopka.
 Nato opišemo, kaj trenutne rešitve te problematike ponujajo in njihove prednosti ter slabosti.
@@ -446,38 +456,39 @@ V predzadnjem poglavju opišemo možnosti nadaljnjega razvoja projekta.
 
 \subsection {Kaj vsebuje delavniški dnevnik?}
 
-Delavniški dnevnik je splošen izraz za tehniški dokument, ki po korakih predstavi tehnološki postopek.
-V podjetju Gorenje takšne dokumente imenujejo opis tehnološkega postopka (slika \ref{sap_2}).
+Delavniški dnevnik je splošen izraz za tehniški dokument, ki po korakih predstavi potek tehnološkega postopka \cite{delavniskidnevnikptuj}.
+V podjetju Hisense Gorenje Europe takšne dokumente imenujejo opis tehnološkega postopka (slika \ref{sap_2}).
 
 Delavniški dnevnik sestavlja zaporedje korakov, ki si sledijo v časovnem vrstnem redu.
 Vsak korak delavniškega dnevnika sestavljata opis postopka posamezne naloge v procesu in njeno predvideno trajanje.
-Koraki lahko vsebujejo tudi slikovne razlage.
+Delavniški dnevniki lahko vsebujejo tudi slikovne razlage.
 
 Delavniški dnevniki imajo lahko definirane tudi kontrolne postopke za izdelek, orodje, ki ga potrebujemo za izdelavo in seznam možnih nevarnosti pri delu.
 
-Delavniški dnevniki se najpogosteje uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
-Lahko se uporabljajo tudi kot učni pripomoček za spremljanje napredka npr. dijakov vajencev na praksi \cite{delavniskidnevnikptuj}.
+Delavniški dnevniki se uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
+Pogosto se uporabljajo tudi kot učni pripomoček za spremljanje napredka npr. dijakov vajencev na praksi \cite{delavniskidnevnikptuj, ddsclj}.
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=13.5cm]{sap_2}
 \end{center}
-\caption{V tabelo izvožen opis tehnološkega postopka za izdelavo hladilnika}
+\caption{V tabelo izvožen opis tehnološkega postopka za izdelavo hladilnika v podjetju Hisense Gorenje Europe}
 \label{sap_2}
 \end{figure}
-
-// vir je gorenje?? 
 
 % Ta opis tehnološkega postopka je strukturiran tako, da se vsi koraki sklicujejo na eno samo tehnično sliko.
 
 % // kako podrobno se opisuje korake?
+
+Delavniški dnevnik se lahko sestavlja med delom ali po opravljenem delu.
 
 \subsection{Definicija problematike}
 
 V tej diplomski nalogi raziščemo možne metode izdelave delavniškega dnevnika oz. opisa tehnološkega postopka.
 Raziskati želimo prednosti in slabosti trenutnih metod sestavljanja teh dokumentov.
 V naslednji fazi raziskave želimo izdelati specializiran sistem za sestavljanje opisov tehnoloških postopkov.
-Raziskati želimo vpeljavo glasovnega pomočnika v sistem za sestavljanje delavniških dnevnikov in kako uporaba glasovnega pomočnika vpliva na uporabnost takega sistema.
+Raziskati želimo vpeljavo glasovnega pomočnika v sistem za sestavljanje delavniških dnevnikov in kako uporaba glasovnega pomočnika vpliva na uporabo takega sistema.
+
 
 Izhajajoč iz navedenega opredeljujemo problematiko diplomskega dela: zasnuj in implementiraj sistem za sestavljanje delavniških dnevnikov, vanj vpelji glasovnega pomočnika in sistem preizkusi.
 
@@ -541,7 +552,7 @@ Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot obrazec.
 
 \subsection{Specializirani moduli za poslovne informacijske sisteme}
 
-Podjetja, kot so npr. Hisense Gorenje d.d. za sestavljanje delavniških dnevnikov uporabljajo specializirane module za lastne informacijske sisteme.
+Podjetja kot so npr. Hisense Gorenje Europe, za sestavljanje delavniških dnevnikov uporabljajo specializirane module za lastne informacijske sisteme.
 Primer je prikazan modul za informacijski sistem SAP (na sliki \ref{sap_1}).
 
 \begin{figure}[H]
@@ -576,6 +587,7 @@ Glavne slabosti takšnega sistema so:
 \section{Definicija funkcionalnosti}
 
 Sistem, ki smo ga v sklopu diplomske naloge implementirali (na sliki \ref{plan_simple}), uporabniku omogoča vodenje svojih delavniških dnevnikov (v nadaljevanju imenovanih \textit{projektov}).
+Služil bo kot alternativa pisanju delavniških dnevnikov s pisarniškimi programi.
 Vsak projekt ima zbirko \textit{korakov}.
 Korak opisuje posmezno dejavnost tehnološkega postopka, ki ga želimo zabeležiti z delavniškim dnevnikom.
 
@@ -596,13 +608,13 @@ Implementiran sistem sestavljajo:
 
 
 Osnovni uporabniški vmesnik sistema je mobilna aplikacija.
-Preko nje se uporabnik v sistem prijavi s svojim uporabniškim računom, ustvarja in odpira delavniške dnevnike.
+Preko nje se uporabnik v sistem prijavi s svojim uporabniškim računom, ustvarja in odpira svoje delavniške dnevnike.
 
 Delavniški dnevnik oz. projekt sestavljajo naslov, opis dela, opis možnih nevarnosti in seznam korakov postopka.
 
-V odprt projekt lahko uporabnik doda seznam korakov, ki opisujejo potek dela.
-Korak sestavljajo naslov, opis in trajanje.
-Uporabnik lahko posname tudi slike in jih doda v odprt projekt kot korak.
+V odprt projekt lahko uporabnik, enega za drugim, dodaja korake, ki opisujejo potek dela.
+Posamezen korak sestavljajo naslov, opis in trajanje.
+Uporabnik lahko tudi posname slike in jih doda v odprt projekt kot korak.
 
 Glasovnega pomočnika smo uporabili kot dodaten uporabniški vmesnik, s katerim lahko uporabnik prostoročno dodaja korake v odprt projekt.
 
@@ -621,21 +633,20 @@ Podatki, ki jih uporabnik vnese preko mobilne aplikacije in glasovnega pomočnik
 
 Pri načrtovanju sistema za pisanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
 \begin{itemize}
-	\item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
+	% \item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
 	% \item uporabniški vmesnik odjemalca mora omogočati karseda učinkovito delo,
 	\item komponente sistema morajo biti enostavno zamenljive,
 	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu,
-	\item sistem mora biti popolnoma funkcionalen brez glasovnega pomočnik.
+	\item sistem mora biti popolnoma funkcionalen brez glasovnega pomočnika.
 \end{itemize}
 
-Sistem, ki smo ga implementirali v tej raziskavi, služi kot primer kompleksnejšega sistema, katerega uporabo bi radi pospešili z uporabo glasovnega pomočnika.
+Sistem, ki smo ga implementirali v tej raziskavi, služi kot primer kompleksnejšega sistema, katerega uporabnost bi radi izboljšali z uporabo glasovnega pomočnika.
 
-Sistem bo služil kot alternativa pisanju opisov tehnoloških postopkov s pisarniškimi programi.
 Sistem mora podpirati ustvarjanje novega opisa tehnološkega postopka in odpiranje ter urejanje obstoječih opisov tehnološkega postopka.
 
 Vsak opis tehnološkega postopka mora imeti naslov, opis, opis možnih nevarnosti pri delu in seznam korakov dela.
 
-Seznam korakov dela mora podpirati dodajanje novih korakov, urejanje obstoječih korakov, brisanje obstoječih korakov in spreminjanje vrstnega reda korakov.
+Seznam korakov dela mora podpirati dodajanje novih korakov, spreminjanje vsebine obstoječih korakov, brisanje obstoječih korakov in spreminjanje vrstnega reda korakov.
 
 \subsection{Kaj smo želeli z glasovnim pomočnikom izboljšati?}
 
@@ -878,6 +889,14 @@ Iz žetona je možno razbrati, za katerega uporabnika gre in katere pravice so m
 
 \subsubsection{Registracija in prijava}
 
+Vse operacije nad uporabnikovimi delavniškimi dnevniki morajo biti avtorizirane.
+Uporabnik sistema mora za uporabo sistema imeti registriran uporabniški račun.
+Na ta račun so vezani vsi njegovi delavniški dnevniki.
+
+Preden dobi uporabnik dostop do svojih podatkov, mora vzpostaviti zaupanje s strežnikom.
+To doseže s prijavo s pravilnim uporabniškim imenom in geslom.
+Če uporabnik še nima računa, se mora registrirati.
+
 Pri registraciji mora odjemalec na strežnik poslati objekt razreda \textit{RegisterUserRequest}.
 Odjemalec ga mora poslati na URL ''\texttt{/identity/register}'' preko metode POST.
 V objektu \texttt{RegisterUserRequest} se nahajata njegov e-mail naslov in geslo v čisti obliki.
@@ -950,12 +969,13 @@ V primeru uspešne prijave se avtorizacijski žeton \texttt{Token} generira in p
 
 \subsubsection{Operacije z delavniškimi dnevniki}
 
+Avtenticiran uporabnik lahko dostopa do svoje zbirke delavniških dnevnikov.
 Vsak uporabnik lahko ima nič ali več delavniških dnevnikov.
 
 Vse operacije nad uporabnikovim delavniškim dnevnikom morajo biti avtorizirane.
 V kolikor niso, bo API vedno javil napako \texttt{Bad Request: Not Authorised}.
 
-Pri ustvarjanju novega opisa tehnološkega postopka (v nadaljevanju poglavja \textit{projekta}) mora uporabnik podati naslov, kratek opis projekta in seznam možnih nevarnosti.
+Ko uporabnik želi ustvariti nov delavniški dnevnik (slika \ref{app_create_new})(v nadaljevanju poglavja \textit{projekt}), mora v mobilni aplikaciji podati naslov, kratek opis projekta in opis možnih nevarnosti.
 
 Te podatke odjemalec zapiše v objekt razreda \texttt{CreateProjectRequest}.
 
@@ -966,6 +986,14 @@ CreateProjectRequest {
     string Dangers; 
 } 
 \end{verbatim}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=7cm]{app_create_new_small}
+\end{center}
+	\caption{Ustvarjanje novega projekta v aplikaciji.}
+\label{app_create_new}
+\end{figure}
 
 \noindent Ta objekt se nato pošlje preko POST metode na strežnik na naslov \texttt{/projects\\/create}.
 Storitev za operacije nad projekti nato kreira nov objekt razreda \texttt{Project} s podatki iz prejete zahteve.
@@ -984,20 +1012,26 @@ Project {
     ... 
 }
 \end{verbatim}
-Do kateregakoli svojega projekta lahko odjemalec v nadaljnji komunikaciji dostopa tako, da pošlje avtoriziran GET zahtevek na URL ''\texttt{/projects/\{id\}}''.
+
+Uporabnik lahko dostopa do katerega koli svojega delavniškega dnevnika.
+Do njega dostopa tako, da pošlje avtoriziran GET zahtevek na URL ''\texttt{/projects/\{id\}}''.
 Polje \texttt{\{id\}} mora biti unikatni identifikator projekta.
 
 Za izbris projekta mora uporabnik poslati DELETE zahtevo na URL ''\texttt{/projects/\{id\}}''.
 Če zahteva ni avtorizirana z ustreznim žetonom, se projekt ne izbriše.
 
-\subsubsection{Operacije nad koraki opisa tehnološkega postopka}
+\subsubsection{Operacije nad koraki delavniškega dnevnika}
 
+Korak delavniškega dnevnika opisuje eno od nalog v tehnološkem postopku, ki ga delavniški dnevnik opisuje.
 Vsak projekt ima lahko nič ali več korakov.
 Vsak korak ima naslov, opis in predvideno trajanje.
 
+
 Korak je lahko izključno tekstovni, lahko pa ima tudi pripadajočo sliko.
 
-Da uporabnik ustvari tekstovni korak, mora poslati objekt razreda \texttt{Note}, preko POST metode, na URL ''\texttt{/projects/\{id\}/addnote}''.
+Da uporabnik ustvari nov besedilni korak (na sliki \ref{note_image} levo), mora v aplikaciji izpolniti obrazec za dodajanje koraka.
+Ta obrazec ima polja za naslov, besedilo in trajanje.
+Da uporabnik ta korak vnese, mora poslati objekt razreda \texttt{Note}, preko POST metode, na URL ''\texttt{/projects/\{id\}/addnote}''.
 Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, katermu želi dodati korak.
 
 \noindent Razred \texttt{Note} izgleda tako.
@@ -1014,11 +1048,20 @@ Note {
 }
 \end{verbatim}
 
-Strežnik najprej preveri, če je pošiljatelj poslal avtorizirano zahtevo.
+Naslov koraka se zapiše v polje Title, opis v polje Text, trajanje pa se zapiše v polja Hours, Minutes in Seconds.
+
+Ko uporabnik pošlje objekt s podatki nas strežnik, strežnik najprej preveri, če je pošiljatelj poslal avtorizirano zahtevo.
 Iz avtorizacijskega žetona strežnik razbere uporabnikov \texttt{UserID}. 
 Če je projekt z identifikatorjem \texttt{\{id\}} res v lasti uporabnika z identifikatorjem \texttt{UserID}, se bo korak dodal v zbirko korakov tega projekta.
 
-Če želi uporabnik ustvariti slikovni korak, mora poslati objekt razreda \texttt{UploadImageRequest} na URL ''\texttt{/projects/\{id\}/addimage}''.
+Slikovni koraki (na sliki \ref{note_image} desno) se v delavniški dnevnik dodajajo na podoben način.
+Uporabnik v mobilni aplikaciji odpre kamero in zajame fotografijo, ki se nanaša na korak, ki ga želi ustvariti.
+Ko jo zajame, se odpre obrazec za dodajanje naslova, opisa in trajanja koraka s fotografijo.
+Ko so podatki vnešeni, se slika zašifrira v znakovni niz po metodi Base64.
+Ostali podatki se zapišejo v objekt razreda \texttt{Note}.
+
+Korak, zapisan v objekt razreda \texttt{Note} in v znakovni niz šifrirana slika se zapišeta v objekt razreda \texttt{UploadImageRequest}.
+Ta objekt se nato pošlje preko POST metode na URL ''\texttt{/projects/\{id\}/addimage}''.
 
 \begin{verbatim}
 UploadImageRequest { 
@@ -1027,8 +1070,16 @@ UploadImageRequest {
 }
 \end{verbatim}
 
-V tem razredu predstavlja polje \texttt{ImageString} pripadajočo fotografijo, zakodirano v znakovni niz.
-Za kodirni algoritem smo uporabili Base64.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=11cm]{app_note_image}
+\end{center}
+	\caption{Dodajanje korakov v aplikaciji.}
+\label{note_image}
+\end{figure}
+
+V tem razredu predstavlja polje \texttt{ImageString} pripadajočo fotografijo, po metodi Base64 šfirirano v znakovni niz.
+% Za kodirni algoritem smo uporabili Base64.
 
 Za hranjenje tekstovnih in slikovnih korakov smo zaradi preprostosti implementacije uporabili isti razred (\texttt{Note}).
 Tekstovni in slikovni korak se ločita v vrednosti boolean zastavice \texttt{IsImage}.
@@ -1059,11 +1110,13 @@ Spremembe se hranijo v podatkovni bazi.
 
 \subsubsection{Urejanje in brisanje in korakov v projektu}
 
-Uporabnik lahko obstoječemu koraku spreminja vsebino, naslov in trajanje.
-Po končanem urejanju besedilnih korakov, mora uporabnik poslati avtorizirano PUT zahtevo na URL ''\texttt{/projects/\{pid\}/update/\{nid\}}''.
+Uporabnik lahko korake, ki pripadajo njegovim delavniškim dnevnikom spreminja.
+Spreminja lahko njihovo vsebino, naslov in trajanje.
+
+Po končanem urejanju besedilnih korakov, mora odjemalec poslati avtorizirano PUT zahtevo na URL ''\texttt{/projects/\{pid\}/update/\{nid\}}''.
 Telo zahteve mora vsebovati objekt razreda \texttt{Note}, ki ga je uporabnik spremenil.
 
-Pri spreminjanju vsebine slikovnih korakov mora uporabnik poslati avtorizirano PUT zahtevo na naslov ''\texttt{/projects/\{pid\}/update/\{nid\}/image}''.
+Pri spreminjanju vsebine slikovnih korakov mora odjemalec poslati avtorizirano PUT zahtevo na naslov ''\texttt{/projects/\{pid\}/update/\{nid\}/image}''.
 Telo te zahteve mora vsebovati objekt razreda \texttt{UploadImageRequest}.
 V objektu \texttt{UploadImageRequest} mora biti polje \texttt{Note} objekt, ki ga želimo posodobiti.
 Polje \texttt{ImageString} mora biti šifrirana slika, ki bo zamenjala prejšnjo sliko.
@@ -1076,7 +1129,7 @@ V kolikor ima ta objekt \texttt{Note} postavljeno zastavico \texttt{IsImage} na 
 
 \subsubsection{Spreminjanje vrstnega reda korakov v projektu}
 
-Uporabnik lahko korakom v projektu spreminja vrstni red prikaza.
+Uporabnik lahko korakom v svojih projektih spreminja vrstni red prikaza.
 Izbran korak lahko zamakne za poljubno število mest proti začetku ali koncu seznama.
 Položaj koraka \texttt{Note} v seznamu lahko razberemo iz atributa \texttt{Position}.
 Prvi korak ima \texttt{Position} 0, drugi 1, itd.
@@ -1157,13 +1210,14 @@ Project {
 \label{plan_sqs_server_alexa}
 \end{figure}
 
-Strežnik z glasovnim pomočnikom Amazon Alexa komunicira preko storitve AWS SQS (slika \ref{plan_sqs_server_alexa}).
-Glasovni pomočnik od uporabnika prejme glasovni ukaz.
+Strežnik z glasovnim pomočnikom Amazon Alexa komunicira preko storitve Simple Queue Service (SQS) (slika \ref{plan_sqs_server_alexa}) iz sklopa storitev Amazon Web Services.
+
+Glasovni pomočnik od uporabnika prejme izgovorjen glasovni ukaz.
 Na podlagi tega ukaza, glasovni pomočnik na SQS vrsto odloži tri različna besedilna sporočila:
 \begin{itemize}
-	\item \textbf{"addnote"},
-	\item \textbf{"addimage"},
-	\item \textbf{"\{narekovano besedilo\}"},
+	\item \textbf{\enquote{addnote}},
+	\item \textbf{\enquote{addimage}},
+	\item \textbf{\enquote{\{narekovano besedilo\}}},
 \end{itemize}
 
 % \bigbreak
@@ -1171,12 +1225,12 @@ Strežnik periodično prejema sporočila iz SQS vrste.
 Ko sporočilo prejme, na podlgi njegove vsebine izvede eno od treh možnih funkcij.
 
 \begin{itemize}
-	\item Sporočilo ''addnote'' sporoči strežniku, naj na odjemalcu odpre obrazec za dodajanje besedilnega koraka.
-	\item Sporočilo ''addimage'' sporoči strežniku, naj na odjemalcu odpre kamero in obrazec za dodajanje slikovnega koraka.
-	\item Sporočilo ''\{narekovano besedilo\}'' sporoči strežniku, naj vsebino tega sporočila doda odprtemu projektu kot tekstovni korak.
+	\item Sporočilo \enquote{addnote} sporoči strežniku, naj na odjemalcu odpre obrazec za dodajanje besedilnega koraka.
+	\item Sporočilo \enquote{addimage} sporoči strežniku, naj na odjemalcu odpre kamero in obrazec za dodajanje slikovnega koraka.
+	\item Sporočilo \enquote{\{narekovano besedilo\}} sporoči strežniku, naj vsebino tega sporočila doda odprtemu projektu kot tekstovni korak.
 \end{itemize}
 
-V sporočilu ''\{narekovano besedilo\}'' se nahaja besedilo, ki ga je glasovni pomočnik razpoznal kot dobesedni narek koraka.
+V sporočilu \enquote{\{narekovano besedilo\}} se nahaja besedilo, ki ga je glasovni pomočnik razpoznal kot dobesedni narek koraka.
 Primer takšnega sporočila je ''this is a literal dictation'' ali ''prepare the table''.
 
 \subsubsection{Utemeljitev uporabe SQS}
@@ -1187,7 +1241,7 @@ Pri uporabi SQS je prenos podatkov resda manj učinkovit kot pri direktni poveza
 Glavni faktor, zaradi katerega smo se odločili za uporabo AWS SQS, je, da z dodatno plastjo za hranjenje sporočil, dosežemo enostavno zamenjljivost glasovnega pomočnika.
 
 Pri morebitni menjavi glasovnega pomočnika, strežniškega programa ne bi spreminjali.
-Potrebno bi bilo le programirati novega glasovnega pomočnika, da na AWS SQS odlaga sporočila v strežniku razumljivem formatu (''addnote'', ''addimage'',...).
+Potrebno bi bilo le implementirati program za novega glasovnega pomočnika, da na AWS SQS odlaga sporočila v strežniku razumljivem formatu (\enquote{addnote}, \enquote{addimage},...).
 
 \subsubsection{Zahtevanje in izpust glasovnega pomočnika}
 
@@ -1308,8 +1362,7 @@ Alexo in zasnovan \enquote{Skill} smo uporabili kot dodaten uporabniški vmesnik
 
 
 
-Ko Alexa zasliši poziv, se \enquote{Skill} začne izvajati.
-Poziv se glasi ''\textit{make a report note}''.
+Ko Alexa zasliši poziv \enquote{\textit{make a report note}}, se naš \enquote{Skill} začne izvajati.
 
 Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se \enquote{Skill} preneha izvajati, se bo primerjal s frazami namer.
 Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v ozadni kodi \enquote{Skill-a} (slika \ref{plan_alexa_sqs}).
@@ -1379,16 +1432,16 @@ To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre ka
 
 \subsection{Izvajanje \enquote{Skill-a} po korakih}
 
-Alexa \enquote{Skill} se začne izvajati, ko uporabnik izreče definirano pozivno frazo.
-Alexa posnet govorni ukaz pošlje na Alexa Voice Service strežnik.
+Alexa \enquote{Skill} se začne izvajati, ko uporabnik izreče poziv \enquote{\textit{make a report note}}.
+Alexa posnet govorni ukaz pošlje na Amazon Alexa Server.
 Tam se s pomočjo NLU razpoznavnega modela poskusi pretvoriti v znakovni niz.
 Ta znakovni niz se primerja z vsemi definiranimi invokacijskimi frazami za \enquote{Skill-e}, ki so vezani na naš Amazon račun.
 
-Če Alexa Server uporabnikov glasovni ukaz razpozna kot ,,make a report note'', se začne izvajati OpenReportAlexaSkill.
+Če Amazon Alexa Server uporabnikov glasovni ukaz razpozna kot \enquote{make a report note}, se začne izvajati OpenReportAlexaSkill.
 V krajišče \enquote{Skill-a} se pošlje zahteva tipa \texttt{LaunchRequest}.
 
 Krajišče nastavimo v Alexa Developer nadzorni plošči (slika \ref{skill_endpoint}).
-Krajišče je lahko AWS Lambda funkcija, lahko pa je naš lasten strežnik, dostopen preko javne domene.
+Krajišče je lahko AWS Lambda funkcija, lahko pa je naš lasten strežnik, dostopen preko javne domene in zaščiten z SSL.
 Krajišče je v našem primeru gostovan na storitvi AWS Lambda.
 Ob prejetju \texttt{LaunchRequest} krajišče našega \enquote{Skill-a} vrne vprašanje ''What now?''.
 
@@ -1461,7 +1514,7 @@ Pri tem pristopu aplikacijo razdelimo na tri dele (slika \ref{mvvm}).
 
 \textbf{ViewModel} pa se uporablja, da se poveže funkcije uporabniškega vmesnika in modela (''poslovne logike'') ter po potrebi preoblikuje podatke.
 
-Rezultat upoštevanja tega pristopa je čista koda, ki nima prepletenih elementov med ozadno kodo in uporabniškim vmesnikom.
+Rezultat upoštevanja tega pristopa je čista koda, ki nima prepletenih elementov med ozadno kodo in uporabniškim vmesnkkikom.
 ''Model'' vsebuje le abstrakcijo naših podatkov in ''poslovno logiko''.
 Ti podatki se v ''ViewModel-u'' pretvorijo v obliko, ki bo prikazana uporabniku.
 ''View'' pa nato servira pripravljene podatke uporabniku v obliki grafičnih elementov.
@@ -1478,10 +1531,6 @@ Na spodnji sliki lahko vidimo oris pristopa MVVM (slika \ref{mvvm}) \cite{mvvmim
 
 \subsection{Povezava na strežnik, prijava in registracija uporabnika}
 
-Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \texttt{OpenReportServerCommunicationSer-\\vice.cs}).
-Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
-Za to metodo registracije storitev smo se odločili, saj omogoča enostavno uporabo instanc registriranih storitev kjerkoli v aplikaciji.
-
 Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na OpenReport strežnik.
 V besedilno polje mora vpisati IP naslov strežnika.
 Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
@@ -1495,6 +1544,11 @@ Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika
 \caption{Povezavna stran}
 \label{app_connect}
 \end{figure}
+
+
+Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \texttt{OpenReportServerCommunicati-\\onService.cs}).
+Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
+Za to metodo registracije storitev smo se odločili, saj omogoča enostavno uporabo instanc registriranih storitev kjerkoli v aplikaciji.
 
 Ko uporabnik pritisne na gumb ''Connect'', se preveri, ali je naslov pravilno formuliran.
 Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano GET zahtevo na ''\texttt{naslovstrežnika}/connect''. 
@@ -1678,7 +1732,7 @@ Doda lahko tekstovni korak ali korak s fotografijo.
 \begin{center}
 	\includegraphics[width=9cm]{app_note_image}
 \end{center}
-	\caption{Stran za dodajanje/urejanje korakov}
+	\caption{Stran za dodajanje in urejanje korakov}
 \label{app_note}
 \end{figure}
 
@@ -1759,99 +1813,99 @@ Uporabnik lahko projekt izvozi v človeško berljivo obliko na strežnik v dva r
 
 \section{Testiranje sistema OpenReport}
 
-\subsection{Testne situacije}
-
-Pripravili smo štiri testne situacije.
-
-\begin{enumerate}
-	\item Izdelava testnega opisa tehnološkega postopka \textbf{brez uporabe glasovnega pomočnika}
-		\begin{enumerate}
-			\item brez premora med koraki in
-			\item z 90 sekundnim premorom med koraki.
-		\end{enumerate}
-	\item Izdelava testnega opisa tehnološkega postopka \textbf{z uporabo glasovnega pomočnika}
-		\begin{enumerate}
-			\item brez premora med koraki in
-			\item z 90 sekundnim premorom med koraki.
-		\end{enumerate}
-\end{enumerate}
-
-Z 90 sekundnim premorom smo simulirali delo na izdelku.
-Med premorom vpišemo testne podatke v obrazec za dodajanje koraka.
-Po 90 sekundnem premoru korak vstavimo v poročilo.
-
-\subsubsection{Testno poročilo}
-Testno poročilo mora vsebovati 4 tekstovne korake in enega slikovnega.
-Pri situacijah z uporabo Alexe, mora uporabnik obrazce za korake odpreti z glasovnim ukazom.
-
-\subsection{Metoda testiranja in vpliv na hipotezo}
-
-Testne situacije brez premorov so služile za preverjanje hitrosti dela.
-Hipotezo bomo potrdili, če bomo pisanje testnega poročila končali prej \emph{z uporabo Alexe} kot brez nje.
-
-Če bo uporaba Alexe podaljšala čas pisanja, bomo hipotezo deloma ovrgli in prešli na drugo stopnjo testiranja.
-V drugi stopnji dodamo prejšnjemu postopku 90 sekundni premor med koraki.
-Ta premor simulira delo na izdelku.
-
-Če bomo v tej situaciji poročilo z Alexo pisali enako hitro kot brez Alexe, hipoteza ostane delno ovržena.
-Če bo pisanje z Alexo počasnejše, kljub premorom, pa se bo hipotezo v celoti ovrglo.
-
-\subsubsection{Testni koraki}
-
-Testni koraki simulirajo delo na delovnem mestu, kjer se moramo za uporabo mobilnega telefona oddaljiti od delovnega mesta.
-
-Testni korak za dodajanje besedilnega koraka je potekal tako:
-\begin{enumerate}
-	\item premik do mobilnega telefona (3 metre),
-	\item odpiranje obrazca za dodajanje besedilnega koraka,
-	\item vpis besedila ''Test step text'',
-	\item nastavitev trajanja na 10 minut,
-	\item vstavljanje koraka,
-	\item odmik od mobilnega telefona (3 metre).
-\end{enumerate}
-
-\noindent Testni korak za dodajanje slikovnega koraka je potekal tako:
-\begin{enumerate}
-	\item premik do mobilnega telefona (3 metre),
-	\item odpiranje obrazca za dodajanje slikovnega koraka,
-	\item zajem slike,
-	\item vpis besedila ''Test step text'',
-	\item nastavitev trajanja na 10 minut,
-	\item vstavljanje koraka,
-	\item odmik od mobilnega telefona (3 metre).
-\end{enumerate}
-
-Pri situacijah z uporabo Amazon Alexe smo glasovne ukaze začeli izgovarjati, ko smo se začeli premikati proti mobilni napravi.
-
-\subsection{Rezultati testiranja in ugotovitve}
-
-\noindent\begin{tabular}{p{0.2\textwidth}|p{.3\textwidth}|p{.4\textwidth}}    
-  {\bf } & {\bf brez premorov}                             & {\bf z 90 sekundnimi premori} \\ \hline
-  {\bf brez Alexe} & 1 minuta 51 sekund & 7 minut 30 sekund \\
-  {\bf z Alexo} & 2 minuti 31 sekund & 7 minut 30 sekund \\
-\end{tabular}
-
-\bigbreak
-\bigbreak
-% \noindent Iz tega sklepamo, da je hipoteza
-
-Meritve časa pisanja poročil so pokazale, da je uporaba sistema OpenReport brez Amazon Alexe hitrejša v situacijah brez 90 sekundnih premorov.
-To našo hipotezo delno ovrže.
-V situacijah z 90 sekundnimi premori, je zapis korakov s pomočjo Amazon Alexe trajal enako dolgo kot brez nje.
-To našo hipotezo pusti delno ovrženo.
-
-Testiranje zaključujemo z ugotovitvijo, da v situacijah brez premorov, Amazon Alexa dela ni pospešila.
-Hkrati pa smo ugotovili, da ga v testni situaciji s premori ni občutno ovirala.
-
-Iz uporabniškega stališča prinese uporaba glasovnega pomočnika v proces interakcije z računalniškim sistemom novo dimenzijo.
-V našem primeru smo lahko zahtevo za odpiranje vnosnega obrazca v mobilni aplikaciji izvedli že na poti do naprave.
+% \subsection{Testne situacije}
+% 
+% Pripravili smo štiri testne situacije.
+% 
+% \begin{enumerate}
+% 	\item Izdelava testnega opisa tehnološkega postopka \textbf{brez uporabe glasovnega pomočnika}
+% 		\begin{enumerate}
+% 			\item brez premora med koraki in
+% 			\item z 90 sekundnim premorom med koraki.
+% 		\end{enumerate}
+% 	\item Izdelava testnega opisa tehnološkega postopka \textbf{z uporabo glasovnega pomočnika}
+% 		\begin{enumerate}
+% 			\item brez premora med koraki in
+% 			\item z 90 sekundnim premorom med koraki.
+% 		\end{enumerate}
+% \end{enumerate}
+% 
+% Z 90 sekundnim premorom smo simulirali delo na izdelku.
+% Med premorom vpišemo testne podatke v obrazec za dodajanje koraka.
+% Po 90 sekundnem premoru korak vstavimo v poročilo.
+% 
+% \subsubsection{Testno poročilo}
+% Testno poročilo mora vsebovati 4 tekstovne korake in enega slikovnega.
+% Pri situacijah z uporabo Alexe, mora uporabnik obrazce za korake odpreti z glasovnim ukazom.
+% 
+% \subsection{Metoda testiranja in vpliv na hipotezo}
+% 
+% Testne situacije brez premorov so služile za preverjanje hitrosti dela.
+% Hipotezo bomo potrdili, če bomo pisanje testnega poročila končali prej \emph{z uporabo Alexe} kot brez nje.
+% 
+% Če bo uporaba Alexe podaljšala čas pisanja, bomo hipotezo deloma ovrgli in prešli na drugo stopnjo testiranja.
+% V drugi stopnji dodamo prejšnjemu postopku 90 sekundni premor med koraki.
+% Ta premor simulira delo na izdelku.
+% 
+% Če bomo v tej situaciji poročilo z Alexo pisali enako hitro kot brez Alexe, hipoteza ostane delno ovržena.
+% Če bo pisanje z Alexo počasnejše, kljub premorom, pa se bo hipotezo v celoti ovrglo.
+% 
+% \subsubsection{Testni koraki}
+% 
+% Testni koraki simulirajo delo na delovnem mestu, kjer se moramo za uporabo mobilnega telefona oddaljiti od delovnega mesta.
+% 
+% Testni korak za dodajanje besedilnega koraka je potekal tako:
+% \begin{enumerate}
+% 	\item premik do mobilnega telefona (3 metre),
+% 	\item odpiranje obrazca za dodajanje besedilnega koraka,
+% 	\item vpis besedila ''Test step text'',
+% 	\item nastavitev trajanja na 10 minut,
+% 	\item vstavljanje koraka,
+% 	\item odmik od mobilnega telefona (3 metre).
+% \end{enumerate}
+% 
+% \noindent Testni korak za dodajanje slikovnega koraka je potekal tako:
+% \begin{enumerate}
+% 	\item premik do mobilnega telefona (3 metre),
+% 	\item odpiranje obrazca za dodajanje slikovnega koraka,
+% 	\item zajem slike,
+% 	\item vpis besedila ''Test step text'',
+% 	\item nastavitev trajanja na 10 minut,
+% 	\item vstavljanje koraka,
+% 	\item odmik od mobilnega telefona (3 metre).
+% \end{enumerate}
+% 
+% Pri situacijah z uporabo Amazon Alexe smo glasovne ukaze začeli izgovarjati, ko smo se začeli premikati proti mobilni napravi.
+% 
+% \subsection{Rezultati testiranja in ugotovitve}
+% 
+% \noindent\begin{tabular}{p{0.2\textwidth}|p{.3\textwidth}|p{.4\textwidth}}    
+%   {\bf } & {\bf brez premorov}                             & {\bf z 90 sekundnimi premori} \\ \hline
+%   {\bf brez Alexe} & 1 minuta 51 sekund & 7 minut 30 sekund \\
+%   {\bf z Alexo} & 2 minuti 31 sekund & 7 minut 30 sekund \\
+% \end{tabular}
+% 
+% \bigbreak
+% \bigbreak
+% % \noindent Iz tega sklepamo, da je hipoteza
+% 
+% Meritve časa pisanja poročil so pokazale, da je uporaba sistema OpenReport brez Amazon Alexe hitrejša v situacijah brez 90 sekundnih premorov.
+% To našo hipotezo delno ovrže.
+% V situacijah z 90 sekundnimi premori, je zapis korakov s pomočjo Amazon Alexe trajal enako dolgo kot brez nje.
+% To našo hipotezo pusti delno ovrženo.
+% 
+% Testiranje zaključujemo z ugotovitvijo, da v situacijah brez premorov, Amazon Alexa dela ni pospešila.
+% Hkrati pa smo ugotovili, da ga v testni situaciji s premori ni občutno ovirala.
+% 
+% Iz uporabniškega stališča prinese uporaba glasovnega pomočnika v proces interakcije z računalniškim sistemom novo dimenzijo.
+% V našem primeru smo lahko zahtevo za odpiranje vnosnega obrazca v mobilni aplikaciji izvedli že na poti do naprave.
 
 % Ta način bi pohitril delo, če bi lahko glasovni ukaz izgovorili in obdelali na poti do mobilne naprave.
 
 % V naprednejših izvedbah računalniških sistemov z upravljanjem preko glasovnega pomočnika, bi na tak način lahko olajšali delo slabovidnim in gibalno omejenim posameznikom.
 
 
-\section{Evalvacija funkcionalnosti}
+\section{Ovrednotenje funkcionalnosti}
 
 
 Primerjali smo pisanje opisa tehnološkega postopka na list papirja, s pisarniškim programom in s sistemom OpenReport.
@@ -1895,25 +1949,25 @@ Odklepanje mobilnega telefona, ki je oddaljen tri metre ter odpiranje forme za d
 
 \chapter{Zaključek}
 
-Sistem, razvit v sklopu diplomske naloge zajema funkcionalosti, ki uporabniku omogočajo pisanje in urejanje delavniških dnevnikov.
+Sistem, razvit v sklopu diplomske naloge zajema funkcionalosti, ki uporabniku omogočajo sestavljanje delavniških dnevnikov.
 Sestavljajo ga strežnik, mobilna aplikacija in glasovni pomočnik Amazon Alexa.
 Uporabnik lahko v delavniške dnevnike dodaja preproste tekstovne korake.
 Z uporabo mobilne aplikacije lahko zajame fotografije in jih v delavniški dnevnik vstavi kot slikovno gradivo.
 
 Ta sistem je služil kot primer sistema, ki ga želimo izboljšati z uporabo glasovnega pomočnika.
-Naš namen je bil pospešiti delo z glasovnim pomočnikom Amazon Alexo.
+Naš namen je bil poenostaviti delo s sistemom, z uvedbo glasovnega pomočnika Amazon Alexe.
 Implementirali smo odpiranje kamere in obrazca za dodajanje korakov z glasovnim pomočnikom.
 Kljub uspešni implementaciji, je bil čas, potreben za izgovorjavo in obdelavo glasovnih ukazov, predolg, da bi poskus izboljšave bil popolnoma uspešen.
-Za neuspešno se je izkalo glasovno narekovanje vsebine koraka delavniškega dnevnika.
+Za neuspešno se je izkazalo glasovno narekovanje vsebine koraka delavniškega dnevnika.
 Z Amazon Alexo ni bilo mogoče razpoznati daljših, variirajočih glasovnih ukazov.
 
 V možne izboljšave sistema smo na prvo mesto uvrstili preizkus drugih glasovnih pomočnikov, npr. Google Assistant \cite{googleass}.
 Večjo učinkovitost bi lahko dosegli z pomočnikom, ki bi lahko razpoznal ukaze z eno samo frazo in ne kombinacijo dveh, kot Amazon Alexa.
-Druga smiselna izboljšava je izvoz delavniških dnevnikov v več različnih standardnih formatov, kot so npr. XSL ali CSV.
+Druga smiselna izboljšava je izvoz delavniških dnevnikov v več različnih standardnih formatov, kot so npr. XSL.
 
 Mobilna aplikacija in strežniški program sta zadovoljila pričakovanja in lahko že v trenutnem stanju služita kot referenca za primerjavo učinkovitosti Amazon Alexe in drugih glasovnih pomočnikov.
 
-Kljub ovrženi hipotezi pa je očitno, da je tehnologija glasovnih pomočnikov zelo primeren način za nadzor računalniških sistemov na daljavo.
+Kljub nekaterim težavam z uporabo glasovnega pomočnika, je očitno, da je tehnologija glasovnih pomočnikov zelo primeren način za nadzor računalniških sistemov na daljavo.
 Poleg tega ponuja veliko možnosti za slepe, slabovidne in gibalno omejene posameznike, ki imajo težave z interakcijo z računalnikom.
 
 

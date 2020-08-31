@@ -476,7 +476,7 @@ Pogosto se uporabljajo tudi kot učni pripomoček za spremljanje napredka npr. d
 \begin{center}
 \includegraphics[width=13.5cm]{sap_2}
 \end{center}
-\caption{V tabelo izvožen opis tehnološkega postopka za izdelavo hladilnika v podjetju Hisense Gorenje Europe}
+\caption{V tabelo izvožen opis tehnološkega postopka za izdelavo gospodinjskega aparata v podjetju Hisense Gorenje Europe}
 \label{sap_2}
 \end{figure}
 
@@ -484,7 +484,7 @@ Pogosto se uporabljajo tudi kot učni pripomoček za spremljanje napredka npr. d
 
 % // kako podrobno se opisuje korake?
 
-Delavniški dnevnik se lahko sestavlja med delom ali po opravljenem delu.
+% Delavniški dnevnik se lahko sestavlja med delom ali po opravljenem delu.
 
 \subsection{Definicija problematike}
 
@@ -496,7 +496,30 @@ Raziskati želimo vpeljavo glasovnega pomočnika v sistem za sestavljanje delavn
 
 Izhajajoč iz navedenega opredeljujemo problematiko diplomskega dela: zasnuj in implementiraj sistem za sestavljanje delavniških dnevnikov, vanj vpelji glasovnega pomočnika in sistem preizkusi.
 
-\section{Obstoječe rešitve}
+\section{Funkcionalne zahteve sistema za sestavljanje delavniških dnevnikov}
+
+V tej diplomski nalogi želimo izboljšati proces sestavljanja delavniških dnevnikov.
+Razviti želimo mobilno aplikacijo, s katero bo lahko uporabnik upravljal z zbirko delavniških dnevnikov.
+Za mobilno aplikacijo smo se odločili, saj je pametni telefon veliko prikladnejši na delovnem mestu, kot npr. prenosni računalnik.
+
+Uporabniku sistema bi radi omogočili, da lahko enostavno ustvarja delavniške dnevnike in jih doda v svojo zbirko.
+Želimo, da lahko uporabnik v delavniške dnevnike vstavlja korake, s katerimi opiše postopek dela.
+Ti koraki se morajo prikazovati v preglednem in urejenem seznamu.
+Za vsak delavniški dnevnik želimo imeti tudi povzetek dela in seznam možnih nevarnosti, ki pri delu pretijo delavcu.
+
+Saj lahko v tehnoloških postopkih pride do sprememb, želimo, da lahko korake delavniškega dnevnika naknadno tudi spreminjamo ali brišemo.
+
+Da sestavljalec delavniškega dnevnika kar se da malokrat prekine delo, želimo nekatere funkcionalnosti mobilne aplikacije sprožiti prostoročno z glasovnim pomočnikom.
+Med te spadajo narekovanje koraka delavniškega dnevnika, odpiranje kamere za dodajanje fotografij, itd.
+
+Da se izognemo podvajanju delavniških dnevnikov med napravami, želimo, da se ti sinhronizirajo na oddaljen strežnik, ki teče neodvisno od aplikacije.
+
+Uporabnik mora imeti tudi možnost izvoza svojih delavniških dnevnikov v standardne računalniške formate, ki jih lahko uporabi izven našega sistema.
+
+
+
+
+\section{Obstoječe rešitve za pisanje delavniških dnevnikov}
 
 \subsection{Papir in pisalo}
 
@@ -511,8 +534,8 @@ Najstarejša metoda za izdelavo takšnega dokumenta je zapis na list papirja (sl
 \end{figure}
 
 
-Prednosti uporabe papirja in pisala so, da pri delu izdelovalec ne potrebuje računalnika in cenovna ugodnost.
-Slabosti takšnega postopka so:
+Prednosti uporabe papirja in pisala pred našim sistemom so, da pri delu izdelovalec ne potrebuje računalnika in cenovna ugodnost.
+V primerjavi z našim sistemom so slabosti te metode predvsem:
 \begin{itemize}
 	\item omejitve glede velikosti prostora, namenjenega vsakemu koraku,
 	\item problematično dopisovanje in urejanje obstoječih korakov,
@@ -520,6 +543,7 @@ Slabosti takšnega postopka so:
 	\item občutljivost papirja na fizične poškodbe (trganje, mečkanje, vnetljivost,...).
 \end{itemize}
 
+% V primerjavi s sistemom, ki ga želimo implementirati, ta metoda zaostaja predvsem 
 % V sklopu diplomske naloge smo na papir napisali preprost opis tehnološkega postopka (slika \ref{paper}).
 % Priprava formularja je trajala 10 minut.
 % Pisanje dokumenta je trajalo 7 minut.
@@ -533,11 +557,11 @@ Korake lahko enostavno dodajamo in urejamo.
 Prav tako je možno dodajati slikovno gradivo.
 Pisarniški programi omogočajo izpis dokumenta na tiskalnik, če želimo imeti dokument natisnjen na papirju.
 
-Kljub temu uporaba te metode prinese nove slabosti:
+Kljub temu uporaba te metode, v primerjavi z našim sistemom, prinese nove slabosti:
 \begin{itemize}
-	\item če imamo dokument shranjen na več mestih, moramo ob spremembah zagotoviti, da se spremenijo vse shranjene različice. 
-	\item Slikovno gradivo je vezano na dokument. Ob spremembah moramo spremeniti celoten dokument, ne le slike.
-	\item Možnost izgube ali izbrisa podatkov.
+	\item če imamo dokument shranjen na več mestih, moramo ob spremembah zagotoviti, da se posodobijo vsi hranjeni dokumenti.
+	\item Slikovno gradivo je vezano na dokument. Če na novo zajamemo sliko, ki smo jo vstavili v dokument, jo moramo spremeniti tudi znotraj dokumenta.
+	% \item Možnost izgube ali izbrisa podatkov.
 \end{itemize}
 
 V sklopu diplomske naloge smo napisali preprost opis tehnološkega postopka (slika \ref{report_writer}) s programom LibreOffice Writer \cite{writer}.
@@ -579,10 +603,10 @@ Opis tehnološkega postopka v sistemu SAP sestavljajo:
 
 Specializiran informacijski sistem, kot je SAP, je tesno povezan s proizvodno linijo in prilagodljiv za potrebe proizvodnega obrata, ki ga uporablja.
 Pri sistemu SAP se podatki primarno hranijo na osrednjem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervni strežnik.
-Glavne slabosti takšnega sistema so:
+Takšni sistemi predstavljajo, v primerjavi z našim, naslednje slabosti:
 \begin{itemize}
-	\item potrebna proizvodna infrastruktura, ki jo sistem rabi za optimalen izkoristek in
-	\item cena, ki je potrebna za implementacijo takega sistema v proizvodno linijo.
+	\item predhodno zahtevanjo dovršeno proizvodno infrastrukturo, ki jo sistem rabi za optimalen izkoristek in
+	\item visoka cena, ki je potrebna za implementacijo takega sistema v proizvodno linijo.
 \end{itemize}
 
 
@@ -622,7 +646,7 @@ Uporabnik lahko tudi posname slike in jih doda v odprt projekt kot korak.
 % Ker smo želeli ohraniti sistem učinkovit tudi za splošnejše stvari,
 Vsi podatki, ki jih uporabnik vnese preko mobilne aplikacije in glasovnega pomočnika, se hranijo na strežniku.
 
-Glasovnega pomočnika smo uporabili kot dodaten uporabniški vmesnik, s katerim lahko uporabnik prostoročno dodaja korake v odprt projekt.
+Glasovnega pomočnika smo uporabili kot razširitev uporabniškega vmesnika, s katerim lahko uporabnik prostoročno dodaja korake v odprt projekt.
 
 \noindent Z njim smo želeli doseči:
 \begin{itemize}
@@ -734,7 +758,7 @@ Za glasovnega pomočnika Amazon Alexa smo razvili \enquote{Skill}, s katerim upo
 
 \subsection{Zasnova aplikacije}
 
-Mobilna aplikacija služi kot osnovni način za interakcijo s strežnikom.
+Mobilna aplikacija služi kot osnovni način za interakcijo uporabnika s strežnikom.
 
 V tej diplomski nalogi preučujemo, ali je možno z vpeljavo glasovnega pomočnika v naš sistem izboljšati učinkovitost tega sistema.
 Da bodo rezultati raziskave čim bolj natančni, smo dali učinkovitosti mobilne aplikacije velik poudarek.
@@ -758,7 +782,7 @@ Tehnologije .NET ogrodja, ki smo jih uporabil v tej diplomski nalogi so:
 
 \subsection{Xamarin}
 
-Ogrodje Xamarin \cite{xamarin} je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga je razvil Microsoft. 
+Ogrodje Xamarin \cite{xamarin} je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga razvija Microsoft. 
 
 Z njim je mogoče deliti večino ozadne in ospredne kode med različnimi mobilnimi operacijskimi sistemi. 
 Za ozadno kodo se uporablja .NET (C\#), za ospredno kodo pa se uporablja XAML (Extensible Application Markup Language).
@@ -826,7 +850,7 @@ Za to platformo smo se odločili zaradi dobre integracije z Alexa Skill Kit in r
 
 Osrednja komponenta sistema OpenReport je strežnik.
 Strežnik je zadolžen za delo s podatki uporabnikov in njihovih delavniških dnevnikov.
-Odjemalci, ki so nanj povezani, služijo zgolj kot \enquote{uporabniški vmesnik} za prikaz podatkov na strežniku.
+Odjemalci, ki so nanj povezani, služijo zgolj kot \enquote{uporabniški vmesnik} za zajem in prikaz podatkov na strežniku.
 
 Operacije nad podatki, hranjenimi na strežniku, se sprožijo na strani odjemalca in izvedejo na strežniku.
 
@@ -922,7 +946,7 @@ Iz žetona je možno razbrati, za katerega uporabnika gre in katere pravice so m
 \begin{center}
 \includegraphics[width=13.5cm]{api_routes_small}
 \end{center}
-\caption{Avtomatsko dokumentiranje funkcijskih URL-jev s Swagger}
+\caption{Seznam razvitih in dokumentiranih API funkcij}
 \label{api_routes}
 \end{figure}
 
@@ -1156,7 +1180,7 @@ Nato se \texttt{ImageString} dekodira v slikovno datoteko in hrani na strežniku
 Ko se fotografija uspešno zapiše v datotečni sistem, se v polje \texttt{ServerUrl} zapiše lokacija pravkar ustvarjene datoteke.
 Spremembe se hranijo v podatkovni bazi.
 
-\subsubsection{Urejanje in brisanje in korakov v projektu}
+\subsubsection{Urejanje in brisanje korakov v projektu}
 
 Uporabnik lahko korake, ki pripadajo njegovim delavniškim dnevnikom spreminja.
 Spreminja lahko njihovo vsebino, naslov in trajanje.
@@ -1302,12 +1326,12 @@ Glavni faktor, zaradi katerega smo se odločili za uporabo AWS SQS, je, da z dod
 Pri morebitni menjavi glasovnega pomočnika, strežniškega programa ne bi spreminjali.
 Potrebno bi bilo le implementirati program za novega glasovnega pomočnika, da na AWS SQS odlaga sporočila v strežniku razumljivem formatu (\enquote{addnote}, \enquote{addimage},...).
 
-\subsubsection{Zahtevanje in izpust glasovnega pomočnika}
+\subsubsection{Zahtevanje in sprostitev glasovnega pomočnika}
 
 En OpenReport strežnik podpira delo z enim samim glasovnim pomočnikom.
-Tega pomočnika lahko uporabnik \enquote{zahteva} za lastno uporabo in ga po uporabi \enquote{izpusti}.
+Tega pomočnika lahko uporabnik \enquote{zahteva} za lastno uporabo in ga po uporabi \enquote{sprosti}.
 Ko se uporabnikova zahteva potrdi, lahko glasovnega pomočnika uporablja pri sestavljanju delavniškega dnevnika.
-Po končani uporabi lahko uporabnik glasovnega pomočnika izpusti, kar omogoči drugim uporabnikom, da ga lahko zahtevajo za svoje delo.
+Po končani uporabi lahko uporabnik glasovnega pomočnika sprosti, kar omogoči drugim uporabnikom, da ga lahko zahtevajo za svoje delo.
 
 Če ima določen uporabnik nase vezanega pomočnika, vidimo po vrednosti zastavice \texttt{UsesVoiceAssistant}.
 Ta se nahaja v uporabnikovem objektu razreda \texttt{User}.
@@ -1424,7 +1448,7 @@ Alexo in zasnovan \enquote{Skill} smo uporabili kot dodaten uporabniški vmesnik
 
 
 
-Ko Alexa zasliši poziv \enquote{\textit{make a report note}}, se naš \enquote{Skill} začne izvajati.
+Ko Alexa prepozna poziv \enquote{\textit{make a report note}}, se naš \enquote{Skill} začne izvajati.
 
 Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se \enquote{Skill} preneha izvajati, se primerja s frazami namer.
 Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v ozadni kodi \enquote{Skill-a} (slika \ref{plan_alexa_sqs}).
@@ -1452,7 +1476,7 @@ V primeru, da uporabnik izreče \enquote{\textit{note unscrew the backplate}}, j
 \begin{center}
 \includegraphics[width=13cm]{intent_literal}
 \end{center}
-\caption{TakeNoteIntent v Alexa Developer nadzorni plošči}
+\caption{Fraza TakeNoteIntent v Alexa Developer nadzorni plošči}
 \label{TakeNoteIntent}
 \end{figure}
 
@@ -1473,7 +1497,7 @@ To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre ob
 \begin{center}
 \includegraphics[width=8cm]{intent_text}
 \end{center}
-\caption{OpenTextNoteFormIntent}
+\caption{Fraza OpenTextNoteFormIntent v Alexa Developer nadzorni plošči}
 \label{OpenTextNoteFormIntent}
 \end{figure}
 
@@ -1488,7 +1512,7 @@ To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre ka
 \begin{center}
 \includegraphics[width=8cm]{intent_image}
 \end{center}
-\caption{OpenImageNoteFormIntent}
+\caption{Fraza OpenImageNoteFormIntent v Alexa Developer nadzorni plošči}
 \label{OpenImageNoteFormIntent}
 \end{figure}
 
@@ -1561,7 +1585,7 @@ Za osnovni uporabniški vmesnik našega sistema smo uporabili mobilno aplikacijo
 Preko aplikacije se uporabnik lahko registrira in prijavi v sistem, dodaja, briše, odpira in izvaža svoje delavniške dnevnike.
 V delavniške dnevnike lahko dodaja korake, ki opisujejo delo, jih briše, spreminja vsebino ter ureja vrstni red.
 
-Preko mobilne aplikacije lahko tudi zahteva in izpusti glasovnega asistenta.
+Preko mobilne aplikacije lahko tudi zahteva in sprosti glasovnega asistenta.
 Z mobilno napravo lahko zajema fotografije in jih v delavniške dnevnike dodal kot slikovno gradivo.
 
 Mobilno aplikacijo smo uporabili kot primer odjemalca za naš strežnik (slika \ref{plan_server_client}).
@@ -1694,7 +1718,7 @@ Na tej strani se prikažejo:
 	\item seznam vseh njegovih projektov, 
 	\item gumbi za izbris posameznega projekta,
 	\item gumb za dodajanje novega projekta in
-	\item gumb za zahtevanje in izpust glasovnega pomočnika.
+	\item gumb za zahtevanje in sprostitev glasovnega pomočnika.
 \end{itemize}
 
 \subsubsection{Ustvarjanje novega projekta}
@@ -1730,8 +1754,8 @@ Da uporabnik izbriše delavniški dnevnik, mora na strani \enquote{My projects} 
 Pritisk na ta gumb sporoči storitvi za komunikacijo s strežnikom, naj pošlje avtoriziran DELETE zahtevek na URL \enquote{\texttt{/projects/\{id\}/delete}}.
 Strežnik ob uspešnem izbrisu projekta odjemalcu vrne kopijo izbrisanega projekta.
 
-\subsection{Zahtevanje in izpust glasovnega pomočnika}
-Storitev za upravljanje z glasovnim pomočnikom (\texttt{VoiceAssistantService.cs}) skrbi za zahtevanje in izpust glasovnega pomočnika.
+\subsection{Zahtevanje in sprostitev glasovnega pomočnika}
+Storitev za upravljanje z glasovnim pomočnikom (\texttt{VoiceAssistantService.cs}) skrbi za zahtevanje in sprostitev glasovnega pomočnika.
 % Za zahtevanje in izpust glasovnega pomočnika v mobilni aplikaciji skrbi storitev za upravljanje z glasovnim pomočnikom (razred \texttt{VoiceAssistantService.cs}).
 Ta storitev se registrira ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev uspešno opravi prijavo uporabnika.
 Ob prijavi uporabnika preveri, ali ta uporablja glasovnega pomočnika.
@@ -1748,12 +1772,12 @@ To naredi tako, da pošlje avtoriziran PUT zahtevek na URL \enquote{\texttt{/use
 V njegovem objektu \texttt{User} se nastavi vrednost \texttt{UsesVoiceAssistant} na \texttt{true}.
 
 Če ima kateri od uporabnikov to polje nastavljeno na \texttt{true}, zahteva ne bo odobrena.
-V tem primeru mora uporabnik, ki zahteva pomočnika počakati, da uporabnik, ki pomočnika uporablja, pomočnika izpusti.
+V tem primeru mora uporabnik, ki zahteva pomočnika počakati, da uporabnik, ki pomočnika uporablja, pomočnika sprosti.
 Ko si pomočnika ne lasti nobeden drug uporabnik, ga lahko veže nase.
 
-Izpust pomočnika dosežemo, da uporabnik, ki pomočnika trentuno uporablja, pošlje avtoriziran PUT zahtevek na URL \enquote{\texttt{/users/releaseva}}.
+Sprostitev pomočnika dosežemo, da uporabnik, ki pomočnika trentuno uporablja, pošlje avtoriziran PUT zahtevek na URL \enquote{\texttt{/users/releaseva}}.
 
-V mobilni aplikaciji zahtevanje in izpust pomočnika nadziramo na \enquote{Dashboard} strani, s pritiskom na ikono mikrofona (slika \ref{app_alexa_yesno}).
+V mobilni aplikaciji zahtevanje in sprostitev pomočnika nadziramo na \enquote{Dashboard} strani, s pritiskom na ikono mikrofona (slika \ref{app_alexa_yesno}).
 
 \begin{figure}[H]
 \begin{center}
@@ -2019,7 +2043,7 @@ Mobila aplikacija in strežnik sta izpolnila pričakovanja.
 
 Z mobilno aplikacijo se je bilo možno povezati na strežnik.
 Registracija in prijava v sistem preko mobilne aplikacije nista povzročala težav.
-Brez težav je delovalo tudi zahtevanje in izpust glasovnega pomočnika Amazon Alexe na strani Dashboard.
+Brez težav je delovalo tudi zahtevanje in sprostitev glasovnega pomočnika Amazon Alexe na strani Dashboard.
 
 Delavniške dnevnike je bilo brez težav možno dodajati, odpirati in brisati.
 

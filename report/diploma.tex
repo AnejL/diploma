@@ -369,9 +369,9 @@ Cilj je implementirati in preizkusiti računalniški sistem z glasovnim pomočni
 Te zapiske pa lahko naknandno urejamo s pomočjo mobilne aplikacije.
 Uporabili smo Amazon Alexo zaradi enostavne izdelave lastnih programov z Alexa Skills Kit ogrodjem.
 % Ugotovili smo, da je specializiran sistem za pisanje opisov tehnološkega postopka lahko dobra alternativa pisanju teh dokumentov s pisarniškimi programi ali na list papirja.
-Ugotovili smo, da Amazon Alexa ni bila zmožna razpoznati izgovorjenih stavkov z veliko variirajočimi besedami.
+Ugotovili smo, da Amazon Alexa ni bila zmožna razpoznati izgovorjenih stavkov z veliko spreminjajočimi se besedami.
 Uspešna je bila pri razpoznavanju stavkov, ki so se v celoti ujemali z naučenim razpoznavnim modelom.
-Kljub temu je čas, ki je potreben, da Alexa razpozna prejet glasovni ukaz prepočasen, da bi bil sistem, v času raziskave, učinkovit.
+Kljub temu je čas, ki je potreben, da Alexa razpozna prejet glasovni ukaz prepočasen, da bi bil sistem, v času izdelave diplome, učinkovit.
 \bigskip
 
 \noindent\textbf{Ključne besede:} \tkeywords.
@@ -390,11 +390,11 @@ Kljub temu je čas, ki je potreben, da Alexa razpozna prejet glasovni ukaz prepo
 \noindent\textbf{Author:} \tauthor
 \bigskip
 
-\noindent This thesis deals with the process of incorporating a commercially available voice assistant into a software solution as an additional user interface.
-We research how to implement a voice assistant in a software solution and how it effects its workflow.
-The goal of this thesis is implementing and testing a system with a voice assistant that could be used to write workshop report steps during work.
+\noindent The thesis deals with the process of incorporating a commercially available voice assistant into a software solution as an additional user interface.
+We investigate how to implement a voice assistant in a software solution and how it effects its workflow.
+The goal of thesis is implementing and testing a system with a voice assistant that could be used to write workshop report steps during work.
 These steps can later be edited with a mobile application.
-We have used Amazon Alexa, as it offers simple programming with Alexa Skills Kit.
+We used Amazon Alexa, as it offers simple programming with Alexa Skills Kit.
 % We discovered that a specialised system for writing workshop reports can be an improvement over writing them with office suites or using pen and paper.
 We found that Amazon Alexa was unsuitable for literal dictation of longer, varying text.
 It was successful at recognising phrases that fully or mostly matched its learned model.
@@ -413,12 +413,12 @@ Regardless, Alexa's ability to process third party voice commands, at the time o
 \pagestyle{fancy}
 
 \chapter{Uvod}
-\section{Opis domene raziskave}
+\section{Opis področja dela}
 
 Diplomsko delo obravnava področje vpeljave glasovnih pomočnikov v programske rešitve kot dodatni uporabniški vmesnik.
 
 Za področje, ki ga želimo z našo rešitvijo  izboljšati, smo si izbrali sestavljanje delavniškega dnevnika (v nadaljevanju imenovanega tudi opisa tehnološkega postopka).
-Kljub temu se bo naš sistem, lahko uporabil tudi za sestavljanje drugačnih vrst poročil in navodil.
+Kljub temu se bo naš sistem lahko uporabil tudi za sestavljanje drugačnih vrst poročil in navodil.
 Med te spadajo na primer kuharski recepti, laboratorijski dnevniki, itd.
 
 Opis tehnološkega postopka ali delavniški dnevnik je dokument, ki po korakih predstavi postopek izdelave izdelka.
@@ -430,17 +430,17 @@ Koraki lahko vsebujejo tudi slikovne razlage.
 
 Opisi tehnološkega postopka se najpogosteje uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
 
-V sklopu diplomske naloge smo želeli izdelati specializiran sistem za sestavljanje delavniških dnevnikov, nato pa preveriti, ali lahko z vpeljavo glasovnega pomočnika delo s tem sistemom izboljšamo.
-Ta sistem bi sestavljali glasovni pomočnik, ki bi služil za narekovanje opomb, mobilna aplikacija, preko katere bi lahko urejali zapiske in strežnik, ki bi hranil podatke.
+V sklopu diplomske naloge smo želeli izdelati specializiran sistem za sestavljanje delavniških dnevnikov in preveriti, ali lahko z vpeljavo glasovnega pomočnika delo s sistemom izboljšamo.
+Sistem bi sestavljali glasovni pomočnik, ki bi služil za narekovanje opomb, mobilna aplikacija, preko katere bi lahko urejali zapiske in strežnik, ki bi hranil podatke.
 % Ta sistem bi sestavljali strežnik, ki bi hranil podatke o delavniških dnevnikih, mobilna aplikacija, preko katere bi uporabnik do teh podatkov dostopal in glasovni pomočnik, s katerim bi lahko dobesedno narekovali korake in nadzirali mobilno aplikacijo.
 
-Raziskati želimo, kako vpeljati glasovnega asistenta Amazon Alexo v programsko rešitev in kako vpeljava Alexe vpliva na interakcijo uporabnika s sistemom.
+Raziskati želimo, kako vpeljati glasovnega pomočnika Amazon Alexo v programsko rešitev in kako vpeljava Alexe vpliva na interakcijo uporabnika s sistemom.
 
 
 \section{Struktura diplomske naloge}
 
-Diplomsko delo pričenjamo s predstavitvijo področja raziskave in kratko opišemo problem in možno rešitev. 
-Opredelimo problematiko naše raziskave.
+Diplomsko delo pričenjamo s predstavitvijo področja našega dela in kratko opišemo problem in možno rešitev. 
+Opredelimo problematiko našega dela.
 
 Začnemo z raziskavo obstoječih rešitev za sestavljanje opisa tehnološkega postopka.
 Nato opišemo, kaj trenutne rešitve te problematike ponujajo in poskusimo opredeliti njihove prednosti ter slabosti.
@@ -456,16 +456,16 @@ V zadnjem poglavju opišemo možnosti nadaljnjega razvoja projekta.
 
 \chapter{Pregled problema in rešitve}
 
-\section{Problem}
+\section{Opis problema in uporabljenih tehnologij}
 
-\subsection {Kaj vsebuje delavniški dnevnik?}
+\subsection {Delavniški dnevnik}
 
 Delavniški dnevnik je splošen izraz za tehniški dokument, ki po korakih predstavi potek tehnološkega postopka \cite{delavniskidnevnikptuj}.
 V podjetju Hisense Gorenje Europe takšne dokumente imenujejo opis tehnološkega postopka (slika \ref{sap_2}).
 
-Delavniški dnevnik sestavlja zaporedje korakov, ki si sledijo v časovnem vrstnem redu.
-Vsak korak delavniškega dnevnika sestavljata opis postopka posamezne naloge v procesu in njeno predvideno trajanje.
-Delavniški dnevniki lahko vsebujejo tudi slikovne razlage.
+% Delavniški dnevnik sestavlja zaporedje korakov, ki si sledijo v časovnem vrstnem redu.
+% Vsak korak delavniškega dnevnika sestavljata opis postopka posamezne naloge v procesu in njeno predvideno trajanje.
+% Delavniški dnevniki lahko vsebujejo tudi slikovne razlage.
 
 Delavniški dnevniki imajo lahko definirane tudi kontrolne postopke za izdelek, orodje, ki ga potrebujemo za izdelavo in seznam možnih nevarnosti pri delu.
 
@@ -488,17 +488,17 @@ Pogosto se uporabljajo tudi kot učni pripomoček za spremljanje napredka npr. d
 
 \subsection{Definicija problematike}
 
-V tej diplomski nalogi raziščemo možne metode izdelave delavniškega dnevnika oz. opisa tehnološkega postopka.
+V diplomski nalogi raziščemo možne metode izdelave delavniškega dnevnika oz. opisa tehnološkega postopka.
 Raziskati želimo prednosti in slabosti trenutnih metod sestavljanja teh dokumentov.
-V naslednji fazi raziskave želimo izdelati specializiran sistem za sestavljanje opisov tehnoloških postopkov.
-Raziskati želimo vpeljavo glasovnega pomočnika v sistem za sestavljanje delavniških dnevnikov in kako uporaba glasovnega pomočnika vpliva na uporabo takega sistema.
+V naslednji fazi dela želimo izdelati specializiran sistem za sestavljanje opisov tehnoloških postopkov.
+V ta sistem želimo vpeljati glasovnega pomočnika in raziskati kako uporaba glasovnega pomočnika vpliva na uporabo sistema.
 
 
-Izhajajoč iz navedenega opredeljujemo problematiko diplomskega dela: zasnuj in implementiraj sistem za sestavljanje delavniških dnevnikov, vanj vpelji glasovnega pomočnika in sistem preizkusi.
+% Izhajajoč iz navedenega opredeljujemo problematiko diplomskega dela: zasnuj in implementiraj sistem za sestavljanje delavniških dnevnikov, vanj vpelji glasovnega pomočnika in sistem preizkusi.
 
-\section{Funkcionalne zahteve sistema za sestavljanje delavniških dnevnikov}
+\section{Funkcionalne zahteve}
 
-V tej diplomski nalogi želimo izboljšati proces sestavljanja delavniških dnevnikov.
+% V tej diplomski nalogi želimo izboljšati proces sestavljanja delavniških dnevnikov.
 Razviti želimo mobilno aplikacijo, s katero bo lahko uporabnik upravljal z zbirko delavniških dnevnikov.
 Za mobilno aplikacijo smo se odločili, saj je pametni telefon veliko prikladnejši na delovnem mestu, kot npr. prenosni računalnik.
 
@@ -509,17 +509,98 @@ Za vsak delavniški dnevnik želimo imeti tudi povzetek dela in seznam možnih n
 
 Saj lahko v tehnoloških postopkih pride do sprememb, želimo, da lahko korake delavniškega dnevnika naknadno tudi spreminjamo ali brišemo.
 
-Da sestavljalec delavniškega dnevnika kar se da malokrat prekine delo, želimo nekatere funkcionalnosti mobilne aplikacije sprožiti prostoročno z glasovnim pomočnikom.
-Med te spadajo narekovanje koraka delavniškega dnevnika, odpiranje kamere za dodajanje fotografij, itd.
+Nekatere funkcionalnosti mobilne aplikacije želimo sprožiti prostoročno z glasovnim pomočnikom, ker bi tako sestavljalec manjkrat prekinil delo.
+Med funkcionalnosti spadajo narekovanje koraka delavniškega dnevnika, odpiranje kamere za dodajanje fotografij, itd.
 
-Da se izognemo podvajanju delavniških dnevnikov med napravami, želimo, da se ti sinhronizirajo na oddaljen strežnik, ki teče neodvisno od aplikacije.
+% Da se izognemo podvajanju delavniških dnevnikov med napravami, želimo, da se ti sinhronizirajo na oddaljen strežnik, ki teče neodvisno od aplikacije.
+Delavniške dnevnike želimo sinhronizirati na oddaljen strežnik, ki teče neodvisno od aplikacije, da se izognemo podvajanju datotek.
 
 Uporabnik mora imeti tudi možnost izvoza svojih delavniških dnevnikov v standardne računalniške formate, ki jih lahko uporabi izven našega sistema.
 
 
+\section{Uporabljene tehnologije}
+
+\subsection{.NET}
+
+.NET \cite{dotnet} je razvojna platforma, razvita s strani Microsofta.
+Obsega programske jezike, prevajalnike, orodja in knjižnice, ki omogočajo širok spekter primerov uporabnosti, hkrati pa se ohranja enovitost ozadne kode.
+
+Tehnologije .NET ogrodja, ki smo jih uporabil v tej diplomski nalogi so:
+\begin{itemize}
+	\item .NET Core - odprtokodna platforma za razvoj spletnih storitev,
+	\item Xamarin - ogrodje za razvoj mobilnih aplikacij za najpogostejše mobilne operacijske sisteme (Android, iOS).
+\end{itemize}
+
+.NET smo izbrali, ker je zelo dobro integriran z Amazonovim AWS API-jem in je dobro dokumentiran.
+
+\subsection{Xamarin}
+
+Ogrodje Xamarin \cite{xamarin} je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga razvija Microsoft. 
+
+Z njim je mogoče deliti večino ozadne in ospredne kode med različnimi mobilnimi operacijskimi sistemi. 
+Za ozadno kodo se uporablja .NET (C\#), za ospredno kodo pa se uporablja XAML (Extensible Application Markup Language).
+
+Xamarin smo izbrali, da smo lahko strežniški program in mobilno aplikacijo programirali v enakem programskem jeziku (C\#).
+
+\subsection{Amazon Alexa}
+
+Amazon Alexa je glasovni pomočnik, razvit s strani podjetja Amazon \cite{alexa}.
+Za Amazon Alexo smo se odločili, saj ponuja ogrodje za programiranje dodatnih funkcionalnosti, ki se imenuje Alexa Skills Kit.
+Poleg tega je Alexo enostavno integrirati z drugimi Amazonovimi spletnimi storitvami, ki smo jih uporabili v tej diplomski nalogi (AWS SQS, AWS Lambda).
+
+Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče \enquote{Skill-i}, v nadaljevanju \enquote{veščine} (na sliki \ref{alexa_architecture}) \cite{alexaskills}.
+Da lahko ustvarimo in objavimo Alexa veščino rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
+
+\clearpage
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=13.5cm]{alexa_architecture}
+\end{center}
+	\caption{Arhitektura Alexine veščine (vir \cite{alexaarchitecture})}
+\label{alexa_architecture}
+\end{figure}
+
+\noindent Veščino sestavljajo:
+\begin{itemize}
+	\item \textbf{Poziv} - fraza, ki veščino zažene,
+	\item \textbf{Namera} - fraze, ki jih veščino razpozna kot funkcije,
+	\item \textbf{Krajišče} - omrežni vir, kjer se nahaja ozadna koda veščine.
+\end{itemize}
 
 
-\section{Obstoječe rešitve za pisanje delavniških dnevnikov}
+
+Alexa zajame glasovni ukaz in glasovni posnetek pošlje na Amazonov Alexa Voice Service.
+Ta storitev s pomočjo glasovnega razpoznavnega modela prepozna uporabnikove ukaze in pošlje poseben zahtevek na krajišče.
+Krajišče je lahko druga Amazonova storitev (npr. AWS Lambda), storitev na Microsoftovem Azure strežniku ali naš lasten strežnik, dostopen preko javne domene in zaščiten z overjenim SSL certifikatom.
+
+Ko krajišče obdela zahtevo, odgovor pošlje nazaj na Alexa Voice Service.
+Ta se iz Alexa Voice Serivice pošlje nazaj na Alexo, ki uporabniku \enquote{izgovori} prejeto sporočilo.
+
+\subsection{Amazon Web Services}
+
+Amazon Web Services (v nadaljevanju AWS) je skupek oblačnih storitev, ki jih ponuja podjetje Amazon.
+Ponuja integracijo s pogostimi programskimi jeziki in ogrodji, kot so Java, .NET, Python in Node.js preko storitve AWS API.
+Pri tej diplomski nalogi smo se osredotočili na dva sistema iz skupka AWS.
+
+\subsubsection{Simple Queue Service}
+
+AWS Simple Queue Service (v nadaljevanju SQS) je sistem za pošiljanje tekstovnih sporočil med odjemalci preko Amazonovih strežnikov \cite{sqs}.
+% Za hranjenje sporočil je potrebno registrirati \enquote{SQS Queue} \textit{(slo. SQS vrsto)}. 
+Za hranjenje sporočil je potrebno registrirati SQS vrsto. 
+%Ta je lahko neurejena vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO (first in, first out) \cite{sqsfifo}, pri kateri je zagotovljeno, da dobimo vsa sporočila v vrstnem redu, v katerem so bila poslana.
+Uporabili smo SQS vrsto tipa FIFO (first in, first out) \cite{sqsfifo}, pri kateri je zagotovljeno, da dobimo vsa sporočila v vrstnem redu, v katerem so bila poslana.
+% V sklopu te diplome smo uporabili vrsto tipa FIFO.
+
+To storitev smo uporabili za komunikacijo med Amazon Alexo in strežnikom implementiranega sistema.
+
+\subsubsection{Lambda}
+
+Ozadno kodo za Alexino veščino smo gostili na platformi AWS Lambda, ki je storitev za gostovanje dogodkovno vodene ozadne kode \cite{lambda}.
+Za to platformo smo se odločili zaradi dobre integracije z Alexa Skill Kit in razvojnim orodjem Visual Studio.
+
+
+\section{Obstoječe rešitve}
 
 \subsection{Papir in pisalo}
 
@@ -569,6 +650,7 @@ V sklopu diplomske naloge smo napisali preprost opis tehnološkega postopka (sli
 % Pisanje in urejanje dokumenta je trajalo 4 minute.
 % Enostavno ga je bilo izvoziti v format PDF.
 Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot obrazec.
+\clearpage
 
 \begin{figure}[H]
 \begin{center}
@@ -581,7 +663,7 @@ Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot obrazec.
 \subsection{Specializirani moduli za poslovne informacijske sisteme}
 
 Podjetja kot so npr. Hisense Gorenje Europe, za sestavljanje delavniških dnevnikov uporabljajo specializirane module za lastne informacijske sisteme.
-Primer je prikazan modul za informacijski sistem SAP (na sliki \ref{sap_1}).
+Kot primer je prikazan korak opisa tehnološkega postopka v informacijskem sistemu SAP (na sliki \ref{sap_1}).
 
 \begin{figure}[H]
 \begin{center}
@@ -602,17 +684,18 @@ Opis tehnološkega postopka v sistemu SAP sestavljajo:
 \end{itemize}
 
 Specializiran informacijski sistem, kot je SAP, je tesno povezan s proizvodno linijo in prilagodljiv za potrebe proizvodnega obrata, ki ga uporablja.
-Pri sistemu SAP se podatki primarno hranijo na osrednjem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervni strežnik.
+Pri sistemu SAP se podatki hranijo na osrednjem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervni strežnik.
 Takšni sistemi predstavljajo, v primerjavi z našim, naslednje slabosti:
 \begin{itemize}
 	\item predhodno zahtevanjo dovršeno proizvodno infrastrukturo, ki jo sistem rabi za optimalen izkoristek in
 	\item visoka cena, ki je potrebna za implementacijo takega sistema v proizvodno linijo.
 \end{itemize}
 
+\clearpage
 
-\chapter{Načrtovanje in razvoj sistema za sestavljanje delavniških dnevnikov}
+\chapter{Načrtovanje in razvoj sistema}
 
-\section{Definicija funkcionalnosti}
+\section{Definicija funkcionalnosti} \label{architecture}
 
 Sistem, ki smo ga v sklopu diplomske naloge implementirali (na sliki \ref{plan_simple}), uporabniku omogoča vodenje svojih delavniških dnevnikov (v nadaljevanju imenovanih tudi \textit{projektov}).
 Služil bo kot alternativa pisanju delavniških dnevnikov s pisarniškimi programi.
@@ -626,11 +709,13 @@ Implementiran sistem sestavljajo:
 	\item strežnik.
 \end{itemize}
 
+\clearpage
+
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=13cm]{plan_simple}
 \end{center}
-\caption{Preprost načrt sistema}
+\caption{Arhitektura sistema}
 \label{plan_simple}
 \end{figure}
 
@@ -657,38 +742,38 @@ Glasovnega pomočnika smo uporabili kot razširitev uporabniškega vmesnika, s k
 
 
 Opredeljeno natančneje, sistem mora uporabniku omogočati ustvarjanje novega opisa tehnološkega postopka in odpiranje ter urejanje obstoječih opisov tehnološkega postopka.
-
+ 
 Vsak ustvarjen opis tehnološkega postopka mora imeti naslov, opis dela, opis možnih nevarnosti pri delu in seznam korakov dela, ki ga sestavljajo.
-
+ 
 Seznam korakov dela mora podpirati dodajanje novih korakov, spreminjanje vsebine obstoječih korakov, brisanje obstoječih korakov in spreminjanje vrstnega reda korakov.
-
+ 
 Posamezen korak mora imeti naslov, opis dela in predvideno trajanje opisanega dela.
 
 
 
-\subsection{Smernice razvoja sistema za sestavljanje delavniškega dnevnika}
+% \subsection{Smernice razvoja sistema}
+% 
+% Pri načrtovanju sistema za sestavljanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
+% \begin{itemize}
+% 	% \item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
+% 	% \item uporabniški vmesnik odjemalca mora omogočati karseda učinkovito delo,
+% 	\item uporabniški vmesniki sistema (mobilna aplikacija, glasovni pomočnik) morajo biti zamenjljivi,
+% 	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu,
+% 	\item sistem mora biti popolnoma funkcionalen brez glasovnega pomočnika.
+% \end{itemize}
+% 
+% Sistem, ki smo ga implementirali v diplomski nalogi, služi kot primer kompleksnejšega sistema, katerega uporabnost bi radi izboljšali z uporabo glasovnega pomočnika.
 
-Pri načrtovanju sistema za sestavljanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
-\begin{itemize}
-	% \item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
-	% \item uporabniški vmesnik odjemalca mora omogočati karseda učinkovito delo,
-	\item uporabniški vmesniki sistema (mobilna aplikacija, glasovni pomočnik) morajo biti zamenjljivi,
-	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu,
-	\item sistem mora biti popolnoma funkcionalen brez glasovnega pomočnika.
-\end{itemize}
 
-Sistem, ki smo ga implementirali v tej raziskavi, služi kot primer kompleksnejšega sistema, katerega uporabnost bi radi izboljšali z uporabo glasovnega pomočnika.
-
-
-\subsection{Kaj smo želeli z glasovnim pomočnikom izboljšati?}
+\subsection{Izboljšave z glasovnim pomočnikom}
 
 Glasovni pomočnik v našem sistemu služi kot uporabniški vmesnik za prostoročno dodajanje korakov v odprt projekt.
-Glasovni pomočnik je smiseln način interakcije z računalniškim sistemom v situaciji, kjer uporabnik nima prostih rok ali je fizično oddaljen od naprave.
+Komunikacija z glasovnim pomočnikom je smiseln način interakcije z računalniškim sistemom v situaciji, kjer uporabnik nima prostih rok ali je fizično oddaljen od naprave.
 
 % Z glasovnim pomočnikom smo poskusili implementirati dodajanje korakov v odprt projekt.
 
 Osnovna funkcionalnost glasovnega pomočnika je prostoročno narekovanje besedila koraka v projektu.
-Poleg narekovanja besedila korakov smo implementirali odpiranje obrazcev za dodajanje korakov v projekt in zagon kamere.
+Implementirali smo tudi odpiranje obrazcev za dodajanje korakov v projekt in zagon kamere.
 
 \bigbreak 
 Glasovni pomočnik v našem sistemu ima naslednje vloge:
@@ -698,7 +783,6 @@ Glasovni pomočnik v našem sistemu ima naslednje vloge:
 \end{itemize}
 
 Raziskava iz leta 2018 \cite{austerjost2018introducing} je pokazala izboljšano učinkovitost pri delu raziskovalcev v kemijskem laboratoriju, v katerega so integrirali glasovne pomočnike.
-% Namen raziskave je bil preizkus praktične uporabnosti glasovnih pomočnikov za branje laboratorijskih postopkov po korakih in glasovno upravljanje laboratorijskih instrumentov.
 Namen raziskave je bil preizkus praktične uporabnosti glasovnih pomočnikov za branje laboratorijskih postopkov in glasovno upravljanje laboratorijskih instrumentov.
 Pozitivni rezultati bi lahko bili ključnega pomena za slabovidne člane laboratorijev.
 Kot glasovnega pomočnika so uporabili Amazon Alexo.
@@ -707,18 +791,19 @@ Motnje pri razpoznavanju je povzročal večinoma ozadni hrup.
 Povprečna uspešnost prepoznave ukazov je bila 95\%.
 Raziskovalci so zabeležili tudi problem moteče kakofonije v laboratoriju, v katerem je več raziskovalcev, ki uporabljajo glasovni nadzor naprav.
 
+\clearpage
+
 \section{Načrt sistema za sestavljanje opisov tehnoloških postopkov}
 
 % Sistem za sestavljanje opisov tehnoloških postopkov smo poimenovali OpenReport. 
 
-
-Sistem za sestavljanje opisov tehnoloških postopkov smo poimenovali OpenReport. 
-Sistem OpenReport (na sliki \ref{plan}) sestavljajo:
+Implementirali smo arhitekturo, ki je predstavljena v poglavju \ref{architecture}.
+Sistem smo poimenovali OpenReport (na sliki \ref{plan}), ki ga sestavljajo:
 
 \begin{itemize}
-	\item strežniški program, 
 	\item mobilna aplikacija,
-	\item glasovni pomočnik.
+	\item strežniški program in 
+	\item Amazon Alexa.
 \end{itemize}
 
 \begin{figure}[H]
@@ -730,8 +815,7 @@ Sistem OpenReport (na sliki \ref{plan}) sestavljajo:
 \end{figure}
 
 Strežnik v podatkovni bazi hrani uporabnike, opise tehnoloških postopkov in korake.
-Uporabnik lahko do podatkov na strežniku dostopa preko odjemalca, ki s strežnikom komunicira preko API.
-V našem primeru je to mobilna aplikacija.
+Uporabnik lahko do podatkov dostopa preko mobilne aplikacije, ki s strežnikom komunicira preko API.
 Glasovnega pomočnika smo uporabili kot dodatek k mobilni aplikaciji.
 Omogoča glasovno upravljanje aplikacije in narekovanje korakov.
 
@@ -756,100 +840,20 @@ Za glasovnega pomočnika Amazon Alexa smo razvili \enquote{Skill}, s katerim upo
 \end{itemize}
 
 
-\subsection{Zasnova aplikacije}
+% \subsection{Zasnova aplikacije}
 
-Mobilna aplikacija služi kot osnovni način za interakcijo uporabnika s strežnikom.
+% Mobilna aplikacija služi kot osnovni način za interakcijo uporabnika s strežnikom.
 
-V tej diplomski nalogi preučujemo, ali je možno z vpeljavo glasovnega pomočnika v naš sistem izboljšati učinkovitost tega sistema.
-Da bodo rezultati raziskave čim bolj natančni, smo dali učinkovitosti mobilne aplikacije velik poudarek.
-Uporabniški vmesnik je bil zasnovan za čim hitrejše delo.
-To nam je v zagotovilo, da uporabniški vmesnik aplikacije ni ozko grlo pri pisanju opisov tehnoloških postopkov.
+% V diplomski nalogi preučujemo, ali je možno z vpeljavo glasovnega pomočnika v naš sistem izboljšati učinkovitost tega sistema.
+% Da bodo rezultati dela čim bolj natančni, smo dali učinkovitosti mobilne aplikacije velik poudarek.
+% Uporabniški vmesnik je bil zasnovan za čim hitrejše delo.
+% To nam je v zagotovilo, da uporabniški vmesnik aplikacije ni ozko grlo pri pisanju opisov tehnoloških postopkov.
 
-\section{Uporabljene tehnologije}
-
-\subsection{.NET}
-
-.NET \cite{dotnet} je razvojna platforma, razvita s strani Microsofta.
-Obsega programske jezike, prevajalnike, orodja in knjižnice, ki omogočajo širok spekter primerov uporabnosti, hkrati pa se ohranja enovitost ozadne kode.
-
-Tehnologije .NET ogrodja, ki smo jih uporabil v tej diplomski nalogi so:
-\begin{itemize}
-	\item .NET Core - odprtokodna platforma za razvoj spletnih storitev,
-	\item Xamarin - ogrodje za razvoj mobilnih aplikacij za najpogostejše mobilne operacijske sisteme (Android, iOS).
-\end{itemize}
-
-.NET smo izbrali, ker je zelo dobro integriran z Amazonovim AWS API-jem in je dobro dokumentiran.
-
-\subsection{Xamarin}
-
-Ogrodje Xamarin \cite{xamarin} je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga razvija Microsoft. 
-
-Z njim je mogoče deliti večino ozadne in ospredne kode med različnimi mobilnimi operacijskimi sistemi. 
-Za ozadno kodo se uporablja .NET (C\#), za ospredno kodo pa se uporablja XAML (Extensible Application Markup Language).
-
-Xamarin smo izbrali, da smo lahko strežniški program in mobilno aplikacijo programirali v enakem programskem jeziku (C\#).
-
-\subsection{Amazon Alexa}
-
-% // Besede \enquote{Skill} ne bi prevajal, z enakim razlogom kot ne bi prevajal npr. Python. Gre za ime nekega produkta.
-
-Amazon Alexa je glasovni pomočnik, razvit s strani podjetja Amazon \cite{alexa}.
-Za Amazon Alexo smo se odločili, saj ponuja ogrodje za programiranje dodatnih funkcionalnosti, ki se imenuje Alexa Skills Kit.
-Poleg tega je Alexo enostavno integrirati z drugimi Amazonovimi spletnimi storitvami, ki smo jih uporabili v tej diplomski nalogi (AWS SQS, AWS Lambda).
-
-% \subsection{Alexa Skill}
-
-Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče \enquote{Skill-i} (na sliki \ref{alexa_architecture}) \cite{alexaskills, alexaarchitecture}.
-Da lahko ustvarimo in objavimo \enquote{Skill} rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=13cm]{alexa_architecture}
-\end{center}
-\caption{Arhitektura Alexa \enquote{Skill-a}}
-\label{alexa_architecture}
-\end{figure}
-
-\noindent \enquote{Skill} sestavljajo:
-\begin{itemize}
-	\item \textbf{Poziv} - fraza, ki \enquote{Skill} zažene,
-	\item \textbf{Namera} - fraze, ki jih \enquote{Skill} razpozna kot funkcije,
-	\item \textbf{Krajišče} - omrežni vir, kjer se nahaja ozadna koda \enquote{Skill-a}.
-\end{itemize}
-
-
-
-Ko Alexa zasliši poziv ali katero od namer, glasovni posnetek pošlje na Amazonov Alexa Voice Service.
-Ta s pomočjo glasovnega razpoznavnega modela prepozna uporabnikove ukaze in pošlje poseben zahtevek na krajišče.
-To je lahko druga Amazonova storitev (npr. AWS Lambda), storitev na Microsoftovem Azure strežniku ali naš lasten strežnik, dostopen preko javne domene in zaščiten s SSL.
-
-Ko krajišče obdela zahtevo, odgovor pošlje nazaj na Amazon Alexa Server.
-Ta odgovor se nato pošlje nazaj na Alexo, ki uporabniku \enquote{izgovori} prejet odgovor.
-
-\subsection{Amazon Web Services}
-
-Amazon Web Services (v nadaljevanju AWS) je skupek oblačnih storitev, ki jih ponuja podjetje Amazon.
-Ponuja integracijo s pogostimi programskimi jeziki in ogrodji, kot so Java, .NET, Python in Node.js preko storitve AWS API.
-Pri tej diplomski nalogi smo se osredotočili na dva sistema iz skupka AWS.
-
-\subsubsection{Simple Queue Service}
-
-AWS Simple Queue Service (v nadaljevanju SQS) je sistem za pošiljanje tekstovnih sporočil med odjemalci preko Amazonovih strežnikov \cite{sqs}.
-Za hranjenje sporočil je potrebno registrirati \enquote{SQS Queue} \textit{(slo. SQS vrsto)}. 
-Ta je lahko neurejena vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO (first in, first out) \cite{sqsfifo}, pri kateri je zagotovljeno, da dobimo vsa sporočila v vrstnem redu, v katerem so bila poslana.
-V sklopu te diplome smo uporabili vrsto tipa FIFO.
-
-To storitev smo uporabili za komunikacijo med Amazon Alexo in OpenReport strežnikom.
-
-\subsubsection{Lambda}
-
-Ozadno kodo za Alexa \enquote{Skill} smo gostili na platformi AWS Lambda, ki je storitev za gostovanje dogodkovno vodene ozadne kode \cite{lambda}.
-Za to platformo smo se odločili zaradi dobre integracije z Alexa Skill Kit in razvojnim orodjem Visual Studio.
 
 \section{Strežnik}
 
 Osrednja komponenta sistema OpenReport je strežnik.
-Strežnik je zadolžen za delo s podatki uporabnikov in njihovih delavniških dnevnikov.
+Zadolžen je za delo s podatki uporabnikov in delavniškimi dnevniki.
 Odjemalci, ki so nanj povezani, služijo zgolj kot \enquote{uporabniški vmesnik} za zajem in prikaz podatkov na strežniku.
 
 Operacije nad podatki, hranjenimi na strežniku, se sprožijo na strani odjemalca in izvedejo na strežniku.
@@ -863,22 +867,24 @@ Osnovne naloge strežnika so:
 	\item ponujanje vmesnika, ki ga lahko odjemalci uporabijo za sprožanje operacij nad delavniškimi dnevniki.
 \end{itemize}
 
-Za uporabo strežnika za hranjenje podatkov smo se odločili, da lahko do podatkov dostopamo iz različnih naprav preko enotnega vmesnika (API).
-To nam omogoča enostavno dodajanje odjemalcev in odpravi podvajanje podatkov.
-Če bi podatke hranili na odjemalčevi napravi, bi bil dostop do njih iz druge naprave bistveno otežen.
+Podatke hranimo na strežniku, da lahko do podatkov dostopamo iz različnih naprav preko enotnega vmesnika.
+To nam omogoča enostavno dodajanje odjemalcev in odpravi podvajanje podatkov med napravami.
+% Če bi podatke hranili na odjemalčevi napravi, bi bil dostop do njih iz druge naprave bistveno otežen.
 
-V našem primeru bosta s strežnikom komunicirala mobilna aplikacija in glasovni pomočnik.
+S strežnikom komunicirata mobilna aplikacija in glasovni pomočnik.
 Podatke hranimo v podatkovni bazi, ki jo streže SQL Server.
+
 
 \subsection{Komunikacija z odjemalci}
 
-Strežnik z odjemalci komunicira preko API.
-To metodo smo izbrali zaradi enostavnosti implementacije in možnosti širjenja nabora odjemalcev v prihodnosti.
+Strežnik z odjemalci komunicira preko API zaradi enostavnosti implementacije in možnosti širjenja nabora odjemalcev v prihodnosti.
 
-V našem primeru je bil edini odjemalec mobilna aplikacija.
+V našem primeru je bil osnovni odjemalec mobilna aplikacija.
 Odjemalec na definirane funkcijske URL-je (slika \ref{api_routes}) strežnika pošlje HTTP zahtevke.
 Če so zahtevki pravilno oblikovani, strežnik izvede predvideno funkcijo in rezultat te funkcije pošlje kot HTTP odgovor nazaj odjemalcu.
-Komunikacija med strežnikom in odjemalcem je prikazana z roza barvo na spodnji sliki (slika \ref{plan_server_client}).
+Komunikacija med strežnikom in odjemalcem je prikazana z roza barvo na sliki \ref{plan_server_client}.
+
+\clearpage
 
 \begin{figure}[H]
 \begin{center}
@@ -891,14 +897,14 @@ Komunikacija med strežnikom in odjemalcem je prikazana z roza barvo na spodnji 
 
 \subsection{Podatkovni model}
 
-V sklopu diplomske naloge smo se odločili podatke razdeliti v tri entitete:
+Podatke smo razdelili v tri entitete:
 \begin{itemize}
 	\item uporabnik,
 	\item delavniški dnevnik,
 	\item korak delavniškega dnevnika.
 \end{itemize}
 
-Uporabnik lahko tako sestavlja svoje delavniške dnevnike, vsak delavniški dnevnik pa je sestavljen iz zbirke korakov, ki opisujejo potek dela.
+Uporabnik lahko tako sestavlja svoje delavniške dnevnike, vsak delavniški dnevnik pa je sestavljen iz zbirke korakov.
 
 Podatkovna baza hrani tabele \enquote{AspNetUsers}, \enquote{Projects} in \enquote{Notes} (slika \ref{er_diagram}).
 Vsak uporabnik lahko ima 0 ali mnogo delavniških dnevnikov (v nadaljevanju tudi projektov).
@@ -912,12 +918,12 @@ Vsak projekt ima lahko 0 ali mnogo korakov.
 \label{er_diagram}
 \end{figure}
 
-Uporabnik mora imeti uporabniško ime, katerega uporabi za prijavo in geslo s katerim dokaže, da je to res on.
+Uporabnik ima uporabniško ime, katerega uporabi za prijavo in geslo s katerim dokaže, da je to res on.
 % Uporabnik mora imeti možnost dodajanja svojih projektov.
 
-Vsak delavniški dnevnik mora imeti naslov, opis in enolični identifikator uporabnika, ki si dnevnik lasti.
+Vsak delavniški dnevnik ima naslov, opis in enolični identifikator uporabnika, ki si dnevnik lasti.
 
-Vsak korak delavniškega dnevnika mora imeti naslov, opis, podatke o trajanju in enolični identifikator projekta, ki si korak lasti.
+Vsak korak delavniškega dnevnika ima naslov, opis, podatke o trajanju in enolični identifikator projekta, ki si korak lasti.
 
 
 % \noindent Strežnik ima naslednje naloge:
@@ -933,13 +939,12 @@ Vsak korak delavniškega dnevnika mora imeti naslov, opis, podatke o trajanju in
 
 % Komunikacija med strežnikom in odjemalci poteka preko HTTP po pristopu API (slika \ref{api_routes}).
 % Podatki v HTTP sporočilih se zapišejo v format JSON.
-API smo uporabili kot vmesnik za komunikacijo med odjemalcem in strežnikom, ki hrani podatke (slika \ref{api_routes}).
-Zanj smo se odločili predvsem zaradi enostavnosti implementacije.
+API je vmesnik za komunikacijo med odjemalcem in strežnikom (slika \ref{api_routes}).
+% Zanj smo se odločili predvsem zaradi enostavnosti implementacije.
 
-Ker lahko sistem uporablja več uporabnikov, smo se odločili implementirati sistema za avtentikacijo uporabnikov in avtorizacijo zahtev.
+Ker lahko sistem uporablja več uporabnikov, smo implementirali sistema za avtentikacijo uporabnikov in avtorizacijo zahtev.
 Avtentikacija z uporabniškim imenom in geslom omogoča preverjanje identitete.
 Ko se vzpostavi zaupanje, se prijavljenemu uporabniku dodeli avtorizacijski žeton.
-Iz žetona je možno razbrati, za katerega uporabnika gre in katere pravice so mu dodeljene.
 
 
 \begin{figure}[H]
@@ -952,17 +957,18 @@ Iz žetona je možno razbrati, za katerega uporabnika gre in katere pravice so m
 
 \subsubsection{Registracija in prijava}
 
-Da lahko uporabnik dostopa do svojih delavniških dnevnikov, mora biti avtenticiran.
+% Do svojih delavniških dnevnikov lahko dostopa le avtenticiran uporabnik.
+% Da lahko uporabnik dostopa do svojih delavniških dnevnikov, mora biti avtenticiran.
 Vse operacije nad uporabnikovimi delavniškimi dnevniki morajo biti avtorizirane.
-Uporabnik sistema mora za uporabo sistema imeti registriran uporabniški račun.
+Uporabnik mora za uporabo sistema imeti registriran uporabniški račun.
 Na ta račun so vezani vsi njegovi delavniški dnevniki.
 
-Preden dobi uporabnik dostop do svojih podatkov, mora vzpostaviti zaupanje s strežnikom.
-To doseže s prijavo s pravilnim uporabniškim imenom in geslom.
-Če uporabnik še nima računa, se mora registrirati.
+% Preden dobi uporabnik avtorizacijski žeton, mora vzpostaviti zaupanje s strežnikom.
+Uporabnik mora vzpostaviti zaupanje s strežnikom, da dobi avtorizacijski žeton.
+Zaupanje doseže s prijavo s pravilnim uporabniškim imenom in geslom.
 
-Pri registraciji mora odjemalec na strežnik poslati objekt razreda \textit{RegisterUserRequest}.
-Odjemalec ga mora poslati na URL \enquote{\texttt{/identity/register}} preko metode POST.
+Če uporabnik računa nima, se mora registrirati.
+Pri registraciji odjemalec na strežnik pošlje objekt razreda \textit{RegisterUserRequest} na URL \enquote{\texttt{/identity/-\\register}} preko metode POST.
 V objektu \texttt{RegisterUserRequest} se nahajata njegov e-mail naslov in geslo v čisti obliki.
 
 \begin{verbatim}
@@ -973,16 +979,16 @@ RegisterUserRequest {
 \end{verbatim}
 
 
-Ko strežnik prejme ta objekt, ga pošlje v avtentikacijsko storitev.
-V tej storitvi preveri, ali uporabnik s tem uporabniškim imenom že obstaja v bazi (je že bil registriran).
-Če obstaja, se zabeleži napaka in nadaljnja registracija se prekine.
-Če ta uporabnik ne obstaja, se kreira nov objekt razreda \texttt{User}.
+Ko strežnik ta objekt prejme, ga pošlje v avtentikacijsko storitev.
+Ta storitev preveri, ali je to ime že bilo registrirano.
+Če je bilo, se zabeleži napaka in nadaljnja registracija se prekine.
+Če ta uporabnik ne obstaja, se ustvarin nov objekt razreda \texttt{User}.
 Polje \texttt{Password} se šifrira in se skupaj s poljem \texttt{Email} zapiše v ta objekt.
 Objekt se nato zapiše v podatkovno bazo v tabelo \texttt{Users}.
 Uporabnik pri registraciji dobi tudi svoj enoličen identifikator \texttt{UserID}.
 
-V kolikor se je tekom avtentikacije dogodila kakršna koli napaka, se odjemalcu vrne objekt razreda \texttt{AuthFailedResponse}.
-V tem objektu se odjemalcu pošlje seznam vseh napak, ki jih je avtentikacijska storitev zabeležila pri neuspešni registraciji. 
+Objekt \texttt{AuthFailedResponse} se vrne odjemalcu ob napaki med avtentikacijo.
+Vsebuje seznam vseh zabeleženih napak.
 
 \begin{verbatim}
 AuthFailedResponse { 
@@ -990,8 +996,7 @@ AuthFailedResponse {
 }
 \end{verbatim}
 
-
-Če je bila registracija uspešna, se odjemalcu pošlje objekt razreda \texttt{Auth-\\SuccessResponse}.
+Objekt razreda \texttt{AuthSuccessResponse} se pošlje odjemalcu ob uspešni registraciji.
 
 \begin{verbatim}
 AuthSuccessResponse { 
@@ -1005,14 +1010,14 @@ AuthSuccessResponse {
 Žeton je tipa JWT ali \textit{JSON Web Token} \cite{jwtinfo}.
 Sestavljajo ga e-mail uporabnika, uporabnikov enolični identifikator \texttt{UserID}, čas zapada žetona in tip simetričnega kodiranja, uporabljenega za enkripcijo žetona.
 
-Objekt \texttt{AuthSuccessResponse} se pošlje nazaj odjemalcu.
-Odjemalec žeton iz prejetega objekta doda glavi vseh svojih HTTP zahtevkov na OpenReport strežnik.
+Odjemalcu se pošlje objekt razreda \texttt{AuthSuccessResponse}.
+Odjemalec žeton iz prejetega objekta doda glavi vseh svojih nadaljnjih zahtevkov na strežnik.
 Strežnik ga uporabi pri poizvedbah po podatkovni bazi.
 
 Prijava poteka podobno.
-Uporabnik mora poslati na strežnik objekt \textit{LoginUserRequest}.
+Odjemalec mora na strežnik poslati objekt razreda \textit{LoginUserRequest}.
 Ciljni URL za ta zahtevek je \enquote{\texttt{/identity/login}}.
-V objektu \texttt{LoginUserRequest} se nahajata njegov e-mail naslov in geslo.
+Objekt \texttt{LoginUserRequest} vsebuje e-mail naslov in geslo v čisti obliki.
 
 \begin{verbatim}
 LoginUserRequest {
@@ -1021,30 +1026,29 @@ LoginUserRequest {
 } 
 \end{verbatim}
 
-Ko strežnik prejme ta objekt, ga pošlje v avtentikacijsko storitev.
-V tej storitvi preveri, ali uporabnik s tem e-mail naslovom že obstaja.
+Strežnik prejme ta objekt in ga pošlje v avtentikacijsko storitev.
+Ta storitev preveri, ali uporabnik s tem e-mail naslovom že obstaja.
 Če uporabnik ne obstaja, ali pa je njegovo šifrirano geslo v podatkovni bazi drugačno kot to, kar je v polju \texttt{Password}, se zabeležijo napake in prijava se prekine.
 Odjemalec prejme objekt razreda \texttt{AuthFailedResponse}.
 
 Če uporabnik obstaja in se njegovo šifrirano geslo iz polja \texttt{Password} ujema z geslom v podatkovni bazi, je avtentikacija uspešna.
 Odjemalec prejme objekt razreda \texttt{AuthFailedResponse}.
 
-V primeru uspešne prijave se avtorizacijski žeton \texttt{Token} generira in pošlje enako kot pri registraciji.
+V primeru uspešne prijave se avtorizacijski žeton generira in pošlje enako kot pri registraciji.
 
 \subsubsection{Operacije z delavniškimi dnevniki}
 
-Strežnik mora podpirati dodajanje, odpiranje in brisanje delavniških dnevnikov za prijavljenega uporabnika.
-Pri dodajanju delavniškega dnevnika, se v uporabnikovo zbirko doda nov prazen dnevnik z naslovom in opisom, ki ga vpiše uporabnik.
+Strežnik omogoča dodajanje, odpiranje in brisanje delavniških dnevnikov prijavljenemu uporabniku.
+Pri dodajanju se v uporabnikovo zbirko doda nov prazen dnevnik z naslovom in opisom, ki ju vpiše uporabnik.
 Pri brisanju se morajo vsi podatki izbrisanega dnevnika odstraniti iz podatkovne baze.
-Ko uporabnik odpre katerega od svojih delavniških dnevnikov, mu mora strežnik vrniti ta dnevnik in zbirko korakov, ki mu pripada.
+Ko uporabnik preko aplikacije odpre katerega od delavniških dnevnikov, mu strežnik vrne dnevnik in zbirko korakov, ki mu pripada.
 
 Avtenticiran uporabnik lahko dostopa do svoje zbirke delavniških dnevnikov.
 Vsak uporabnik lahko ima nič ali več delavniških dnevnikov.
 
-Vse operacije nad uporabnikovim delavniškim dnevnikom morajo biti avtorizirane.
-V kolikor niso, API javi napako \texttt{Bad Request: Not Authorised}.
+% Če operacije nad delavniški API javi napako \texttt{Bad Request: Not Authorised}.
 
-Ko uporabnik želi ustvariti nov delavniški dnevnik (slika \ref{app_create_new})(v nadaljevanju poglavja \textit{projekt}), mora v mobilni aplikaciji podati naslov, kratek opis projekta in opis možnih nevarnosti.
+Ko uporabnik ustvarja nov delavniški dnevnik (slika \ref{app_create_new})(v nadaljevanju poglavja \textit{projekt}), mora v mobilni aplikaciji podati naslov, kratek opis projekta in opis možnih nevarnosti.
 
 Te podatke odjemalec zapiše v objekt razreda \texttt{CreateProjectRequest}.
 
@@ -1056,17 +1060,19 @@ CreateProjectRequest {
 } 
 \end{verbatim}
 
+% \clearpage
+
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=7cm]{app_create_new_small}
+\includegraphics[width=6.5cm]{app_create_new_small}
 \end{center}
 	\caption{Ustvarjanje novega projekta v aplikaciji.}
 \label{app_create_new}
 \end{figure}
 
-\noindent Ta objekt se nato pošlje preko POST metode na strežnik na naslov \texttt{/projects\\/create}.
-Storitev za operacije nad projekti nato kreira nov objekt razreda \texttt{Project} s podatki iz prejete zahteve.
-V primeru, da je zahteva ustrezno oblikovana in avtorizirana, se projekt zapiše v podatkovno bazo.
+\noindent Ta objekt aplikacija pošlje na URL \texttt{/projects/create} preko metode POST.
+Storitev za operacije nad projekti nato ustvari nov dnevnik s podatki iz prejete zahteve.
+Če je zahteva ustrezno oblikovana in avtorizirana, se projekt zapiše v podatkovno bazo.
 Odjemalcu se kot odgovor pošlje ustvarjen objekt tega projekta.
 
 \noindent Razred \texttt{Project} izgleda tako:
@@ -1260,7 +1266,7 @@ V HTML dokumentu lahko prikažemo poleg besedila slikovnih korakov tudi slike.
 \end{figure}
 
 Lokacija izvožene datoteke se nahaja v polju \texttt{FolderLocation} v razredu \texttt{Project}.
-Privzeta lokacija, ki se nastavi ob kreiranju projekta je 
+Privzeta lokacija, ki se nastavi ob ustvarjanju projekta je 
 \\\enquote{\texttt{C:/users/\$USER/Public Documents/OpenReport}}.
 
 \begin{Verbatim}[commandchars=+\[\]]
@@ -1436,8 +1442,8 @@ Nov objekt se nato vstavi v zadnji odprt projekt.
 
 \section{Implementacija Alexa \enquote{Skill-a}}
 
-Alexa \enquote{Skill} je program, ki glasovnemu pomočniku Amazon Alexa doda funkcionalnosti.
-Alexo in zasnovan \enquote{Skill} smo uporabili kot dodaten uporabniški vmesnik za upravljanje z mobilno aplikacijo.
+\enquote{Skill} ali veščina je program, ki glasovnemu pomočniku Amazon Alexa doda funkcionalnosti.
+Alexo in zasnovano veščino smo uporabili kot dodaten uporabniški vmesnik za upravljanje z mobilno aplikacijo.
 
 \noindent Z njim smo želeli doseči:
 \begin{itemize}
@@ -1448,11 +1454,11 @@ Alexo in zasnovan \enquote{Skill} smo uporabili kot dodaten uporabniški vmesnik
 
 
 
-Ko Alexa prepozna poziv \enquote{\textit{make a report note}}, se naš \enquote{Skill} začne izvajati.
+Ko Alexa prepozna poziv \enquote{\textit{make a report note}}, se naša veščina začne izvajati.
 
-Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se \enquote{Skill} preneha izvajati, se primerja s frazami namer.
-Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v ozadni kodi \enquote{Skill-a} (slika \ref{plan_alexa_sqs}).
-V našem \enquote{Skill-u} smo definirali tri glavne namere:
+Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se veščina preneha izvajati, se primerja s frazami namer.
+Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v ozadni kodi veščine (slika \ref{plan_alexa_sqs}).
+V naši veščini smo definirali tri glavne namere:
 
 \begin{itemize}
 	\item \texttt{TakeNoteIntent},
@@ -1468,8 +1474,8 @@ V našem \enquote{Skill-u} smo definirali tri glavne namere:
 \label{plan_alexa_sqs}
 \end{figure}
 
-\texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}) se zažene, ko po pozivu uporabnik izreče \enquote{\texttt{take note \{besedilo\}}} ali \enquote{\texttt{note \{besedilo\}}}.
-Polje \texttt{\{besedilo\}} je besedilna spremenljivka, v katero \enquote{Skill} hrani razpoznano besedilno vsebino koraka.
+\texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}) se zažene, ko po pozivu uporabnik izreče \enquote{Take note \texttt{\{besedilo\}}} ali \enquote{Note \texttt{\{besedilo\}}}.
+Polje \texttt{\{besedilo\}} je besedilna spremenljivka, v katero veščina hrani razpoznano besedilno vsebino koraka.
 V primeru, da uporabnik izreče \enquote{\textit{note unscrew the backplate}}, je vrednost spremenljivke \texttt{\{besedilo\}} \enquote{unscrew the backplate}.
 
 \begin{figure}[H]
@@ -1480,17 +1486,17 @@ V primeru, da uporabnik izreče \enquote{\textit{note unscrew the backplate}}, j
 \label{TakeNoteIntent}
 \end{figure}
 
-\texttt{TakeNoteIntent} v ozadni kodi \enquote{Skill-a} zažene funkcijo, ki ustvari novo SQS sporočilo.
+\texttt{TakeNoteIntent} v ozadni kodi veščine zažene funkcijo, ki ustvari novo SQS sporočilo.
 V telo tega sporočila funkcija vstavi vrednost spremenljivke \texttt{\{besedilo\}} in ga pošlje v SQS vrsto.
 To SQS sporočilo prebere strežnik in ga kot korak vstavi v odprt projekt.
-\enquote{Skill} zatem vrne uporabniku odgovor \enquote{Noted!} in se preneha izvajati.
+Veščina zatem vrne uporabniku odgovor \enquote{Noted!} in se preneha izvajati.
 
-\texttt{OpenTextNoteFormIntent} se zažene, ko po pozivu uporabnik izreče \enquote{\texttt{create a text note}}.
+\texttt{OpenTextNoteFormIntent} se zažene, ko po pozivu uporabnik izreče \enquote{Create a text note}.
 
-\texttt{OpenTextNoteFormIntent} v ozadni kodi \enquote{Skill-a} zažene funkcijo, ki ustvari novo SQS sporočilo.
+\texttt{OpenTextNoteFormIntent} v ozadni kodi veščine zažene funkcijo, ki ustvari novo SQS sporočilo.
 V telo tega sporočila funkcija vstavi besedilo \enquote{\texttt{addnote}} in ga pošlje v SQS vrsto.
 To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre obrazec za dodajanje novega besedilnega koraka.
-\enquote{Skill} zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneha izvajati.
+Veščina zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneha izvajati.
 
 
 \begin{figure}[H]
@@ -1501,12 +1507,12 @@ To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre ob
 \label{OpenTextNoteFormIntent}
 \end{figure}
 
-\texttt{OpenImageNoteFormIntent} se zažene, ko po pozivu uporabnik izreče \enquote{\texttt{take a picture}}.
+\texttt{OpenImageNoteFormIntent} se zažene, ko po pozivu uporabnik izreče \enquote{Take a picture}.
 
-Ta namera v krajišču \enquote{Skill-a} zažene funkcijo, ki ustvari novo SQS sporočilo.
+Ta namera v krajišču veščine zažene funkcijo, ki ustvari novo SQS sporočilo.
 V telo tega sporočila funkcija vstavi besedilo \enquote{\texttt{addimage}} in ga pošlje v SQS vrsto.
 To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre kamero.
-\enquote{Skill} zatem vrne uporabniku odgovor \enquote{Launching camera!} in se preneha izvajati.
+Veščina zatem vrne uporabniku odgovor \enquote{Launching camera!} in se preneha izvajati.
 
 \begin{figure}[H]
 \begin{center}
@@ -1518,18 +1524,18 @@ To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre ka
 
 \subsection{Izvajanje \enquote{Skill-a} po korakih}
 
-Alexa \enquote{Skill} se začne izvajati, ko uporabnik izreče poziv \enquote{\textit{make a report note}}.
+Alexina veščina se začne izvajati, ko uporabnik izreče poziv \enquote{Make a report note}.
 Alexa posnet govorni ukaz pošlje na Amazon Alexa Service \cite{skillexecution}.
 Tam se s pomočjo NLU razpoznavnega modela poskusi pretvoriti v znakovni niz.
-Ta znakovni niz se primerja z vsemi definiranimi pozivnimi frazami za \enquote{Skill-e}, ki so vezani na naš Amazon račun.
+Ta znakovni niz se primerja z vsemi definiranimi pozivnimi frazami za veščine, ki so vezane na naš Amazon račun.
 
 Če Amazon Alexa Service uporabnikov glasovni ukaz razpozna kot \enquote{make a report note}, se začne izvajati OpenReportAlexaSkill.
-V krajišče \enquote{Skill-a} se pošlje zahteva tipa \texttt{LaunchRequest}.
+V krajišče veščine se pošlje zahteva tipa \texttt{LaunchRequest}.
 
 Krajišče nastavimo v Alexa Developer nadzorni plošči (slika \ref{skill_endpoint}).
 Krajišče je lahko AWS Lambda funkcija, lahko pa je naš lasten strežnik, dostopen preko javne domene in zaščiten z SSL.
 Krajišče je v našem primeru gostovan na storitvi AWS Lambda.
-Ob prejetju \texttt{LaunchRequest} krajišče našega \enquote{Skill-a} vrne vprašanje What now?.
+Ob prejetju \texttt{LaunchRequest} krajišče veščine vrne vprašanje What now?.
 
 \begin{figure}[H]
 \begin{center}
@@ -1539,32 +1545,22 @@ Ob prejetju \texttt{LaunchRequest} krajišče našega \enquote{Skill-a} vrne vpr
 \label{skill_endpoint}
 \end{figure}
 
-Naslednji glasovni ukaz, po zagonu \enquote{Skill-a}, se primerja s frazami za namere.
+Naslednji glasovni ukaz, po zagonu veščine, se primerja s frazami za namere.
 Če se ukaz ujema z frazami, ki zaženejo katero od namer TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent, se na krajišče pošlje zahteva tipa \texttt{IntentRequest}.
 
 Iz prejetega \texttt{IntentRequest}-a nato dobimo ime namere.
 Na podlagi imena prejete namere ločimo, ali gre za TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent in zaženemo funkcije, opisane v prejšnjem poglavju.
 
-% Oris obdelave poziva \enquote{Skill-a} in namere \texttt{TakeNoteIntent} je prikazan s spodnjo sliko (slika \ref{skill}).
-% 
-% \begin{figure}[H]
-% \begin{center}
-% \includegraphics[width=13.5cm]{skill_2}
-% \end{center}
-% \caption{Načrt Alexa Skilla}
-% \label{skill}
-% \end{figure}
-
 \subsection{Ovire pri izdelavi Alexa \enquote{Skill-a}}
 
-Pri implementaciji Alexa \enquote{Skill-a} smo naleteli na največ težav v sklopu te raziskave.
+Pri implementaciji veščine smo naleteli na največ težav v sklopu tega dela.
 
 Prva je bila jezikovne narave, saj Alexa ne podpira prepoznavanja slovenskega jezika.
 Zato smo se odločili za uporabo angleškega jezika.
 
 Naslednja težava je bila definicija pozivne fraze.
 Fraze, kot so \enquote{take a note} ali \enquote{take a picture} so že rezervirane v sklopu Alexinih privzetih funkcionalnosti.
-To pomeni, da jih za naš \enquote{Skill} ne moremo uporabiti.
+To pomeni, da jih za našo veščino ne moremo uporabiti.
 
 Izogibati smo se morali tudi frazam, ki so bile rezerviranim frazam podobne (npr. \enquote{open report note} itd.).
 Tudi take fraze so se velikokrat razpoznale kot rezervirane fraze.
@@ -1585,7 +1581,7 @@ Za osnovni uporabniški vmesnik našega sistema smo uporabili mobilno aplikacijo
 Preko aplikacije se uporabnik lahko registrira in prijavi v sistem, dodaja, briše, odpira in izvaža svoje delavniške dnevnike.
 V delavniške dnevnike lahko dodaja korake, ki opisujejo delo, jih briše, spreminja vsebino ter ureja vrstni red.
 
-Preko mobilne aplikacije lahko tudi zahteva in sprosti glasovnega asistenta.
+Preko mobilne aplikacije lahko tudi zahteva in sprosti glasovnega pomočnika.
 Z mobilno napravo lahko zajema fotografije in jih v delavniške dnevnike dodal kot slikovno gradivo.
 
 Mobilno aplikacijo smo uporabili kot primer odjemalca za naš strežnik (slika \ref{plan_server_client}).
@@ -1612,13 +1608,13 @@ Rezultat upoštevanja tega pristopa je čista koda, ki nima prepletenih elemento
 Ti podatki se v \enquote{ViewModel-u} pretvorijo v obliko, ki bo prikazana uporabniku.
 \enquote{View} pa nato servira pripravljene podatke uporabniku v obliki grafičnih elementov.
 
-Na spodnji sliki lahko vidimo oris pristopa MVVM (slika \ref{mvvm}) \cite{mvvmimage}.
+Na spodnji sliki lahko vidimo oris pristopa MVVM (slika \ref{mvvm}).
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=11cm]{mvvm}
 \end{center}
-	\caption{Shema pristopa MVVM}
+	\caption{Shema pristopa MVVM, (vir \cite{mvvmimage})}
 \label{mvvm}
 \end{figure}
 
@@ -1755,8 +1751,8 @@ Pritisk na ta gumb sporoči storitvi za komunikacijo s strežnikom, naj pošlje 
 Strežnik ob uspešnem izbrisu projekta odjemalcu vrne kopijo izbrisanega projekta.
 
 \subsection{Zahtevanje in sprostitev glasovnega pomočnika}
-Storitev za upravljanje z glasovnim pomočnikom (\texttt{VoiceAssistantService.cs}) skrbi za zahtevanje in sprostitev glasovnega pomočnika.
-% Za zahtevanje in izpust glasovnega pomočnika v mobilni aplikaciji skrbi storitev za upravljanje z glasovnim pomočnikom (razred \texttt{VoiceAssistantService.cs}).
+% Storitev za upravljanje z glasovnim pomočnikom (razred \texttt{VoiceAssistantService.cs}) skrbi za zahtevanje in sprostitev glasovnega pomočnika.
+Storitev za upravljanje z glasovnim pomočnikom (razred \texttt{VoiceAssistant-\\Service.cs}) skrbi za zahtevanje in sprostitev glasovnega pomočnika.
 Ta storitev se registrira ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev uspešno opravi prijavo uporabnika.
 Ob prijavi uporabnika preveri, ali ta uporablja glasovnega pomočnika.
 To doseže tako, da pošlje GET zahtevek na URL \enquote{\texttt{/users/current}}.
@@ -1789,7 +1785,7 @@ V mobilni aplikaciji zahtevanje in sprostitev pomočnika nadziramo na \enquote{D
 
 \subsection{Odpiranje in sinhronizacija projekta}
 
-Ko uporabnik iz seznama delavniških dnevnikov izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL \enquote{\texttt{/projects/\{id\}/notes}} zahtevek GET.
+Ko uporabnik iz seznama delavniških dnevnikov izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL \enquote{\texttt{/projects/\{id\}-\\/notes}} zahtevek GET.
 Polje \texttt{\{id\}} je unikatni identifikator željenega projekta.
 
 Storitev za projekte (razred \texttt{ProjectService.cs}) nato prejet odgovor, razreda \texttt{Project}, hrani.
@@ -1811,7 +1807,7 @@ Polje \{id\} mora biti unikatni identifikator odprtega projekta.
 V odgovor prejme objekt razreda \texttt{Project}, vključno s seznamom vseh korakov, ki mu pripadajo.
 V prejetem seznamu je namreč tudi narekovan korak.
 Storitev za projekte primerja, katerega od korakov še nima v svoji zbirki.
-Ko ta korak najde, ga doda v svoj ObservableCollection.
+Ko ta korak najde, ga doda v seznam korakov. 
 
 Ko se projekt sinhronizira, storitev za projekte pošlje na strežnik PUT zahtevo na URL \enquote{\texttt{/project/last/closerequests}}.
 Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest} na \texttt{false}.
@@ -1848,8 +1844,8 @@ Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, v katerega žel
 Storitev za projekte nato ta korak doda svoji zbirki korakov.
 
 Pri vstavljanju slikovnih korakov je postopek vstavljanja podoben.
-Ko uporabnik odpre stran za dodajanje slikovnega koraka, se zažene privzeta aplikacija za kamero.
-Ko uporabnik fotografijo posname, se ta prikaže na strani z vnosnim obrazcem (slika \ref{app_note}).
+Uporabnik odpre stran za dodajanje slikovnega koraka in se zažene privzeta aplikacija za kamero.
+Fotografijo posname in ta se prikaže na strani z vnosnim obrazcem (slika \ref{app_note}).
 Slika se na mobilni napravi hrani v mapi \enquote{\texttt{Pictures/\{naslov projekta\}}}, v uporabnikovem domačem direktoriju.
 Uporabnik ima na vnosnem obrazcu možnost sliko ponovno posneti ali jo odstraniti.
 
@@ -1902,8 +1898,9 @@ Uporabnik lahko projekt izvozi v človeško berljivo obliko na strežnik v dva r
 \label{app_project_export}
 \end{figure}
 
-Če želi uporabnik izvoziti projekt kot besedilno datoteko, storitev za komunikacijo s strežnikom pošlje POST zahtevek na URL \enquote{\texttt{/project/\{id\}/export/text}}.
-Če želi uporabnik izvoziti projekt kot HTML dokument, storitev za komunikacijo s strežnikom pošlje POST zahtevek na URL \enquote{\texttt{/project/\{id\}/export/html}}.
+Če želi uporabnik izvoziti projekt kot besedilno datoteko, storitev za komunikacijo s strežnikom pošlje POST zahtevek na URL \enquote{\texttt{/project/\{id\}/-\\export/text}}.
+Če želi uporabnik izvoziti projekt kot HTML dokument, storitev za komunikacijo s strežnikom pošlje POST zahtevek na URL \enquote{\texttt{/project-\\/\{id\}/export/html}}.
+
 
 % \section{Testiranje sistema OpenReport}
 
@@ -2061,7 +2058,7 @@ Možnost izvoza delavniškega dnevnika v druge formate lahko olajša tudi prenos
 
 \bigbreak
 
-Alexa \enquote{Skill} smo testirali tako, da smo vsako frazo namere izgovorili 20-krat in beležili, kolikokrat se je razpoznala pravilno.
+Veščino smo testirali tako, da smo vsako frazo namere izgovorili 20-krat in beležili, kolikokrat se je razpoznala pravilno.
 Pri dobesednem narekovanju koraka smo testiranje opravili dvakrat.
 Prvič smo testirali s stavkom \enquote{\textit{this is a voice note}}, drugič pa s stavkom \enquote{\textit{backplate removal takes about three minutes}}.
 \begin{itemize}
@@ -2082,6 +2079,13 @@ Kljub temu je problem prikazovalo dejstvo, da je izgovorjava poziva, fraz namer 
 
 Odklepanje mobilnega telefona, ki ga imamo v dosegu rok in ga lahko dosežemo brez presedanja ter odpiranje forme za dodajanje korakov je trajalo v povprečju 4 sekunde.
 Odklepanje mobilnega telefona, ki je oddaljen tri metre ter odpiranje forme za dodajanje korakov je trajalo povprečju 8 sekund.
+
+Težavo trenutno predstavlja tudi uporabnikovo neznanje angleškega jezika.
+
+% Ugotavljamo, da je za dobro zasnovano veščino za Amazon Alexo treba upoštevati Alexine omejitve.
+% Če bi želeli zmanjšati čas obdelave večih zaporednih glasovnih ukazov, lahko ustvarimo več veščin in prožimo funkcionalnosti ob pozivu.
+% Če pa je naš namen razširiti nabor funkcionalnosti, pa je smiselno v sklopu ene veščine definiramo namere, ki so 
+
 
 % \chapter{Možnosti nadaljnega razvoja}
 
@@ -2111,11 +2115,11 @@ Z Amazon Alexo ni bilo mogoče razpoznati daljših, variirajočih glasovnih ukaz
 V možne izboljšave sistema smo na prvo mesto uvrstili preizkus drugih glasovnih pomočnikov, npr. Google Assistant \cite{googleass}.
 % Smiselno bi bilo tudi primerjati Amazon Alexo z lastnim glasovnim pomočnikom.
 %Hitrejše upravljanje z aplikacijo bi lahko dosegli z pomočnikom, ki bi lahko razpoznal ukaze z eno samo frazo in ne kombinacijo dveh, kot Amazon Alexa.
-Druga smiselna izboljšava je izvoz delavniških dnevnikov v več različnih standardnih formatov, kot so npr. XSL.
+Druga smiselna izboljšava je izvoz delavniških dnevnikov v več različnih standardnih formatov, kot so npr. XSL ali ODS.
 
 Mobilna aplikacija in strežniški program sta zadovoljila pričakovanja in lahko že v trenutnem stanju služita kot referenca za primerjavo učinkovitosti Amazon Alexe in drugih glasovnih pomočnikov.
 
-Kljub nekaterim težavam z uporabo glasovnega pomočnika, je očitno, da je tehnologija glasovnih pomočnikov zelo primeren način za nadzor računalniških sistemov na daljavo.
+Kljub nekaterim težavam z uporabo glasovnega pomočnika, je očitno, da je tehnologija glasovnih pomočnikov zelo primeren način za nadzor sistemov na daljavo.
 Poleg tega ponuja veliko možnosti za slepe, slabovidne in gibalno omejene posameznike, ki imajo težave z interakcijo z računalnikom.
 
 

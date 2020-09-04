@@ -364,11 +364,9 @@ Hvala vsem.
 
 \noindent Diplomsko delo obravnava področje vpeljave komercialno dostopnih glasovnih pomočnikov v programske rešitve kot dodatni uporabniški vmesnik.
 V nalogi raziščemo, kako v računalniški sistem vpeljemo glasovnega pomočnika in vpliv glasovnega pomočnika na uporabo sistema.
-% V nalogi raziščemo, kako vpeljava glasovnega pomočnika v računalniški sistem pospeši delo s tem sistemom. 
 Cilj je implementirati in preizkusiti računalniški sistem z glasovnim pomočnikom, s pomočjo katerega lahko narekujemo zapiske med delom. 
 Te zapiske pa lahko naknandno urejamo s pomočjo mobilne aplikacije.
 Uporabili smo Amazon Alexo zaradi enostavne izdelave lastnih programov z Alexa Skills Kit ogrodjem.
-% Ugotovili smo, da je specializiran sistem za pisanje opisov tehnološkega postopka lahko dobra alternativa pisanju teh dokumentov s pisarniškimi programi ali na list papirja.
 Ugotovili smo, da Amazon Alexa ni bila zmožna razpoznati izgovorjenih stavkov z veliko spreminjajočimi se besedami.
 Uspešna je bila pri razpoznavanju stavkov, ki so se v celoti ujemali z naučenim razpoznavnim modelom.
 Kljub temu je čas, ki je potreben, da Alexa razpozna prejet glasovni ukaz prepočasen, da bi bil sistem, v času izdelave diplome, učinkovit.
@@ -432,7 +430,6 @@ Opisi tehnološkega postopka se najpogosteje uporabljajo v proizvodnih obratih t
 
 V sklopu diplomske naloge smo želeli izdelati specializiran sistem za sestavljanje delavniških dnevnikov in preveriti, ali lahko z vpeljavo glasovnega pomočnika delo s sistemom izboljšamo.
 Sistem bi sestavljali glasovni pomočnik, ki bi služil za narekovanje opomb, mobilna aplikacija, preko katere bi lahko urejali zapiske in strežnik, ki bi hranil podatke.
-% Ta sistem bi sestavljali strežnik, ki bi hranil podatke o delavniških dnevnikih, mobilna aplikacija, preko katere bi uporabnik do teh podatkov dostopal in glasovni pomočnik, s katerim bi lahko dobesedno narekovali korake in nadzirali mobilno aplikacijo.
 
 Raziskati želimo, kako vpeljati glasovnega pomočnika Amazon Alexo v programsko rešitev in kako vpeljava Alexe vpliva na interakcijo uporabnika s sistemom.
 
@@ -444,9 +441,9 @@ Opredelimo problematiko našega dela.
 
 Začnemo z raziskavo obstoječih rešitev za sestavljanje opisa tehnološkega postopka.
 Nato opišemo, kaj trenutne rešitve te problematike ponujajo in poskusimo opredeliti njihove prednosti ter slabosti.
+Lotimo se opisa tehnologij, ki smo jih pri pisanju diplome uporabili.
 
 V naslednjem poglavju se lotimo načrtovanja specializiranega sistema z glasovnim pomočnikom za pomoč pri pisanju delavniških dnevnikov.
-Nato se lotimo opisa tehnologij, ki smo jih pri pisanju diplome uporabili.
 Natančno definiramo funkcionalnosti sistema, utemeljimo odločitev za izbiro Amazon Alexe, AWS Simple Queue Service, AWS Lambda in ogrodja Xamarin.
 
 Nato predstavimo Alexa veščino, strežniški program in mobilno aplikacijo.
@@ -463,10 +460,6 @@ V zadnjem poglavju opišemo možnosti nadaljnjega razvoja projekta.
 Delavniški dnevnik je splošen izraz za tehniški dokument, ki po korakih predstavi potek tehnološkega postopka \cite{delavniskidnevnikptuj}.
 V podjetju Hisense Gorenje Europe takšne dokumente imenujejo opis tehnološkega postopka (slika \ref{sap_2}).
 
-% Delavniški dnevnik sestavlja zaporedje korakov, ki si sledijo v časovnem vrstnem redu.
-% Vsak korak delavniškega dnevnika sestavljata opis postopka posamezne naloge v procesu in njeno predvideno trajanje.
-% Delavniški dnevniki lahko vsebujejo tudi slikovne razlage.
-
 Delavniški dnevniki imajo lahko definirane tudi kontrolne postopke za izdelek, orodje, ki ga potrebujemo za izdelavo in seznam možnih nevarnosti pri delu.
 
 Delavniški dnevniki se uporabljajo v proizvodnih obratih tovarn kot navodila in oporne točke za sestavljalce.
@@ -480,12 +473,6 @@ Pogosto se uporabljajo tudi kot učni pripomoček za spremljanje napredka npr. d
 \label{sap_2}
 \end{figure}
 
-% Ta opis tehnološkega postopka je strukturiran tako, da se vsi koraki sklicujejo na eno samo tehnično sliko.
-
-% // kako podrobno se opisuje korake?
-
-% Delavniški dnevnik se lahko sestavlja med delom ali po opravljenem delu.
-
 \subsection{Definicija problematike}
 
 V diplomski nalogi raziščemo možne metode izdelave delavniškega dnevnika oz. opisa tehnološkega postopka.
@@ -493,12 +480,8 @@ Raziskati želimo prednosti in slabosti trenutnih metod sestavljanja teh dokumen
 V naslednji fazi dela želimo izdelati specializiran sistem za sestavljanje opisov tehnoloških postopkov.
 V ta sistem želimo vpeljati glasovnega pomočnika in raziskati kako uporaba glasovnega pomočnika vpliva na uporabo sistema.
 
-
-% Izhajajoč iz navedenega opredeljujemo problematiko diplomskega dela: zasnuj in implementiraj sistem za sestavljanje delavniških dnevnikov, vanj vpelji glasovnega pomočnika in sistem preizkusi.
-
 \section{Funkcionalne zahteve}
 
-% V tej diplomski nalogi želimo izboljšati proces sestavljanja delavniških dnevnikov.
 Razviti želimo mobilno aplikacijo, s katero bo lahko uporabnik upravljal z zbirko delavniških dnevnikov.
 Za mobilno aplikacijo smo se odločili, saj je pametni telefon veliko prikladnejši na delovnem mestu, kot npr. prenosni računalnik.
 
@@ -512,7 +495,6 @@ Saj lahko v tehnoloških postopkih pride do sprememb, želimo, da lahko korake d
 Nekatere funkcionalnosti mobilne aplikacije želimo sprožiti prostoročno z glasovnim pomočnikom, ker bi tako sestavljalec manjkrat prekinil delo.
 Med funkcionalnosti spadajo narekovanje koraka delavniškega dnevnika, odpiranje kamere za dodajanje fotografij, itd.
 
-% Da se izognemo podvajanju delavniških dnevnikov med napravami, želimo, da se ti sinhronizirajo na oddaljen strežnik, ki teče neodvisno od aplikacije.
 Delavniške dnevnike želimo sinhronizirati na oddaljen strežnik, ki teče neodvisno od aplikacije, da se izognemo podvajanju datotek.
 
 Uporabnik mora imeti tudi možnost izvoza svojih delavniških dnevnikov v standardne računalniške formate, ki jih lahko uporabi izven našega sistema.
@@ -546,10 +528,10 @@ Xamarin smo izbrali, da smo lahko strežniški program in mobilno aplikacijo pro
 
 Amazon Alexa je glasovni pomočnik, razvit s strani podjetja Amazon \cite{alexa}.
 Za Amazon Alexo smo se odločili, saj ponuja ogrodje za programiranje dodatnih funkcionalnosti, ki se imenuje Alexa Skills Kit.
-Poleg tega je Alexo enostavno integrirati z drugimi Amazonovimi spletnimi storitvami, ki smo jih uporabili v tej diplomski nalogi (AWS SQS, AWS Lambda).
+Alexo je enostavno integrirati z drugimi Amazonovimi spletnimi storitvami, ki smo jih uporabili v tej diplomski nalogi (AWS SQS, AWS Lambda).
 
 Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče \enquote{Skill-i}, v nadaljevanju \enquote{veščine} (na sliki \ref{alexa_architecture}) \cite{alexaskills}.
-Da lahko ustvarimo in objavimo Alexa veščino rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
+Za razvoj in objavo Alexa veščine rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
 
 \clearpage
 
@@ -586,11 +568,8 @@ Pri tej diplomski nalogi smo se osredotočili na dva sistema iz skupka AWS.
 \subsubsection{Simple Queue Service}
 
 AWS Simple Queue Service (v nadaljevanju SQS) je sistem za pošiljanje tekstovnih sporočil med odjemalci preko Amazonovih strežnikov \cite{sqs}.
-% Za hranjenje sporočil je potrebno registrirati \enquote{SQS Queue} \textit{(slo. SQS vrsto)}. 
 Za hranjenje sporočil je potrebno registrirati SQS vrsto. 
-%Ta je lahko neurejena vrsta, kjer prejeta sporočila niso nujno urejena po času ustvarjanja, lahko pa je tipa FIFO (first in, first out) \cite{sqsfifo}, pri kateri je zagotovljeno, da dobimo vsa sporočila v vrstnem redu, v katerem so bila poslana.
 Uporabili smo SQS vrsto tipa FIFO (first in, first out) \cite{sqsfifo}, pri kateri je zagotovljeno, da dobimo vsa sporočila v vrstnem redu, v katerem so bila poslana.
-% V sklopu te diplome smo uporabili vrsto tipa FIFO.
 
 To storitev smo uporabili za komunikacijo med Amazon Alexo in strežnikom implementiranega sistema.
 
@@ -624,11 +603,6 @@ V primerjavi z našim sistemom so slabosti te metode predvsem:
 	\item občutljivost papirja na fizične poškodbe (trganje, mečkanje, vnetljivost,...).
 \end{itemize}
 
-% V primerjavi s sistemom, ki ga želimo implementirati, ta metoda zaostaja predvsem 
-% V sklopu diplomske naloge smo na papir napisali preprost opis tehnološkega postopka (slika \ref{paper}).
-% Priprava formularja je trajala 10 minut.
-% Pisanje dokumenta je trajalo 7 minut.
-
 \subsection{Pisarniški programi}
 
 Opis tehnološkega postopka lahko izdelamo v pisarniških programih, na primer Microsoft Word ali LibreOffice Writer.
@@ -642,13 +616,9 @@ Kljub temu uporaba te metode, v primerjavi z našim sistemom, prinese nove slabo
 \begin{itemize}
 	\item če imamo dokument shranjen na več mestih, moramo ob spremembah zagotoviti, da se posodobijo vsi hranjeni dokumenti.
 	\item Slikovno gradivo je vezano na dokument. Če na novo zajamemo sliko, ki smo jo vstavili v dokument, jo moramo spremeniti tudi znotraj dokumenta.
-	% \item Možnost izgube ali izbrisa podatkov.
 \end{itemize}
 
 V sklopu diplomske naloge smo napisali preprost opis tehnološkega postopka (slika \ref{report_writer}) s programom LibreOffice Writer \cite{writer}.
-% Priprava formularja je trajala 10 minut.
-% Pisanje in urejanje dokumenta je trajalo 4 minute.
-% Enostavno ga je bilo izvoziti v format PDF.
 Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot obrazec.
 \clearpage
 
@@ -728,7 +698,6 @@ Delavniški dnevnik oz. projekt sestavljajo naslov, opis dela, opis možnih neva
 V odprt projekt lahko uporabnik, enega za drugim, dodaja korake, ki opisujejo potek dela.
 Posamezen korak sestavljajo naslov, opis in trajanje.
 Uporabnik lahko tudi posname slike in jih doda v odprt projekt kot korak.
-% Ker smo želeli ohraniti sistem učinkovit tudi za splošnejše stvari,
 Vsi podatki, ki jih uporabnik vnese preko mobilne aplikacije in glasovnega pomočnika, se hranijo na strežniku.
 
 Glasovnega pomočnika smo uporabili kot razširitev uporabniškega vmesnika, s katerim lahko uporabnik prostoročno dodaja korake v odprt projekt.
@@ -751,26 +720,12 @@ Posamezen korak mora imeti naslov, opis dela in predvideno trajanje opisanega de
 
 
 
-% \subsection{Smernice razvoja sistema}
-% 
-% Pri načrtovanju sistema za sestavljanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
-% \begin{itemize}
-% 	% \item prekinitve dela, ki jih povzroči uporaba sistema morajo biti čim krajše,
-% 	% \item uporabniški vmesnik odjemalca mora omogočati karseda učinkovito delo,
-% 	\item uporabniški vmesniki sistema (mobilna aplikacija, glasovni pomočnik) morajo biti zamenjljivi,
-% 	\item uporabljene podatke (fotografije, zapiske) se mora hraniti na enem mestu,
-% 	\item sistem mora biti popolnoma funkcionalen brez glasovnega pomočnika.
-% \end{itemize}
-% 
-% Sistem, ki smo ga implementirali v diplomski nalogi, služi kot primer kompleksnejšega sistema, katerega uporabnost bi radi izboljšali z uporabo glasovnega pomočnika.
 
 
 \subsection{Izboljšave z glasovnim pomočnikom}
 
 Glasovni pomočnik v našem sistemu služi kot uporabniški vmesnik za prostoročno dodajanje korakov v odprt projekt.
 Komunikacija z glasovnim pomočnikom je smiseln način interakcije z računalniškim sistemom v situaciji, kjer uporabnik nima prostih rok ali je fizično oddaljen od naprave.
-
-% Z glasovnim pomočnikom smo poskusili implementirati dodajanje korakov v odprt projekt.
 
 Osnovna funkcionalnost glasovnega pomočnika je prostoročno narekovanje besedila koraka v projektu.
 Implementirali smo tudi odpiranje obrazcev za dodajanje korakov v projekt in zagon kamere.
@@ -794,8 +749,6 @@ Raziskovalci so zabeležili tudi problem moteče kakofonije v laboratoriju, v ka
 \clearpage
 
 \section{Načrt sistema za sestavljanje opisov tehnoloških postopkov}
-
-% Sistem za sestavljanje opisov tehnoloških postopkov smo poimenovali OpenReport. 
 
 Implementirali smo arhitekturo, ki je predstavljena v poglavju \ref{architecture}.
 Sistem smo poimenovali OpenReport (na sliki \ref{plan}), ki ga sestavljajo:
@@ -840,16 +793,6 @@ Za glasovnega pomočnika Amazon Alexa smo razvili veščino, s katerim uporabnik
 \end{itemize}
 
 
-% \subsection{Zasnova aplikacije}
-
-% Mobilna aplikacija služi kot osnovni način za interakcijo uporabnika s strežnikom.
-
-% V diplomski nalogi preučujemo, ali je možno z vpeljavo glasovnega pomočnika v naš sistem izboljšati učinkovitost tega sistema.
-% Da bodo rezultati dela čim bolj natančni, smo dali učinkovitosti mobilne aplikacije velik poudarek.
-% Uporabniški vmesnik je bil zasnovan za čim hitrejše delo.
-% To nam je v zagotovilo, da uporabniški vmesnik aplikacije ni ozko grlo pri pisanju opisov tehnoloških postopkov.
-
-
 \section{Strežnik}
 
 Osrednja komponenta sistema OpenReport je strežnik.
@@ -869,7 +812,6 @@ Osnovne naloge strežnika so:
 
 Podatke hranimo na strežniku, da lahko do podatkov dostopamo iz različnih naprav preko enotnega vmesnika.
 To nam omogoča enostavno dodajanje odjemalcev in odpravi podvajanje podatkov med napravami.
-% Če bi podatke hranili na odjemalčevi napravi, bi bil dostop do njih iz druge naprave bistveno otežen.
 
 S strežnikom komunicirata mobilna aplikacija in glasovni pomočnik.
 Podatke hranimo v podatkovni bazi, ki jo streže SQL Server.
@@ -897,7 +839,7 @@ Komunikacija med strežnikom in odjemalcem je prikazana z roza barvo na sliki \r
 
 \subsection{Podatkovni model}
 
-Podatke smo razdelili v tri entitete:
+Podatke smo razdelili v tri kategorije:
 \begin{itemize}
 	\item uporabnik,
 	\item delavniški dnevnik,
@@ -926,25 +868,15 @@ Vsak delavniški dnevnik ima naslov, opis in enolični identifikator uporabnika,
 Vsak korak delavniškega dnevnika ima naslov, opis, podatke o trajanju in enolični identifikator projekta, ki si korak lasti.
 
 
-% \noindent Strežnik ima naslednje naloge:
-% \begin{enumerate}
-% 	\item komunikacija s podatkovno bazo,
-% 	\item ponujanje vmesnika, preko katerega lahko odjemalci delajo s podatki v bazi (API),
-% 	% \item komunikacija z odjemalcem (mobilno aplikacijo),
-% 	\item komunikacija z glasovnim pomočnikom (Amazon Alexa).
-% \end{enumerate}
 
 
-\subsection{Implementacija API}
+\section{Implementacija strežnika in mobilne aplikacije}
 
-% Komunikacija med strežnikom in odjemalci poteka preko HTTP po pristopu API (slika \ref{api_routes}).
-% Podatki v HTTP sporočilih se zapišejo v format JSON.
-API je vmesnik za komunikacijo med odjemalcem in strežnikom (slika \ref{api_routes}).
-% Zanj smo se odločili predvsem zaradi enostavnosti implementacije.
+Komunikacija med odjemalcem in strežnikom poteka preko HTTP preko API (slika \ref{api_routes}), ki ga ponuja strežnik .
 
 Ker lahko sistem uporablja več uporabnikov, smo implementirali sistema za avtentikacijo uporabnikov in avtorizacijo zahtev.
 Avtentikacija z uporabniškim imenom in geslom omogoča preverjanje identitete.
-Ko se vzpostavi zaupanje, se prijavljenemu uporabniku dodeli avtorizacijski žeton.
+Ko se vzpostavi zaupanje, se uporabniku dodeli avtorizacijski žeton.
 
 
 \begin{figure}[H]
@@ -957,16 +889,10 @@ Ko se vzpostavi zaupanje, se prijavljenemu uporabniku dodeli avtorizacijski žet
 
 \subsubsection{Registracija in prijava}
 
-% Do svojih delavniških dnevnikov lahko dostopa le avtenticiran uporabnik.
-% Da lahko uporabnik dostopa do svojih delavniških dnevnikov, mora biti avtenticiran.
 Vse operacije nad uporabnikovimi delavniškimi dnevniki morajo biti avtorizirane.
-Uporabnik mora za uporabo sistema imeti registriran uporabniški račun.
-Na ta račun so vezani vsi njegovi delavniški dnevniki.
-
-% Preden dobi uporabnik avtorizacijski žeton, mora vzpostaviti zaupanje s strežnikom.
-Uporabnik mora vzpostaviti zaupanje s strežnikom, da dobi avtorizacijski žeton.
-Zaupanje doseže s prijavo s pravilnim uporabniškim imenom in geslom.
-
+Uporabnik mora vzpostaviti zaupanje s strežnikom, tako da se prijavi s pravilnim uporabniškim imenom in geslom.
+Ob prijavi od strežnika dobi avtorizacijski žeton, ki mu dovoljuje dostop do njegovih delavniških dnevnikov.
+Avtorizacijski žeton doda vsem nadaljnjim zahtevkom na strežnik.
 
 Če uporabnik računa nima, se mora registrirati (slika \ref{app_register}).
 
@@ -978,7 +904,7 @@ Zaupanje doseže s prijavo s pravilnim uporabniškim imenom in geslom.
 \label{app_register}
 \end{figure}
 
-Pri registraciji mobilna aplikacija na strežnik pošlje objekt razreda \textit{RegisterUserRequest} na URL \enquote{\texttt{/identity/-\\register}} preko metode POST.
+Pri registraciji mobilna aplikacija na strežnik pošlje objekt razreda \texttt{RegisterUserRequest} na URL \enquote{\texttt{/identity/register}} preko metode POST.
 V objektu \texttt{RegisterUserRequest} se nahajata njegov e-mail naslov in geslo v čisti obliki.
 
 \begin{verbatim}
@@ -989,13 +915,13 @@ RegisterUserRequest {
 \end{verbatim}
 
 
-Ko strežnik ta objekt prejme, ga pošlje v avtentikacijsko storitev.
-Ta storitev preveri, ali je to ime že bilo registrirano.
-Če je bilo, se zabeleži napaka in nadaljnja registracija se prekine.
+Na strežniku objekt obdela avtentikacijska storitev.
+Storitev preveri, ali je e-naslov, v polju \texttt{Email} že bil registriran.
+Če je bil, se zabeleži napaka in nadaljnja registracija se prekine.
 Če ta uporabnik ne obstaja, se ustvarin nov objekt razreda \texttt{User}.
 Polje \texttt{Password} se šifrira in se skupaj s poljem \texttt{Email} zapiše v ta objekt.
-Objekt se nato zapiše v podatkovno bazo v tabelo \texttt{Users}.
-Uporabnik pri registraciji dobi tudi svoj enoličen identifikator \texttt{UserID}.
+Objekt se zapiše v podatkovno bazo v tabelo \texttt{Users}.
+Uporabnik pri registraciji dobi tudi svoj enoličen identifikator \texttt{Id}.
 
 Objekt \texttt{AuthFailedResponse} se vrne odjemalcu ob napaki med avtentikacijo.
 Vsebuje seznam vseh zabeleženih napak.
@@ -1015,14 +941,12 @@ AuthSuccessResponse {
 } 
 \end{verbatim}
 
+V polje \texttt{Token} razreda \texttt{AuthSuccessResponse} se zapiše avtorizacijski žeton.
+Žeton je tipa JWT ali \texttt{JSON Web Token} \cite{jwtinfo}.
+Sestavljajo ga e-mail uporabnika, uporabnikov enolični identifikator, čas zapada žetona in tip simetričnega šifriranja, uporabljenega za šifriranje žetona.
 
-\noindent V polje \texttt{Token} razreda \texttt{AuthSuccessResponse} se zapiše avtorizacijski žeton.
-Žeton je tipa JWT ali \textit{JSON Web Token} \cite{jwtinfo}.
-Sestavljajo ga e-mail uporabnika, uporabnikov enolični identifikator \texttt{UserID}, čas zapada žetona in tip simetričnega kodiranja, uporabljenega za enkripcijo žetona.
-
-Odjemalcu se pošlje objekt razreda \texttt{AuthSuccessResponse}.
-Odjemalec žeton iz prejetega objekta doda glavi vseh svojih nadaljnjih zahtevkov na strežnik.
-Strežnik ga uporabi pri poizvedbah po podatkovni bazi.
+Žeton v objektu razreda \texttt{AuthSuccessResponse} se pošlje odjemalcu.
+% Strežnik ga uporabi pri poizvedbah po podatkovni bazi.
 
 \begin{figure}[H]
 \begin{center}
@@ -1033,8 +957,7 @@ Strežnik ga uporabi pri poizvedbah po podatkovni bazi.
 \end{figure}
 
 Prijava (na sliki \ref{app_login}) poteka podobno.
-Odjemalec mora na strežnik poslati objekt razreda \textit{LoginUserRequest}.
-Ciljni URL za ta zahtevek je \enquote{\texttt{/identity/login}}.
+Odjemalec na strežnik pošlje objekt razreda \texttt{LoginUserRequest} na URL \enquote{\texttt{/identity/login}}.
 Objekt \texttt{LoginUserRequest} vsebuje e-mail naslov in geslo v čisti obliki.
 
 \begin{verbatim}
@@ -1044,31 +967,37 @@ LoginUserRequest {
 } 
 \end{verbatim}
 
-Strežnik prejme ta objekt in ga pošlje v avtentikacijsko storitev.
-Ta storitev preveri, ali uporabnik s tem e-mail naslovom že obstaja.
-Če uporabnik ne obstaja, ali pa je njegovo šifrirano geslo v podatkovni bazi drugačno kot to, kar je v polju \texttt{Password}, se zabeležijo napake in prijava se prekine.
-Odjemalec prejme objekt razreda \texttt{AuthFailedResponse}.
+Avtentikacijska storitev preveri, ali uporabnik s tem e-naslovom že obstaja.
+Če uporabnik ne obstaja, ali pa je šifrirano geslo v podatkovni bazi drugačno kot to, kar je v polju \texttt{Password}, zabeležimo napake in prijava se prekine.
+Strežnik odjemalcu pošlje objekt razreda \texttt{AuthFailedResponse} s seznamom napak.
 
-Če uporabnik obstaja in se njegovo šifrirano geslo iz polja \texttt{Password} ujema z geslom v podatkovni bazi, je avtentikacija uspešna.
-Odjemalec prejme objekt razreda \texttt{AuthFailedResponse}.
+Če uporabnik s podanim e-naslovom obstaja in se šifrirano geslo iz polja \texttt{Password} ujema z geslom v podatkovni bazi, strežnik odjemalcu pošlje avtorizacijski žeton v objektu razreda \texttt{AuthSuccessResponse}.
 
-V primeru uspešne prijave se avtorizacijski žeton generira in pošlje enako kot pri registraciji.
+Storitev za komunikacijo s strežnikom v mobilni aplikaciji prejet žeton doda glavi vseh svojih nadaljnjih zahtevkov na strežnik.
 
-\subsubsection{Operacije z delavniškimi dnevniki}
+\subsection{Operacije z delavniškimi dnevniki}
 
-Strežnik omogoča dodajanje, odpiranje in brisanje delavniških dnevnikov prijavljenemu uporabniku.
-Pri dodajanju se v uporabnikovo zbirko doda nov prazen dnevnik z naslovom in opisom, ki ju vpiše uporabnik.
-Pri brisanju se morajo vsi podatki izbrisanega dnevnika odstraniti iz podatkovne baze.
-Ko uporabnik preko aplikacije odpre katerega od delavniških dnevnikov, mu strežnik vrne dnevnik in zbirko korakov, ki mu pripada.
+Po prijavi lahko uporabnik odpre stran s seznamom njegovih delavniških dnevnikov, imenovano Dashboard.
+Na tej strani se prikažejo:
+\begin{itemize}
+	\item seznam vseh njegovih projektov, 
+	\item gumbi za izbris posameznega projekta,
+	\item gumb za dodajanje novega projekta in
+	\item gumb za zahtevanje in sprostitev glasovnega pomočnika.
+\end{itemize}
 
-Avtenticiran uporabnik lahko dostopa do svoje zbirke delavniških dnevnikov.
-Vsak uporabnik lahko ima nič ali več delavniških dnevnikov.
+Sistem omogoča dodajanje, odpiranje in brisanje delavniških dnevnikov prijavljenemu uporabniku.
+% Pri dodajanju se v uporabnikovo zbirko doda nov prazen dnevnik z naslovom in opisom, ki ju vpiše uporabnik.
+% Pri brisanju se morajo vsi podatki izbrisanega dnevnika odstraniti iz podatkovne baze.
+% Ko uporabnik preko aplikacije odpre katerega od delavniških dnevnikov, mu strežnik vrne dnevnik in zbirko korakov, ki mu pripada.
+
+% Avtenticiran uporabnik lahko dostopa do svoje zbirke delavniških dnevnikov.
+% Vsak uporabnik lahko ima nič ali več delavniških dnevnikov.
 
 % Če operacije nad delavniški API javi napako \texttt{Bad Request: Not Authorised}.
 
-Ko uporabnik ustvarja nov delavniški dnevnik (slika \ref{app_create_new})(v nadaljevanju poglavja \textit{projekt}), mora v mobilni aplikaciji podati naslov, kratek opis projekta in opis možnih nevarnosti.
-
-Te podatke odjemalec zapiše v objekt razreda \texttt{CreateProjectRequest}.
+Uporabnik nov delavniški dnevnik (v nadaljevanju poglavja \textit{projekt}) ustvari tako, da na strani za ustvarjanje projektov (na sliki \ref{app_create_new}) vnese naslov, kratek opis projekta in opis možnih nevarnosti.
+Te podatke v ozadni kodi aplikacije zapišemo v objekt razreda \texttt{CreateProjectRequest}.
 
 \begin{verbatim}
 CreateProjectRequest { 
@@ -1078,7 +1007,9 @@ CreateProjectRequest {
 } 
 \end{verbatim}
 
-% \clearpage
+Ta objekt aplikacija pošlje na URL \texttt{/projects/create} preko metode POST.
+Strežnik nato ustvari nov dnevnik s podatki iz prejete zahteve.
+Odjemalcu se kot odgovor pošlje ustvarjen objekt tega projekta.
 
 \begin{figure}[H]
 \begin{center}
@@ -1088,10 +1019,6 @@ CreateProjectRequest {
 \label{app_create_new}
 \end{figure}
 
-\noindent Ta objekt aplikacija pošlje na URL \texttt{/projects/create} preko metode POST.
-Storitev za operacije nad projekti nato ustvari nov dnevnik s podatki iz prejete zahteve.
-Če je zahteva ustrezno oblikovana in avtorizirana, se projekt zapiše v podatkovno bazo.
-Odjemalcu se kot odgovor pošlje ustvarjen objekt tega projekta.
 
 \noindent Razred \texttt{Project} izgleda tako:
 
@@ -1106,32 +1033,45 @@ Project {
 }
 \end{verbatim}
 
-Uporabnik lahko dostopa do katerega koli svojega delavniškega dnevnika.
-Do njega dostopa tako, da pošlje avtoriziran GET zahtevek na URL \enquote{\texttt{/projects/\{id\}}}.
+Avtenticiran uporabnik lahko do svojih delavniških dnevnikov dostopa tako, da na strani Dashboard v aplikaciji pritisne na željen projekt (slika \ref{}).
+// TODO DODAJ SLIKO 
+Aplikacija pošlje avtoriziran GET zahtevek na URL \enquote{\texttt{/projects/\{id\}}}.
 Polje \texttt{\{id\}} mora biti unikatni identifikator projekta.
+Strežnik uporabniku vrne kopijo objekta delavniškega dnevnika in pripadajočih korakov.
 
-Za izbris projekta mora uporabnik poslati DELETE zahtevo na URL \enquote{\texttt{/projects/\{id\}}}.
+
+Uporabnik projekt izbriše tako, da na strani Dashboard v aplikaciji pritisne na gumb z ikono smetnjaka (na sliki \ref{}) ob naslovu odvečnega projekta.
+// TODO DODAJ SLIKO 
+Aplikacija pošlje DELETE zahtevo na URL \enquote{\texttt{/projects/\{id\}}}.
 Če zahteva ni avtorizirana z ustreznim žetonom, se projekt ne izbriše.
 
-\subsubsection{Operacije nad koraki delavniškega dnevnika}
+\subsection{Operacije s koraki delavniškega dnevnika}
 
 Korak delavniškega dnevnika opisuje eno od nalog v tehnološkem postopku, ki ga delavniški dnevnik opisuje.
 Vsak projekt ima lahko nič ali več korakov.
 Vsak korak ima naslov, opis in predvideno trajanje.
 
-Sistem mora podpirati dodajanje korakov v delavniški dnevnik, brisanje spreminjanje vsebine posameznega koraka in spreminjanje vrstnega reda korakov v posameznem delavniškem dnevniku.
-Ker lahko delavniški dnevnik vsebuje tudi slikovno gradivo, smo korake ločili na dva tipa: slikovne in besedilne.
-Besedilni korak vsebuje naslov, besedilo in trajanje naloge, ki jo opisuje, slikovni pa ima poleg teh lastnosti še fotografijo.
+Sistem podpira dodajanje korakov v delavniški dnevnik, brisanje spreminjanje vsebine posameznega koraka in spreminjanje vrstnega reda korakov v posameznem delavniškem dnevniku.
+Delavniški dnevnik lahko vsebuje tudi slikovno gradivo.
+Korake smo zato ločili na slikovne in besedilne.
+Besedilni korak vsebuje naslov, besedilo in trajanje naloge, ki jo opisuje, slikovni pa vsebuje tudi fotografijo.
 
-% Korak je lahko izključno tekstovni, lahko pa ima tudi pripadajočo sliko.
+\subsubsection{Dodajanje besedilnega koraka}
 
-Da uporabnik ustvari nov besedilni korak (na sliki \ref{note_image} levo), mora v aplikaciji izpolniti obrazec za dodajanje koraka.
-Ta obrazec ima polja za naslov, besedilo in trajanje.
-Da uporabnik ta korak vnese, mora poslati objekt razreda \texttt{Note}, preko POST metode, na URL \enquote{\texttt{/projects/\{id\}/addnote}}.
-Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, katermu želi dodati korak.
+Uporabnik v odprt projekt besedilni korak vstavi s pritiskom na gumb s črko T (na sliki \ref{app_project_note} levo).
+Odpre se obrazec za dodajanje koraka (na sliki \ref{app_project_note} na sredini).
+Obrazec ima polja za naslov, besedilo in trajanje.
 
-\noindent Razred \texttt{Note} izgleda tako.
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=13.5cm]{app_project_note}
+\end{center}
+	\caption{Strani za dodajanje besedilnega in slikovnega koraka v mobilni aplikaciji}
+\label{app_project_note}
+\end{figure}
 
+Vsebino teh polj aplikacija zapiše v objekt razreda \texttt{Note}.
+Naslov koraka se zapiše v polje Title, opis v polje Text, trajanje pa se zapiše v polja Hours, Minutes in Seconds.
 \begin{verbatim}
 Note { 
     ... 
@@ -1144,20 +1084,25 @@ Note {
 }
 \end{verbatim}
 
-Naslov koraka se zapiše v polje Title, opis v polje Text, trajanje pa se zapiše v polja Hours, Minutes in Seconds.
+Aplikacija ustvarjen objekt razreda \texttt{Note} pošlje na URL \enquote{\texttt{/projects/\{id\}/addnote}} preko metode POST.
+Polje \texttt{\{id\}} mora biti enolični identifikator projekta, ki mu želimo dodati korak.
 
-Ko uporabnik pošlje objekt s podatki nas strežnik, strežnik najprej preveri, če je pošiljatelj poslal avtorizirano zahtevo.
-Iz avtorizacijskega žetona strežnik razbere uporabnikov \texttt{UserID}. 
-Če je projekt z identifikatorjem \texttt{\{id\}} res v lasti uporabnika z identifikatorjem \texttt{UserID}, se korak doda v zbirko korakov tega projekta.
+Strežnik prejet korak vstavi v projekt.
+Aplikaciji v odgovor vrne kopijo ustvarjenega koraka na strežniku, ki ga aplikacija doda zbirki korakov trenutno odprtega projekta.
 
-Slikovni koraki (na sliki \ref{note_image} desno) se v delavniški dnevnik dodajajo na podoben način.
-Uporabnik v mobilni aplikaciji odpre kamero in zajame fotografijo, ki se nanaša na korak, ki ga želi ustvariti.
-Ko jo zajame, se odpre obrazec za dodajanje naslova, opisa in trajanja koraka s fotografijo.
-Ko so podatki vnešeni, se slika zašifrira v znakovni niz po metodi Base64.
-Ostali podatki se zapišejo v objekt razreda \texttt{Note}.
 
-Korak, zapisan v objekt razreda \texttt{Note} in v znakovni niz šifrirana slika se zapišeta v objekt razreda \texttt{UploadImageRequest}.
-Ta objekt se nato pošlje preko POST metode na URL \enquote{\texttt{/projects/\{id\}/addimage}}.
+\subsubsection{Dodajanje slikovnega koraka}
+
+Uporabnik v odprt projekt slikovni korak vstavi s pritiskom na gumb z ikono kamere (na sliki \ref{app_project_note} levo).
+
+Odpre se privzeta aplikacija za kamero, s katero uporabnik zajame fotografijo.
+Ko jo zajame, se odpre obrazec za dodajanje koraka (na sliki \ref{app_project_note} desno).
+
+Po opravljenem vnosu podatkov, se fotografija zašifrira v znakovni niz po metodi Base64.
+Vsebina vnosnih polj se zapiše v objekt razreda \texttt{Note}.
+
+Korak \texttt{Note} in šifrirana fotografija se zapišeta v objekt razreda \texttt{UploadImageRequest}.
+Ta objekt aplikacija pošlje preko POST metode na URL \enquote{\texttt{/projects/\{id\}/addimage}}.
 
 \begin{verbatim}
 UploadImageRequest { 
@@ -1166,20 +1111,13 @@ UploadImageRequest {
 }
 \end{verbatim}
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=11cm]{app_note_image}
-\end{center}
-	\caption{Dodajanje korakov v aplikaciji.}
-\label{note_image}
-\end{figure}
+// TODO končal tukaj
 
-V tem razredu predstavlja polje \texttt{ImageString} pripadajočo fotografijo, po metodi Base64 šfirirano v znakovni niz.
-% Za kodirni algoritem smo uporabili Base64.
+Polje \texttt{ImageString} vsebuje fotografijo, po metodi Base64 šfirirano v znakovni niz.
 
 Za hranjenje tekstovnih in slikovnih korakov smo zaradi preprostosti implementacije uporabili isti razred (\texttt{Note}).
 Tekstovni in slikovni korak se ločita v vrednosti boolean zastavice \texttt{IsImage}.
-Tekstovni korak ima to zastavico nastavljeno na vrednost \texttt{false}, slikovni pa \texttt{true}.
+Tekstovni korak ima to polje nastavljeno na vrednost \texttt{false}, slikovni pa \texttt{true}.
 
 \begin{Verbatim}[commandchars=+\[\]]
 Note { 
@@ -1196,13 +1134,13 @@ Note {
 \end{Verbatim}
 
 Poljema \texttt{Url} in \texttt{ServerUrl} se dodeli vrednost samo pri slikovnih korakih.
+Polje \texttt{Url} hrani lokacijo fotografije na odjemalcu, \texttt{ServerUrl} pa lokacijo fotografije na strežniku.
 Ko se na odjemalcu zajame fotografija, odjemalec nastavi vrednost polja \texttt{Url} na lokacijo ustvarjene fotografije v datotečnem sistemu.
 
-Polje \texttt{ServerUrl} se nastavi šele na strežniku.
-Ko strežnik prejme zahtevo za kreiranje slikovnega koraka, se korak \texttt{Note} prebere iz objekta \texttt{UploadImageRequest} in zapiše v podatkovno bazo.
-Nato se \texttt{ImageString} dekodira v slikovno datoteko in hrani na strežniku.
-Ko se fotografija uspešno zapiše v datotečni sistem, se v polje \texttt{ServerUrl} zapiše lokacija pravkar ustvarjene datoteke.
-Spremembe se hranijo v podatkovni bazi.
+Polje \texttt{ServerUrl} se nastavi na strežniku.
+Strežnik vstavi prejet korak iz zahteve \texttt{UploadImageRequest} in ga zapiše v podatkovno bazo.
+\texttt{ImageString} se dekodira v slikovno datoteko in hrani na strežniku.
+Ko se fotografija uspešno zapiše v datotečni sistem, se v polje \texttt{ServerUrl} v pripadajočem koraku zapiše lokacija fotografije na strežniku.
 
 \subsubsection{Urejanje in brisanje korakov v projektu}
 
@@ -1446,6 +1384,7 @@ Project {
     string Dangers; 
     string FolderLocation; 
     IEnumerable<Note> Notes; 
+SI
     +underline[bool NoteRequest;] 
     +underline[bool ImageRequest;] 
     +underline[bool AlexaNoteRequest;] 
@@ -1604,23 +1543,6 @@ Za procesiranje glasovnih ukazov je porabila v povprečju od 3 do 6 sekund.
 
 \section{Implementacija mobilne aplikacije}
 
-
-Za osnovni uporabniški vmesnik našega sistema smo uporabili mobilno aplikacijo.
-Preko aplikacije se uporabnik lahko registrira in prijavi v sistem, dodaja, briše, odpira in izvaža svoje delavniške dnevnike.
-V delavniške dnevnike lahko dodaja korake, ki opisujejo delo, jih briše, spreminja vsebino ter ureja vrstni red.
-
-Preko mobilne aplikacije lahko tudi zahteva in sprosti glasovnega pomočnika.
-Z mobilno napravo lahko zajema fotografije in jih v delavniške dnevnike dodal kot slikovno gradivo.
-
-Mobilno aplikacijo smo uporabili kot primer odjemalca za naš strežnik (slika \ref{plan_server_client}).
-
-Do strežnika dostopa preko API vmesnika.
-Zahtevki se prenašajo preko HTTP protokola.
-
-Mobilno aplikacijo smo se odločili razviti s tehnologijo Xamarin.
-Razlogi za to so predvsem naše dobro poznavanje tehnologije in enostavna integracija z ostalimi tehnologijami iz .NET sklopa.
-
-
 \subsection{Pristop}
 Pristop razvoja aplikacije, ki smo ga uporabili za programiranje aplikacije, se imenuje \enquote{Model View View-Model} (v nadaljevanju MVVM).
 Pri tem pristopu aplikacijo razdelimo na tri dele (slika \ref{mvvm}).
@@ -1646,133 +1568,48 @@ Na spodnji sliki lahko vidimo oris pristopa MVVM (slika \ref{mvvm}).
 \label{mvvm}
 \end{figure}
 
-\subsection{Povezava na strežnik, prijava in registracija uporabnika}
+% \subsection{Povezava na strežnik, prijava in registracija uporabnika}
+% 
+% Uporabnik se mora za uporabo sistema OpenReport najprej povezati na OpenReport strežnik.
+% Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na strežnik.
+% V besedilno polje mora vpisati IP naslov strežnika.
+% Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
+% 
+% % // slika povezavne strani
+% 
+% \begin{figure}[H]
+% \begin{center}
+% \includegraphics[width=4cm]{app_connect}
+% \end{center}
+% \caption{Povezavna stran}
+% \label{app_connect}
+% \end{figure}
+% 
+% 
+% Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \texttt{OpenReportServerCommunicati-\\onService.cs}).
+% Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
+% Za to metodo registracije storitev smo se odločili, saj omogoča enostavno uporabo instanc registriranih storitev kjerkoli v aplikaciji.
+% 
+% Ko uporabnik pritisne na gumb \enquote{Connect}, se preveri, ali je naslov pravilno vnešen.
+% Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano GET zahtevo na \enquote{\texttt{naslovstrežnika}/connect}. 
+% Če je na tem naslovu res OpenReport strežnik, se kot odgovor odjemalcu pošlje boolean vrednost \texttt{true}.
+% 
+% Storitev za komunikacijo s strežnikom si nato hrani vrednost \texttt{naslovstre-\\žnika} kot predpono vseh nadaljnjih zahtevkov.
+% 
+% Ob neuspešnem poskusu povezave, se uporabniku na strani prikaže opis napake.
+% Če je poskus uspešen, se stran za povezavo na strežnik zapre.
+% 
+% Prikaže se stran za prijavo.
+% Na tej strani uporabnik vpiše svoje uporabniško ime ali geslo, lahko pa odpre stran za registracijo računa.
+% 
+% 
+% Ko je uporabnik uspešno povezan na strežnik, se mora za dostop do svojih delavniških dnevnikov prijaviti ali registrirati.
+% Za prijavo in registracijo skrbi avtentikacijska storitev (razred \texttt{IdentityService.cs}).
+% Ta storitev je, enako kot storitev za komunikacijo s strežnikom, registrirana po metodi Dependency Injection.
+% Uporabljamo jo lahko, ko je storitev za komunikacijo uspešno vzpostavila komunikacijo s strežnikom.
 
-Uporabnik se mora za uporabo sistema OpenReport najprej povezati na OpenReport strežnik.
-Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na strežnik.
-V besedilno polje mora vpisati IP naslov strežnika.
-Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
-
-% // slika povezavne strani
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=4cm]{app_connect}
-\end{center}
-\caption{Povezavna stran}
-\label{app_connect}
-\end{figure}
-
-
-Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \texttt{OpenReportServerCommunicati-\\onService.cs}).
-Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
-Za to metodo registracije storitev smo se odločili, saj omogoča enostavno uporabo instanc registriranih storitev kjerkoli v aplikaciji.
-
-Ko uporabnik pritisne na gumb \enquote{Connect}, se preveri, ali je naslov pravilno vnešen.
-Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano GET zahtevo na \enquote{\texttt{naslovstrežnika}/connect}. 
-Če je na tem naslovu res OpenReport strežnik, se kot odgovor odjemalcu pošlje boolean vrednost \texttt{true}.
-
-Storitev za komunikacijo s strežnikom si nato hrani vrednost \texttt{naslovstre-\\žnika} kot predpono vseh nadaljnjih zahtevkov.
-
-Ob neuspešnem poskusu povezave, se uporabniku na strani prikaže opis napake.
-Če je poskus uspešen, se stran za povezavo na strežnik zapre.
-
-Prikaže se stran za prijavo.
-Na tej strani uporabnik vpiše svoje uporabniško ime ali geslo, lahko pa odpre stran za registracijo računa.
-
-
-Ko je uporabnik uspešno povezan na strežnik, se mora za dostop do svojih delavniških dnevnikov prijaviti ali registrirati.
-Za prijavo in registracijo skrbi avtentikacijska storitev (razred \texttt{IdentityService.cs}).
-Ta storitev je, enako kot storitev za komunikacijo s strežnikom, registrirana po metodi Dependency Injection.
-Uporabljamo jo lahko, ko je storitev za komunikacijo uspešno vzpostavila komunikacijo s strežnikom.
-
-Poskus prijave poteka tako, avtentikacijska storitev uporabniško ime in geslo zapiše v objekt razreda \texttt{LoginUserRequest}.
-Uporabniško ime in geslo se vneseta na prijavni strani.
-
-\begin{Verbatim}[commandchars=+\[\]]
-LoginUserRequest {
-    string Email; 
-    string Password;
-}
-\end{Verbatim}
-
-Nato se objekt \texttt{LoginUserRequest} pošlje na strežnik.
-Odjemalec ga pošlje na URL \enquote{\texttt{/identity/login}} preko POST metode.
-Strežnik ob uspešni avtentikaciji vrne objekt razreda \texttt{AuthSuccessResponse}.
-Iz tega objekta uporabnik prebere svoj avtorizacijski žeton.
-Ta žeton hrani avtentikacijska storitev.
-Komunikacijska storitev ta žeton doda v glavo nadaljnjih HTTP zahtevkov.
-
-Če je avtentikacija neuspešna, strežnik vrne objekt razreda \texttt{AuthFailed-\\Response}, v katerem je podan opis napake.
-Ta opis napake se nato uporabniku izpiše na prijavni strani.
-
-Stran za registracijo (slika \ref{app_register}) je podobna strani za prijavo, le, da ima dve vnosni polji za vpis gesla.
-Vrednost v obeh poljih za geslo mora biti enaka, da se lahko uporabnik registrira.
-
-Registracijski zahtevek se pošlje na strežnik na URL \enquote{\texttt{/identity/regis-\\ter}}.
-Zahtevek je objekt razreda \texttt{RegisterUserRequest}.
-
-\begin{Verbatim}[commandchars=+\[\]]
-RegisterUserRequest {
-    string Email; 
-    string Password;
-}
-\end{Verbatim}
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=4cm]{app_register}
-\end{center}
-	\caption{Registracijska stran}
-\label{app_register}
-\end{figure}
-
-\subsection{Ustvarjanje, brisanje in odpiranje projektov}
-
-Po prijavi lahko uporabnik odpre stran s seznamom njegovih delavniških dnevnikov, imenovano Dashboard.
-Na tej strani se prikažejo:
-\begin{itemize}
-	\item seznam vseh njegovih projektov, 
-	\item gumbi za izbris posameznega projekta,
-	\item gumb za dodajanje novega projekta in
-	\item gumb za zahtevanje in sprostitev glasovnega pomočnika.
-\end{itemize}
-
-\subsubsection{Ustvarjanje novega projekta}
-
-Za ustvarjanje novega delavniškega dnevnika (slika \ref{app_newproject}), mora uporabnik odpreti stran za dodajanje projektov.
-Na tej strani mora vpisati naslov projekta (\texttt{Title}), kratek opis (\texttt{Description} in našteti možne nevarnosti pri delu \texttt{Dangers}.
-
-Te tri vrednosti se zapišejo v objekt razreda \texttt{CreateProjectRequest}.
-\begin{Verbatim}[commandchars=+\[\]]
-CreateProjectRequest {
-    string Title;
-    string Description;
-    string Dangers;
-}
-\end{Verbatim}
-
-Ta objekt nato storitev za komunikacijo s strežnikom pošlje preko metode POST na URL \enquote{\texttt{/projects/create}}.
-Strežnik v odgovor vrne objekt razreda \texttt{Project}, ki ga je zahtevek ustvaril.
-
-Nov projekt se nato prikaže v seznamu vseh uporabnikovih projektov na strani \enquote{My Projects}, kjer ga lahko uporabnik odpre ali izbriše.
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=13cm]{app_newproject}
-\end{center}
-	\caption{Postopek ustvarjanja novega projekta po korakih.}
-\label{app_newproject}
-\end{figure}
-
-\subsubsection{Izbris projekta}
-
-Da uporabnik izbriše delavniški dnevnik, mora na strani \enquote{My projects} ob željenem projektu pritisniti gumb z ikono smetnjaka.
-Pritisk na ta gumb sporoči storitvi za komunikacijo s strežnikom, naj pošlje avtoriziran DELETE zahtevek na URL \enquote{\texttt{/projects/\{id\}/delete}}.
-Strežnik ob uspešnem izbrisu projekta odjemalcu vrne kopijo izbrisanega projekta.
 
 \subsection{Zahtevanje in sprostitev glasovnega pomočnika}
-% Storitev za upravljanje z glasovnim pomočnikom (razred \texttt{VoiceAssistantService.cs}) skrbi za zahtevanje in sprostitev glasovnega pomočnika.
 Storitev za upravljanje z glasovnim pomočnikom (razred \texttt{VoiceAssistant-\\Service.cs}) skrbi za zahtevanje in sprostitev glasovnega pomočnika.
 Ta storitev se registrira ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev uspešno opravi prijavo uporabnika.
 Ob prijavi uporabnika preveri, ali ta uporablja glasovnega pomočnika.
@@ -1804,93 +1641,39 @@ V mobilni aplikaciji zahtevanje in sprostitev pomočnika nadziramo na \enquote{D
 \label{app_alexa_yesno}
 \end{figure}
 
-\subsection{Odpiranje in sinhronizacija projekta}
+% \subsection{Odpiranje in sinhronizacija projekta}
+% 
+% Ko uporabnik iz seznama delavniških dnevnikov izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL \enquote{\texttt{/projects/\{id\}-\\/notes}} zahtevek GET.
+% Polje \texttt{\{id\}} je unikatni identifikator željenega projekta.
+% 
+% Storitev za projekte (razred \texttt{ProjectService.cs}) nato prejet odgovor, razreda \texttt{Project}, hrani.
+% Vse korake, ki pripadajo temu projektu, se hrani v seznam tipa ObservableCollection.
+% Ta tip seznama smo izbrali, saj je v ogrodju Xamarin nad njim najlažje opravljati zamenjevalne operacije.
+% Seznam se nato prikažem na strani za upravljanje s projektom.
+% 
+% Storitev nato začne s periodično sinhronizacijo projekta.
+% Storitev za projekte na URL \enquote{\texttt{/projects/\{id\}/nonotes}} pošlje avtoriziran GET zahtevek.
+% Strežnik vrne objekt razreda \texttt{Project} s praznim seznamom korakov.
+% Vse, kar storitev za projekte pri sinhronizaciji gleda, je vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest}.
+% 
+% Na \texttt{true} nastavljena zastavica \texttt{NoteRequest} odpre obrazec za dodajanje novega besedilnega koraka v projekt.
+% 
+% Na \texttt{true} nastavljena zastavica \texttt{ImageRequest} odpre obrazec za dodajanje nove fotografije v projekt.
+% 
+% Na \texttt{true} nastavljena zastavica \texttt{AlexaNoteRequest} storitvi za projekte sporoči, naj pošlje GET zahtevek na URL \enquote{\texttt{/projects/\{id\}/notes}}.
+% Polje \{id\} mora biti unikatni identifikator odprtega projekta.
+% V odgovor prejme objekt razreda \texttt{Project}, vključno s seznamom vseh korakov, ki mu pripadajo.
+% V prejetem seznamu je namreč tudi narekovan korak.
+% Storitev za projekte primerja, katerega od korakov še nima v svoji zbirki.
+% Ko ta korak najde, ga doda v seznam korakov. 
+% 
+% Ko se projekt sinhronizira, storitev za projekte pošlje na strežnik PUT zahtevo na URL \enquote{\texttt{/project/last/closerequests}}.
+% Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest} na \texttt{false}.
 
-Ko uporabnik iz seznama delavniških dnevnikov izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL \enquote{\texttt{/projects/\{id\}-\\/notes}} zahtevek GET.
-Polje \texttt{\{id\}} je unikatni identifikator željenega projekta.
 
-Storitev za projekte (razred \texttt{ProjectService.cs}) nato prejet odgovor, razreda \texttt{Project}, hrani.
-Vse korake, ki pripadajo temu projektu, se hrani v seznam tipa ObservableCollection.
-Ta tip seznama smo izbrali, saj je v ogrodju Xamarin nad njim najlažje opravljati zamenjevalne operacije.
-Seznam se nato prikažem na strani za upravljanje s projektom.
-
-Storitev nato začne s periodično sinhronizacijo projekta.
-Storitev za projekte na URL \enquote{\texttt{/projects/\{id\}/nonotes}} pošlje avtoriziran GET zahtevek.
-Strežnik vrne objekt razreda \texttt{Project} s praznim seznamom korakov.
-Vse, kar storitev za projekte pri sinhronizaciji gleda, je vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest}.
-
-Na \texttt{true} nastavljena zastavica \texttt{NoteRequest} odpre obrazec za dodajanje novega besedilnega koraka v projekt.
-
-Na \texttt{true} nastavljena zastavica \texttt{ImageRequest} odpre obrazec za dodajanje nove fotografije v projekt.
-
-Na \texttt{true} nastavljena zastavica \texttt{AlexaNoteRequest} storitvi za projekte sporoči, naj pošlje GET zahtevek na URL \enquote{\texttt{/projects/\{id\}/notes}}.
-Polje \{id\} mora biti unikatni identifikator odprtega projekta.
-V odgovor prejme objekt razreda \texttt{Project}, vključno s seznamom vseh korakov, ki mu pripadajo.
-V prejetem seznamu je namreč tudi narekovan korak.
-Storitev za projekte primerja, katerega od korakov še nima v svoji zbirki.
-Ko ta korak najde, ga doda v seznam korakov. 
-
-Ko se projekt sinhronizira, storitev za projekte pošlje na strežnik PUT zahtevo na URL \enquote{\texttt{/project/last/closerequests}}.
-Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest} na \texttt{false}.
-
-
-\subsection{Dodajanje in brisanje zapiskov}
-
-Ko ima uporabnik projekt odprt, lahko vanj dodaja korake, jih briše, ureja in jim spreminja vrstni red.
-Doda lahko tekstovni korak ali korak s fotografijo.
-
-\begin{figure}[H]
-\begin{center}
-	\includegraphics[width=9cm]{app_note_image}
-\end{center}
-	\caption{Stran za dodajanje in urejanje korakov}
-\label{app_note}
-\end{figure}
-
-Pri dodajanju besedilnega koraka mora uporabnik v vnosnem obrazcu (slika \ref{app_note}) podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
-Ti podatki se nato hranijo v objektu razreda \texttt{Note}.
-Ta objekt storitev za projekte vključi v objekt razreda \texttt{AddNoteRequest} in ga pošlje storitvi za komunikacijo s strežnikom.
-
-\begin{Verbatim}[commandchars=+\[\]]
-AddNoteRequest { 
-    Note note; 
-}
-\end{Verbatim}
-
-Storitev za komunikacijo s strežnikom pošlje ta objekt na strežnik.
-Pošlje ga na URL \enquote{\texttt{/projects/\{id\}/addnote}} preko metode POST.
-Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, v katerega želimo korak vstaviti.
-Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo dodanega objekta \texttt{Note}.
-
-Storitev za projekte nato ta korak doda svoji zbirki korakov.
-
-Pri vstavljanju slikovnih korakov je postopek vstavljanja podoben.
-Uporabnik odpre stran za dodajanje slikovnega koraka in se zažene privzeta aplikacija za kamero.
-Fotografijo posname in ta se prikaže na strani z vnosnim obrazcem (slika \ref{app_note}).
-Slika se na mobilni napravi hrani v mapi \enquote{\texttt{Pictures/\{naslov projekta\}}}, v uporabnikovem domačem direktoriju.
-Uporabnik ima na vnosnem obrazcu možnost sliko ponovno posneti ali jo odstraniti.
-
-Uporabnik mora v vnosnem obrazcu podati naslov koraka (\texttt{Title}), opis koraka (\texttt{Text}) ter trajanje v urah, minutah in sekundah.
-
-Uporabnik mora nato pritisniti gumb za vstavljanje slikovnega koraka v projekt.
-Storitev za upravljanje s projektom fotografijo zakodira v znakovni niz po metodi Base64.
-Storitev za komunikacijo s strežnikom zakodirano fotografijo in novo ustvarjen objekt razreda \texttt{Note} vključi v objekt tipa \texttt{UploadImageRequest}.
-
-\begin{Verbatim}[commandchars=+\[\]]
-UploadImageRequest {
-    Note note;
-    string ImageString; 
-}
-\end{Verbatim}
-
-Novo nastali zahtevek \texttt{UploadImageRequest} se nato avtorizira z JWT avtorizacijskim žetonom in pošlje na URL \enquote{\texttt{/projects/\{id\}/addimage}}.
-Polje \texttt{\{id\}} mora biti unikatni identifikator projekta, v katerega želimo korak vstaviti.
-Če je vstavljanje v projekt uspešno, strežnik odjemalcu pošlje v odgovor kopijo pravkar vstavljenega objekta \texttt{Note}.
 
 
 \subsubsection{Uporaba kamere v Xamarin}
-
-% https://github.com/jamesmontemagno/MediaPlugin
 
 Za uporabo kamere v ogrodju Xamarin smo uporabili vtičnik Xam.Plugin.Media \cite{xampluginmedia}.
 Vtičnik je licensiran pod MIT licenco.
@@ -1907,148 +1690,10 @@ Fotografijo v tej obliki lako prikažemo v XAML z grafičnim elementom Image.
 Lahko jo tudi zakodiramo v znakovni niz in pošljemo na strežnik.
 
 
-% \subsection{Izvoz projekta}
-% 
-% Uporabnik lahko projekt izvozi v človeško berljivo obliko na strežnik v dva različna formata: besedilno datoteko (.txt) in HTML dokument.
-% 
-% 
-% Če želi uporabnik izvoziti projekt kot besedilno datoteko, storitev za komunikacijo s strežnikom pošlje POST zahtevek na URL \enquote{\texttt{/project/\{id\}/-\\export/text}}.
-% Če želi uporabnik izvoziti projekt kot HTML dokument, storitev za komunikacijo s strežnikom pošlje POST zahtevek na URL \enquote{\texttt{/project-\\/\{id\}/export/html}}.
-
-
-% \section{Testiranje sistema OpenReport}
-
-% Sistem OpenReport smo po končani implementaciji testirali.
-% Testiranje je bilo izvedeno tako, da smo s sistemom OpenReport sestavili delavniški dnevnik za čiščenje mehanske tipkovnice.
-% 
-% Najprej smo zagnali aplikacijo in se povezali na strežnik.
-% Povezava na strežnik je bila uspešna.
-% Če strežnik ni bil dosegljiv, se aplikacija ni ustavila.
-% 
-% Nato smo se prijavili z uporabniškim imenom \enquote{user@example.com} in geslom \enquote{string}.
-% Ob napačno vpisanih podatkih je strežnik javil napako, ki se je izpisala pod prijavnim obrazcem.
-% // TODO slika
-% 
-% Po uspešni prijavi smo na strani Dashboard zahtevali uporabo glasovnega asistenta.
-% Nato smo odprli stran za dodajanje novega projekta (na sliki \ref{testproject} levo).
-% Tam smo vpisali ime projekta, opis in možne nevarnosti (na sliki \ref{testproject} v sredini).
-% 
-% \begin{figure}[H]
-% \begin{center}
-% 	\includegraphics[width=13.5cm]{app_newproject}
-% \end{center}
-% 	\caption{Sestavljanje testnega delavniškega dnevnika za čiščenje tipkovnice.}
-% \label{testproject}
-% \end{figure}
-% 
-% Ko smo delavniški dnevnik ustvarili, smo začeli z dodajanjem korakov, ki so opisovali posamezne faze dela.
-% 
-% Testirali smo dodajanje korakov preko uporabniškega vmesnika aplikacije.
-% Odprianje obrazca za dodajanje besedilnega koraka s pritiskom na gumb v aplikaciji ni povzročalo težav.
-% Odprianje obrazca za dodajanje slikovnega koraka s pritiskom na gumb v aplikaciji ni povzročalo težav.
-% 
-% // TODO nadaljuj
-
-
-
-
-% \subsection{Testne situacije}
-% 
-% Pripravili smo štiri testne situacije.
-% 
-% \begin{enumerate}
-% 	\item Izdelava testnega opisa tehnološkega postopka \textbf{brez uporabe glasovnega pomočnika}
-% 		\begin{enumerate}
-% 			\item brez premora med koraki in
-% 			\item z 90 sekundnim premorom med koraki.
-% 		\end{enumerate}
-% 	\item Izdelava testnega opisa tehnološkega postopka \textbf{z uporabo glasovnega pomočnika}
-% 		\begin{enumerate}
-% 			\item brez premora med koraki in
-% 			\item z 90 sekundnim premorom med koraki.
-% 		\end{enumerate}
-% \end{enumerate}
-% 
-% Z 90 sekundnim premorom smo simulirali delo na izdelku.
-% Med premorom vpišemo testne podatke v obrazec za dodajanje koraka.
-% Po 90 sekundnem premoru korak vstavimo v poročilo.
-% 
-% \subsubsection{Testno poročilo}
-% Testno poročilo mora vsebovati 4 tekstovne korake in enega slikovnega.
-% Pri situacijah z uporabo Alexe, mora uporabnik obrazce za korake odpreti z glasovnim ukazom.
-% 
-% \subsection{Metoda testiranja in vpliv na hipotezo}
-% 
-% Testne situacije brez premorov so služile za preverjanje hitrosti dela.
-% Hipotezo bomo potrdili, če bomo pisanje testnega poročila končali prej \emph{z uporabo Alexe} kot brez nje.
-% 
-% Če bo uporaba Alexe podaljšala čas pisanja, bomo hipotezo deloma ovrgli in prešli na drugo stopnjo testiranja.
-% V drugi stopnji dodamo prejšnjemu postopku 90 sekundni premor med koraki.
-% Ta premor simulira delo na izdelku.
-% 
-% Če bomo v tej situaciji poročilo z Alexo pisali enako hitro kot brez Alexe, hipoteza ostane delno ovržena.
-% Če bo pisanje z Alexo počasnejše, kljub premorom, pa se bo hipotezo v celoti ovrglo.
-% 
-% \subsubsection{Testni koraki}
-% 
-% Testni koraki simulirajo delo na delovnem mestu, kjer se moramo za uporabo mobilnega telefona oddaljiti od delovnega mesta.
-% 
-% Testni korak za dodajanje besedilnega koraka je potekal tako:
-% \begin{enumerate}
-% 	\item premik do mobilnega telefona (3 metre),
-% 	\item odpiranje obrazca za dodajanje besedilnega koraka,
-% 	\item vpis besedila \enquote{Test step text},
-% 	\item nastavitev trajanja na 10 minut,
-% 	\item vstavljanje koraka,
-% 	\item odmik od mobilnega telefona (3 metre).
-% \end{enumerate}
-% 
-% \noindent Testni korak za dodajanje slikovnega koraka je potekal tako:
-% \begin{enumerate}
-% 	\item premik do mobilnega telefona (3 metre),
-% 	\item odpiranje obrazca za dodajanje slikovnega koraka,
-% 	\item zajem slike,
-% 	\item vpis besedila \enquote{Test step text},
-% 	\item nastavitev trajanja na 10 minut,
-% 	\item vstavljanje koraka,
-% 	\item odmik od mobilnega telefona (3 metre).
-% \end{enumerate}
-% 
-% Pri situacijah z uporabo Amazon Alexe smo glasovne ukaze začeli izgovarjati, ko smo se začeli premikati proti mobilni napravi.
-% 
-% \subsection{Rezultati testiranja in ugotovitve}
-% 
-% \noindent\begin{tabular}{p{0.2\textwidth}|p{.3\textwidth}|p{.4\textwidth}}    
-%   {\bf } & {\bf brez premorov}                             & {\bf z 90 sekundnimi premori} \\ \hline
-%   {\bf brez Alexe} & 1 minuta 51 sekund & 7 minut 30 sekund \\
-%   {\bf z Alexo} & 2 minuti 31 sekund & 7 minut 30 sekund \\
-% \end{tabular}
-% 
-% \bigbreak
-% \bigbreak
-% % \noindent Iz tega sklepamo, da je hipoteza
-% 
-% Meritve časa pisanja poročil so pokazale, da je uporaba sistema OpenReport brez Amazon Alexe hitrejša v situacijah brez 90 sekundnih premorov.
-% To našo hipotezo delno ovrže.
-% V situacijah z 90 sekundnimi premori, je zapis korakov s pomočjo Amazon Alexe trajal enako dolgo kot brez nje.
-% To našo hipotezo pusti delno ovrženo.
-% 
-% Testiranje zaključujemo z ugotovitvijo, da v situacijah brez premorov, Amazon Alexa dela ni pospešila.
-% Hkrati pa smo ugotovili, da ga v testni situaciji s premori ni občutno ovirala.
-% 
-% Iz uporabniškega stališča prinese uporaba glasovnega pomočnika v proces interakcije z računalniškim sistemom novo dimenzijo.
-% V našem primeru smo lahko zahtevo za odpiranje vnosnega obrazca v mobilni aplikaciji izvedli že na poti do naprave.
-
-% Ta način bi pohitril delo, če bi lahko glasovni ukaz izgovorili in obdelali na poti do mobilne naprave.
-
-% V naprednejših izvedbah računalniških sistemov z upravljanjem preko glasovnega pomočnika, bi na tak način lahko olajšali delo slabovidnim in gibalno omejenim posameznikom.
 
 
 \section{Ovrednotenje funkcionalnosti}
 
-
-% Primerjali smo pisanje opisa tehnološkega postopka na list papirja, s pisarniškim programom in s sistemom OpenReport.
-% Sistem OpenReport smo testirali z uporabo Amazon Alexe in brez uporabe Amazon Alexe.
 Sistem OpenReport smo po končani implementaciji testirali. 
 Mobila aplikacija in strežnik sta izpolnila pričakovanja.
 

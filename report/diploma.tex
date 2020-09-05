@@ -515,6 +515,8 @@ Tehnologije .NET ogrodja, ki smo jih uporabil v tej diplomski nalogi so:
 
 .NET smo izbrali, ker je zelo dobro integriran z Amazonovim AWS API-jem in je dobro dokumentiran.
 
+
+
 \subsection{Xamarin}
 
 Ogrodje Xamarin \cite{xamarin} je odprtokodno orodje za razvoj mobilnih aplikacij, ki ga razvija Microsoft. 
@@ -523,6 +525,8 @@ Z njim je mogoče deliti večino ozadne in ospredne kode med različnimi mobilni
 Za ozadno kodo se uporablja .NET (C\#), za ospredno kodo pa se uporablja XAML (Extensible Application Markup Language).
 
 Xamarin smo izbrali, da smo lahko strežniški program in mobilno aplikacijo programirali v enakem programskem jeziku (C\#).
+
+
 
 \subsection{Amazon Alexa}
 
@@ -559,11 +563,15 @@ Krajišče je lahko druga Amazonova storitev (npr. AWS Lambda), storitev na Micr
 Ko krajišče obdela zahtevo, odgovor pošlje nazaj na Alexa Voice Service.
 Ta se iz Alexa Voice Serivice pošlje nazaj na Alexo, ki uporabniku \enquote{izgovori} prejeto sporočilo.
 
+
+
 \subsection{Amazon Web Services}
 
 Amazon Web Services (v nadaljevanju AWS) je skupek oblačnih storitev, ki jih ponuja podjetje Amazon.
 Ponuja integracijo s pogostimi programskimi jeziki in ogrodji, kot so Java, .NET, Python in Node.js preko storitve AWS API.
 Pri tej diplomski nalogi smo se osredotočili na dva sistema iz skupka AWS.
+
+
 
 \subsubsection{Simple Queue Service}
 
@@ -573,13 +581,19 @@ Uporabili smo SQS vrsto tipa FIFO (first in, first out) \cite{sqsfifo}, pri kate
 
 To storitev smo uporabili za komunikacijo med Amazon Alexo in strežnikom implementiranega sistema.
 
+
+
 \subsubsection{Lambda}
 
 Ozadno kodo za Alexino veščino smo gostili na platformi AWS Lambda, ki je storitev za gostovanje dogodkovno vodene ozadne kode \cite{lambda}.
 Za to platformo smo se odločili zaradi dobre integracije z Alexa Skill Kit in razvojnim orodjem Visual Studio.
 
 
+
+
 \section{Obstoječe rešitve}
+
+
 
 \subsection{Papir in pisalo}
 
@@ -602,6 +616,8 @@ V primerjavi z našim sistemom so slabosti te metode predvsem:
 	\item zahtevnejše arhiviranje od računalniških datotek,
 	\item občutljivost papirja na fizične poškodbe (trganje, mečkanje, vnetljivost,...).
 \end{itemize}
+
+
 
 \subsection{Pisarniški programi}
 
@@ -629,6 +645,8 @@ Dokument brez vsebine se lahko pri naslednjem opisu uporabi kot obrazec.
 \caption{Preprost opis tehnološkega postopka za čiščenje tipkovnice, napisan v pisarniškem programu.}
 \label{report_writer}
 \end{figure}
+
+
 
 \subsection{Specializirani moduli za poslovne informacijske sisteme}
 
@@ -663,7 +681,11 @@ Takšni sistemi predstavljajo, v primerjavi z našim, naslednje slabosti:
 
 \clearpage
 
+
+
 \chapter{Načrtovanje in razvoj sistema}
+
+
 
 \section{Definicija funkcionalnosti} \label{architecture}
 
@@ -748,6 +770,8 @@ Raziskovalci so zabeležili tudi problem moteče kakofonije v laboratoriju, v ka
 
 \clearpage
 
+
+
 \section{Načrt sistema za sestavljanje opisov tehnoloških postopkov}
 
 Implementirali smo arhitekturo, ki je predstavljena v poglavju \ref{architecture}.
@@ -793,6 +817,7 @@ Za glasovnega pomočnika Amazon Alexa smo razvili veščino, s katerim uporabnik
 \end{itemize}
 
 
+
 \section{Strežnik}
 
 Osrednja komponenta sistema OpenReport je strežnik.
@@ -815,6 +840,7 @@ To nam omogoča enostavno dodajanje odjemalcev in odpravi podvajanje podatkov me
 
 S strežnikom komunicirata mobilna aplikacija in glasovni pomočnik.
 Podatke hranimo v podatkovni bazi, ki jo streže SQL Server.
+
 
 
 \subsection{Komunikacija z odjemalci}
@@ -886,6 +912,8 @@ Ko se vzpostavi zaupanje, se uporabniku dodeli avtorizacijski žeton.
 \caption{Seznam razvitih in dokumentiranih API funkcij}
 \label{api_routes}
 \end{figure}
+
+
 
 \subsubsection{Registracija in prijava}
 
@@ -975,6 +1003,8 @@ Strežnik odjemalcu pošlje objekt razreda \texttt{AuthFailedResponse} s seznamo
 
 Storitev za komunikacijo s strežnikom v mobilni aplikaciji prejet žeton doda glavi vseh svojih nadaljnjih zahtevkov na strežnik.
 
+
+
 \subsection{Operacije z delavniškimi dnevniki}
 
 Po prijavi lahko uporabnik odpre stran s seznamom njegovih delavniških dnevnikov, imenovano Dashboard.
@@ -1045,6 +1075,8 @@ Uporabnik projekt izbriše tako, da na strani Dashboard v aplikaciji pritisne na
 Aplikacija pošlje DELETE zahtevo na URL \enquote{\texttt{/projects/\{id\}}}.
 Če zahteva ni avtorizirana z ustreznim žetonom, se projekt ne izbriše.
 
+
+
 \subsection{Operacije s koraki delavniškega dnevnika}
 
 Korak delavniškega dnevnika opisuje eno od nalog v tehnološkem postopku, ki ga delavniški dnevnik opisuje.
@@ -1055,6 +1087,8 @@ Sistem podpira dodajanje korakov v delavniški dnevnik, brisanje spreminjanje vs
 Delavniški dnevnik lahko vsebuje tudi slikovno gradivo.
 Korake smo zato ločili na slikovne in besedilne.
 Besedilni korak vsebuje naslov, besedilo in trajanje naloge, ki jo opisuje, slikovni pa vsebuje tudi fotografijo.
+
+
 
 \subsubsection{Dodajanje besedilnega koraka}
 
@@ -1091,33 +1125,12 @@ Strežnik prejet korak vstavi v projekt.
 Aplikaciji v odgovor vrne kopijo ustvarjenega koraka na strežniku, ki ga aplikacija doda zbirki korakov trenutno odprtega projekta.
 
 
+
 \subsubsection{Dodajanje slikovnega koraka}
-
-Uporabnik v odprt projekt slikovni korak vstavi s pritiskom na gumb z ikono kamere (na sliki \ref{app_project_note} levo).
-
-Odpre se privzeta aplikacija za kamero, s katero uporabnik zajame fotografijo.
-Ko jo zajame, se odpre obrazec za dodajanje koraka (na sliki \ref{app_project_note} desno).
-
-Po opravljenem vnosu podatkov, se fotografija zašifrira v znakovni niz po metodi Base64.
-Vsebina vnosnih polj se zapiše v objekt razreda \texttt{Note}.
-
-Korak \texttt{Note} in šifrirana fotografija se zapišeta v objekt razreda \texttt{UploadImageRequest}.
-Ta objekt aplikacija pošlje preko POST metode na URL \enquote{\texttt{/projects/\{id\}/addimage}}.
-
-\begin{verbatim}
-UploadImageRequest { 
-    Note note; 
-    string ImageString; 
-}
-\end{verbatim}
-
-// TODO končal tukaj
-
-Polje \texttt{ImageString} vsebuje fotografijo, po metodi Base64 šfirirano v znakovni niz.
 
 Za hranjenje tekstovnih in slikovnih korakov smo zaradi preprostosti implementacije uporabili isti razred (\texttt{Note}).
 Tekstovni in slikovni korak se ločita v vrednosti boolean zastavice \texttt{IsImage}.
-Tekstovni korak ima to polje nastavljeno na vrednost \texttt{false}, slikovni pa \texttt{true}.
+Tekstovni korak ima to polje nastavljeno na vrednost \texttt{false}, slikovni pa na \texttt{true}.
 
 \begin{Verbatim}[commandchars=+\[\]]
 Note { 
@@ -1133,32 +1146,65 @@ Note {
 }
 \end{Verbatim}
 
-Poljema \texttt{Url} in \texttt{ServerUrl} se dodeli vrednost samo pri slikovnih korakih.
-Polje \texttt{Url} hrani lokacijo fotografije na odjemalcu, \texttt{ServerUrl} pa lokacijo fotografije na strežniku.
-Ko se na odjemalcu zajame fotografija, odjemalec nastavi vrednost polja \texttt{Url} na lokacijo ustvarjene fotografije v datotečnem sistemu.
+Uporabnik v odprt projekt slikovni korak vstavi s pritiskom na gumb z ikono kamere (na sliki \ref{app_project_note} levo).
 
-Polje \texttt{ServerUrl} se nastavi na strežniku.
-Strežnik vstavi prejet korak iz zahteve \texttt{UploadImageRequest} in ga zapiše v podatkovno bazo.
-\texttt{ImageString} se dekodira v slikovno datoteko in hrani na strežniku.
-Ko se fotografija uspešno zapiše v datotečni sistem, se v polje \texttt{ServerUrl} v pripadajočem koraku zapiše lokacija fotografije na strežniku.
+Odpre se privzeta aplikacija za kamero, s katero uporabnik zajame fotografijo.
+Ko jo zajame, se odpre obrazec za dodajanje koraka (na sliki \ref{app_project_note} desno).
+Fotografija se zašifrira v znakovni niz po metodi Base64.
+Vsebina vnosnih polj obrazca za naslov, besedilo in trajanje koraka se zapiše v objekt razreda \texttt{Note}.
+
+Korak in šifrirana fotografija se zapišeta v objekt razreda \texttt{UploadImageRequest}.
+
+\begin{verbatim}
+UploadImageRequest { 
+    Note note; 
+    string ImageString; 
+}
+\end{verbatim}
+
+Polje \texttt{ImageString} vsebuje v znakovni niz šifrirano fotografijo.
+Polje \texttt{note} vsebuje korak delavniškega dnevnika.
+Ta objekt aplikacija pošlje preko POST metode na URL \enquote{\texttt{/projects/\{id\}/addimage}}.
+
+Strežnik prejet korak vstavi v projekt in dešifrira sliko iz znakovnega niza nazaj v slikovno datoteko.
+Slikovno datoteko nato hrani v svojem datotečnem sistemu.
+Lokacija fotografije v datotečnem sistemu strežnika se zapiše v polje \texttt{ServerUrl}.
+
+Aplikaciji v odgovor vrne kopijo ustvarjenega koraka na strežniku, ki ga aplikacija doda zbirki korakov trenutno odprtega projekta.
+
+
+% Poljema \texttt{Url} in \texttt{ServerUrl} se dodeli vrednost samo pri slikovnih korakih.
+% Polje \texttt{Url} hrani lokacijo fotografije na odjemalcu, \texttt{ServerUrl} pa lokacijo fotografije na strežniku.
+% Ko se na odjemalcu zajame fotografija, odjemalec nastavi vrednost polja \texttt{Url} na lokacijo ustvarjene fotografije v datotečnem sistemu.
+% 
+% Polje \texttt{ServerUrl} se nastavi na strežniku.
+% Strežnik vstavi prejet korak iz zahteve \texttt{UploadImageRequest} in ga zapiše v podatkovno bazo.
+% \texttt{ImageString} se dekodira v slikovno datoteko in hrani na strežniku.
+% Ko se fotografija uspešno zapiše v datotečni sistem, se v polje \texttt{ServerUrl} v pripadajočem koraku zapiše lokacija fotografije na strežniku.
+% 
+
+
 
 \subsubsection{Urejanje in brisanje korakov v projektu}
 
-Uporabnik lahko korake, ki pripadajo njegovim delavniškim dnevnikom spreminja.
+Uporabnik lahko korake, ki pripadajo njegovim delavniškim dnevnikom posodablja.
 Spreminja lahko njihovo vsebino, naslov in trajanje.
 
-Po končanem urejanju besedilnih korakov, mora odjemalec poslati avtorizirano PUT zahtevo na URL \enquote{\texttt{/projects/\{pid\}/update/\{nid\}}}.
-Telo zahteve mora vsebovati objekt razreda \texttt{Note}, ki ga je uporabnik spremenil.
+Uporabnik korak posodobi, tako da strežniku pošlje PUT zahtevo na URL \enquote{\texttt{/projects/\{pid\}/update/\{nid\}}}.
+Polje \{pid\} je enolični identifikator projekta, ki si lasti korak, \{nid\} pa enolični identifikator koraka, ki ga želimo posodobiti.
+Telo zahteve mora vsebovati objekt razreda \texttt{Note}, ki ga je uporabnik posodobil.
 
-Pri spreminjanju vsebine slikovnih korakov mora odjemalec poslati avtorizirano PUT zahtevo na naslov \enquote{\texttt{/projects/\{pid\}/update/\{nid\}/image}}.
+Uporabnik slikovni korak posodobi tako, da pošlje PUT zahtevo na naslov \enquote{\texttt{/projects/\{pid\}/update/\{nid\}/image}}.
+Polje \{pid\} je enolični identifikator projekta, ki si lasti korak, \{nid\} pa enolični identifikator koraka, ki ga želimo posodobiti.
 Telo te zahteve mora vsebovati objekt razreda \texttt{UploadImageRequest}.
 V objektu \texttt{UploadImageRequest} mora biti polje \texttt{Note} objekt, ki ga želimo posodobiti.
 Polje \texttt{ImageString} mora biti šifrirana slika, ki bo zamenjala prejšnjo sliko.
 Slika mora biti šifrirana po metodi Base64.
 
-Pri izbrisu koraka iz projekta, mora uporabnik poslati avtorizirano zahtevo na URL \enquote{\texttt{/projects/\{pid\}/delete/\{nid\}}}.
-V tem primeru je polje \texttt{\{pid\}} unikatni identifikator projekta, v katerem se nahaja korak, \texttt{\{nid\}} pa unikatni identifikator objekta \texttt{Note}, ki ga želimo izbrisati.
+Korak lahko uporabnik iz projekta izbriše tako, da pošlje DELETE zahtevo na URL \enquote{\texttt{/projects/\{pid\}/delete/\{nid\}}}.
+Polje je \texttt{\{pid\}} enolični identifikator projekta, v katerem se nahaja korak, \texttt{\{nid\}} pa enolični identifikator koraka, ki ga želimo izbrisati.
 V kolikor ima ta objekt \texttt{Note} postavljeno zastavico \texttt{IsImage} na \texttt{true}, se poleg zapisa v bazi izbriše tudi pripadajoča slikovna datoteka.
+
 
 
 \subsubsection{Spreminjanje vrstnega reda korakov v projektu}
@@ -1166,10 +1212,9 @@ V kolikor ima ta objekt \texttt{Note} postavljeno zastavico \texttt{IsImage} na 
 % Sistem mora podpirati tudi 
 Uporabnik lahko korakom v svojih delavniških spreminja vrstni red prikaza.
 Izbran korak lahko zamakne za poljubno število mest proti začetku ali koncu seznama.
-Položaj koraka \texttt{Note} v seznamu lahko razberemo iz atributa \texttt{Position}.
-Prvi korak ima \texttt{Position} 0, drugi 1, itd.
+Položaj koraka \texttt{Note} v projektu lahko razberemo iz atributa \texttt{Position}.
+Prvi korak ima \texttt{Position} 0, drugi 1, tretji 2, itd.
 
-// TODO DODAJ SLIKO 
 
 \begin{Verbatim}[commandchars=+\[\]]
 Note { 
@@ -1192,17 +1237,20 @@ Nato to vrednost priredimo polju \texttt{Position} novo kreiranega koraka.
 
 Ko uporabnik želi spremeniti pozicijo koraka v projektu, moramo poslati zahtevo PUT na URL \enquote{\texttt{/projects/\{pid\}/\{nid\}/\{positions\}}}.
 
-Polje \texttt{\{pid\}} predstavlja unikatni identifikator projekta, v katerem se nahaja korak.
-Polje \texttt{\{nid\}} predstavlja unikatni identifikator koraka \texttt{Note}.
-Polje \texttt{\{positions\}} pa prestavlja število mest za kolikor ga želimo prestaviti.
+Polje \texttt{\{pid\}} je unikatni identifikator projekta, v katerem se nahaja korak.
+Polje \texttt{\{nid\}} je unikatni identifikator koraka \texttt{Note}.
+Polje \texttt{\{positions\}} vsebuje število mest za kolikor ga želimo prestaviti.
 To število je lahko pozitivno ali negativno celo število.
-Negativna vrednost \texttt{\{positions\}} prestavi korak proti začetku seznama, pozitivna pa proti koncu.
+% Negativna vrednost \texttt{\{positions\}} prestavi korak proti začetku seznama, pozitivna pa proti koncu.
+% Pri tem smo pazili, da smo zamaknili tudi korake, 
 
-\subsubsection{Izvoz projektov}
 
-Sistem omogoča izvoz projektov v druge računalniške formate.
-Izvožene datoteke lahko služijo za pomoč pri prenosu zapisanih podatkov v druge računalniške sisteme ali varnostna kopija.
-Projekt lahko uporabnik izvozi v dva formata, v besedilno datoteko in HTML dokument (slika \ref{app_project_export}).
+
+\subsection{Izvoz projektov}
+
+Sistem omogoča izvoz delavniških dnevnikov v druge računalniške formate.
+Izvoženi delavniški dnevniki lahko služijo kot varnostna kopija.
+Izvozimo jih lahko v besedilno datoteko ali HTML dokument (slika \ref{app_project_export}).
 
 \begin{figure}[H]
 \begin{center}
@@ -1212,14 +1260,12 @@ Projekt lahko uporabnik izvozi v dva formata, v besedilno datoteko in HTML dokum
 \label{app_project_export}
 \end{figure}
 
-V besedilno datoteko ga uporabnik izvozi, tako, da pošlje avtorizirano GET zahtevo na URL \enquote{\texttt{/projects/\{id\}/export/text}}.
-V HTML dokument ga uporabnik izvozi, tako, da pošlje avtorizirano GET zahtevo na URL \enquote{\texttt{/projects/\{id\}/export/html}}.
-
-Pri izvozu v besedilno datoteko, storitev za upravljanje projektov na strežniku ustvari novo besedilno datoteko.
-Najprej vanjo vpiše naslov in opis projekta ter možne nevarnosti pri delu.
-Nato uredi korake po vrednosti stolpca \texttt{Position} in besedila korakov eno za drugim zapiše v datoteko.
+V besedilno datoteko projekt izvozimo tako, da pošljemo GET zahtevo na URL \enquote{\texttt{/projects/\{id\}/export/text}}.
+Strežnik v besedilno datoteko vpiše naslov in opis projekta ter možne nevarnosti pri delu.
+Nato uredi korake po vrednosti stolpca \texttt{Position} naraščajoče in korake enega za drugim zapiše v datoteko.
 Pri slikovnih korakih se, poleg besedila, zapiše tudi lokacija pripadajoče fotografije.
 
+V HTML dokument dnevnik izvozimo tako, da pošljemo GET zahtevo na URL \enquote{\texttt{/projects/\{id\}/export/html}}.
 Pri izvozu v HTML dokument (slika \ref{export_html}) se naslov projekta zapiše kot HTML naslov H1, opis projekta kot naslov H2, koraki pa kot HTML odstavki.
 V HTML dokumentu lahko prikažemo poleg besedila slikovnih korakov tudi slike.
 
@@ -1247,9 +1293,71 @@ Project {
 }
 \end{Verbatim}
 
-\subsection{Komunikacija strežnika z glasovnim pomočnikom}
 
-Da lahko strežnik obdela ukaze, ki jih je uporabnik izgovoril Amazon Alexi, jih mora odgovore glasovnega pomočnika najprej prejeti.
+
+\subsection{Pristop razvoja mobilne aplikacije}
+
+Pristop razvoja aplikacije, ki smo ga uporabili za programiranje aplikacije, se imenuje \enquote{Model View View-Model} (v nadaljevanju MVVM).
+Pri tem pristopu aplikacijo razdelimo na tri dele (slika \ref{mvvm}).
+
+\textbf{Model} je del, kjer definiramo elemente naše podatkovne logike (opis tehnološkega postopka, korak, uporabnik,...).
+
+\textbf{View} je uporabniški vmesnik, ki ga vidi uporabnik.
+
+\textbf{ViewModel} pa se uporablja, da se poveže funkcije uporabniškega vmesnika in modela (podatkovne logike) ter po potrebi preoblikuje podatke.
+
+Rezultat upoštevanja tega pristopa je čista koda, ki nima prepletenih elementov med ozadno kodo in uporabniškim vmesnikom.
+\enquote{Model} vsebuje le abstrakcijo naših podatkov in podatkovno logiko.
+Ti podatki se v \enquote{ViewModel-u} pretvorijo v obliko, ki bo prikazana uporabniku.
+\enquote{View} pa nato servira pripravljene podatke uporabniku v obliki grafičnih elementov.
+
+Na spodnji sliki lahko vidimo oris pristopa MVVM (slika \ref{mvvm}).
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=11cm]{mvvm}
+\end{center}
+	\caption{Shema pristopa MVVM, (vir \cite{mvvmimage})}
+\label{mvvm}
+\end{figure}
+
+
+
+\subsection{Uporaba kamere v Xamarin}
+
+Za uporabo kamere v ogrodju Xamarin smo uporabili vtičnik Xam.Plugin.Media \cite{xampluginmedia}.
+Vtičnik je licensiran pod MIT licenco.
+
+Zanj smo se odločili, saj podpira zajem fotografij s privzeto aplikacijo za zajemanje fotografij.
+Izbiramo lahko tudi kvaliteto zajete fotografije.
+
+Pri zajemu slike najprej preverimo, ali imamo zadostne pravice.
+Imeti moramo pravice za dostop do shrambe, dostop do fotografij in dostop do kamere.
+
+Fotografijo nato zajamememo z metodo \texttt{TakePictureAsync}.
+Kreirano fotografijo nato preberemo in znotraj aplikacije hranimo v objektu razreda ImageSource.
+Fotografijo v tej obliki lako prikažemo v XAML z grafičnim elementom Image.
+Lahko jo tudi zakodiramo v znakovni niz in pošljemo na strežnik.
+
+
+
+
+\section{Uvedba glasovnega pomočnika}
+
+\subsection{Funkcionalne zahteve Alexa veščine}
+
+\enquote{Skill} ali veščina je program, ki glasovnemu pomočniku Amazon Alexa doda funkcionalnosti.
+Alexo in zasnovano veščino smo uporabili kot dodaten uporabniški vmesnik za upravljanje z mobilno aplikacijo.
+
+\noindent Z njim smo želeli doseči:
+\begin{itemize}
+	\item prostoročno narekovnaje besedilnega koraka,
+	\item prostoročno odpiranje obrazca za dodajanje korakov v odprt projekt in
+	\item prostoročno odpiranje kamere in dodajanje slikovnega koraka v projekt.
+\end{itemize}
+
+
+\subsection{Komunikacija strežnika z Amazon Alexo}
 
 \begin{figure}[H]
 \begin{center}
@@ -1261,79 +1369,103 @@ Da lahko strežnik obdela ukaze, ki jih je uporabnik izgovoril Amazon Alexi, jih
 
 
 Strežnik z glasovnim pomočnikom Amazon Alexa komunicira (slika \ref{plan_sqs_server_alexa}) preko storitve Simple Queue Service (SQS) iz sklopa storitev Amazon Web Services.
-To komunikacijo smo implementirali tako, da Amazon Alexa rezultate obdelanih glasovnih ukazov odloži v SQS vrsto, strežnik pa jih iz te vrste prebere.
+Amazon Alexa rezultate obdelanih glasovnih ukazov odloži v SQS vrsto, strežnik pa jih iz te vrste prebere.
 
-SQS vrsta, tipa first-in-first-out \cite{sqsfifo}, ki smo jo uporabili, je sklad tekstovnih sporočil.
+SQS vrsta \cite{sqsfifo} je sklad tekstovnih sporočil.
 Nanjo lahko odlagamo nova sporočila ter beremo in brišemo obstoječa sporočila .
-
 
 Glasovni pomočnik od uporabnika prejme izgovorjen glasovni ukaz.
 Na podlagi tega ukaza, glasovni pomočnik na SQS vrsto odloži tri različna besedilna sporočila:
+% Strežnik periodično prejema sporočila iz SQS vrste.
+% Ko sporočilo prejme, na podlgi njegove vsebine izvede eno od treh možnih funkcij.
 \begin{itemize}
-	\item \textbf{\enquote{addnote}},
-	\item \textbf{\enquote{addimage}},
-	\item \textbf{\enquote{\{narekovano besedilo\}}},
+	\item Sporočilo \textbf{\enquote{addnote}} sporoči strežniku, naj na odjemalcu odpre obrazec za dodajanje besedilnega koraka.
+	\item Sporočilo  \textbf{\enquote{addimage}} sporoči strežniku, naj na odjemalcu odpre kamero za dodajanje slikovnega koraka.
+	\item Sporočilo \textbf{\enquote{\{narekovano besedilo\}}} sporoči strežniku, naj vsebino tega sporočila doda odprtemu projektu kot besedilni korak.
 \end{itemize}
 
-% \bigbreak
-Strežnik periodično prejema sporočila iz SQS vrste.
-Ko sporočilo prejme, na podlgi njegove vsebine izvede eno od treh možnih funkcij.
+% V sporočilu \enquote{\{narekovano besedilo\}} se nahaja besedilo, ki ga je glasovni pomočnik razpoznal kot dobesedni narek koraka.
+% Primer takšnega sporočila je \enquote{this is a literal dictation} ali \enquote{prepare the table}.
+
+\subsection{Implementacija Alexa veščine}
+
+Ko Alexa prepozna poziv \enquote{\textit{make a report note}}, se naša veščina začne izvajati.
+
+Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se veščina preneha izvajati, se primerja s frazami namer.
+Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v krajišču (slika \ref{plan_alexa_sqs}).
+V naši veščini smo definirali tri glavne namere:
 
 \begin{itemize}
-	\item Sporočilo \enquote{addnote} sporoči strežniku, naj na odjemalcu odpre obrazec za dodajanje besedilnega koraka.
-	\item Sporočilo \enquote{addimage} sporoči strežniku, naj na odjemalcu odpre kamero in obrazec za dodajanje slikovnega koraka.
-	\item Sporočilo \enquote{\{narekovano besedilo\}} sporoči strežniku, naj vsebino tega sporočila doda odprtemu projektu kot tekstovni korak.
+	\item \texttt{TakeNoteIntent},
+	\item \texttt{OpenTextNoteFormIntent},
+	\item \texttt{OpenImageNoteFormIntent}.
 \end{itemize}
 
-V sporočilu \enquote{\{narekovano besedilo\}} se nahaja besedilo, ki ga je glasovni pomočnik razpoznal kot dobesedni narek koraka.
-Primer takšnega sporočila je \enquote{this is a literal dictation} ali \enquote{prepare the table}.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=6cm]{plan_alexa_sqs}
+\end{center}
+\caption{Načrt komunikacije Alexe, AWS Lambda in AWS SQS}
+\label{plan_alexa_sqs}
+\end{figure}
 
-\subsubsection{Utemeljitev uporabe SQS}
+\texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}) se zažene, ko uporabnik narekuje besedilo koraka.
+Zažene se, uporabnik izreče \enquote{Take note \texttt{\{besedilo\}}} ali \enquote{Note \texttt{\{besedilo\}}}.
+Polje \texttt{\{besedilo\}} je spremenljivka, v katero veščina hrani razpoznano besedilno vsebino koraka.
+Če uporabnik izreče \enquote{\textit{note unscrew the backplate}}, je vrednost spremenljivke \texttt{\{besedilo\}} \enquote{unscrew the backplate}.
 
-Prenos sporočil med Amazon Alexo in strežnikom smo realizirali z uporabo storitve AWS SQS.
-Pri uporabi SQS je prenos podatkov resda manj učinkovit kot pri direktni povezavi preko spletne vtičnice (\textit{ang. Web Socket}).
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=13cm]{intent_literal}
+\end{center}
+\caption{Fraza TakeNoteIntent v Alexa Developer nadzorni plošči}
+\label{TakeNoteIntent}
+\end{figure}
 
-Glavni faktor, zaradi katerega smo se odločili za uporabo AWS SQS, je, da z dodatno plastjo za hranjenje sporočil, dosežemo enostavno zamenjljivost glasovnega pomočnika.
+\texttt{TakeNoteIntent} ustvari novo SQS sporočilo, vanj vstavi vrednost spremenljivke \texttt{\{besedilo\}} in ga pošlje na SQS vrsto.
+To SQS sporočilo prebere strežnik in ga kot korak vstavi v odprt projekt.
+Veščina vrne uporabniku odgovor \enquote{Noted!} in se preneha izvajati.
 
-Pri morebitni menjavi glasovnega pomočnika, strežniškega programa ne bi spreminjali.
-Potrebno bi bilo le implementirati program za novega glasovnega pomočnika, da na AWS SQS odlaga sporočila v strežniku razumljivem formatu (\enquote{addnote}, \enquote{addimage},...).
 
-\subsubsection{Zahtevanje in sprostitev glasovnega pomočnika}
+\texttt{OpenTextNoteFormIntent} se zažene, ko uporabnik izreče ukaz za odpiranje obrazca za vstavljanje besedilnega koraka.
+Frazi te namere se glasita \enquote{Create a text note} in \enquote{Add a text note} (slika \ref{OpenTextNoteFormIntent}).
 
-En OpenReport strežnik podpira delo z enim samim glasovnim pomočnikom.
-Tega pomočnika lahko uporabnik \enquote{zahteva} za lastno uporabo in ga po uporabi \enquote{sprosti}.
-Ko se uporabnikova zahteva potrdi, lahko glasovnega pomočnika uporablja pri sestavljanju delavniškega dnevnika.
-Po končani uporabi lahko uporabnik glasovnega pomočnika sprosti, kar omogoči drugim uporabnikom, da ga lahko zahtevajo za svoje delo.
+\texttt{OpenTextNoteFormIntent} ustvari novo SQS sporočilo, vanj vstavi besedilo \enquote{\texttt{addnote}} in ga pošlje v SQS vrsto.
+To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre obrazec za dodajanje novega besedilnega koraka.
+Veščina zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneha izvajati.
 
-Če ima določen uporabnik nase vezanega pomočnika, vidimo po vrednosti zastavice \texttt{UsesVoiceAssistant}.
-Ta se nahaja v uporabnikovem objektu razreda \texttt{User}.
-Uporabnik pomočnika uporablja, če je zastavica nastavljena na \texttt{True}.
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=8cm]{intent_text}
+\end{center}
+\caption{Fraza OpenTextNoteFormIntent v Alexa Developer nadzorni plošči}
+\label{OpenTextNoteFormIntent}
+\end{figure}
 
-Ko uporabnik odpre katerega od svojih projektov, se identifikator tega projekta nastavi v polje \texttt{LastOpenedProjectId} v njegovem objektu razreda \texttt{User}.
+\texttt{OpenImageNoteFormIntent} se zažene, ko uporabnik izreče ukaz za dodajanje fotografije v delavniški dnevnik.
+Fraza te namere se glasi \enquote{Take a picture} (slika \ref{OpenImageNoteFormIntent}).
 
-Zahtevki, ki jih strežniku pošlje Alexa preko SQS vrste, se navezujejo na projekt s tem identifikatorjem.
+\texttt{OpenImageNoteFormIntent} ustvari novo SQS sporočilo, vanj vstavi besedilo \enquote{\texttt{addimage}} in ga pošlje v SQS vrsto.
+To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre kamero.
+Veščina zatem vrne uporabniku odgovor \enquote{Launching camera!} in se preneha izvajati.
 
-\begin{Verbatim}[commandchars=+\[\]]
-User : IdentityUser {
-    string Id; 
-    string Email;
-    string Password; 
-    IEnumerable<Project> Projects;
-    ... 
-    +underline[int LastUsedProjectId;]
-    +underline[bool UsesVoiceAssistant;]
-}
-\end{Verbatim}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=8cm]{intent_image}
+\end{center}
+\caption{Fraza OpenImageNoteFormIntent v Alexa Developer nadzorni plošči}
+\label{OpenImageNoteFormIntent}
+\end{figure}
 
-\subsubsection{Delovanje}
+\subsubsection{Prenašanje sporočil med strežnikom in SQS}
 
-Komunikacija med strežnikom in glasovnim pomočnikom je prikazana z rdečo barvo na spodnji sliki (slika \ref{plan_sqs_server}).
+Komunikacija strežnika s SQS je prikazana z rdečo barvo na spodnji sliki (slika \ref{plan_sqs_server}).
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=13cm]{plan_sqs_server}
 \end{center}
-\caption{Komunikacija med strežnikom in SQS}
+\caption{Komunikacija strežnika s SQS}
 \label{plan_sqs_server}
 \end{figure}
 
@@ -1384,7 +1516,6 @@ Project {
     string Dangers; 
     string FolderLocation; 
     IEnumerable<Note> Notes; 
-SI
     +underline[bool NoteRequest;] 
     +underline[bool ImageRequest;] 
     +underline[bool AlexaNoteRequest;] 
@@ -1405,118 +1536,16 @@ Nato v projektu, ki je nazadnje odprl, nastavi vrednost zastavice \texttt{AlexaN
 Poleg tega ustvari nov objekt razreda \texttt{Note}, ki ima naslov \enquote{Voice note}, vsebina pa je telo prejetega sporočila.
 Nov objekt se nato vstavi v zadnji odprt projekt.
 
+\subsubsection{Utemeljitev uporabe SQS}
 
+Prenos sporočil med Amazon Alexo in strežnikom smo realizirali z uporabo storitve AWS SQS.
+Pri uporabi SQS je prenos podatkov resda manj učinkovit kot pri direktni povezavi preko spletne vtičnice (\textit{ang. Web Socket}).
 
-\section{Implementacija Alexa veščine}
+Glavni faktor, zaradi katerega smo se odločili za uporabo AWS SQS, je, da z dodatno plastjo za hranjenje sporočil, dosežemo enostavno zamenjljivost glasovnega pomočnika.
 
-\enquote{Skill} ali veščina je program, ki glasovnemu pomočniku Amazon Alexa doda funkcionalnosti.
-Alexo in zasnovano veščino smo uporabili kot dodaten uporabniški vmesnik za upravljanje z mobilno aplikacijo.
+Pri morebitni menjavi glasovnega pomočnika, strežniškega programa ne bi spreminjali.
+Potrebno bi bilo le implementirati program za novega glasovnega pomočnika, da na AWS SQS odlaga sporočila v strežniku razumljivem formatu (\enquote{addnote}, \enquote{addimage},...).
 
-\noindent Z njim smo želeli doseči:
-\begin{itemize}
-	\item prostoročno narekovnaje besedilnega koraka,
-	\item prostoročno odpiranje obrazca za dodajanje korakov v odprt projekt in
-	\item prostoročno odpiranje kamere in dodajanje slikovnega koraka v projekt.
-\end{itemize}
-
-
-
-Ko Alexa prepozna poziv \enquote{\textit{make a report note}}, se naša veščina začne izvajati.
-
-Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se veščina preneha izvajati, se primerja s frazami namer.
-Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v ozadni kodi veščine (slika \ref{plan_alexa_sqs}).
-V naši veščini smo definirali tri glavne namere:
-
-\begin{itemize}
-	\item \texttt{TakeNoteIntent},
-	\item \texttt{OpenTextNoteFormIntent},
-	\item \texttt{OpenImageNoteFormIntent}.
-\end{itemize}
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=6cm]{plan_alexa_sqs}
-\end{center}
-\caption{Načrt komunikacije Alexe, AWS Lambda in AWS SQS}
-\label{plan_alexa_sqs}
-\end{figure}
-
-\texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}) se zažene, ko po pozivu uporabnik izreče \enquote{Take note \texttt{\{besedilo\}}} ali \enquote{Note \texttt{\{besedilo\}}}.
-Polje \texttt{\{besedilo\}} je besedilna spremenljivka, v katero veščina hrani razpoznano besedilno vsebino koraka.
-V primeru, da uporabnik izreče \enquote{\textit{note unscrew the backplate}}, je vrednost spremenljivke \texttt{\{besedilo\}} \enquote{unscrew the backplate}.
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=13cm]{intent_literal}
-\end{center}
-\caption{Fraza TakeNoteIntent v Alexa Developer nadzorni plošči}
-\label{TakeNoteIntent}
-\end{figure}
-
-\texttt{TakeNoteIntent} v ozadni kodi veščine zažene funkcijo, ki ustvari novo SQS sporočilo.
-V telo tega sporočila funkcija vstavi vrednost spremenljivke \texttt{\{besedilo\}} in ga pošlje v SQS vrsto.
-To SQS sporočilo prebere strežnik in ga kot korak vstavi v odprt projekt.
-Veščina zatem vrne uporabniku odgovor \enquote{Noted!} in se preneha izvajati.
-
-\texttt{OpenTextNoteFormIntent} se zažene, ko po pozivu uporabnik izreče \enquote{Create a text note}.
-
-\texttt{OpenTextNoteFormIntent} v ozadni kodi veščine zažene funkcijo, ki ustvari novo SQS sporočilo.
-V telo tega sporočila funkcija vstavi besedilo \enquote{\texttt{addnote}} in ga pošlje v SQS vrsto.
-To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre obrazec za dodajanje novega besedilnega koraka.
-Veščina zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneha izvajati.
-
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=8cm]{intent_text}
-\end{center}
-\caption{Fraza OpenTextNoteFormIntent v Alexa Developer nadzorni plošči}
-\label{OpenTextNoteFormIntent}
-\end{figure}
-
-\texttt{OpenImageNoteFormIntent} se zažene, ko po pozivu uporabnik izreče \enquote{Take a picture}.
-
-Ta namera v krajišču veščine zažene funkcijo, ki ustvari novo SQS sporočilo.
-V telo tega sporočila funkcija vstavi besedilo \enquote{\texttt{addimage}} in ga pošlje v SQS vrsto.
-To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre kamero.
-Veščina zatem vrne uporabniku odgovor \enquote{Launching camera!} in se preneha izvajati.
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=8cm]{intent_image}
-\end{center}
-\caption{Fraza OpenImageNoteFormIntent v Alexa Developer nadzorni plošči}
-\label{OpenImageNoteFormIntent}
-\end{figure}
-
-\subsection{Izvajanje veščine po korakih}
-
-Alexina veščina se začne izvajati, ko uporabnik izreče poziv \enquote{Make a report note}.
-Alexa posnet govorni ukaz pošlje na Amazon Alexa Service \cite{skillexecution}.
-Tam se s pomočjo NLU razpoznavnega modela poskusi pretvoriti v znakovni niz.
-Ta znakovni niz se primerja z vsemi definiranimi pozivnimi frazami za veščine, ki so vezane na naš Amazon račun.
-
-Če Amazon Alexa Service uporabnikov glasovni ukaz razpozna kot \enquote{make a report note}, se začne izvajati OpenReportAlexaSkill.
-V krajišče veščine se pošlje zahteva tipa \texttt{LaunchRequest}.
-
-Krajišče nastavimo v Alexa Developer nadzorni plošči (slika \ref{skill_endpoint}).
-Krajišče je lahko AWS Lambda funkcija, lahko pa je naš lasten strežnik, dostopen preko javne domene in zaščiten z SSL.
-Krajišče je v našem primeru gostovan na storitvi AWS Lambda.
-Ob prejetju \texttt{LaunchRequest} krajišče veščine vrne vprašanje What now?.
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=13cm]{skill_endpoint}
-\end{center}
-\caption{Krajišče OpenReportAlexaSkill-a v Alexa Developer nadzorni plošči}
-\label{skill_endpoint}
-\end{figure}
-
-Naslednji glasovni ukaz, po zagonu veščine, se primerja s frazami za namere.
-Če se ukaz ujema z frazami, ki zaženejo katero od namer TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent, se na krajišče pošlje zahteva tipa \texttt{IntentRequest}.
-
-Iz prejetega \texttt{IntentRequest}-a nato dobimo ime namere.
-Na podlagi imena prejete namere ločimo, ali gre za TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent in zaženemo funkcije, opisane v prejšnjem poglavju.
 
 \subsection{Ovire pri izdelavi Alexa veščine}
 
@@ -1541,97 +1570,68 @@ To je zelo omejilo možnost narekovanja besedila korakov s pomočjo Amazon Alexe
 Naslednjo težavo je predstavljal čas, ki ga je Alexa porabila za interpretacijo definiranih glasovnih ukazov.
 Za procesiranje glasovnih ukazov je porabila v povprečju od 3 do 6 sekund.
 
-\section{Implementacija mobilne aplikacije}
 
-\subsection{Pristop}
-Pristop razvoja aplikacije, ki smo ga uporabili za programiranje aplikacije, se imenuje \enquote{Model View View-Model} (v nadaljevanju MVVM).
-Pri tem pristopu aplikacijo razdelimo na tri dele (slika \ref{mvvm}).
 
-\textbf{Model} je del, kjer definiramo elemente naše podatkovne logike (opis tehnološkega postopka, korak, uporabnik,...).
 
-\textbf{View} je uporabniški vmesnik, ki ga vidi uporabnik.
 
-\textbf{ViewModel} pa se uporablja, da se poveže funkcije uporabniškega vmesnika in modela (podatkovne logike) ter po potrebi preoblikuje podatke.
 
-Rezultat upoštevanja tega pristopa je čista koda, ki nima prepletenih elementov med ozadno kodo in uporabniškim vmesnikom.
-\enquote{Model} vsebuje le abstrakcijo naših podatkov in podatkovno logiko.
-Ti podatki se v \enquote{ViewModel-u} pretvorijo v obliko, ki bo prikazana uporabniku.
-\enquote{View} pa nato servira pripravljene podatke uporabniku v obliki grafičnih elementov.
 
-Na spodnji sliki lahko vidimo oris pristopa MVVM (slika \ref{mvvm}).
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=11cm]{mvvm}
-\end{center}
-	\caption{Shema pristopa MVVM, (vir \cite{mvvmimage})}
-\label{mvvm}
-\end{figure}
+% \subsection{Zahtevanje in sprostitev glasovnega pomočnika}
 
-% \subsection{Povezava na strežnik, prijava in registracija uporabnika}
-% 
-% Uporabnik se mora za uporabo sistema OpenReport najprej povezati na OpenReport strežnik.
-% Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na strežnik.
-% V besedilno polje mora vpisati IP naslov strežnika.
-% Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
-% 
-% % // slika povezavne strani
-% 
-% \begin{figure}[H]
-% \begin{center}
-% \includegraphics[width=4cm]{app_connect}
-% \end{center}
-% \caption{Povezavna stran}
-% \label{app_connect}
-% \end{figure}
-% 
-% 
-% Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \texttt{OpenReportServerCommunicati-\\onService.cs}).
-% Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
-% Za to metodo registracije storitev smo se odločili, saj omogoča enostavno uporabo instanc registriranih storitev kjerkoli v aplikaciji.
-% 
-% Ko uporabnik pritisne na gumb \enquote{Connect}, se preveri, ali je naslov pravilno vnešen.
-% Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano GET zahtevo na \enquote{\texttt{naslovstrežnika}/connect}. 
-% Če je na tem naslovu res OpenReport strežnik, se kot odgovor odjemalcu pošlje boolean vrednost \texttt{true}.
-% 
-% Storitev za komunikacijo s strežnikom si nato hrani vrednost \texttt{naslovstre-\\žnika} kot predpono vseh nadaljnjih zahtevkov.
-% 
-% Ob neuspešnem poskusu povezave, se uporabniku na strani prikaže opis napake.
-% Če je poskus uspešen, se stran za povezavo na strežnik zapre.
-% 
-% Prikaže se stran za prijavo.
-% Na tej strani uporabnik vpiše svoje uporabniško ime ali geslo, lahko pa odpre stran za registracijo računa.
-% 
-% 
-% Ko je uporabnik uspešno povezan na strežnik, se mora za dostop do svojih delavniških dnevnikov prijaviti ali registrirati.
-% Za prijavo in registracijo skrbi avtentikacijska storitev (razred \texttt{IdentityService.cs}).
-% Ta storitev je, enako kot storitev za komunikacijo s strežnikom, registrirana po metodi Dependency Injection.
-% Uporabljamo jo lahko, ko je storitev za komunikacijo uspešno vzpostavila komunikacijo s strežnikom.
+
+
+
+\section{Dodelave mobilne aplikacije}
+
+
 
 
 \subsection{Zahtevanje in sprostitev glasovnega pomočnika}
-Storitev za upravljanje z glasovnim pomočnikom (razred \texttt{VoiceAssistant-\\Service.cs}) skrbi za zahtevanje in sprostitev glasovnega pomočnika.
-Ta storitev se registrira ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev uspešno opravi prijavo uporabnika.
-Ob prijavi uporabnika preveri, ali ta uporablja glasovnega pomočnika.
-To doseže tako, da pošlje GET zahtevek na URL \enquote{\texttt{/users/current}}.
-Strežnik vrne objekt \texttt{User}, ki pripada prijavaljenemu uporabniku.
-Storitev preveri vrednost boolean atributa \texttt{UsesVoiceAssistant}.
 
-Če ima uporabnik vrednost polja \texttt{UsesVoiceAssistant} nastavljeno na \texttt{true}, lahko ima glasovnega pomočnika vezanega nase.
+En OpenReport strežnik podpira delo z enim samim glasovnim pomočnikom.
+Pomočnika lahko uporabnik \enquote{zahteva} za lastno uporabo in ga po uporabi \enquote{sprosti}.
+
+Ko se zahteva za uporabo pomočnika potrdi, ga lahko uporabnik uporablja pri sestavljanju delavniškega dnevnika.
+Uporabnik lahko glasovnega pomočnika sprosti, kar omogoči drugim uporabnikom, da ga lahko zahtevajo za svoje delo.
+
+Ali ima določen uporabnik nase vezanega pomočnika, vidimo po vrednosti zastavice \texttt{UsesVoiceAssistant} v njegovem objektu razreda \texttt{User}.
+
+Ko uporabnik odpre katerega od svojih projektov, se enolični identifikator tega projekta nastavi v polje \texttt{LastOpenedProjectId} v njegovem objektu razreda \texttt{User}.
+Zahtevki, ki jih strežniku pošlje Alexa preko SQS vrste, se navezujejo na projekt s tem identifikatorjem.
+
+\begin{Verbatim}[commandchars=+\[\]]
+User : IdentityUser {
+    string Id; 
+    string Email;
+    string Password; 
+    IEnumerable<Project> Projects;
+    ... 
+    +underline[int LastUsedProjectId;]
+    +underline[bool UsesVoiceAssistant;]
+}
+\end{Verbatim}
+
+Uporabnik je pomočnika uspešno zahteval zase, če je \texttt{UsesVoiceAssistant} nastavljen na \texttt{True}.
+V mobilni aplikaciji zahtevanje in sprostitev pomočnika nadziramo na \enquote{Dashboard} strani, s pritiskom na ikono mikrofona (slika \ref{app_alexa_yesno}).
+
+V aplikaciji za zahtevanje in sprostitev pomočnika skrbi razred \texttt{VoiceAssi-\\stantService.cs}.
+Primerek tega razreda se ustvari ob začetku izvajanja aplikacije, nato pa počaka, da avtentikacijska storitev mobilne aplikacije uspešno opravi prijavo uporabnika.
+
+Če ima uporabnik vrednost polja \texttt{UsesVoiceAssistant} nastavljeno na \texttt{true}, ima glasovnega pomočnika vezanega nase in ga lahko uporablja.
 
 Če ima uporabnik vrednost polja \texttt{UsesVoiceAssistant} nastavljeno na \texttt{false}, mora uporabo glasovnega pomočnika zahtevati.
 To naredi tako, da pošlje avtoriziran PUT zahtevek na URL \enquote{\texttt{/users/requestva}}.
 
 Če noben drug prijavljen uporabnik nima polja \texttt{UsesVoiceAssistant} nastavljenega na \texttt{true}, se njegova zahteva odobri.
-V njegovem objektu \texttt{User} se nastavi vrednost \texttt{UsesVoiceAssistant} na \texttt{true}.
+V njegovem objektu razreda \texttt{User} se nastavi vrednost \texttt{UsesVoiceAssistant} na \texttt{true}.
 
 Če ima kateri od uporabnikov to polje nastavljeno na \texttt{true}, zahteva ne bo odobrena.
 V tem primeru mora uporabnik, ki zahteva pomočnika počakati, da uporabnik, ki pomočnika uporablja, pomočnika sprosti.
 Ko si pomočnika ne lasti nobeden drug uporabnik, ga lahko veže nase.
 
-Sprostitev pomočnika dosežemo, da uporabnik, ki pomočnika trentuno uporablja, pošlje avtoriziran PUT zahtevek na URL \enquote{\texttt{/users/releaseva}}.
+Pomočnik se sprosti, ko uporabnik, ki pomočnika trentuno uporablja, pošlje PUT zahtevek na URL \enquote{\texttt{/users/releaseva}}.
 
-V mobilni aplikaciji zahtevanje in sprostitev pomočnika nadziramo na \enquote{Dashboard} strani, s pritiskom na ikono mikrofona (slika \ref{app_alexa_yesno}).
 
 \begin{figure}[H]
 \begin{center}
@@ -1641,58 +1641,10 @@ V mobilni aplikaciji zahtevanje in sprostitev pomočnika nadziramo na \enquote{D
 \label{app_alexa_yesno}
 \end{figure}
 
-% \subsection{Odpiranje in sinhronizacija projekta}
-% 
-% Ko uporabnik iz seznama delavniških dnevnikov izbere projekt, ki ga želi odpreti, storitev za komunikacijo s strežnikom pošlje na URL \enquote{\texttt{/projects/\{id\}-\\/notes}} zahtevek GET.
-% Polje \texttt{\{id\}} je unikatni identifikator željenega projekta.
-% 
-% Storitev za projekte (razred \texttt{ProjectService.cs}) nato prejet odgovor, razreda \texttt{Project}, hrani.
-% Vse korake, ki pripadajo temu projektu, se hrani v seznam tipa ObservableCollection.
-% Ta tip seznama smo izbrali, saj je v ogrodju Xamarin nad njim najlažje opravljati zamenjevalne operacije.
-% Seznam se nato prikažem na strani za upravljanje s projektom.
-% 
-% Storitev nato začne s periodično sinhronizacijo projekta.
-% Storitev za projekte na URL \enquote{\texttt{/projects/\{id\}/nonotes}} pošlje avtoriziran GET zahtevek.
-% Strežnik vrne objekt razreda \texttt{Project} s praznim seznamom korakov.
-% Vse, kar storitev za projekte pri sinhronizaciji gleda, je vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest}.
-% 
-% Na \texttt{true} nastavljena zastavica \texttt{NoteRequest} odpre obrazec za dodajanje novega besedilnega koraka v projekt.
-% 
-% Na \texttt{true} nastavljena zastavica \texttt{ImageRequest} odpre obrazec za dodajanje nove fotografije v projekt.
-% 
-% Na \texttt{true} nastavljena zastavica \texttt{AlexaNoteRequest} storitvi za projekte sporoči, naj pošlje GET zahtevek na URL \enquote{\texttt{/projects/\{id\}/notes}}.
-% Polje \{id\} mora biti unikatni identifikator odprtega projekta.
-% V odgovor prejme objekt razreda \texttt{Project}, vključno s seznamom vseh korakov, ki mu pripadajo.
-% V prejetem seznamu je namreč tudi narekovan korak.
-% Storitev za projekte primerja, katerega od korakov še nima v svoji zbirki.
-% Ko ta korak najde, ga doda v seznam korakov. 
-% 
-% Ko se projekt sinhronizira, storitev za projekte pošlje na strežnik PUT zahtevo na URL \enquote{\texttt{/project/last/closerequests}}.
-% Ta zahteva nastavi vrednost zastavic \texttt{NoteRequest}, \texttt{ImageRequest} in \texttt{AlexaNoteRequest} na \texttt{false}.
 
 
 
-
-\subsubsection{Uporaba kamere v Xamarin}
-
-Za uporabo kamere v ogrodju Xamarin smo uporabili vtičnik Xam.Plugin.Media \cite{xampluginmedia}.
-Vtičnik je licensiran pod MIT licenco.
-
-Zanj smo se odločili, saj podpira zajem fotografij s privzeto aplikacijo za zajemanje fotografij.
-Izbiramo lahko tudi kvaliteto zajete fotografije.
-
-Pri zajemu slike najprej preverimo, ali imamo zadostne pravice.
-Imeti moramo pravice za dostop do shrambe, dostop do fotografij in dostop do kamere.
-
-Fotografijo nato zajamememo z metodo \texttt{TakePictureAsync}.
-Kreirano fotografijo nato preberemo in znotraj aplikacije hranimo v objektu razreda ImageSource.
-Fotografijo v tej obliki lako prikažemo v XAML z grafičnim elementom Image.
-Lahko jo tudi zakodiramo v znakovni niz in pošljemo na strežnik.
-
-
-
-
-\section{Ovrednotenje funkcionalnosti}
+\chapter{Ovrednotenje funkcionalnosti}
 
 Sistem OpenReport smo po končani implementaciji testirali. 
 Mobila aplikacija in strežnik sta izpolnila pričakovanja.
@@ -1712,9 +1664,6 @@ Tudi brisanje korakov delavniškega dnevnika ni povzročalo težav.
 
 Možnost izvoza delavniškega dnevnika v druge formate lahko olajša tudi prenos podatkov v druge računalniške programe.
 
-% Hitrost uporabe sistema se z uporabo glasovnega pomočnika ni izboljšala.
-% Kljub temu se je uporaba Alexe kot alternativnega uporabniškega vmesnika izkazala za smiselno 
-
 \bigbreak
 
 Veščino smo testirali tako, da smo vsako frazo namere izgovorili 20-krat in beležili, kolikokrat se je razpoznala pravilno.
@@ -1729,33 +1678,25 @@ Prvič smo testirali s stavkom \enquote{\textit{this is a voice note}}, drugič 
 Pod pričakovnanji se je izkazalo dobesedno narekovanje besedila glasovnemu pomočniku.
 Rezultati testiranja razpoznavanja glasovnih ukazov so nam pokazali, da v našem primeru, Alexa veliko bolje razpoznava fraze, ki se z definirano frazo namere v celoti ujemajo, kot tiste, ki nimajo velike stopnje ujemanja.
 
-% Hitrost uporabe sistema se z uporabo glasovnega pomočnika ni izboljšala.
 Dodajanje slikovnih in besedilnih korakov, s pomočjo glasovnega ukaza, se je izkazalo za delno uspešno.
-% Uporaba Amazon Alexe dela ni pospešila, je pa 
 Za uporabno se je izkazalo predvsem, ko mobilnega telefona med delom nismo imeli na dosegu roke.
 Kljub temu je problem prikazovalo dejstvo, da je izgovorjava poziva, fraz namer in čakanje na obdelavo zahtev, trajalo v povprečju 18 sekund.
-
 
 Odklepanje mobilnega telefona, ki ga imamo v dosegu rok in ga lahko dosežemo brez presedanja ter odpiranje forme za dodajanje korakov je trajalo v povprečju 4 sekunde.
 Odklepanje mobilnega telefona, ki je oddaljen tri metre ter odpiranje forme za dodajanje korakov je trajalo povprečju 8 sekund.
 
 Težavo trenutno predstavlja tudi uporabnikovo neznanje angleškega jezika.
 
-% Ugotavljamo, da je za dobro zasnovano veščino za Amazon Alexo treba upoštevati Alexine omejitve.
-% Če bi želeli zmanjšati čas obdelave večih zaporednih glasovnih ukazov, lahko ustvarimo več veščin in prožimo funkcionalnosti ob pozivu.
-% Če pa je naš namen razširiti nabor funkcionalnosti, pa je smiselno v sklopu ene veščine definiramo namere, ki so 
+
+Naposled ugotavljamo, da je za zasnovo sistema, ki vključuje Amazon Alexo treba skrbno upoštevati Alexine omejitve.
+V našem primeru smo dobro prepoznavanje ukazov dosegli pri ukazih brez spremenljivih členov.
+Sklepamo lahko, da bi se sprejemljivo obnesla v sistemih, kjer so glasovni ukazi statično definirani.
+
+Kljub nekaterim pomanjkljivostim pa smo razvili dober sistem, ki lahko služi kot dobra osnova za nadaljnji razvoj.
+Sistem lahko namreč tudi brez glasovnega pomočnika uporabljamo za učinkovito pisanje delavniških dnevnikov.
 
 
-% \chapter{Možnosti nadaljnega razvoja}
 
-% Glavna šibka točka sistema OpenReport je bil glasovni pomočnik Amazon Alexa.
-
-
-% Boljšo uporabniško izkušnjo bi dosegli tudi s krajšimi prekinitvami za procesiranje ukaza.
-% Ker Amazon Alexa procesira ukaz na oddaljenem strežniku, so večsekundne prekinitve prikazovale precejšnjo oviro.
-
-
-%  Veliko bolje bi bilo tudi uporabiti algoritme za razpoznavanje govora brez opore definiranih fraz.
 
 \chapter{Zaključek}
 
@@ -1772,7 +1713,6 @@ Za neuspešno se je izkazalo glasovno narekovanje vsebine koraka delavniškega d
 Z Amazon Alexo ni bilo mogoče razpoznati daljših, variirajočih glasovnih ukazov.
 
 V možne izboljšave sistema smo na prvo mesto uvrstili preizkus drugih glasovnih pomočnikov, npr. Google Assistant \cite{googleass}.
-% Smiselno bi bilo tudi primerjati Amazon Alexo z lastnim glasovnim pomočnikom.
 %Hitrejše upravljanje z aplikacijo bi lahko dosegli z pomočnikom, ki bi lahko razpoznal ukaze z eno samo frazo in ne kombinacijo dveh, kot Amazon Alexa.
 Druga smiselna izboljšava je izvoz delavniških dnevnikov v več različnih standardnih formatov, kot so npr. XSL ali ODS.
 

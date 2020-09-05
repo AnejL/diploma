@@ -1,3 +1,36 @@
+% ----------- useful -------------
+
+% \subsection{Izvajanje veščine po korakih}
+% 
+% Alexina veščina se začne izvajati, ko uporabnik izreče poziv \enquote{Make a report note}.
+% Alexa posnet govorni ukaz pošlje na Amazon Alexa Service \cite{skillexecution}.
+% Tam se s pomočjo NLU razpoznavnega modela poskusi pretvoriti v znakovni niz.
+% Ta znakovni niz se primerja z vsemi definiranimi pozivnimi frazami za veščine, ki so vezane na naš Amazon račun.
+% 
+% Če Amazon Alexa Service uporabnikov glasovni ukaz razpozna kot \enquote{make a report note}, se začne izvajati OpenReportAlexaSkill.
+% V krajišče veščine se pošlje zahteva tipa \texttt{LaunchRequest}.
+% 
+% Krajišče nastavimo v Alexa Developer nadzorni plošči (slika \ref{skill_endpoint}).
+% Krajišče je lahko AWS Lambda funkcija, lahko pa je naš lasten strežnik, dostopen preko javne domene in zaščiten z SSL.
+% Krajišče je v našem primeru gostovan na storitvi AWS Lambda.
+% Ob prejetju \texttt{LaunchRequest} krajišče veščine vrne vprašanje What now?.
+% 
+% \begin{figure}[H]
+% \begin{center}
+% \includegraphics[width=13cm]{skill_endpoint}
+% \end{center}
+% \caption{Krajišče OpenReportAlexaSkill-a v Alexa Developer nadzorni plošči}
+% \label{skill_endpoint}
+% \end{figure}
+% 
+% Naslednji glasovni ukaz, po zagonu veščine, se primerja s frazami za namere.
+% Če se ukaz ujema z frazami, ki zaženejo katero od namer TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent, se na krajišče pošlje zahteva tipa \texttt{IntentRequest}.
+% 
+% Iz prejetega \texttt{IntentRequest}-a nato dobimo ime namere.
+% Na podlagi imena prejete namere ločimo, ali gre za TakeNoteIntent, OpenTextNoteFormIntent ali OpenImageNoteFormIntent in zaženemo funkcije, opisane v prejšnjem poglavju.
+
+% ----------- useful -------------
+
 % \subsection{Smernice razvoja sistema}
 % 
 % Pri načrtovanju sistema za sestavljanje opisov tehnoloških postopkov smo se osredotočali predvsem na nasledje točke:
@@ -31,6 +64,45 @@
 
 \section{Implementacija mobilne aplikacije}
 
+% \subsection{Povezava na strežnik, prijava in registracija uporabnika}
+% 
+% Uporabnik se mora za uporabo sistema OpenReport najprej povezati na OpenReport strežnik.
+% Ob zagonu mobilne aplikacije, uporabnika pričaka stran za povezavo na strežnik.
+% V besedilno polje mora vpisati IP naslov strežnika.
+% Ta naslov bomo v nadaljevanju podpoglavja označevali z \texttt{naslovstrežnika}.
+% 
+% % // slika povezavne strani
+% 
+% \begin{figure}[H]
+% \begin{center}
+% \includegraphics[width=4cm]{app_connect}
+% \end{center}
+% \caption{Povezavna stran}
+% \label{app_connect}
+% \end{figure}
+% 
+% 
+% Za kreiranje in avtorizacijo HTTP zahtevkov v okviru aplikacije skrbi storitev za komunikacijo s strežnikom (razred \texttt{OpenReportServerCommunicati-\\onService.cs}).
+% Storitev se registrira ob zagonu aplikacije po metodi Dependency Injection.
+% Za to metodo registracije storitev smo se odločili, saj omogoča enostavno uporabo instanc registriranih storitev kjerkoli v aplikaciji.
+% 
+% Ko uporabnik pritisne na gumb \enquote{Connect}, se preveri, ali je naslov pravilno vnešen.
+% Če je, storitev za komunikacijo s strežnikom pošlje neavtorizirano GET zahtevo na \enquote{\texttt{naslovstrežnika}/connect}. 
+% Če je na tem naslovu res OpenReport strežnik, se kot odgovor odjemalcu pošlje boolean vrednost \texttt{true}.
+% 
+% Storitev za komunikacijo s strežnikom si nato hrani vrednost \texttt{naslovstre-\\žnika} kot predpono vseh nadaljnjih zahtevkov.
+% 
+% Ob neuspešnem poskusu povezave, se uporabniku na strani prikaže opis napake.
+% Če je poskus uspešen, se stran za povezavo na strežnik zapre.
+% 
+% Prikaže se stran za prijavo.
+% Na tej strani uporabnik vpiše svoje uporabniško ime ali geslo, lahko pa odpre stran za registracijo računa.
+% 
+% 
+% Ko je uporabnik uspešno povezan na strežnik, se mora za dostop do svojih delavniških dnevnikov prijaviti ali registrirati.
+% Za prijavo in registracijo skrbi avtentikacijska storitev (razred \texttt{IdentityService.cs}).
+% Ta storitev je, enako kot storitev za komunikacijo s strežnikom, registrirana po metodi Dependency Injection.
+% Uporabljamo jo lahko, ko je storitev za komunikacijo uspešno vzpostavila komunikacijo s strežnikom.
 % Za osnovni uporabniški vmesnik našega sistema smo uporabili mobilno aplikacijo.
 % Preko aplikacije se uporabnik lahko registrira in prijavi v sistem, dodaja, briše, odpira in izvaža svoje delavniške dnevnike.
 % V delavniške dnevnike lahko dodaja korake, ki opisujejo delo, jih briše, spreminja vsebino ter ureja vrstni red.

@@ -1285,13 +1285,20 @@ Polje je \texttt{\{pid\}} enolični identifikator projekta, v katerem se nahaja 
 
 % Sistem mora podpirati tudi 
 Uporabnik lahko korakom v svojih projektih spreminja vrstni red prikaza.
-Na strani za urejanje dnevnika pritisne gumb z ikono seznama (na sliki \ref{} levo).
-Nato pritisne na korak, ki ga želi prestaviti.
-Izbran korak se obarva oranžno (na sliki \ref{} v sredini).
-Izbran korak premakne navzgor ali navzdol po seznamu z gumbi z ikono puščic (na sliki \ref{} desno).
+Na strani za urejanje dnevnika pritisne gumb z ikono seznama (na sliki \ref{app_ordering} levo).
+To na strani za urejanje dnevnika zažene način za spreminjanje vrstnega reda korakov (na sliki \ref{app_ordering} v sredini).
+Uporabnik v tem načinu pritisne na korak, ki ga želi prestaviti.
+Izbran korak se obarva oranžno.
+Izbran korak premakne navzgor ali navzdol po seznamu z gumbi z ikono puščic (na sliki \ref{app_ordering} desno).
 Nazaj v način za dodajanje se uporabnik vrne s pritiskom na gumb z ikono nalivnika.
 
-// TODO DODAJ SLIKO
+\begin{figure}[H]
+\begin{center}
+	\includegraphics[width=13.5cm]{app_ordering}
+\end{center}
+	\caption{Koda za ustvarjanje in pošiljanje zahtevka za dodajanje slikovnega koraka v aplikaciji.}
+\label{app_ordering}
+\end{figure}
 
 Položaj koraka \texttt{Note} v projektu lahko razberemo iz atributa \texttt{Position}.
 Prvi korak ima \texttt{Position} 0, drugi 1, tretji 2 itd.
@@ -1590,7 +1597,8 @@ Zahtevki, ki jih strežnik prejme od glasovnega pomočnika, se odražajo na zadn
 \begin{itemize}
 	\item Zahtevek \enquote{\texttt{addnote}} nastavi zastavico \enquote{\texttt{NoteRequest}} na \texttt{true},
 	\item zahtevek \enquote{\texttt{addimage}} nastavi zastavico \enquote{\texttt{ImageRequest}} na \texttt{true},
-	\item zahtevek \enquote{\texttt{\{narekovano besedilo\}}} nastavi zastavico \enquote{\texttt{AlexaNoteRequest}} na \texttt{true} in prejeto besedilo doda projektu kot korak.
+% DELJENJE
+	\item zahtevek \enquote{\texttt{\{narekovano besedilo\}}} nastavi zastavico \enquote{\texttt{AlexaNoteRe-\\quest}} na \texttt{true} in prejeto besedilo doda projektu kot korak.
 \end{itemize}
 
 \begin{Verbatim}[commandchars=+\[\]]

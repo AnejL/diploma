@@ -1795,15 +1795,17 @@ Ta funkcija lahko olajša prenos podatkov v druge računalniške programe.
 
 Alexino veščino smo testirali tako, da smo vsako frazo namere izgovorili 20-krat in beležili, kolikokrat se je razpoznala pravilno.
 Pri dobesednem narekovanju koraka smo testiranje opravili dvakrat.
-Prvič smo testirali s stavkom \enquote{\textit{this is a voice note}}, drugič pa s stavkom \enquote{\textit{backplate removal takes about three minutes}}.
+Prvič smo testirali s stavkom \enquote{\textit{this is a voice note}}, drugič s stavkom \enquote{\textit{removing the backplate takes about three minutes}}, tretjič pa s stavkom \enquote{\textit{prepare the workspace}}.
 \begin{itemize}
 	\item Alexa je ukaz \enquote{\textit{take a picture}} pravilno razpoznala v 18 od 20 testnih izgovorjav.
 	\item Ukaz \enquote{\textit{create a text note}} je pravilno razpoznala v 17 od 20 testnih izgovorjav.
-	\item Ukaz \enquote{\textit{note this is a voice note}} je pravilno razpoznala v 3 od 20 testnih izgovorjav.
-	\item Ukaza \enquote{\textit{note backplate removal takes about three minutes}} ni pravilno razpoznala v nobeni od 20 testnih izgovorjav.
+	\item Ukaz \enquote{\textit{take note this is a voice note}} je pravilno razpoznala v 6 od 20 testnih izgovorjav.
+	\item Ukaza \enquote{\textit{take note removing the backplate takes about three minutes}} ni pravilno razpoznala v nobeni od 20 testnih izgovorjav.
+	\item Ukaz \enquote{\textit{take note prepare the workspace}} je pravilno razpoznala v 11 od 20 testnih izgovorjav.
 \end{itemize}
-Narekovanje besedila glasovnemu pomočniku ni izpolnilo pričakovanj.
-Rezultati testiranja razpoznavanja glasovnih ukazov so pokazali, da v našem primeru Alexa veliko bolje razpoznava fraze, ki se z definirano frazo namere v celoti ujemajo kot tiste, ki nimajo velike stopnje ujemanja.
+Narekovanje besedila glasovnemu pomočniku ni v celoti izpolnilo pričakovanj.
+Alexa pri narekovanju besedila v večini primerov ni pravilno razpoznala namere.
+Rezultati testiranja razpoznavanja glasovnih ukazov so pokazali, da v našem primeru Alexa veliko bolje razpoznava namere, ki se z definirano frazo namere v celoti ujemajo kot tiste, ki nimajo velike stopnje ujemanja.
 
 Dodajanje slikovnih in besedilnih korakov s pomočjo glasovnega ukaza se je izkazalo za delno uspešno.
 Alexa je v teh primerih ukaze razpoznavala z zadovoljivo natančnostjo.

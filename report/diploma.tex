@@ -276,7 +276,7 @@ Po analizi področja se loti izdelave svojega sistema za sestavljanje delavnišk
 % zahvala
 \thispagestyle{empty}\mbox{}\vfill\null\it%
 \noindent
-Zahvaljujem se mentorju dr. Andreju Brodniku za odlično usmerjanje pri delu, očetu in mami za neizmerno podporo, Roku Bermežu in podjetju Hisense Gorenje Europe za slikovno gradivo in pomoč.
+Zahvaljujem se mentorju dr. Andreju Brodniku za odlično usmerjanje pri delu, očetu in mami za neizmerno podporo, Roku Bermežu in podjetju Hisense Gorenje Europe za slikovno gradivo in Meti za pomoč.
 
 Hvala vsem.
 \rm\normalfont
@@ -288,7 +288,7 @@ Hvala vsem.
 % posvetilo, če sama zahvala ne zadošča :-)
 \thispagestyle{empty}\mbox{}{\vskip0.20\textheight}\mbox{}\hfill\begin{minipage}{0.55\textwidth}%
 % Svoji dragi Alenčici.
-	Meti. Tii. Hvala.
+	Tii. Hvala.
 \normalfont\end{minipage}
 
 % prazna stran
@@ -947,6 +947,27 @@ Na spodnji sliki lahko vidimo oris pristopa MVVM (slika \ref{mvvm}).
 \label{mvvm}
 \end{figure}
 
+\subsection{Povezava na strežnik}
+
+Ko uporabnik zažene mobilno aplikacijo OpenReport, se mora najprej povezati na strežnik.
+Na strani za povezavo (slika \ref{app_connect}) mora vnesti IP naslov strežnika.
+Vnešen IP bomo v tem podpoglavju označevali z \texttt{\{naslov\}}.
+Ob pritisku na gumb Connect ozadna koda preveri, ali na tem IP naslovu teče OpenReport strežnik tako, da na \enquote{\texttt{\{naslov\}}/openreportapi/api/connect} pošlje HTTP zahtevek GET.
+
+Če na podanem naslovu teče OpenReport strežnik, ta odjemalcu vrne odgovor \texttt{true}.
+Ozadna koda aplikacije javi napako, če na poslano zahtevo ne dobi odgovora, ali če naprava s tem IP ne obstaja.
+
+Ob uspešni povezavi na strežnik ozadna koda aplikacije uporabi naslov \enquote{\texttt{\{naslov\}}/openreportapi/api} kot predpono vseh nadaljnjih zahtevkov na strežnik.
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=5cm]{app_connect}
+\end{center}
+	\caption{Povezovanje mobilne aplikacije s strežnikom.}
+\label{app_connect}
+\end{figure}
+
 
 \subsection{Registracija in prijava}
 
@@ -966,7 +987,7 @@ Aplikacija doda avtorizacijski žeton vsem nadaljnjim HTTP zahtevkom na strežni
 \label{app_register}
 \end{figure}
 
-Pri registraciji mobilna aplikacija na strežnik pošlje objekt razreda \texttt{Regis-\\terUserRequest} na URL \enquote{\texttt{/identity/register}} preko metode POST.
+Pri registraciji mobilna aplikacija na strežnik pošlje objekt razreda \texttt{Regis-\\terUserRequest} na funkcijski URL \enquote{\texttt{/identity/register}} preko metode POST.
 V objektu \texttt{RegisterUserRequest} se nahajata njegov e-mail naslov in geslo v čisti obliki.
 
 \begin{verbatim}
@@ -1021,7 +1042,7 @@ Sestavljajo ga e-mail uporabnika, uporabnikov enolični identifikator, čas zapa
 \end{figure}
 
 Prijava (na sliki \ref{app_login}) poteka podobno.
-Odjemalec na strežnik pošlje objekt razreda \texttt{LoginUserRequest} na URL \enquote{\texttt{/identity/login}}.
+Odjemalec na strežnik pošlje objekt razreda \texttt{LoginUserRequest} na funkcijski URL \enquote{\texttt{/identity/login}}.
 Objekt \texttt{LoginUserRequest} vsebuje e-mail naslov in geslo v čisti obliki.
 
 \begin{verbatim}
@@ -1430,7 +1451,7 @@ Po implementaciji strežnika in mobilne aplikacije smo se lotili uvajanja glasov
 Alexina veščina je program, ki glasovnemu pomočniku Amazon Alexa doda funkcionalnosti.
 Alexo in zasnovano veščino smo uporabili kot dodaten uporabniški vmesnik za upravljanje z mobilno aplikacijo.
 
-\noindent Z njim smo želeli doseči:
+\noindent Z uvedbo Alexe smo želeli doseči:
 \begin{itemize}
 	\item prostoročno narekovnaje besedilnega koraka,
 	\item prostoročno odpiranje obrazca za dodajanje korakov v odprt projekt in
@@ -1470,7 +1491,7 @@ Na podlagi tega ukaza glasovni pomočnik na SQS vrsto odloži tri različna bese
 
 \subsection{Implementacija Alexa veščine}
 
-Poziv za zagon implementirane veščine se glasi \enquote{\textit{make a report note}}.
+Poziv, ki ga mora uporabnik izreči za zagon implementirane veščine se glasi \enquote{\textit{make a report note}}.
 
 Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se veščina preneha izvajati, se primerja s frazami namer.
 Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v krajišču (slika \ref{plan_alexa_sqs}).
@@ -1486,15 +1507,19 @@ V naši veščini smo definirali tri glavne namere:
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=6cm]{plan_alexa_sqs}
+\includegraphics[width=5.5cm]{plan_alexa_sqs}
 \end{center}
 \caption{Načrt komunikacije Alexe, AWS Lambda in AWS SQS.}
 \label{plan_alexa_sqs}
 \end{figure}
 
-Ko uporabnik Alexi izgovori \enquote{Take note \texttt{\{besedilo\}}} ali \enquote{Note \texttt{\{besedilo\}}}, se zažene namera \texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}).
+\subsubsection{Prostoročno narekovanje koraka}
+
+Uporabnik narekuje korak delavniškega dnevnika tako, da Alexi izgovori poziv \enquote{make a report note} in nadaljuje s \enquote{take note \texttt{\{besedilo\}}}.
 Polje \texttt{\{besedilo\}} je spremenljivka, v katero veščina hrani razpoznano besedilno vsebino koraka.
-Prikaz uporabe: uporabnik izreče \enquote{\textit{note unscrew the backplate}}, torej vrednost spremenljivke \texttt{\{besedilo\}} postane \enquote{unscrew the backplate}.
+V ozadni kodi veščine se zažene namera \texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}).
+
+Prikaz uporabe: uporabnik po pozivu izreče \enquote{\textit{note unscrew the backplate}}, torej vrednost spremenljivke \texttt{\{besedilo\}} postane \enquote{unscrew the backplate}.
 
 
 
@@ -1502,7 +1527,7 @@ Prikaz uporabe: uporabnik izreče \enquote{\textit{note unscrew the backplate}},
 \begin{center}
 \includegraphics[width=13cm]{intent_literal}
 \end{center}
-\caption{Fraza TakeNoteIntent v Alexa Developer nadzorni plošči.}
+\caption{Frazi TakeNoteIntent v Alexa Developer nadzorni plošči.}
 \label{TakeNoteIntent}
 \end{figure}
 
@@ -1511,10 +1536,12 @@ To SQS sporočilo prebere strežnik in ga kot korak vstavi v odprt projekt.
 Veščina vrne uporabniku odgovor \enquote{Noted!} in se preneha izvajati.
 
 
-% j\texttt{OpenTextNoteFormIntent} se zažene, ko uporabnik izreče ukaz za odpiranje obrazca za vstavljanje besedilnega koraka.
-% Frazi te namere se glasita \enquote{Create a text note} in \enquote{Add a text note} (slika \ref{OpenTextNoteFormIntent}).
 
-Ko uporabnik Alexi izgovori \enquote{Create a text note} ali \enquote{Add a text note}, se zažene namera \texttt{OpenTextNoteFormIntent}, ki ustvari novo SQS sporočilo, vanj vstavi besedilo \enquote{\texttt{addnote}} in ga pošlje v SQS vrsto.
+\subsubsection{Odpiranje obrazca za dodajanje besedilnega koraka}
+
+Uporabnik v mobilni aplikaciji prostoročno odpre obrazec za dodajanje besedilnega koraka tako, da Alexi izgovori poziv naše veščine in nadaljuje s \enquote{create a text note} ali \enquote{add a text note} (slika \ref{OpenTextNoteFormIntent}).
+
+V ozadni kodi veščine se zažene namera \texttt{OpenTextNoteFormIntent}, ki ustvari novo SQS sporočilo, vanj vstavi besedilo \enquote{\texttt{addnote}} in ga pošlje v SQS vrsto.
 To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre obrazec za dodajanje novega besedilnega koraka.
 Veščina zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneha izvajati.
 
@@ -1522,13 +1549,17 @@ Veščina zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneh
 \begin{center}
 \includegraphics[width=8cm]{intent_text}
 \end{center}
-\caption{Fraza OpenTextNoteFormIntent v Alexa Developer nadzorni plošči.}
+\caption{Frazi OpenTextNoteFormIntent v Alexa Developer nadzorni plošči.}
 \label{OpenTextNoteFormIntent}
 \end{figure}
 
 % DELJENJE
-Ko uporabnik Alexi izgovori \enquote{Take a picture}, se zažene namera \texttt{Open-\\ImageNoteFormIntent} (slika \ref{OpenImageNoteFormIntent}), ki se uporablja za prostoročno dodajanje fotografije v delavniški dnevnik.
 
+\subsubsection{Odpiranje kamere in dodajanje slikovnega koraka}
+
+Uporabnik prostoročno odpre kamero v mobilni aplikaciji tako, da Alexi izgovori poziv naše veščine in nadaljuje s \enquote{take a picture} (slika \ref{OpenImageNoteFormIntent}).
+
+V ozadni kodi veščine, se zažene namera \texttt{OpenImageNoteFormIntent} (slika \ref{OpenImageNoteFormIntent}).
 \texttt{OpenImageNoteFormIntent} ustvari novo SQS sporočilo, vanj vstavi besedilo \enquote{\texttt{addimage}} in ga pošlje v SQS vrsto.
 To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre kamero.
 Veščina zatem vrne uporabniku odgovor \enquote{Launching camera!} in se preneha izvajati.

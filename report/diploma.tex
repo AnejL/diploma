@@ -70,8 +70,8 @@ maxbibnames=9,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	DIPLOMA INFO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\ttitle}{Avtomatizacija delavniškega dnevnika}
-\newcommand{\ttitleEn}{Workshop report automatization}
+\newcommand{\ttitle}{Uporaba glasovnega pomočnika pri tvorjenju delavniškega dnevnika}
+\newcommand{\ttitleEn}{Using a voice assistant to compose workshop reports}
 \newcommand{\tsubject}{\ttitle}
 \newcommand{\tsubjectEn}{\ttitleEn}
 \newcommand{\tauthor}{Anej Lekše}
@@ -261,9 +261,7 @@ Fakulteta za računalništvo in informatiko izdaja naslednjo nalogo:
 Tematika naloge:
 \end{tabbing}
 %Besedilo teme diplomskega dela študent prepiše iz študijskega informacijskega sistema, kamor ga je vnesel mentor. V nekaj stavkih bo opisal, kaj pričakuje od kandidatovega diplomskega dela. Kaj so cilji, kakšne metode uporabiti, morda bo zapisal tudi ključno literaturo.
-Preveri, ali so glasovni pomočniki v trenutnem stanju primerni za pomoč pri pisanju delavniških dnevnikov.
-Seznani se z obstoječimi rešitvami za sestavljanje delavniških dnevnikov in jih analiziraj.
-Po analizi področja se loti izdelave svojega sistema za sestavljanje delavniških dnevnikov, ki vključuje glasovnega pomočnika.
+Opis zaporednih korakov postopka je pogost način popisovanja procesov. Poseben primer predstavlja delavniški dnevnik. V nalogi preučite in implementirajte tvorjenje in oblikovanje delavniškega dnevnika. Vaša rešitev naj uporablja zaledni strežnik ter aplikacijo na pametnem telefonu oziroma mobilni napravi. Pri oblikovanju uporabniškega vmesnika preverite smiselnost in ustreznost uporabe glasovnega pomočnika.
 \vspace{15mm}
 
 
@@ -388,7 +386,7 @@ Kljub temu je čas, potreben za razpoznavo glasovnega ukaza prepočasen, da bi b
 \bigskip
 
 \noindent The thesis deals with the process of incorporating a commercially available voice assistant into a software solution as an additional user interface.
-We investigate how to implement a voice assistant in a software solution and how it effects its workflow.
+We investigate how to implement a voice assistant in a software solution and how it effects user's workflow.
 The goal of thesis is implementing and testing a system with a voice assistant that could be used to write workshop report steps during work.
 These steps can later be edited with a mobile application.
 We used Amazon Alexa, as it offers simple programming with Alexa Skills Kit.
@@ -535,9 +533,14 @@ Za Amazon Alexo smo se odločili, saj ponuja ogrodje za programiranje dodatnih f
 Alexo je enostavno integrirati z drugimi Amazonovimi spletnimi storitvami, ki smo jih uporabili v tej diplomski nalogi (AWS SQS, AWS Lambda).
 
 Alexine osnovne funkcionalnosti lahko nadgradimo s programi, ki se jim reče \enquote{Skill-i}, v nadaljevanju \enquote{veščine} (na sliki \ref{alexa_architecture}) \cite{alexaskills}.
-Za razvoj in objavo Alexa veščine rabimo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
+Za razvoj in objavo Alexa veščine potrebujemo račun Amazon razvijalca (\textit{ang. Amazon Developer Account}).
 
-\clearpage
+\noindent Veščino sestavljajo:
+\begin{itemize}
+	\item \textbf{Poziv} - fraza, ki veščino zažene,
+	\item \textbf{Namere} - fraze, ki jih veščina razpozna kot funkcije,
+	\item \textbf{Rokovalnik} - omrežni vir, kjer se nahaja ozadna koda veščine.
+\end{itemize}
 
 \begin{figure}[H]
 \begin{center}
@@ -547,21 +550,15 @@ Za razvoj in objavo Alexa veščine rabimo račun Amazon razvijalca (\textit{ang
 \label{alexa_architecture}
 \end{figure}
 
-\noindent Veščino sestavljajo:
-\begin{itemize}
-	\item \textbf{Poziv} - fraza, ki veščino zažene,
-	\item \textbf{Namere} - fraze, ki jih veščina razpozna kot funkcije,
-	\item \textbf{Krajišče} - omrežni vir, kjer se nahaja ozadna koda veščine.
-\end{itemize}
 
 
 
 Alexa zajame glasovni ukaz in glasovni posnetek pošlje na Amazonov Alexa Voice Service.
-Ta storitev s pomočjo glasovnega razpoznavnega modela prepozna uporabnikove ukaze in pošlje poseben zahtevek na krajišče.
-Krajišče je lahko druga Amazonova storitev (npr. AWS Lambda), storitev na Microsoftovem Azure strežniku, ali naš lasten strežnik, dostopen preko javne domene in zaščiten z overjenim SSL certifikatom.
+Ta storitev s pomočjo glasovnega razpoznavnega modela prepozna uporabnikove ukaze in pošlje poseben zahtevek na rokovalnik.
+Rokovalnik je lahko druga Amazonova storitev (npr. AWS Lambda), storitev na Microsoftovem Azure strežniku, ali naš lasten strežnik, dostopen preko javne domene in zaščiten z overjenim SSL certifikatom.
 
-Ko krajišče obdela zahtevo, odgovor pošlje nazaj na Alexa Voice Service.
-Ta se iz Alexa Voice Serivice pošlje nazaj na Alexo, ki uporabniku \enquote{izgovori} prejeto sporočilo.
+Ko rokovalnik obdela zahtevo, odgovor pošlje nazaj na Alexa Voice Service.
+Ta se iz Alexa Voice Service pošlje nazaj na Alexo, ki uporabniku \enquote{izgovori} prejeto sporočilo.
 
 
 
@@ -579,7 +576,7 @@ AWS Simple Queue Service (v nadaljevanju SQS) je sistem za pošiljanje besedilni
 To storitev smo uporabili za komunikacijo med Amazon Alexo in strežnikom implementiranega sistema.
 
 Za hranjenje sporočil je potrebno registrirati SQS vrsto. 
-Uporabili smo SQS vrsto tipa FIFO (first in, first out) \cite{sqsfifo}, pri kateri je zagotovljeno, da na strežnik prejmemo vsa sporočila v istem vrstem redu, kot so bila na SQS vrsto poslana.
+Uporabili smo SQS vrsto tipa FIFO (\textit{first in, first out}) \cite{sqsfifo}, pri kateri je zagotovljeno, da na strežnik prejmemo vsa sporočila v istem vrstem redu, kot so bila na SQS vrsto poslana.
 
 
 
@@ -609,12 +606,12 @@ Najstarejša metoda za izdelavo delavniškega dnevnika je zapis na list papirja 
 \end{figure}
 
 
-\noindent Prednosti uporabe papirja in pisala pred našim sistemom so:
+\noindent Prednosti uporabe papirja in pisala pred implementiranim sistemom so:
 \begin{itemize}
 	\item pri delu izdelovalec ne potrebuje računalnika in
 	\item cenovna ugodnost.
 \end{itemize}
-V primerjavi z našim sistemom so slabosti te metode:
+V primerjavi z implementiranim sistemom so slabosti te metode:
 \begin{itemize}
 	\item prostorske omejitve,
 	\item problematično dopisovanje in urejanje obstoječih korakov,
@@ -630,7 +627,7 @@ V primerjavi z našim sistemom so slabosti te metode:
 Opis tehnološkega postopka lahko izdelamo v pisarniških programih, kot so na primer Microsoft Word in LibreOffice Writer.
 
 Ta pristop reši nekatere slabosti uporabe papirja in pisala za sestavljanje opisa tehnološkega postopka.
-Prednosti tega pristopa so:
+Prednosti tega pristopa pred sistemom na papirju so:
 \begin{itemize}
 	\item enostavno dodajanje in urejanje korakov,
 	\item možnost dodajanja slikovnega gradiva,
@@ -659,7 +656,7 @@ Dokument brez vsebine se lahko pri naslednjih opisih uporabi kot obrazec za sest
 
 \subsection{Specializirani moduli za poslovne informacijske sisteme}
 
-Podjetja, kot so Hisense Gorenje Europe, za sestavljanje delavniških dnevnikov uporabljajo specializirane module za lastne informacijske sisteme.
+Podjetja, kot so Hisense Gorenje Europe, za sestavljanje delavniških dnevnikov uporabljajo specializirane module, ki so integrirani v informacijske sisteme.
 Kot primer je prikazan korak opisa tehnološkega postopka v informacijskem sistemu SAP (na sliki \ref{sap_1}).
 
 \begin{figure}[H]
@@ -680,15 +677,15 @@ Opis tehnološkega postopka v sistemu SAP sestavljajo:
 	\item dodatne opombe.
 \end{itemize}
 
-\noindent Prednosti sistema SAP pred našim sistemom so:
+\noindent Prednosti sistema SAP pred samostoječim sistemom so:
 \begin{itemize}
 	\item sistem SAP je tesno povezan s proizvodno linijo in prilagodljiv za potrebe proizvodnega obrata, ki ga uporablja,
 	\item podatki se hranijo na osrednjem strežniku, varnostna kopija pa se inkrementalno dela na geografsko ločen rezervni strežnik.
 \end{itemize}
 
-Takšni sistemi, v primerjavi z našim, predstavljajo naslednje slabosti:
+Takšni sistemi, v primerjavi s samostoječim, predstavljajo naslednje slabosti:
 \begin{itemize}
-	\item zahtevajo dovršeno proizvodno infrastrukturo, ki jo sistem rabi za optimalen izkoristek in
+	\item zahtevajo dovršeno proizvodno infrastrukturo, ki jo sistem potrebuje za optimalen izkoristek in
 	\item visoka cena, ki je potrebna za implementacijo takega sistema v proizvodno linijo.
 \end{itemize}
 
@@ -699,7 +696,7 @@ Takšni sistemi, v primerjavi z našim, predstavljajo naslednje slabosti:
 
 
 
-\section{Definicija funkcionalnosti} \label{architecture}
+\section{Opis arhitekture} \label{architecture}
 
 Sistem, ki smo ga v sklopu diplomske naloge implementirali (na sliki \ref{plan_simple}), uporabniku omogoča vodenje delavniških dnevnikov (v nadaljevanju imenovanih tudi \textit{projektov}).
 Služil bo kot alternativa pisanju delavniških dnevnikov s pisarniškimi programi.
@@ -808,7 +805,7 @@ Omogoča glasovno upravljanje aplikacije in narekovanje korakov.
 \bigbreak
 Preko mobilne aplikacije uporabnik lahko:
 \begin{itemize}
-	\item opravi regsitracijo in prijavo,
+	\item opravi registracijo in prijavo,
 	\item ustvari nov delavniški dnevnik,
 	\item odpre obstoječe delavniške dnevnike,
 	\item ustvarja in ureja korake delavniškega dnevnika,
@@ -829,7 +826,7 @@ Za glasovnega pomočnika Amazon Alexa smo razvili veščino, s katero uporabnik 
 
 \section{Strežnik}
 
-Osrednja komponenta sistema OpenReport je strežnik.
+Osrednja komponenta sistema je OpenReport strežnik.
 Zadolžen je za delo s podatki uporabnikov in delavniškimi dnevniki.
 Odjemalci, ki so nanj povezani, služijo zgolj kot \enquote{uporabniški vmesnik} za zajem in prikaz podatkov na strežniku.
 
@@ -848,7 +845,7 @@ Podatke hranimo na strežniku, da lahko do podatkov dostopamo iz različnih napr
 To nam omogoča enostavno dodajanje odjemalcev in odpravi podvajanje podatkov med napravami.
 
 S strežnikom komunicirata mobilna aplikacija in glasovni pomočnik.
-Podatke hranimo v podatkovni bazi, ki jo hrani SQL Server.
+Podatke hranimo v podatkovni bazi, ki jo hrani SQL strežnik.
 
 
 
@@ -861,7 +858,6 @@ Odjemalec na definirane funkcijske URL-je (slika \ref{api_routes}) strežnika po
 Če so zahtevki pravilno oblikovani, strežnik izvede predvideno funkcijo in rezultat te funkcije pošlje kot HTTP odgovor nazaj odjemalcu.
 Komunikacija med strežnikom in odjemalcem je prikazana z roza barvo na sliki \ref{plan_server_client}.
 
-\clearpage
 
 \begin{figure}[H]
 \begin{center}
@@ -1076,11 +1072,10 @@ Na tej strani se prikažejo:
 
 % Sistem omogoča dodajanje, odpiranje in brisanje delavniških dnevnikov prijavljenemu uporabniku.
 
-\clearpage
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=5.5cm]{app_alexa_yes_small}
+\includegraphics[width=5cm]{app_alexa_yes_small}
 \end{center}
 	\caption{Stran Dashboard v mobilni aplikaciji.}
 \label{app_dashboard_first}
@@ -1096,7 +1091,7 @@ Na tej strani se prikažejo:
 % Če operacije nad delavniški API javi napako \texttt{Bad Request: Not Authorised}.
 
 Uporabnik nov delavniški dnevnik ustvari tako, da pritisne na gumb z ikono + na strani Dashboard.
-Odpre se obrazec za ustvarjanje projektov (na sliki \ref{app_create_new}), kamor vnese naslov, kratek opis projekta in opis možnih nevarnosti.
+Odpre se obrazec za ustvarjanje projektov (slika \ref{app_create_new}), kamor vnese naslov, kratek opis projekta in opis možnih nevarnosti.
 % DELJENJE
 Te podatke ozadna koda aplikacije zapiše v objekt razreda \texttt{CreatePro-\\jectRequest}.
 
@@ -1157,7 +1152,6 @@ Aplikacija pošlje DELETE zahtevo na URL \enquote{\texttt{/projects/\{id\}}}.
 \subsection{Operacije s koraki delavniškega dnevnika}
 
 Korak delavniškega dnevnika opisuje eno od nalog v tehnološkem postopku.
-
 Delavniški dnevnik lahko vsebuje tudi slikovno gradivo.
 Korake smo ločili na slikovne in besedilne.
 Besedilni korak vsebuje naslov, besedilo in trajanje naloge, ki jo opisuje; slikovni pa vsebuje tudi fotografijo.
@@ -1197,7 +1191,7 @@ Note {
 Ustvarjen objekt razreda \texttt{Note} aplikacija pošlje na URL \enquote{\texttt{/projects/\{id\}-\\/addnote}} preko metode POST.
 Polje \texttt{\{id\}} mora biti enolični identifikator projekta, ki mu želimo dodati korak.
 
-Strežnik prejet korak vstavi v projekt.
+Strežnik prejet korak vstavi na konec zbirke korakov projekta.
 Aplikaciji v odgovor vrne kopijo ustvarjenega koraka na strežniku in ga doda svoji zbirki korakov trenutno odprtega projekta.
 
 
@@ -1226,10 +1220,10 @@ Uporabnik slikovni korak vstavi v projekt s pritiskom na gumb z ikono kamere (na
 
 Odpre se privzeta aplikacija za kamero, s katero uporabnik zajame fotografijo.
 Po zajemu se odpre obrazec za dodajanje koraka (na sliki \ref{app_project_note} desno).
-Fotografija se zašifrira v znakovni niz po metodi Base64.
+Fotografija se zašifrira v znakovni niz po metodi Base64 saj je implementacija prenosa znakovnega niza enostavnejša, kot implementacija prenosa datoteke v slikovnem formatu.
 Vsebina vnosnih polj obrazca za naslov, besedilo in trajanje koraka se zapiše v objekt razreda \texttt{Note}.
 
-Korak in šifrirana fotografija se zapišeta v zahtevek \texttt{UploadImageRequest}.
+Korak in po metodi Base64 šifrirana fotografija se zapišeta v zahtevek \texttt{UploadImageRequest}.
 
 \begin{verbatim}
 UploadImageRequest { 
@@ -1369,7 +1363,7 @@ Implementacijo spreminjanja vrstnega reda korakov na strežniku prikazuje slika 
 \subsection{Izvoz projektov}
 
 Sistem omogoča izvoz delavniških dnevnikov v druge računalniške formate.
-Izvoženi delavniški dnevniki lahko služijo kot varnostna kopija.
+% Izvoženi delavniški dnevniki lahko služijo kot varnostna kopija.
 Izvozimo jih lahko v besedilno datoteko ali v HTML dokument (slika \ref{app_project_export}).
 
 \begin{figure}[H]
@@ -1442,7 +1436,7 @@ Lahko jo zakodiramo v znakovni niz in pošljemo na strežnik.
 
 
 
-\section{Uvedba glasovnega pomočnika}
+\section{Uporaba glasovnega pomočnika}
 
 Po implementaciji strežnika in mobilne aplikacije smo se lotili uvajanja glasovnega pomočnika v sistem OpenReport.
 
@@ -1494,7 +1488,7 @@ Na podlagi tega ukaza glasovni pomočnik na SQS vrsto odloži tri različna bese
 Poziv, ki ga mora uporabnik izreči za zagon implementirane veščine se glasi \enquote{\textit{make a report note}}.
 
 Vsak nadaljnji ukaz, ki ga uporabnik izreče, preden se veščina preneha izvajati, se primerja s frazami namer.
-Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v krajišču (slika \ref{plan_alexa_sqs}).
+Namere se uporabljajo za zagon funkcij, ki smo jih implementirali v rokovalniku (slika \ref{plan_alexa_sqs}).
 V naši veščini smo definirali tri glavne namere:
 
 \begin{itemize}
@@ -1515,11 +1509,11 @@ V naši veščini smo definirali tri glavne namere:
 
 \subsubsection{Narekovanje koraka}
 
-Uporabnik korak delavniškega dnevnika narekuje tako, da Alexi izgovori poziv \enquote{make a report note} in nadaljuje s \enquote{take note \texttt{\{besedilo\}}}.
+Uporabnik korak delavniškega dnevnika narekuje tako, da Alexi izgovori poziv \enquote{\textit{make a report note}} in nadaljuje s \enquote{\textit{take note} \texttt{\{besedilo\}}}.
 Polje \texttt{\{besedilo\}} je spremenljivka, v katero veščina hrani razpoznano besedilno vsebino koraka.
 V ozadni kodi veščine se zažene namera \texttt{TakeNoteIntent} (slika \ref{TakeNoteIntent}).
 
-Prikaz uporabe: uporabnik po pozivu izreče \enquote{\textit{note unscrew the backplate}}, torej vrednost spremenljivke \texttt{\{besedilo\}} postane \enquote{unscrew the backplate}.
+Prikaz uporabe: uporabnik po pozivu izreče \enquote{\textit{note unscrew the backplate}}, torej vrednost spremenljivke \texttt{\{besedilo\}} postane \enquote{\textit{unscrew the backplate}}.
 
 
 
@@ -1531,19 +1525,19 @@ Prikaz uporabe: uporabnik po pozivu izreče \enquote{\textit{note unscrew the ba
 \label{TakeNoteIntent}
 \end{figure}
 
-Namera \texttt{TakeNoteIntent} ustvari novo SQS sporočilo, vanj vstavi vrednost spremenljivke \texttt{\{besedilo\}} in ga pošlje na SQS vrsto (implementacija na sliki \ref{skill_code}).
+Namera \texttt{TakeNoteIntent} ustvari novo SQS sporočilo, vanj vstavi vrednost spremenljivke \texttt{\{besedilo\}} in ga pošlje na SQS vrsto. % (implementacija na sliki \ref{skill_code}).
 To SQS sporočilo prebere strežnik in ga kot korak vstavi v odprt projekt.
-Veščina vrne uporabniku odgovor \enquote{Noted!} in se preneha izvajati.
+Veščina vrne uporabniku odgovor \enquote{\textit{Noted!}} in se preneha izvajati.
 
 
 
 \subsubsection{Odpiranje obrazca za dodajanje besedilnega koraka}
 
-Uporabnik v mobilni aplikaciji prostoročno odpre obrazec za dodajanje besedilnega koraka tako, da Alexi izgovori poziv naše veščine in nadaljuje s \enquote{create a text note} ali \enquote{add a text note} (slika \ref{OpenTextNoteFormIntent}).
+Uporabnik v mobilni aplikaciji prostoročno odpre obrazec za dodajanje besedilnega koraka tako, da Alexi izgovori poziv naše veščine in nadaljuje s \enquote{\textit{create a text note}} ali \enquote{\textit{add a text note}} (slika \ref{OpenTextNoteFormIntent}).
 
 V ozadni kodi veščine se zažene namera \texttt{OpenTextNoteFormIntent}, ki ustvari novo SQS sporočilo, vanj vstavi besedilo \enquote{\texttt{addnote}} in ga pošlje v SQS vrsto.
 To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre obrazec za dodajanje novega besedilnega koraka.
-Veščina zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneha izvajati.
+Veščina zatem vrne uporabniku odgovor \enquote{\textit{Opening the form!}} in se preneha izvajati.
 
 \begin{figure}[H]
 \begin{center}
@@ -1557,12 +1551,12 @@ Veščina zatem vrne uporabniku odgovor \enquote{Opening the form!} in se preneh
 
 \subsubsection{Odpiranje kamere in dodajanje slikovnega koraka}
 
-Uporabnik kamero prostoročno odpre tako, da Alexi izgovori poziv naše veščine in nadaljuje s \enquote{take a picture} (slika \ref{OpenImageNoteFormIntent}).
+Uporabnik kamero prostoročno odpre tako, da Alexi izgovori poziv naše veščine in nadaljuje s \enquote{\textit{take a picture}} (slika \ref{OpenImageNoteFormIntent}).
 
 V ozadni kodi veščine, se zažene namera \texttt{OpenImageNoteFormIntent} (slika \ref{OpenImageNoteFormIntent}).
 \texttt{OpenImageNoteFormIntent} ustvari novo SQS sporočilo, vanj vstavi besedilo \enquote{\texttt{addimage}} in ga pošlje v SQS vrsto.
 To SQS sporočilo prebere strežnik in mobilni aplikaciji sporoči, naj odpre kamero.
-Veščina zatem vrne uporabniku odgovor \enquote{Launching camera!} in se preneha izvajati.
+Veščina zatem vrne uporabniku odgovor \enquote{\textit{Launching camera!}} in se preneha izvajati.
 
 \begin{figure}[H]
 \begin{center}
@@ -1572,13 +1566,13 @@ Veščina zatem vrne uporabniku odgovor \enquote{Launching camera!} in se preneh
 \label{OpenImageNoteFormIntent}
 \end{figure}
 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=13.5cm]{skill_code}
-\end{center}
-\caption{Odsek ozadne kode Alexine veščine s prikazom ustvarjanja SQS sporočila.}
-\label{skill_code}
-\end{figure}
+% \begin{figure}[H]
+% \begin{center}
+% \includegraphics[width=13.5cm]{skill_code}
+% \end{center}
+% \caption{Odsek ozadne kode Alexine veščine s prikazom ustvarjanja SQS sporočila.}
+% \label{skill_code}
+% \end{figure}
 
 \subsubsection{Prenašanje sporočil med strežnikom in SQS}
 
@@ -1665,32 +1659,11 @@ V ta projekt se vstavi korak, ki ima naslov \enquote{Voice note}, vsebina pa je 
 Prenos sporočil med Amazon Alexo in strežnikom smo realizirali z uporabo storitve AWS SQS.
 Pri uporabi SQS je prenos podatkov resda manj učinkovit kot pri direktni povezavi preko spletne vtičnice (\textit{ang. Web Socket}).
 
-Glavni faktor, zaradi katerega smo se odločili za uporabo AWS SQS, je, da z dodatno plastjo za hranjenje sporočil dosežemo enostavno zamenjljivost glasovnega pomočnika.
+Glavni razlog, zaradi katerega smo se odločili za uporabo AWS SQS, je, da z dodatno plastjo za hranjenje sporočil glasovnega pomočnika lažje zamenjamo z drugim.
 
 Pri morebitni menjavi glasovnega pomočnika strežniškega programa ne bi spreminjali.
 Potrebno bi bilo le implementirati program za novega glasovnega pomočnika, da na AWS SQS odlaga sporočila v strežniku razumljivem formatu (\enquote{addnote}, \enquote{addimage}).
 
-
-\subsection{Ovire pri izdelavi Alexa veščine}
-
-Pri implementaciji veščine smo naleteli na veliko težav.
-
-Prva je bila jezikovne narave, saj Alexa ne podpira prepoznavanja slovenskega jezika, zato smo se odločili za uporabo angleškega jezika.
-
-Naslednja težava je bila definicija pozivne fraze.
-Fraze, kot so \enquote{take a note} ali \enquote{take a picture}, so že rezervirane v sklopu Alexinih privzetih funkcionalnosti, kar pomeni, da jih za našo veščino ne moremo uporabiti.
-
-Izogibati smo se morali tudi frazam, ki so bile rezerviranim frazam podobne (npr. \enquote{open report note} itd.).
-Tudi take fraze so se velikokrat razpoznale kot rezervirane fraze.
-
-Težavo je predstavljala izbira poziva, ki je bil hkrati kratek, intuitiven in se ni napačno interpretiral v poziv privzetih funkcionalnosti.
-Poziv \enquote{make a report note} je bil najboljši kompromis, ki smo ga našli.
-
-Težavo je predstavljalo tudi razpoznavanje dolgih stavkov, še posebej če se le-ti niso ujemali z definiranimi frazami namer.
-To je zelo omejilo možnost narekovanja besedila korakov s pomočjo Amazon Alexe.
-
-Naslednjo težavo je predstavljal čas, ki ga je Alexa porabila za interpretacijo definiranih glasovnih ukazov.
-Za procesiranje enega glasovnega ukaza je porabila od 3 do 6 sekund.
 
 
 
@@ -1771,7 +1744,9 @@ Na strežniku se nato vrednost polja \texttt{UsesVoiceAssistant} za pošiljatelj
 
 
 
-\chapter{Ovrednotenje funkcionalnosti}
+\chapter{Ovrednotenje}
+
+\section{Mobilna aplikacija in strežnik}
 
 Sistem OpenReport smo po končani implementaciji testirali. 
 Mobilna aplikacija in strežnik sta izpolnila pričakovanja.
@@ -1793,7 +1768,27 @@ Tudi brisanje korakov delavniškega dnevnika ni povzročalo težav.
 Možnost izvoza delavniškega dnevnika v druge formate je delovala brez nevšečnosti.
 Ta funkcija lahko olajša prenos podatkov v druge računalniške programe.
 
-\bigbreak
+\section{Glasovni pomočnik}
+
+Že pri načrtovanju in implementaciji veščine smo naleteli na vrsto ovir.
+
+Prva je bila jezikovne narave, saj Alexa ne podpira prepoznavanja slovenskega jezika, zato smo se odločili za uporabo angleškega jezika.
+
+Naslednja težava je bila definicija pozivne fraze.
+Fraze, kot so \enquote{\textit{take a note}} ali \enquote{\textit{take a picture}}, so že rezervirane v sklopu Alexinih privzetih funkcionalnosti, kar pomeni, da jih za našo veščino ne moremo uporabiti.
+
+Izogibati smo se morali tudi frazam, ki so bile rezerviranim frazam podobne (npr. \enquote{\textit{open report note}} itd.).
+Tudi take fraze so se velikokrat razpoznale kot rezervirane fraze.
+
+Težavo je predstavljala izbira poziva, ki je bil hkrati kratek, intuitiven in se ni napačno interpretiral v poziv privzetih funkcionalnosti.
+Poziv \enquote{\textit{make a report note}} je bil najboljši kompromis, ki smo ga našli.
+
+Težavo je predstavljalo tudi razpoznavanje dolgih stavkov, še posebej če se le-ti niso ujemali z definiranimi frazami namer.
+To je zelo omejilo možnost narekovanja besedila korakov s pomočjo Amazon Alexe.
+
+Naslednjo težavo je predstavljal čas, ki ga je Alexa porabila za interpretacijo definiranih glasovnih ukazov.
+Za procesiranje enega glasovnega ukaza je porabila od 3 do 6 sekund.
+
 
 Alexino veščino smo testirali tako, da smo vsako frazo namere izgovorili 20-krat in beležili, kolikokrat se je razpoznala pravilno.
 Pri dobesednem narekovanju koraka smo testiranje opravili dvakrat.
@@ -1837,8 +1832,8 @@ Sestavljajo ga strežnik, mobilna aplikacija in glasovni pomočnik Amazon Alexa.
 Uporabnik lahko v delavniške dnevnike dodaja preproste besedilne korake.
 Z uporabo mobilne aplikacije lahko zajame fotografije in jih v delavniški dnevnik vstavi kot slikovno gradivo.
 
-Ta sistem je služil kot primer sistema, ki ga želimo izboljšati z uporabo glasovnega pomočnika.
-Naš namen je bil poenostaviti delo s sistemom z uvedbo glasovnega pomočnika Amazon Alexe.
+Sistem je služil kot primer sistema, ki ga želimo izboljšati z uporabo glasovnega pomočnika.
+Naš namen je bil poenostaviti delo z uvedbo glasovnega pomočnika Amazon Alexa.
 Implementirali smo odpiranje kamere in obrazca za dodajanje korakov z glasovnim pomočnikom.
 Kljub uspešni implementaciji je bil čas, potreben za izgovorjavo in obdelavo glasovnih ukazov, predolg, da bi poskus izboljšave bil popolnoma uspešen.
 Za neuspešno se je izkazalo glasovno narekovanje vsebine koraka delavniškega dnevnika.

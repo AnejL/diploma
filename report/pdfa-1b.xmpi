@@ -9,10 +9,10 @@ xmlns:pdfaid="http://www.aiim.org/pdfa/ns/id/">
 </rdf:Description> 
 <rdf:Description rdf:about="" 
 xmlns:xap="http://ns.adobe.com/xap/1.0/"> 
-<xap:CreateDate>2020-09-09T23:37:37+02:00</xap:CreateDate> 
+<xap:CreateDate>2020-09-10T00:28:46+02:00</xap:CreateDate> 
 <xap:CreatorTool>TeX</xap:CreatorTool> 
-<xap:ModifyDate>2020-09-09T23:37:37+02:00</xap:ModifyDate> 
-<xap:MetadataDate>2020-09-09T23:37:37+02:00</xap:MetadataDate> 
+<xap:ModifyDate>2020-09-10T00:28:46+02:00</xap:ModifyDate> 
+<xap:MetadataDate>2020-09-10T00:28:46+02:00</xap:MetadataDate> 
 </rdf:Description> 
 <rdf:Description rdf:about="" 
 xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/"> 
@@ -34,7 +34,7 @@ xmlns:dc="http://purl.org/dc/elements/1.1/">
 </dc:title> 
 <dc:description> 
 <rdf:Alt> 
-<rdf:li xml:lang="x-default">Using a voice assistant to compose workshop reports</rdf:li> 
+<rdf:li xml:lang="x-default">Creating workshop reports using voice assistant</rdf:li> 
 </rdf:Alt> 
 </dc:description> 
 <dc:creator> 
@@ -44,7 +44,7 @@ xmlns:dc="http://purl.org/dc/elements/1.1/">
 </dc:creator> 
 <dc:subject> 
 <rdf:Bag> 
-<rdf:li>Using a voice assistant to compose workshop reports</rdf:li> 
+<rdf:li>Creating workshop reports using voice assistant</rdf:li> 
 </rdf:Bag> 
 </dc:subject> 
 </rdf:Description> 
